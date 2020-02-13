@@ -1,6 +1,7 @@
 const passport = require('passport');
 
 module.exports = app => {
+    // Google Auth 
     app.get('/auth/google',
         passport.authenticate('google', {
             scope: [ 'profile', 'email' ]
@@ -9,6 +10,22 @@ module.exports = app => {
 
     app.get('/auth/google/callback',
         passport.authenticate('google'),
+        (req, res) => {
+            res.redirect('/');
+        }
+    );
+
+    //Naver Auth 
+    app.get('/auth/naver',
+        passport.authenticate('naver', {
+            failureRedirect: '/'
+        })
+    );
+
+    app.get('/auth/naver/callback',
+        passport.authenticate('naver', {
+            failureRedirect: '/'
+        }),
         (req, res) => {
             res.redirect('/');
         }
@@ -23,6 +40,5 @@ module.exports = app => {
         res.send(req.user);
     });
 };
-
 
 
