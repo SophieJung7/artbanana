@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/bootstrap/bootstrap.min.css';
 
 class App extends Component {
     render() {
