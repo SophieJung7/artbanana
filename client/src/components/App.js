@@ -5,6 +5,7 @@ class App extends Component {
         return (
             <div>
                 CatSnap
+                <a href="/auth/google">Sign In with Google</a>
             </div>
         );
     }
