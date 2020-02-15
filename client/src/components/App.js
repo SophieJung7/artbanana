@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import '../css/bootstrap/bootstrap.min.css';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Landing from './Landing';
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                CatSnap
-                <a href="/auth/google">Sign In with Google</a>
-            </div>
-        );
-    }
-}
+const App = () => {
+    return (
+        <div>
+            <BrowserRouter>
+                <div>
+                    <Route exact path="/" component={ Landing } />
+                </div>
+            </BrowserRouter>
+        </div>
+    );
+};
 
 export default App;
