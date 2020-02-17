@@ -1,6 +1,35 @@
 const passport = require('passport');
+const mongoose = require('mongoose');
+const User = mongoose.model('users');
 
 module.exports = app => {
+    //Local Auth - SIGN UP
+    app.post('/auth/signup', (req, res) => {
+        const { username, password } = req.body;
+        User.register(new User({ username: username }), password, (err, user) => {
+            if (err) {
+                console.log(err);
+                return next(err);
+            } else {
+                passport.authenticate('local')(req, res, () => {
+                    res.send(user);
+                });
+            }
+        });
+    });
+
+    //Local Auth - SIGN IN
+    app.post('/auth/signin',
+        passport.authenticate('local'), (req, res) => {
+            res.send(req.user);
+        }
+    );
+
+    app.get('/auth/signout', (req, res) => {
+        req.logout();
+        res.send(null);
+    });
+
     // Google Auth 
     app.get('/auth/google',
         passport.authenticate('google', {

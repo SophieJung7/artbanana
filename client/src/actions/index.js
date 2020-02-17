@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { FETCH_USER, SIGN_IN_WITH_US } from './types';
+import history from '../history';
+import { FETCH_USER } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user');
@@ -9,17 +10,21 @@ export const fetchUser = () => async dispatch => {
     });
 };
 
-// I wrote this code Before setting up the Backend! Need to change this after connecting localAuth. 
-// export const signInWithUs = values => async dispatch => {
-//     const res = await axios.post('/auth/local', values);
-//     dispatch({
-//         type: SIGN_IN_WITH_US,
-//         payload: res.data
-//     })
-// }
-
-export const signInWithUs = () => {
-    return {
-        type: SIGN_IN_WITH_US
-    };
+export const signUp = values => async dispatch => {
+    const res = await axios.post('/auth/signup', values);
+    dispatch({
+        type: FETCH_USER,
+        payload: res.data
+    });
+    history.push('/');
 };
+
+export const signInWithUs = values => async dispatch => {
+    const res = await axios.post('/auth/signin', values);
+    dispatch({
+        type: FETCH_USER,
+        payload: res.data
+    });
+    history.push('/signinsuccess');
+};
+

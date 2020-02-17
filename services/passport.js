@@ -1,9 +1,12 @@
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const NaverStrategy = require('passport-naver').Strategy;
 const mongoose = require('mongoose');
 const User = mongoose.model("users");
 const keys = require('../config/keys');
+
+passport.use(new LocalStrategy(User.authenticate()));
 
 passport.use(
     new GoogleStrategy(
