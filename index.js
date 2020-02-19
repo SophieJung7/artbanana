@@ -4,6 +4,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+const flash = require('connect-flash');
 const keys = require('./config/keys');
 
 //Connecting Mongoose --> Don't change the order. userSchema should be called before passport.js.
@@ -15,6 +16,8 @@ app.use(bodyParser.json());
 
 //Connecting Passport 
 require('./services/passport');
+//Flash connection always should be after Passport configuration. 
+app.use(flash());
 
 //Enabling Cookies 
 app.use(cookieSession({

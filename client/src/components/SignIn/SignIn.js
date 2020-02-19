@@ -7,6 +7,7 @@ const SignIn = () => {
     return (
         <div>
             <SignInForm />
+            <Link to="/mypage" className="btn btn-danger">마이페이지</Link>
             <SignInWithOthers />
             <div>
                 <h2>아직 캣스냅 회원이 아니신가요?</h2>

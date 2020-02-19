@@ -8,8 +8,7 @@ module.exports = app => {
         const { username, password } = req.body;
         User.register(new User({ username: username }), password, (err, user) => {
             if (err) {
-                console.log(err);
-                return next(err);
+                throw err;
             } else {
                 passport.authenticate('local')(req, res, () => {
                     res.send(user);
@@ -18,12 +17,24 @@ module.exports = app => {
         });
     });
 
-    //Local Auth - SIGN IN
     app.post('/auth/signin',
         passport.authenticate('local'), (req, res) => {
-            res.send(req.user);
+            try {
+                res.send(req.user);
+            } catch (err) {
+                throw err;
+            }
         }
     );
+
+    // app.post('/auth/signin',
+    //     passport.authenticate('local', {
+    //         successRedirect: '/success',
+    //         failureRedirect: '/failure'
+    //     }), (req, res) => {
+    //         res.send(req.user);
+    //     }
+    // );
 
     app.get('/auth/signout', (req, res) => {
         req.logout();
