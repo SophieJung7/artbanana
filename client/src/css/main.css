@@ -1,0 +1,69 @@
+body {
+  color: #212121; }
+
+html {
+  font-size: 0.87rem; }
+
+.border-radius-zero {
+  border-radius: 0; }
+
+.btn-yellow {
+  background-color: #FFC107;
+  color: #212121;
+  border-radius: 0;
+  border: none; }
+
+.btn-clear {
+  background: transparent;
+  border: none; }
+
+.btn-naver {
+  background-color: #00C73C; }
+
+.btn-google {
+  background-color: #de5246; }
+
+.small-text {
+  font-size: 0.8rem;
+  color: #757575; }
+
+.make-link-black {
+  color: #212121; }
+
+.form-control-user::placeholder {
+  color: #757575;
+  font-size: 0.8rem;
+  opacity: 1;
+  /* Firefox */ }
+
+.form-control-user:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #757575; }
+
+.form-control-user::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #757575; }
+
+#exampleInputEmail {
+  border-radius: 0 !important;
+  border-color: #BDBDBD; }
+
+#exampleInputPassword {
+  border-radius: 0 !important;
+  border-color: #BDBDBD; }
+
+.catcnap-logo-text {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #212121; }
+
+.bg-login-image {
+  background: url("../assets/photos/login-couple.jpg");
+  background-position: center;
+  background-size: cover; }
+
+.bg-signup-image {
+  background: url("../assets/photos/sign-up-family.jpg");
+  background-position: center;
+  background-size: cover; }
