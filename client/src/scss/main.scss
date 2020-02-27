@@ -6,7 +6,7 @@
 // $color-purple: #E040FB;
 
 body {
-    color: $color-black;
+  color: $color-black;
 }
 
 html {
@@ -15,73 +15,75 @@ html {
 
 // ********* Buttons ********* //
 .border-radius-zero {
-    border-radius: 0;        
+  border-radius: 0;
 }
 
 .btn-yellow {
-    background-color: $color-yellow;
-    color: $color-black;
-    border-radius: 0;
-    border: none;
+  background-color: $color-yellow;
+  color: $color-black;
+  border-radius: 0;
+  border: none;
 }
 
 .btn-clear {
-    background: transparent;
-    border: none;
+  background: transparent;
+  border: none;
 }
 
 .btn-naver {
-    background-color: #00C73C;
+  background-color: #00c73c;
 }
 
 .btn-google {
-    background-color: #de5246;
+  background-color: #de5246;
 }
 
 // ********* Text/ Typography ********* //
 
 .small-text {
-    font-size: 0.8rem;
-    color: $color-dark-grey;
+  font-size: 0.8rem;
+  color: $color-dark-grey;
 }
 
 .make-link-black {
-    color: $color-black;
+  color: $color-black;
 }
 
 // ********* Input Box Placeholder Color Change ********* //
 
 .form-control-user {
-    &::placeholder {
-        color: $color-dark-grey;
-        font-size: 0.8rem;
-        opacity: 1; /* Firefox */
-    }
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: $color-dark-grey;
-    }
-    &::-ms-input-placeholder { /* Microsoft Edge */
-        color: $color-dark-grey;
-    }
+  &::placeholder {
+    color: $color-dark-grey;
+    font-size: 0.8rem;
+    opacity: 1; /* Firefox */
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color-dark-grey;
+  }
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $color-dark-grey;
+  }
 }
 
 // ********* Input Box Border-radius 0 ********* //
 
 #exampleInputEmail {
-    border-radius: 0 !important;
-    border-color: $color-light-grey;
+  border-radius: 0 !important;
+  border-color: $color-light-grey;
 }
 #exampleInputPassword {
-    border-radius: 0 !important;
-    border-color: $color-light-grey;
+  border-radius: 0 !important;
+  border-color: $color-light-grey;
 }
 
 // ********* Etc ********* //
 .catcnap-logo-text {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: $color-black;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: $color-black;
 }
 
 .bg-login-image {
@@ -95,5 +97,3 @@ html {
   background-position: center;
   background-size: cover;
 }
-
-
