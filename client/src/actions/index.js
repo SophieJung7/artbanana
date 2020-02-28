@@ -15,32 +15,6 @@ export const fetchUser = () => async dispatch => {
   });
 };
 
-export const signUp = values => async dispatch => {
-  const res = await axios.post('/auth/signup', values);
-  dispatch({
-    type: FETCH_USER,
-    payload: res.data
-  });
-  history.push('/');
-};
-
-export const signOut = () => async dispatch => {
-  const res = await axios.get('/api/signout');
-  dispatch({
-    type: SIGN_OUT,
-    payload: res.data
-  });
-};
-
-export const changePW = () => async dispatch => {
-  const res = await axios.get('/api/change-password');
-  dispatch({
-    type: CHANGE_PASSWORD,
-    payload: res.data
-  });
-  history.push('/');
-};
-
 // Code for catching error message.
 axios.interceptors.response.use(
   response => {
@@ -58,12 +32,61 @@ export const signInWithUs = values => async dispatch => {
       type: AUTH_ERROR_CODE,
       payload: res.status
     });
-    history.push('/');
+    history.push('/signin');
   } else {
     dispatch({
       type: FETCH_USER,
       payload: res.data
     });
     history.push('/');
+  }
+};
+
+// To destroy authErrorCode
+export const removeAuthError = () => {
+  return {
+    type: AUTH_ERROR_CODE,
+    payload: null
+  };
+};
+
+/// SIGN UP ///
+export const signUp = values => async dispatch => {
+  const res = await axios.post('/auth/signup', values);
+  if (res.status === 401) {
+    dispatch({
+      type: AUTH_ERROR_CODE,
+      payload: res.status
+    });
+    history.push('/signup');
+  } else {
+    dispatch({
+      type: FETCH_USER,
+      payload: res.data
+    });
+    history.push('/');
+  }
+};
+
+export const signOut = () => async dispatch => {
+  const res = await axios.get('/api/signout');
+  dispatch({
+    type: SIGN_OUT,
+    payload: res.data
+  });
+};
+
+export const changePW = newPassword => async dispatch => {
+  const res = await axios.post('/api/change-password', {
+    newPassword: newPassword
+  });
+  dispatch({
+    type: CHANGE_PASSWORD,
+    payload: res.data
+  });
+  if (res) {
+    history.push('/change-password/success');
+  } else {
+    history.push('/error');
   }
 };

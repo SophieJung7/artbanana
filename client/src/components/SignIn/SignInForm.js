@@ -40,7 +40,14 @@ class SignInForm extends Component {
   }
   showError() {
     if (this.props.authErrorCode === 401) {
-      return <div>ID or Password is wrong</div>;
+      return (
+        <small
+          style={{ color: 'red', fontWeight: '500' }}
+          className='form-text mb-3'
+        >
+          이메일주소나 비밀번호가 일치하지 않습니다.
+        </small>
+      );
     }
     return null;
   }
@@ -54,10 +61,7 @@ class SignInForm extends Component {
       >
         {this.renderFields()}
         {this.showError()}
-        <button
-          type='submit'
-          className='btn btn-primary btn-user btn-block btn-yellow'
-        >
+        <button type='submit' className='btn btn-user btn-block btn-yellow'>
           {' '}
           로그인
         </button>

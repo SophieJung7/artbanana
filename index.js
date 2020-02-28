@@ -13,18 +13,21 @@ mongoose.connect(keys.mongoURI);
 
 //Connect bodyParser
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-//Connecting Passport 
+//Connecting Passport
 require('./services/passport');
-//Flash connection always should be after Passport configuration. 
+//Flash connection always should be after Passport configuration.
 app.use(flash());
 
-//Enabling Cookies 
-app.use(cookieSession({
+//Enabling Cookies
+app.use(
+  cookieSession({
     //Cookie lasts for 30 days
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [ keys.cookieKey ]
-}));
+    keys: [keys.cookieKey]
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -33,4 +36,3 @@ require('./routes/authRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
-

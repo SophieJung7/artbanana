@@ -46,12 +46,12 @@ class Header extends Component {
             >
               비밀번호변경
             </Link>
-            <Button
+            <button
               onClick={this.props.signOut}
               className='nav-link mr-4 make-link-black btn-clear'
             >
               로그아웃
-            </Button>
+            </button>
           </Navbar.Collapse>
         );
     }
@@ -72,7 +72,9 @@ class Header extends Component {
                   alt=''
                 ></img>
               </div>
-              <div className='d-inline catcnap-logo-text mt-1'>CatSnap</div>
+              <Link to='/' className='d-inline catcnap-logo-text mt-1'>
+                CatSnap
+              </Link>
             </div>
           </Link>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

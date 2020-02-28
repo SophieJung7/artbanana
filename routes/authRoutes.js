@@ -12,21 +12,39 @@ module.exports = app => {
     res.redirect('/');
   });
 
-  //Local Auth
+  // Local Auth
   app.post('/auth/signup', (req, res) => {
     const { username, password } = req.body;
     User.register(new User({ username: username }), password, (err, user) => {
-      if (err) {
-        throw err;
-      } else {
+      try {
         passport.authenticate('local')(req, res, () => {
           res.send(user);
         });
+      } catch (err) {
+        throw err;
       }
+      //   if (err) {
+      //     throw err;
+      //   } else {
+      //     passport.authenticate('local')(req, res, () => {
+      //       res.send(user);
+      //     });
+      //   }
     });
   });
 
   app.post('/auth/signin', passport.authenticate('local'), (req, res) => {
+    // try {
+    //   User.findByUsername(req.user.username, (err, foundUser) => {
+    //     if (err) {
+    //       res.send(403).json({ message: 'Email is not registered' });
+    //     } else {
+    //       res.send(req.user);
+    //     }
+    //   });
+    // } catch (err) {
+    //   throw err;
+    // }
     try {
       res.send(req.user);
     } catch (err) {
@@ -36,21 +54,17 @@ module.exports = app => {
 
   //Local Auth - Change Password
 
-  app.post('/api/change-password', (req, res) => {
-    const userId = req.user._id;
-    User.findById(userId, (err, user) => {
-      if (err) {
-        console.log(err);
-        res.send('Something wrong');
-      } else {
-        const newPassword = req.body.newPassword;
-        console.log(`New Password: ${newPassword}`);
-        user.setPassword(newPassword, () => {
-          User.save();
-          res.send('Success');
-        });
-      }
-    });
+  app.post('/api/change-password', async (req, res) => {
+    const userName = req.user.username;
+    const newPassword = req.body.newPassword;
+    const sanitizedUser = await User.findByUsername(userName);
+    try {
+      await sanitizedUser.setPassword(newPassword);
+      await sanitizedUser.save();
+      res.status(200).json({ message: 'Successful!' });
+    } catch (err) {
+      res.status(422).send(err);
+    }
   });
 
   // Google Auth

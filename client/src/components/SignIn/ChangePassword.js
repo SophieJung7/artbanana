@@ -1,35 +1,62 @@
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class ChangePassword extends Component {
-  renderInput({ input, meta: { error, touched } }) {
-    return (
-      <div>
-        <input {...input} type='password' className='form-control' />
-        <small className='form-text text-muted'>{touched && error}</small>
-      </div>
-    );
+  state = {
+    prePassword: '',
+    newPassword: ''
+  };
+
+  onFormSubmit(event) {
+    event.preventDefault();
+    if (this.state.prePassword !== this.state.newPassword) {
+      alert('비밀번호가 일치하지 않습니다.');
+    } else {
+      const newPassword = this.state.newPassword;
+      this.props.changePW(newPassword);
+    }
   }
 
-  onChangePW(formValues) {
-    this.props.changePW(formValues);
-    // console.log(formValues);
+  isPasswordSame() {
+    if (this.state.prePassword & this.state.newPassword) {
+      if (this.state.prePassword !== this.state.newPassword) {
+        return (
+          <small style={{ color: 'red' }} className='form-text'>
+            입력하신 비밀번호가 일치하지 않습니다.
+          </small>
+        );
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
   }
 
   render() {
     return (
       <div className='container'>
-        <form onSubmit={this.props.handleSubmit(this.onChangePW)}>
+        <form onSubmit={e => this.onFormSubmit(e)}>
           <div className='form-group'>
             <label>새로운 비밀번호를 입력해주세요.</label>
-            <Field name='prePassword' component={this.renderInput} />
+            <input
+              type='password'
+              className='form-control'
+              name='prePassword'
+              onChange={e => this.setState({ prePassword: e.target.value })}
+            />
             <label>새로운 비밀번호를 다시한번 입력해주세요.</label>
-            <Field name='newPassword' component={this.renderInput} />
+            <input
+              type='password'
+              className='form-control'
+              name='newPassword'
+              onChange={e => this.setState({ newPassword: e.target.value })}
+            />
+            {this.isPasswordSame()}
           </div>
-          <button type='submit' className='btn btn-primary'>
-            Submit
+          <button type='submit' className='btn btn-yellow'>
+            비밀번호 변경하기
           </button>
         </form>
       </div>
@@ -37,18 +64,4 @@ class ChangePassword extends Component {
   }
 }
 
-const validate = values => {
-  const errors = {};
-
-  if (values.prePassword && values.newPassword) {
-    if (values.prePassword !== values.newPassword) {
-      errors.newPassword = '비밀번호가 일치하지 않습니다!';
-    }
-  }
-  return errors;
-};
-
-const wrappedComponent = connect(null, actions)(ChangePassword);
-export default reduxForm({ validate: validate, form: 'changePasswordForm' })(
-  wrappedComponent
-);
+export default connect(null, actions)(ChangePassword);
