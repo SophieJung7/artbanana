@@ -1,16 +1,20 @@
 import React from 'react';
+import { withTranslate } from 'react-redux-multilingual';
 import Alert from '../../Alert';
 
-const ChangePasswordSuccess = () => {
+const ChangePasswordSuccess = props => {
+  const { translate } = props;
+  const Password_changed = translate('Password_changed');
+  const Go_back_homepage = translate('Go_back_homepage');
   return (
     <div>
       <Alert
-        message='비밀번호가 변경되었습니다.'
-        linkName='홈페이지로 돌아가기'
+        message={Password_changed}
+        linkName={Go_back_homepage}
         linkAddress='/'
       />
     </div>
   );
 };
 
-export default ChangePasswordSuccess;
+export default withTranslate(ChangePasswordSuccess);

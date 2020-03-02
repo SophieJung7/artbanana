@@ -4,6 +4,7 @@ const SignInFormField = ({
   input,
   id,
   noValueError,
+  type,
   meta: { error, touched }
 }) => {
   return (
@@ -13,6 +14,7 @@ const SignInFormField = ({
         className='form-control form-control-user'
         id={id}
         placeholder={noValueError}
+        type={type}
       />
       <small style={{ color: 'red' }} className='form-text'>
         {touched && error}

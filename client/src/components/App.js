@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { IntlActions } from 'react-redux-multilingual';
+import store from '../store';
 import * as actions from '../actions';
 import history from '../history';
 import Header from './Header';

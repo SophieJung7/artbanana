@@ -36,6 +36,13 @@ input :active {
 .btn-clear {
   background: transparent;
   border: none; }
+  .btn-clear:focus,
+  .btn-clear :hover,
+  .btn-clear :active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    text-decoration: none; }
 
 .nav-link:focus,
 .nav-link :hover,
@@ -54,6 +61,16 @@ input :active {
 
 .make-link-black {
   color: #212121; }
+
+#basic-nav-dropdown {
+  color: #212121; }
+
+.dropdown-menu.show {
+  border-radius: 0; }
+  .dropdown-menu.show:focus,
+  .dropdown-menu.show :hover,
+  .dropdown-menu.show :active {
+    background: transparent !important; }
 
 .form-control-user::placeholder {
   color: #757575;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withTranslate } from 'react-redux-multilingual';
 import * as actions from '../../actions';
 import SignInForm from './SignInForm';
 import SignInWithOthers from './SignInWithOthers';
@@ -10,6 +11,8 @@ class SignIn extends Component {
     this.props.removeAuthError();
   }
   render() {
+    const { translate } = this.props;
+
     return (
       <div class='container'>
         {/* <!-- Outer Row --> */}
@@ -23,7 +26,9 @@ class SignIn extends Component {
                   <div class='col-lg-6'>
                     <div class='p-5'>
                       <div class='text-center'>
-                        <h1 class='h4 text-gray-900 mb-4'>로그인</h1>
+                        <h1 class='h4 text-gray-900 mb-4'>
+                          {translate('Login')}
+                        </h1>
                       </div>
                       <SignInForm />
                       <hr />
@@ -32,7 +37,7 @@ class SignIn extends Component {
                         to='/signup'
                         class='mt-5 btn btn-user btn-block btn-yellow'
                       >
-                        캣스냅 회원가입 하기
+                        {translate('Signup')}
                       </Link>
                     </div>
                   </div>
@@ -46,4 +51,4 @@ class SignIn extends Component {
   }
 }
 
-export default connect(null, actions)(SignIn);
+export default connect(null, actions)(withTranslate(SignIn));

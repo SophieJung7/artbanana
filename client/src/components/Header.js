@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { IntlActions } from 'react-redux-multilingual';
+import { withTranslate } from 'react-redux-multilingual';
 import { Link } from 'react-router-dom';
 import * as actions from '../actions';
+import store from '../store';
 import catLogo from '../assets/logos/cat.svg';
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 class Header extends Component {
+  changeLanguage(lang, e) {
+    e.preventDefault();
+    store.dispatch(IntlActions.setLocale(lang));
+  }
+
   renderAuth() {
+    const { translate } = this.props;
     switch (this.props.auth) {
       case null:
         return;
@@ -17,14 +26,26 @@ class Header extends Component {
             className='justify-content-end'
             id='basic-navbar-nav'
           >
+            <NavDropdown
+              title='English'
+              id='basic-nav-dropdown'
+              className='mr-4'
+            >
+              <NavDropdown.Item onClick={e => this.changeLanguage('en', e)}>
+                English
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={e => this.changeLanguage('kr', e)}>
+                한국어
+              </NavDropdown.Item>
+            </NavDropdown>
             <Link to='/signup' className='nav-link mr-4 make-link-black'>
-              사진작가 등록하기{' '}
+              {translate('Apply_for_photographer')}
             </Link>
             <Link to='/signin' className='nav-link mr-4 make-link-black'>
-              로그인
+              {translate('Login')}
             </Link>
             <Link to='/signup' className='btn btn-yellow px-4'>
-              무료 회원가입
+              {translate('Signup')}
             </Link>
           </Navbar.Collapse>
         );
@@ -34,23 +55,35 @@ class Header extends Component {
             className='justify-content-end'
             id='basic-navbar-nav'
           >
+            <NavDropdown
+              title='English'
+              id='basic-nav-dropdown'
+              className='mr-4'
+            >
+              <NavDropdown.Item onClick={e => this.changeLanguage('en', e)}>
+                English
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={e => this.changeLanguage('kr', e)}>
+                한국어
+              </NavDropdown.Item>
+            </NavDropdown>
             <Link to='/signup' className='nav-link mr-4 make-link-black'>
-              사진작가 등록하기{' '}
+              {translate('Apply_for_photographer')}
             </Link>
             <Link to='/mypage' className='nav-link mr-4 make-link-black'>
-              마이페이지
+              {translate('My_page')}
             </Link>
             <Link
               to='/change-password'
               className='nav-link mr-4 make-link-black'
             >
-              비밀번호변경
+              {translate('Change_password')}
             </Link>
             <button
               onClick={this.props.signOut}
               className='nav-link mr-4 make-link-black btn-clear'
             >
-              로그아웃
+              {translate('Logout')}
             </button>
           </Navbar.Collapse>
         );
@@ -88,4 +121,4 @@ class Header extends Component {
 const mapStateToProps = state => {
   return { auth: state.auth };
 };
-export default connect(mapStateToProps, actions)(Header);
+export default connect(mapStateToProps, actions)(withTranslate(Header));

@@ -1,20 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import reducers from './reducers';
-import reduxThunk from 'redux-thunk';
-import "./css/bootstrap/bootstrap.min.css";
-import "./css/main.css";
+import { IntlProvider } from 'react-redux-multilingual';
+import store from './store';
 
+// Style Files
+import './css/bootstrap/bootstrap.min.css';
+import './css/main.css';
+
+// Components
 import App from './components/App';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(reduxThunk)));
+// Translation File
+import translations from './translations/translations';
 
 ReactDOM.render(
-    <Provider store={ store }>
-        <App />
-    </Provider>,
-    document.querySelector('#root')
+  <Provider store={store}>
+    <IntlProvider translations={translations} locale='kr'>
+      <App />
+    </IntlProvider>
+  </Provider>,
+  document.querySelector('#root')
 );

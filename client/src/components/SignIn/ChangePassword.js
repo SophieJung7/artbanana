@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withTranslate } from 'react-redux-multilingual';
 import * as actions from '../../actions';
 
 class ChangePassword extends Component {
@@ -7,11 +8,13 @@ class ChangePassword extends Component {
     prePassword: '',
     newPassword: ''
   };
+  translate = this.props.translate;
 
   onFormSubmit(event) {
     event.preventDefault();
     if (this.state.prePassword !== this.state.newPassword) {
-      alert('비밀번호가 일치하지 않습니다.');
+      const message = this.translate('Password_is_incorrect');
+      alert(message);
     } else {
       const newPassword = this.state.newPassword;
       this.props.changePW(newPassword);
@@ -23,7 +26,7 @@ class ChangePassword extends Component {
       if (this.state.prePassword !== this.state.newPassword) {
         return (
           <small style={{ color: 'red' }} className='form-text'>
-            입력하신 비밀번호가 일치하지 않습니다.
+            {this.translate('Password_is_incorrect')}
           </small>
         );
       } else {
@@ -39,14 +42,14 @@ class ChangePassword extends Component {
       <div className='container'>
         <form onSubmit={e => this.onFormSubmit(e)}>
           <div className='form-group'>
-            <label>새로운 비밀번호를 입력해주세요.</label>
+            <label>{this.translate('Enter_your_new_password')}</label>
             <input
               type='password'
               className='form-control'
               name='prePassword'
               onChange={e => this.setState({ prePassword: e.target.value })}
             />
-            <label>새로운 비밀번호를 다시한번 입력해주세요.</label>
+            <label>{this.translate('Enter_your_new_password_again')}</label>
             <input
               type='password'
               className='form-control'
@@ -56,7 +59,7 @@ class ChangePassword extends Component {
             {this.isPasswordSame()}
           </div>
           <button type='submit' className='btn btn-yellow'>
-            비밀번호 변경하기
+            {this.translate('Change_password')}
           </button>
         </form>
       </div>
@@ -64,4 +67,4 @@ class ChangePassword extends Component {
   }
 }
 
-export default connect(null, actions)(ChangePassword);
+export default connect(null, actions)(withTranslate(ChangePassword));

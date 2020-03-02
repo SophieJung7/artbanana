@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withTranslate } from 'react-redux-multilingual';
 import * as actions from '../../actions';
 import SignUpForm from './SignUpForm';
 import SignUpWithOthers from './SignUpWithOthers';
@@ -9,6 +10,8 @@ class SignUp extends Component {
     this.props.removeAuthError();
   }
   render() {
+    const { translate } = this.props;
+
     return (
       <div className='container'>
         {/* <!-- Outer Row --> */}
@@ -23,13 +26,13 @@ class SignUp extends Component {
                     <div className='p-5'>
                       <div className='mt-5 text-center'>
                         <h1 className='h4 text-gray-900 mb-4'>
-                          1분안에 가입하기
+                          {translate('Signup_within_one_minute')}
                         </h1>
                       </div>
                       <SignUpForm />
                       <div className='mt-2 mb-5'>
                         <a className='small-text' href='forgot-password.html'>
-                          * 캣스냅은 개인정보를 제3자에게 제공하지 않습니다.
+                          {translate('Not_disclose_personal_info')}
                         </a>
                       </div>
                       <hr />
@@ -46,4 +49,4 @@ class SignUp extends Component {
   }
 }
 
-export default connect(null, actions)(SignUp);
+export default connect(null, actions)(withTranslate(SignUp));

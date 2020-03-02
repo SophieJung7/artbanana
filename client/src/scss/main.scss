@@ -59,6 +59,14 @@ input {
 .btn-clear {
   background: transparent;
   border: none;
+  &:focus,
+  :hover,
+  :active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    text-decoration: none;
+  }
 }
 
 .nav-link {
@@ -86,6 +94,19 @@ input {
 
 .make-link-black {
   color: $color-black;
+}
+
+// English 랭귀지변환 Dropdown
+#basic-nav-dropdown {
+  color: $color-black;
+}
+.dropdown-menu.show {
+  border-radius: 0;
+  &:focus,
+  :hover,
+  :active {
+    background: transparent !important;
+  }
 }
 
 // ********* Input Box Placeholder Color Change ********* //

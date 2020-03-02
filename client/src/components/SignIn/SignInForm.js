@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import { withTranslate } from 'react-redux-multilingual';
 import _ from 'lodash';
 import validateEmail from '../utils/validateEmail';
 import * as actions from '../../actions';
@@ -8,31 +9,39 @@ import SignInFormField from './SignInFormField';
 
 const FIELDS = [
   {
-    label: '이메일주소',
+    label: 'Email',
     name: 'username',
-    noValueError: '이메일을 입력해주세요.',
-    id: 'exampleInputEmail'
+    noValueError: 'Enter_your_email',
+    id: 'exampleInputEmail',
+    type: 'text'
   },
   {
-    label: '비밀번호',
+    label: 'Password',
     name: 'password',
-    noValueError: '비밀번호를 입력해주세요.',
-    id: 'exampleInputPassword'
+    noValueError: 'Enter_your_password',
+    id: 'exampleInputPassword',
+    type: 'password'
   }
 ];
 
 class SignInForm extends Component {
+  translate = this.props.translate;
+
   renderFields() {
-    return _.map(FIELDS, ({ label, name, id, noValueError }) => {
+    return _.map(FIELDS, ({ label, name, id, noValueError, type }) => {
+      const translated_label = this.translate(label || 'Email');
+      const translated_noValueError = this.translate(
+        noValueError || 'Enter_your_email'
+      );
       return (
         <Field
-          type='text'
+          type={type}
           className='form-control form-control-user'
           component={SignInFormField}
           key={name}
-          label={label}
+          label={translated_label}
           name={name}
-          noValueError={noValueError}
+          noValueError={translated_noValueError}
           id={id}
         />
       );
@@ -45,7 +54,7 @@ class SignInForm extends Component {
           style={{ color: 'red', fontWeight: '500' }}
           className='form-text mb-3'
         >
-          이메일주소나 비밀번호가 일치하지 않습니다.
+          {this.translate('Email_or_Password_is_incorrect')}
         </small>
       );
     }
@@ -62,12 +71,11 @@ class SignInForm extends Component {
         {this.renderFields()}
         {this.showError()}
         <button type='submit' className='btn btn-user btn-block btn-yellow'>
-          {' '}
-          로그인
+          {this.translate('Login')}
         </button>
         <div className='text-right'>
           <a className='small-text' href='/change-password'>
-            비밀번호 찾기
+            {this.translate('Find_password')}
           </a>
         </div>
       </form>
@@ -92,7 +100,10 @@ const mapStateToProps = state => {
   return { authErrorCode: state.authErrorCode };
 };
 
-const wrappedComponent = connect(mapStateToProps, actions)(SignInForm);
+const wrappedComponent = connect(
+  mapStateToProps,
+  actions
+)(withTranslate(SignInForm));
 export default reduxForm({ validate: validate, form: 'signInForm' })(
   wrappedComponent
 );

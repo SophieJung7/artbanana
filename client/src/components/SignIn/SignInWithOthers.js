@@ -1,11 +1,15 @@
 import React from 'react';
+import { withTranslate } from 'react-redux-multilingual';
 import naverLogo from '../../assets/logos/naver.svg';
 import { FaGoogle } from 'react-icons/fa';
 
-const SignInWithOthers = () => {
+const SignInWithOthers = props => {
+  const { translate } = props;
   return (
     <div>
-      <div className='text-center mt-5 mb-4'>SNS로 간편하게 로그인하세요.</div>
+      <div className='text-center mt-5 mb-4'>
+        {translate('Sign_in_with_others')}
+      </div>
       <div className='mb-5'>
         <a
           href='/auth/naver'
@@ -21,7 +25,7 @@ const SignInWithOthers = () => {
               height='13'
               className='mr-2'
             />
-            네이버로 로그인
+            {translate('Sign_in_with_Naver')}
           </div>
         </a>
         <a
@@ -31,7 +35,7 @@ const SignInWithOthers = () => {
         >
           <div className='d-flex align-items-center justify-content-center'>
             <FaGoogle className='mr-2' />
-            구글로 로그인
+            {translate('Sign_in_with_Google')}
           </div>
         </a>
       </div>
@@ -40,4 +44,4 @@ const SignInWithOthers = () => {
   );
 };
 
-export default SignInWithOthers;
+export default withTranslate(SignInWithOthers);
