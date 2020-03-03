@@ -8,10 +8,15 @@ import store from '../store';
 import catLogo from '../assets/logos/cat.svg';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Cookie from 'js-cookie';
 
 class Header extends Component {
   changeLanguage(lang, e) {
     e.preventDefault();
+    //   Cookie expires in 365 days
+    Cookie.set('language', lang, {
+      expires: 365
+    });
     store.dispatch(IntlActions.setLocale(lang));
   }
 
@@ -105,9 +110,7 @@ class Header extends Component {
                   alt=''
                 ></img>
               </div>
-              <Link to='/' className='d-inline catcnap-logo-text mt-1'>
-                CatSnap
-              </Link>
+              <div className='d-inline catcnap-logo-text mt-1'>CatSnap</div>
             </div>
           </Link>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

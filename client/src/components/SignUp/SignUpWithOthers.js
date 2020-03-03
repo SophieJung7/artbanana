@@ -7,8 +7,8 @@ const SignUpWithOthers = props => {
   const { translate } = props;
   return (
     <div className='mb-5 mt-5'>
-      <div class='text-center'>
-        <h1 class='h4 text-gray-900 mb-4'>
+      <div className='text-center'>
+        <h1 className='h4 text-gray-900 mb-4'>
           {translate('Sign_up_with_others')}
         </h1>
       </div>
