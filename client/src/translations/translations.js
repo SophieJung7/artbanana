@@ -1,13 +1,12 @@
 export default {
-  kr: {
-    locale: 'kr',
+  ko: {
+    locale: 'ko',
     messages: {
       Apply_for_photographer: '사진작가 등록하기',
       Login: '로그인',
       Signup: '무료 회원가입',
       Signup_within_one_minute: '1분안에 가입하기',
       My_page: '마이페이지',
-      Change_password: '비밀번호변경',
       Logout: '로그아웃',
       Email: '이메일주소',
       Enter_your_email: '이메일 주소를 입력해주세요',
@@ -53,7 +52,6 @@ export default {
       Enter_your_password: 'Enter your password.',
       Enter_your_new_password: 'Enter your new password.',
       Enter_your_new_password_again: 'Enter your new password again.',
-      Change_password: 'Change password',
       Find_password: 'Find your password',
       Password_is_incorrect: 'Password is incorrect.',
       Email_or_Password_is_incorrect: 'Your email or password is incorrect.',

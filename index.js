@@ -4,7 +4,8 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
-const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const requestLanguage = require('express-request-language');
 const keys = require('./config/keys');
 
 //Connecting Mongoose --> Don't change the order. userSchema should be called before passport.js.
@@ -17,8 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Connecting Passport
 require('./services/passport');
-//Flash connection always should be after Passport configuration.
-app.use(flash());
 
 //Enabling Cookies
 app.use(
@@ -30,6 +29,19 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Be able to read cookie
+app.use(cookieParser());
+
+app.use(
+  requestLanguage({
+    languages: ['ko', 'en'],
+    cookie: {
+      name: 'language',
+      options: { maxAge: 365 * 24 * 3600 * 1000 }
+    }
+  })
+);
 
 //Routes
 require('./routes/authRoutes')(app);

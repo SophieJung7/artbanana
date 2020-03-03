@@ -34,7 +34,7 @@ class Header extends Component {
               <NavDropdown.Item onClick={e => this.changeLanguage('en', e)}>
                 English
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={e => this.changeLanguage('kr', e)}>
+              <NavDropdown.Item onClick={e => this.changeLanguage('ko', e)}>
                 한국어
               </NavDropdown.Item>
             </NavDropdown>
@@ -63,7 +63,7 @@ class Header extends Component {
               <NavDropdown.Item onClick={e => this.changeLanguage('en', e)}>
                 English
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={e => this.changeLanguage('kr', e)}>
+              <NavDropdown.Item onClick={e => this.changeLanguage('ko', e)}>
                 한국어
               </NavDropdown.Item>
             </NavDropdown>
