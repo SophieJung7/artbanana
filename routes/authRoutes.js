@@ -1,6 +1,8 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
+const EmailValidateMailer = require('../services/mailers/EmailValidateMailer');
+const emailValidateTemplate = require('../services/emailTemplates/emailValidateTemplate');
 
 module.exports = app => {
   app.get('/api/current_user', (req, res) => {
@@ -15,36 +17,39 @@ module.exports = app => {
   // Local Auth
   app.post('/auth/signup', (req, res) => {
     const { username, password } = req.body;
-    User.register(new User({ username: username }), password, (err, user) => {
-      try {
-        passport.authenticate('local')(req, res, () => {
-          res.send(user);
-        });
-      } catch (err) {
-        throw err;
+    User.findOne({ username: username }).then(existingUser => {
+      if (existingUser) {
+        res.status(409).send('Already Registered');
+      } else {
+        User.register(
+          new User({ username: username }),
+          password,
+          (err, user) => {
+            try {
+              // *** Send Email Verfication Email *** //
+              const mailer = new EmailValidateMailer(
+                user,
+                emailValidateTemplate(user)
+              );
+              mailer.send();
+              // *** Sign In *** //
+              passport.authenticate('local')(req, res, () => {
+                res.send(user);
+              });
+            } catch (err) {
+              res.status(409).send(err);
+            }
+          }
+        );
       }
-      //   if (err) {
-      //     throw err;
-      //   } else {
-      //     passport.authenticate('local')(req, res, () => {
-      //       res.send(user);
-      //     });
-      //   }
     });
   });
 
+  app.get('/auth/signup/thanks', (req, res) => {
+    res.send('이메일 인증이 완료되었습니다^^!');
+  });
+
   app.post('/auth/signin', passport.authenticate('local'), (req, res) => {
-    // try {
-    //   User.findByUsername(req.user.username, (err, foundUser) => {
-    //     if (err) {
-    //       res.send(403).json({ message: 'Email is not registered' });
-    //     } else {
-    //       res.send(req.user);
-    //     }
-    //   });
-    // } catch (err) {
-    //   throw err;
-    // }
     try {
       res.send(req.user);
     } catch (err) {

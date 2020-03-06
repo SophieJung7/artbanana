@@ -50,7 +50,7 @@ class SignUpForm extends Component {
   }
 
   showError() {
-    if (this.props.authErrorCode === 401) {
+    if (this.props.authErrorCode === 401 || this.props.authErrorCode === 409) {
       return (
         <small
           style={{ color: 'red', fontWeight: '500' }}

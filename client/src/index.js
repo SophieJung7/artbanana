@@ -9,11 +9,11 @@ import store from './store';
 import './css/bootstrap/bootstrap.min.css';
 import './css/main.css';
 
-// Components
-import App from './components/App';
-
 // Translation File
 import translations from './translations/translations';
+
+// Components
+import App from './components/App';
 
 // Find out the user language
 const locale = Cookie.get('language') || 'ko';

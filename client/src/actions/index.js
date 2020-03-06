@@ -53,7 +53,7 @@ export const removeAuthError = () => {
 /// SIGN UP ///
 export const signUp = values => async dispatch => {
   const res = await axios.post('/auth/signup', values);
-  if (res.status === 401) {
+  if (res.status === 401 || res.status === 409) {
     dispatch({
       type: AUTH_ERROR_CODE,
       payload: res.status
