@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withTranslate } from 'react-redux-multilingual';
 import * as actions from '../../actions';
+import validatePassword from '../utils/validatePassword';
 
 class ChangePassword extends Component {
   state = {
@@ -36,6 +37,21 @@ class ChangePassword extends Component {
       return null;
     }
   }
+  isPasswordStrong() {
+    const password = this.state.prePassword;
+    if (password) {
+      const isWeak = validatePassword(password);
+      if (isWeak) {
+        return (
+          <small style={{ color: 'red' }} className='form-text'>
+            {this.translate('Password_strength')}
+          </small>
+        );
+      } else {
+        return null;
+      }
+    }
+  }
 
   render() {
     return (
@@ -57,6 +73,7 @@ class ChangePassword extends Component {
               onChange={e => this.setState({ newPassword: e.target.value })}
             />
             {this.isPasswordSame()}
+            {this.isPasswordStrong()}
           </div>
           <button type='submit' className='btn btn-yellow'>
             {this.translate('Change_password')}

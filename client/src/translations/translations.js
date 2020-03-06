@@ -23,6 +23,8 @@ export default {
       Email_or_Password_is_incorrect:
         '이메일주소나 비밀번호가 일치하지 않습니다.',
       Password_changed: '비밀번호가 변경되었습니다.',
+      Password_strength:
+        '비밀번호는 6자 이상 입력해주시고 숫자 및 영문 소문자를 1개 이상 사용해주세요.',
       Go_back_homepage: '홈페이지로 돌아가기',
       Not_disclose_personal_info:
         '* 캣스냅은 개인정보를 제3자에게 제공하지 않습니다.',
@@ -56,6 +58,8 @@ export default {
       Password_is_incorrect: 'Password is incorrect.',
       Email_or_Password_is_incorrect: 'Your email or password is incorrect.',
       Password_changed: 'Your password changed.',
+      Password_strength:
+        'Password should be at least 6 characters long with at least one number and one lowercase.',
       Go_back_homepage: 'Go back to homepage',
       Not_disclose_personal_info: '',
       Already_registered: 'Your email address is already registered.',
