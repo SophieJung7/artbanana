@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Connecting Passport
 require('./services/passport');
 
-//Enabling Cookies
+//Set up cookies for Authentication
 app.use(
   cookieSession({
     //Cookie lasts for 30 days
@@ -33,6 +33,7 @@ app.use(passport.session());
 //Be able to read cookie
 app.use(cookieParser());
 
+//Set up cookies for language.
 app.use(
   requestLanguage({
     languages: ['ko', 'en'],
@@ -45,6 +46,17 @@ app.use(
 
 //Routes
 require('./routes/authRoutes')(app);
+
+//NODE_ENV comes from Heroku setup
+if (process.env.NODE_ENV === 'production') {
+  // Express will serve up production assets like our main.js file, or main.css!
+  app.use(express.static('client/build'));
+  // Express will serve up the index.html file if it doesn't recognize the route!
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
