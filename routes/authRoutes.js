@@ -54,18 +54,25 @@ module.exports = app => {
   app.post('/auth/signup/webhooks', (req, res) => {
     const p = new Path('/auth/signup/thanks/:userId');
     _.chain(req.body)
-      .map(({ url }) => {
+      .map(({ url, email }) => {
         const match = p.test(new URL(url).pathname);
         if (match) {
-          return { userId: match.userId };
+          return { userId: match.userId, email: email };
         }
       })
       .compact()
       .uniqBy('userId')
-      .each(async ({ userId }) => {
+      .each(async ({ userId, email }) => {
         const user = await User.findOne({ _id: userId });
         user.emailValidated = true;
         await user.save();
+        // *** Send Welcome Email *** //
+        // try {
+        //   const mailer = new WelcomeMailer(email, welcomeTemplate(user));
+        //   mailer.send();
+        // } catch (err) {
+        //   res.status(410).send(err);
+        // }
       })
       .value();
     res.send({});

@@ -3,14 +3,14 @@ const helper = sendgrid.mail;
 const keys = require('../../config/keys');
 
 class WelcomeMailer extends helper.Mail {
-  constructor({ username }, content) {
+  constructor({ email }, content) {
     super();
 
     this.sgApi = sendgrid(keys.sendgridAPI);
     this.from_email = new helper.Email('cs@catsnap.co.kr');
     this.subject = '캣스냅 회원이 되주셔서 감사드립니다!';
     this.body = new helper.Content('text/html', content);
-    this.recipients = new helper.Email(username);
+    this.recipients = new helper.Email(email);
 
     //This is just how Sendgrid works. You should define body like this.
     this.addContent(this.body);
