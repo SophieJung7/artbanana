@@ -1,8 +1,13 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
+const _ = require('lodash');
+const { Path } = require('path-parser');
+const { URL } = require('url');
 const EmailValidateMailer = require('../services/mailers/EmailValidateMailer');
 const emailValidateTemplate = require('../services/emailTemplates/emailValidateTemplate');
+const WelcomeMailer = require('../services/mailers/WelcomeMailer');
+const welcomeTemplate = require('../services/emailTemplates/welcomeTemplate');
 
 module.exports = app => {
   app.get('/api/current_user', (req, res) => {
@@ -45,7 +50,28 @@ module.exports = app => {
     });
   });
 
-  app.get('/auth/signup/thanks', (req, res) => {
+  // SendGrid Email Verification Webhook
+  app.post('/auth/signup/webhooks', (req, res) => {
+    const p = new Path('/auth/signup/thanks/:userId');
+    _.chain(req.body)
+      .map(({ url }) => {
+        const match = p.test(new URL(url).pathname);
+        if (match) {
+          return { userId: match.userId };
+        }
+      })
+      .compact()
+      .uniqBy('userId')
+      .each(async ({ userId }) => {
+        const user = await User.findOne({ _id: userId });
+        user.emailValidated = true;
+        await user.save();
+      })
+      .value();
+    res.send({});
+  });
+
+  app.get('/auth/signup/thanks/:userId', (req, res) => {
     res.send('이메일 인증이 완료되었습니다^^!');
   });
 
