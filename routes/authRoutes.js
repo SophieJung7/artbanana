@@ -63,16 +63,13 @@ module.exports = app => {
       .compact()
       .uniqBy('userId')
       .each(async ({ userId, email }) => {
-        const user = await User.findOne({ _id: userId });
-        user.emailValidated = true;
-        await user.save();
-        // *** Send Welcome Email *** //
-        // try {
-        //   const mailer = new WelcomeMailer(email, welcomeTemplate(user));
-        //   mailer.send();
-        // } catch (err) {
-        //   res.status(410).send(err);
-        // }
+        try {
+          const user = await User.findOne({ _id: userId });
+          user.emailValidated = true;
+          await user.save();
+        } catch (err) {
+          throw err;
+        }
       })
       .value();
     res.send({});

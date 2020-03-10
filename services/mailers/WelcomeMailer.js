@@ -14,16 +14,7 @@ class WelcomeMailer extends helper.Mail {
 
     //This is just how Sendgrid works. You should define body like this.
     this.addContent(this.body);
-    this.addClickTracking();
     this.addRecipients();
-  }
-
-  addClickTracking() {
-    const trackingSettings = new helper.TrackingSettings();
-    const clickTracking = new helper.ClickTracking(true, true);
-
-    trackingSettings.setClickTracking(clickTracking);
-    this.addTrackingSettings(trackingSettings);
   }
 
   addRecipients() {
