@@ -5,6 +5,8 @@ const NaverStrategy = require('passport-naver').Strategy;
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const keys = require('../config/keys');
+const WelcomeMailer = require('../services/mailers/WelcomeMailer');
+const welcomeTemplate = require('../services/emailTemplates/welcomeTemplate');
 
 passport.use(new LocalStrategy(User.authenticate()));
 
@@ -32,7 +34,14 @@ passport.use(
           picture: picture,
           userAccountProvider: profile.provider
         }).save();
-        done(null, user);
+        // *** Send Welcome Mail *** //
+        try {
+          const mailer = new WelcomeMailer(user, welcomeTemplate(user));
+          await mailer.send();
+          done(null, user);
+        } catch (err) {
+          throw err;
+        }
       }
     }
   )
@@ -61,7 +70,14 @@ passport.use(
           birthday: birthday,
           userAccountProvider: profile.provider
         }).save();
-        done(null, user);
+        // *** Send Welcome Mail *** //
+        try {
+          const mailer = new WelcomeMailer(user, welcomeTemplate(user));
+          await mailer.send();
+          done(null, user);
+        } catch (err) {
+          throw err;
+        }
       }
     }
   )
