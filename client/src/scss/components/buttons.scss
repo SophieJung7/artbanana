@@ -1,0 +1,49 @@
+// ********* Buttons ********* //
+.border-radius-zero {
+  border-radius: 0;
+}
+
+.btn-yellow {
+  background-color: $color-yellow;
+  color: $color-black;
+  border-radius: 0;
+  border: none;
+  //   Getting rid of blue nasty ring in Chrome.
+  &:focus,
+  :hover,
+  :active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    text-decoration: none;
+  }
+}
+
+.btn-clear {
+  background: transparent;
+  border: none;
+  &:focus,
+  :hover,
+  :active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    text-decoration: none;
+  }
+}
+
+.nav-link {
+  &:focus,
+  :hover,
+  :active {
+    background: transparent !important;
+  }
+}
+
+.btn-naver {
+  background-color: #00c73c;
+}
+
+.btn-google {
+  background-color: #de5246;
+}

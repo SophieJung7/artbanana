@@ -1,0 +1,43 @@
+// **** Mobile Version Fixed Footer Black **** //
+// For HEART Icon --> I know it is weird..
+.main-menu .menu-right .icon-nav .mobile-setting {
+  @media (max-width: 577px) {
+    top: 92% !important;
+    right: 29% !important;
+    font-size: 1rem !important;
+    color: white;
+  }
+}
+
+.main-menu .menu-right .icon-nav .mobile-search {
+  @media (max-width: 577px) {
+    top: 92% !important;
+    right: 83% !important;
+    font-size: 1rem !important;
+    color: white;
+  }
+}
+
+.main-menu .menu-right .icon-nav .mobile-globe {
+  @media (max-width: 577px) {
+    right: 10% !important;
+  }
+}
+
+.main-menu .menu-right .icon-nav .mobile-basket {
+  @media (max-width: 577px) {
+    right: 65% !important;
+    color: white !important;
+    > div {
+      > a {
+        color: white !important;
+      }
+    }
+  }
+}
+
+.main-menu .menu-right .icon-nav .mobile-person {
+  @media (max-width: 577px) {
+    right: 47% !important;
+  }
+}

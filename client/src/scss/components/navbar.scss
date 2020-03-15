@@ -1,0 +1,36 @@
+// // English 랭귀지변환 Dropdown
+// #basic-nav-dropdown {
+//   color: $color-black;
+// }
+// .dropdown-menu.show {
+//   border-radius: 0;
+//   &:focus,
+//   :hover,
+//   :active {
+//     background: transparent !important;
+//   }
+// }
+
+// .navbar-container {
+//   position: absolute;
+//   z-index: 1000;
+//   width: 70vw;
+//   margin-top: 1rem;
+// }
+
+// // For Mobile Version: Different design.
+// @media (max-width: 576px) {
+//   .navbar-container {
+//     margin-top: 2rem;
+//     width: 90vw;
+//   }
+// }
+
+.main-menu .menu-right .icon-nav .onhover-div .show-div.setting ul li a {
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+.main-menu .menu-right .icon-nav .onhover-div .show-div.setting ul li {
+  padding-left: 1px !important;
+}

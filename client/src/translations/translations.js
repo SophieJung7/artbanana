@@ -2,6 +2,7 @@ export default {
   ko: {
     locale: 'ko',
     messages: {
+      Language: 'Language',
       Apply_for_photographer: '사진작가 등록하기',
       Login: '로그인',
       Signup: '무료 회원가입',
@@ -32,12 +33,15 @@ export default {
       Sign_up_with_email_verification: '회원가입과 함께 이메일인증',
       Sign_up_with_others: '아니면 SNS로 가입하기',
       Sign_up_with_Naver: '네이버로 회원가입',
-      Sign_up_with_Google: '구글로 회원가입'
+      Sign_up_with_Google: '구글로 회원가입',
+      Jumbo_big_words: '인생스냅은 캣스냅에서!',
+      Jumbo_small_words: '전세계 최고의 포토그래퍼들을 만나보세요.'
     }
   },
   en: {
     locale: 'en',
     messages: {
+      Language: '언어변환',
       Apply_for_photographer: 'Apply for photographer',
       Login: 'Sign in',
       Signup: 'Sign Up',
@@ -66,7 +70,9 @@ export default {
       Sign_up_with_email_verification: 'Sign up with email verification',
       Sign_up_with_others: 'or Sign up with others',
       Sign_up_with_Naver: 'Sign up with Naver',
-      Sign_up_with_Google: 'Sign up with Google'
+      Sign_up_with_Google: 'Sign up with Google',
+      Jumbo_big_words: 'Capture your precious moments!',
+      Jumbo_small_words: 'With the best photographers in the world.'
     }
   }
 };

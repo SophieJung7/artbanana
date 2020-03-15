@@ -1,0 +1,88 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* Makes all the box-sizing get inherited from parents */
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 0.87rem;
+}
+
+// 아래가 더 나음. 10px 이 기본값이 되기 때문에.
+// html {
+//   font-size: 62.5%;
+// }
+
+body {
+  /* For power of inheritance, we specify in the body */
+  /* Lato and if its not available, sans-serif */
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* Line-height is 1.7times bigger than the pre-defined line height.*/
+  line-height: 1.7;
+  color: $color-black;
+  /* change the box model so that the borders and the paddings are not added to the height and width of the box. */
+  box-sizing: border-box;
+}
+
+// Remove all the effects of <a /> link!
+
+a {
+  text-decoration: none !important;
+  &:hover {
+    color: $color-black;
+  }
+}
+
+// Remove all the effects of <input /> link!
+
+input {
+  &:focus,
+  :hover,
+  :active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid $color-black;
+    text-decoration: none;
+  }
+}
+
+// ********* Text/ Typography ********* //
+
+.small-text {
+  font-size: 0.8rem;
+  color: $color-dark-grey;
+}
+
+.make-link-black {
+  color: $color-black;
+}
+
+.landing-titles {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+
+// ********* Etc ********* //
+.catcnap-logo-text {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: $color-black;
+}
+
+.bg-login-image {
+  background: url('../assets/photos/login-couple.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-signup-image {
+  background: url('../assets/photos/login-couple.jpg');
+  background-position: center;
+  background-size: cover;
+}
