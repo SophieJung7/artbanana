@@ -1,7 +1,6 @@
 // Styling for the masthead(Jumbotron)
 header.masthead {
   text-align: center;
-  color: white;
   background-image: url('../assets/photos/couple-pool.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -12,11 +11,13 @@ header.masthead {
   .intro-text {
     &-bg {
       font-size: 3rem;
+      color: #ffce03;
     }
     &-sm {
       font-size: 1.5rem;
       font-weight: 200;
       letter-spacing: 0.1rem;
+      color: white;
     }
   }
 }
@@ -28,10 +29,12 @@ header.masthead {
     .intro-text {
       &-bg {
         font-size: 2rem;
+        color: black;
       }
       &-sm {
         font-size: 1rem;
         letter-spacing: 0.1rem;
+        color: black;
       }
     }
   }

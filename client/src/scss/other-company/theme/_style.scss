@@ -82,7 +82,7 @@ h3 {
   letter-spacing: 0.03em;
 }
 h4 {
-  font-size: 18px;
+  font-size: 15px;
   text-transform: capitalize;
   font-weight: 400;
   letter-spacing: 0.03em;
@@ -96,7 +96,7 @@ h5 {
   letter-spacing: 0.05em;
 }
 h6 {
-  font-size: 14px;
+  font-size: 1.1rem;
   font-weight: 400;
   color: $grey;
   line-height: 24px;
@@ -167,7 +167,7 @@ section,
   padding-top: 0;
 }
 hr.style1 {
-  width: 75px;
+  width: 100%;
   height: 3px;
   margin-top: 13px;
   background-color: $theme-deafult;
@@ -597,7 +597,7 @@ button {
     &:after {
       position: absolute;
       height: 5px;
-      width: 70px;
+      width: 12rem;
       background-color: $theme-deafult;
       content: '';
       left: 0;
@@ -1744,7 +1744,7 @@ header {
 .blog-2 {
   .blog-details {
     h6 {
-      padding: 5px 0;
+      padding: 1rem 0 1rem 1.4rem;
     }
   }
 }

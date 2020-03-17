@@ -35,7 +35,8 @@ export default {
       Sign_up_with_Naver: '네이버로 회원가입',
       Sign_up_with_Google: '구글로 회원가입',
       Jumbo_big_words: '인생스냅은 캣스냅에서!',
-      Jumbo_small_words: '전세계 최고의 포토그래퍼들을 만나보세요.'
+      Jumbo_small_words:
+        '캣스냅이 엄선한 세계 곳곳의 포토그래퍼들을 만나보세요.'
     }
   },
   en: {
