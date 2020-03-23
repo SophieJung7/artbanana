@@ -41,3 +41,21 @@
     right: 47% !important;
   }
 }
+
+// **** Mobile Version Carousel **** //
+
+.small-slider .home-slider .home .slider-contain .photo-section {
+  margin: 0 30% !important;
+  p {
+    font-size: 1rem;
+  }
+}
+
+.small-slider .home-slider .home .slider-contain .photo-section {
+  @media (max-width: 577px) {
+    margin: 0 !important;
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}

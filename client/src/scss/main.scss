@@ -13,5 +13,8 @@
 
 // Layout
 @import 'layout/masthead';
-@import 'other-company/everything';
 @import 'layout/mobile';
+
+// React-slick(Carousel)
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';

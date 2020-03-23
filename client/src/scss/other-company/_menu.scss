@@ -352,6 +352,7 @@ header {
                 &:before {
                   content: '\f105';
                   font-family: $font-awesome;
+                  font-weight: 900;
                   position: absolute;
                 }
               }
@@ -1068,6 +1069,7 @@ header {
               &:before {
                 content: '\f105';
                 font-family: FontAwesome;
+                font-weight: 900;
                 position: absolute;
               }
             }
@@ -1365,6 +1367,7 @@ header {
           &:before {
             content: '\f105';
             font-family: $font-awesome;
+            font-weight: 900;
             position: absolute;
           }
         }
@@ -1410,6 +1413,7 @@ header {
             &:before {
               content: '\f105';
               font-family: $font-awesome;
+              font-weight: 900;
               position: absolute;
             }
           }
@@ -1442,6 +1446,7 @@ header {
           &:before {
             content: '\f105';
             font-family: $font-awesome;
+            font-weight: 900;
             position: absolute;
           }
         }

@@ -1,4 +1,4 @@
-// @import "theme/variables";
+@import 'variables';
 
 .landing-page-multikart {
   /*=====================
@@ -54,7 +54,7 @@
   }
   p {
     font-size: 16px;
-    color: #777777;
+    color: black;
   }
   a {
     text-decoration: none;
@@ -749,7 +749,7 @@
         margin-top: 10px;
         margin-bottom: 0;
         font-size: 16px;
-        color: #777777;
+        color: black;
       }
     }
     .support-text {

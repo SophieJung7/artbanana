@@ -1,0 +1,39 @@
+@media (max-width: 577px) {
+  .main-menu .menu-right .icon-nav .mobile-setting {
+    top: 92% !important;
+    right: 29% !important;
+    font-size: 1rem !important;
+    color: white; } }
+
+@media (max-width: 577px) {
+  .main-menu .menu-right .icon-nav .mobile-search {
+    top: 92% !important;
+    right: 83% !important;
+    font-size: 1rem !important;
+    color: white; } }
+
+@media (max-width: 577px) {
+  .main-menu .menu-right .icon-nav .mobile-globe {
+    right: 10% !important; } }
+
+@media (max-width: 577px) {
+  .main-menu .menu-right .icon-nav .mobile-basket {
+    right: 65% !important;
+    color: white !important; }
+    .main-menu .menu-right .icon-nav .mobile-basket > div > a {
+      color: white !important; } }
+
+@media (max-width: 577px) {
+  .main-menu .menu-right .icon-nav .mobile-person {
+    right: 47% !important; } }
+
+.small-slider .home-slider .home .slider-contain .photo-section {
+  margin: 0 30% !important; }
+  .small-slider .home-slider .home .slider-contain .photo-section p {
+    font-size: 1rem; }
+
+@media (max-width: 577px) {
+  .small-slider .home-slider .home .slider-contain .photo-section {
+    margin: 0 !important; }
+    .small-slider .home-slider .home .slider-contain .photo-section p {
+      font-size: 0.8rem; } }

@@ -6,7 +6,7 @@ const blogs = [
     dates: '2020년 3월 15일',
     title: '런던 촬영스토리',
     writer: '에밀리',
-    photoSrc: '/images/couple-lake.jpg',
+    photoSrc: '/images/photographer.jpg',
     link: '/blog/4569'
   },
   {
@@ -20,7 +20,7 @@ const blogs = [
     dates: '2020년 3월 3일',
     title: '우리가족 In 몰디브',
     writer: '에밀리',
-    photoSrc: '/images/couple-lake.jpg',
+    photoSrc: '/images/family.jpg',
     link: '/blog/4569'
   }
 ];

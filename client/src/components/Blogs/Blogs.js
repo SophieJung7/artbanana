@@ -4,7 +4,7 @@ import BlogSection from './BlogSection';
 const Blogs = () => {
   return (
     <section className='blog blog-2 section-b-space ratio3_2'>
-      <div className='container '>
+      <div className='container'>
         <div className='row'>
           <div className='col'>
             <div className='title1'>

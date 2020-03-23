@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import history from '../history';
 import Header from './Headers/Header';
+import Footer from './Footer/Footer';
 import Landing from './Landing';
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
@@ -33,6 +34,7 @@ class App extends Component {
               component={ChangePasswordSuccess}
             />
           </div>
+          <Footer />
         </Router>
       </div>
     );

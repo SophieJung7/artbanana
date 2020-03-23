@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Jumbotron from './Jumbotron/Jumbotron';
 import Destinations from './Destinations/Destinations';
 import Blogs from './Blogs/Blogs';
+import Carousel from './Carousel/Carousel';
 
 class Landing extends Component {
   render() {
@@ -15,6 +16,9 @@ class Landing extends Component {
         </div>
         <div>
           <Blogs />
+        </div>
+        <div className='mb-5'>
+          <Carousel />
         </div>
       </div>
     );
