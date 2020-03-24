@@ -6,22 +6,10 @@ import { Link } from 'react-router-dom';
 import Cookie from 'js-cookie';
 import * as actions from '../../actions';
 import store from '../../store';
-import catLogo from '../../assets/logos/cat.svg';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
-// Import components
-import NavBar from './common/Navbar';
-import SideBar from './common/Sidebar';
 
 // React-icons
-import {
-  IoIosSearch,
-  IoMdPerson,
-  IoIosGlobe,
-  IoMdBasket,
-  IoMdHeart
-} from 'react-icons/io';
+import { IoIosSearch, IoMdPerson, IoMdBasket, IoMdHeart } from 'react-icons/io';
+import { GiAges } from 'react-icons/gi';
 
 class Header extends Component {
   /*=====================
@@ -152,17 +140,18 @@ class Header extends Component {
                         className='d-flex align-items-center'
                         style={{ paddingTop: '2vh', paddingBottom: '2vh' }}
                       >
-                        <div className='d-inline mr-2'>
-                          <img
-                            src={catLogo}
-                            width='30'
-                            height='30'
-                            className='align-top'
-                            alt=''
-                          ></img>
-                        </div>
+                        <GiAges
+                          className='d-inline mr-2'
+                          style={{ fontSize: '2rem', color: 'black' }}
+                        />
                         <div className='d-inline catcnap-logo-text mt-1'>
-                          CatSnap
+                          Pro
+                          <div
+                            className='d-inline'
+                            style={{ color: '#ffce03' }}
+                          >
+                            In
+                          </div>
                         </div>
                       </div>
                     </Link>
@@ -227,36 +216,6 @@ class Header extends Component {
                               </ul>
                             </div> */}
                           </li>
-                          {/* LANGUAGE */}
-                          <li className='onhover-div mobile-setting mobile-globe'>
-                            <div>
-                              <IoIosGlobe
-                                style={{ width: '2em', height: '2em' }}
-                              />
-                            </div>
-                            <div className='show-div setting'>
-                              <ul>
-                                <li>
-                                  <a
-                                    href={null}
-                                    onClick={e => this.changeLanguage('en', e)}
-                                  >
-                                    English
-                                  </a>{' '}
-                                </li>
-                                <li>
-                                  <a
-                                    href={null}
-                                    onClick={e => this.changeLanguage('ko', e)}
-                                  >
-                                    한국어
-                                  </a>{' '}
-                                </li>
-                              </ul>
-                            </div>
-                          </li>
-                          {/*Header Cart Component */}
-                          {/* <CartContainer /> */}
                         </ul>
                       </div>
                     </div>
