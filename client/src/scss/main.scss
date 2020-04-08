@@ -18,3 +18,9 @@
 // React-slick(Carousel)
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
+
+// Parts of Bootstrap
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../node_modules/bootstrap/scss/variables';
+@import 'other-company/bootstrap-premium-landing';

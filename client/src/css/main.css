@@ -183,7 +183,7 @@ input :active {
 
 header.masthead {
   text-align: center;
-  background-image: url("../assets/photos/couple-pool.jpg");
+  background-image: url("../assets/photos/youcan.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -192,12 +192,12 @@ header.masthead {
   height: 40rem; }
   header.masthead .intro-text-bg {
     font-size: 3rem;
-    color: #ffce03; }
+    color: black; }
   header.masthead .intro-text-sm {
     font-size: 1.5rem;
-    font-weight: 200;
+    font-weight: 500;
     letter-spacing: 0.1rem;
-    color: white; }
+    color: black; }
 
 @media (max-width: 576px) {
   header.masthead {
@@ -250,3 +250,173 @@ header.masthead {
     margin: 0 !important; }
     .small-slider .home-slider .home .slider-contain .photo-section p {
       font-size: 0.8rem; } }
+
+.testimonial .testimonial-brand {
+  fill: currentColor;
+  margin-bottom: 1.35rem; }
+  .testimonial .testimonial-brand svg {
+    height: 3rem; }
+
+.testimonial .testimonial-quote {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.35; }
+
+.testimonial .testimonial-name {
+  font-weight: bold; }
+
+.testimonial .testimonial-position {
+  font-weight: lighter; }
+
+@media (min-width: 992px) {
+  .divider-right {
+    border-right: 0.0625rem solid #dee2e6; } }
+
+.testimonial .testimonial-brand {
+  fill: currentColor;
+  margin-bottom: 1.35rem; }
+
+.testimonial .testimonial-brand svg {
+  height: 3rem; }
+
+.testimonial .testimonial-quote {
+  font-size: 1rem;
+  font-weight: 300; }
+
+.testimonial .testimonial-name {
+  font-weight: bold; }
+
+.testimonial .testimonial-position {
+  font-weight: lighter; }
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0; }
+  to {
+    background-position: 0 0; } }
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0; }
+  to {
+    background-position: 0 0; } }
+
+.progress {
+  display: -webkit-box;
+  display: flex;
+  height: 3rem;
+  overflow: hidden;
+  font-size: 1.1rem;
+  background-color: #e3e6ec;
+  border-radius: 0.35rem;
+  margin-bottom: 2rem; }
+
+.progress-bar {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: left;
+  white-space: nowrap;
+  background-color: #0061f2;
+  -webkit-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+  padding-left: 0.7rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar {
+    -webkit-transition: none;
+    transition: none; } }
+
+.progress-bar-striped {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 1rem 1rem; }
+
+.progress-bar-animated {
+  -webkit-animation: progress-bar-stripes 1s linear infinite;
+  animation: progress-bar-stripes 1s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-animated {
+    -webkit-animation: none;
+    animation: none; } }
+
+i-feather {
+  display: inline-flex !important; }
+  i-feather svg {
+    height: 100%;
+    width: 100%;
+    vertical-align: top; }
+
+.feather {
+  height: 1rem;
+  width: 1rem;
+  vertical-align: top; }
+
+.icon-stack {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  height: 2rem;
+  width: 2rem;
+  font-size: 1rem;
+  background-color: #f8f9fa; }
+  .icon-stack svg {
+    height: 1rem;
+    width: 1rem; }
+
+.icon-stack-lg {
+  height: 4rem;
+  width: 4rem;
+  font-size: 1.5rem; }
+  .icon-stack-lg svg {
+    height: 1.5rem;
+    width: 1.5rem; }
+
+.icon-stack-xl {
+  height: 5rem;
+  width: 5rem;
+  font-size: 1.75rem; }
+  .icon-stack-xl svg {
+    height: 1.75rem;
+    width: 1.75rem; }
+
+.icon-list-social {
+  display: flex; }
+  .icon-list-social .icon-list-social-link {
+    font-size: 1.25rem;
+    margin-right: 0.5rem; }
+
+section {
+  position: relative; }
+
+.svg-border-angled {
+  padding-top: 5rem; }
+  .svg-border-angled svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5rem;
+    width: 100%; }
+
+.svg-border-rounded svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3rem;
+  width: 100%; }
+
+.svg-border-waves {
+  padding-top: 2rem; }
+  .svg-border-waves svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3rem;
+    width: 100%; }

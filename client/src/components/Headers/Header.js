@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { IntlActions } from 'react-redux-multilingual';
-import { withTranslate } from 'react-redux-multilingual';
 import { Link } from 'react-router-dom';
-import Cookie from 'js-cookie';
 import * as actions from '../../actions';
-import store from '../../store';
 
 // React-icons
 import { IoIosSearch, IoMdPerson, IoMdBasket, IoMdHeart } from 'react-icons/io';
-import { GiAges } from 'react-icons/gi';
+import { FaKiwiBird } from 'react-icons/fa';
 
 class Header extends Component {
   /*=====================
@@ -21,15 +17,6 @@ class Header extends Component {
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  changeLanguage(lang, e) {
-    e.preventDefault();
-    //   Cookie expires in 365 days
-    Cookie.set('language', lang, {
-      expires: 365
-    });
-    store.dispatch(IntlActions.setLocale(lang));
   }
 
   handleScroll = () => {
@@ -47,7 +34,6 @@ class Header extends Component {
     }
   };
   renderAuth() {
-    const { translate } = this.props;
     switch (this.props.auth) {
       case null:
         return;
@@ -57,17 +43,12 @@ class Header extends Component {
           <ul>
             <li>
               <Link to='/signin' className='nav-link make-link-black'>
-                {translate('Login')}
+                로그인
               </Link>
             </li>
             <li>
-              <Link to='/signup' className='btn btn-yellow px-4'>
-                {translate('Signup')}
-              </Link>
-            </li>
-            <li>
-              <Link to='/signup' className='nav-link make-link-black'>
-                {translate('Apply_for_photographer')}
+              <Link to='/signup' className='btn btn-solid px-4'>
+                화원가입
               </Link>
             </li>
           </ul>
@@ -78,17 +59,12 @@ class Header extends Component {
           <ul>
             <li>
               <Link to='/mypage' className='nav-link make-link-black'>
-                {translate('My_page')}
+                마이페이지
               </Link>
             </li>
             <li>
               <Link to='/change-password' className='nav-link make-link-black'>
-                {translate('Change_password')}
-              </Link>
-            </li>
-            <li>
-              <Link to='/signup' className='nav-link make-link-black'>
-                {translate('Apply_for_photographer')}
+                비밀번호변경
               </Link>
             </li>
             <li>
@@ -97,7 +73,7 @@ class Header extends Component {
                 onClick={this.props.signOut}
                 className='nav-link make-link-black'
               >
-                {translate('Logout')}
+                로그아웃
               </a>
             </li>
           </ul>
@@ -124,10 +100,13 @@ class Header extends Component {
      ==========================*/
 
   render() {
-    const { translate } = this.props;
     return (
       <div>
-        <header id='sticky' className='sticky'>
+        <header
+          id='sticky'
+          className='sticky'
+          style={{ backgroundColor: '#1cdffe' }}
+        >
           <div className='mobile-fix-option'></div>
           <div className='container'>
             <div className='row'>
@@ -140,17 +119,14 @@ class Header extends Component {
                         className='d-flex align-items-center'
                         style={{ paddingTop: '2vh', paddingBottom: '2vh' }}
                       >
-                        <GiAges
+                        <FaKiwiBird
                           className='d-inline mr-2'
                           style={{ fontSize: '2rem', color: 'black' }}
                         />
                         <div className='d-inline catcnap-logo-text mt-1'>
-                          Pro
-                          <div
-                            className='d-inline'
-                            style={{ color: '#ffce03' }}
-                          >
-                            In
+                          Interview
+                          <div className='d-inline' style={{ color: 'black' }}>
+                            On
                           </div>
                         </div>
                       </div>
@@ -180,41 +156,6 @@ class Header extends Component {
                             <div className='show-div setting'>
                               {this.renderAuth()}
                             </div>
-                          </li>
-                          {/* FAVOURITE */}
-                          <li className='onhover-div mobile-setting mobile-heart'>
-                            <div>
-                              <IoMdHeart
-                                style={{ width: '2em', height: '2em' }}
-                              />
-                            </div>
-                            <div className='show-div setting'>
-                              <ul>
-                                <li>
-                                  <Link to={null}>찜한 포토그래퍼보기</Link>{' '}
-                                </li>
-                              </ul>
-                            </div>
-                          </li>
-                          {/* BASKET */}
-                          <li className='onhover-div mobile-setting mobile-basket'>
-                            <div>
-                              <Link to='/basket' style={{ color: 'black' }}>
-                                <IoMdBasket
-                                  style={{ width: '2em', height: '2em' }}
-                                />
-                              </Link>
-                            </div>
-                            {/* <div className='show-div setting'>
-                              <ul>
-                                <li>
-                                  <Link to={null}>장바구니</Link>{' '}
-                                </li>
-                                <li>
-                                  <Link to={null}>찜한목록</Link>{' '}
-                                </li>
-                              </ul>
-                            </div> */}
                           </li>
                         </ul>
                       </div>
@@ -262,7 +203,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { auth: state.auth };
 };
-export default connect(mapStateToProps, actions)(withTranslate(Header));
+export default connect(mapStateToProps, actions)(Header);

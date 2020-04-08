@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Jumbotron from './Jumbotron/Jumbotron';
-import Destinations from './Destinations/Destinations';
-import Blogs from './Blogs/Blogs';
-import Carousel from './Carousel/Carousel';
+import AboutUs from './AboutUs/AboutUs';
+import OurService from './OurService/OurService';
+import WhyUs from './WhyUs/WhyUs';
+import ProList from './ProList/ProList';
+import Review from './Review/Review';
+import Subscribe from './Subscribe/Subscribe';
 
 class Landing extends Component {
   render() {
@@ -12,13 +15,22 @@ class Landing extends Component {
           <Jumbotron style={{ position: 'absolute' }} />
         </div>
         <div>
-          <Destinations />
+          <AboutUs />
+        </div>
+        <div id='our-service'>
+          <OurService />
         </div>
         <div>
-          <Blogs />
+          <WhyUs />
+        </div>
+        <div id='prolist'>
+          <ProList />
         </div>
         <div className='mb-5'>
-          <Carousel />
+          <Review />
+        </div>
+        <div>
+          <Subscribe className='mb-5' />
         </div>
       </div>
     );

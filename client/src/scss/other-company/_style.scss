@@ -64,7 +64,7 @@ h1 {
   span {
     font-size: 107px;
     font-weight: 700;
-    color: $theme-deafult;
+    color: $theme-default;
   }
 }
 h2 {
@@ -170,7 +170,7 @@ hr.style1 {
   width: 100%;
   height: 3px;
   margin-top: 13px;
-  background-color: $theme-deafult;
+  background-color: $theme-default;
   text-align: center;
 }
 .no-arrow {
@@ -233,11 +233,11 @@ hr.style1 {
   min-height: 36px;
 }
 .input-range__track--active {
-  background: $theme-deafult !important;
+  background: $theme-default !important;
 }
 .input-range__slider {
-  background: $theme-deafult !important;
-  border: 1px solid $theme-deafult !important;
+  background: $theme-default !important;
+  border: 1px solid $theme-default !important;
 }
 .block-price-content {
   .custom-control {
@@ -264,7 +264,7 @@ del {
     top: 0;
     z-index: 999;
     transition: all 300ms ease;
-    background: #fff;
+    background: #1cdffe;
     box-shadow: 0px 0px 8px #ddd;
     animation: smoothScroll 1s forwards;
     .brand-logo {
@@ -324,7 +324,7 @@ del {
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: $theme-deafult;
+    background: $theme-default;
     border-radius: 10px;
   }
 
@@ -462,7 +462,7 @@ button {
   line-height: 20px;
   text-transform: uppercase;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
   border-radius: 0;
   transition: 0.3s ease-in-out;
   &:hover {
@@ -474,15 +474,15 @@ button {
 }
 .btn-solid {
   padding: 13px 29px;
-  color: black !important;
+  color: black;
   letter-spacing: 0.05em;
-  border: 2px solid $theme-deafult;
+  border: 2px solid $theme-default;
   background-image: -webkit-linear-gradient(
     30deg,
-    $theme-deafult 50%,
+    $theme-default 50%,
     transparent 50%
   );
-  background-image: linear-gradient(30deg, $theme-deafult 50%, transparent 50%);
+  background-image: linear-gradient(30deg, $theme-default 50%, transparent 50%);
   background-size: 540px;
   background-repeat: no-repeat;
   background-position: 0;
@@ -510,7 +510,7 @@ button {
   display: inline-block;
   padding: 13px 29px;
   letter-spacing: 0.05em;
-  border: 2px solid $theme-deafult;
+  border: 2px solid $theme-default;
   position: relative;
   color: $black;
   &:before {
@@ -523,7 +523,7 @@ button {
     bottom: 0;
     opacity: 0;
     content: '';
-    background-color: $theme-deafult;
+    background-color: $theme-default;
     z-index: -2;
   }
   &:hover {
@@ -552,27 +552,27 @@ button {
       &:active {
         background-image: -webkit-linear-gradient(
           30deg,
-          $theme-deafult 50%,
+          $theme-default 50%,
           transparent 50%
         );
         background-image: linear-gradient(
           30deg,
-          $theme-deafult 50%,
+          $theme-default 50%,
           transparent 50%
         );
         color: $white;
-        background: $theme-deafult;
+        background: $theme-default;
       }
     }
   }
 }
 .btn-classic {
   &:hover {
-    background-color: $theme-deafult;
+    background-color: $theme-default;
   }
 }
 .btn-theme {
-  background-color: $theme-deafult;
+  background-color: $theme-default;
   color: $white;
 }
 
@@ -583,7 +583,7 @@ button {
   text-align: center;
 
   h4 {
-    color: $theme-deafult;
+    color: $theme-default;
     padding-bottom: 10px;
     margin-bottom: 0;
     margin-top: -3px;
@@ -597,8 +597,8 @@ button {
     &:after {
       position: absolute;
       height: 5px;
-      width: 12rem;
-      background-color: $theme-deafult;
+      width: 25rem;
+      background-color: $theme-default;
       content: '';
       left: 0;
       right: 0;
@@ -620,7 +620,7 @@ button {
       background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0),
-        rgba($theme-deafult, 0.75),
+        rgba($theme-default, 0.75),
         rgba(0, 0, 0, 0)
       );
       display: block;
@@ -631,7 +631,7 @@ button {
       position: absolute;
       background-color: #efefef;
       border: 1px solid;
-      border-color: $theme-deafult;
+      border-color: $theme-default;
       padding: 5px;
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
@@ -644,7 +644,7 @@ button {
 .title2 {
   text-align: center;
   h4 {
-    color: $theme-deafult;
+    color: $theme-default;
     padding-bottom: 10px;
     margin-bottom: 0;
     text-transform: uppercase;
@@ -659,7 +659,7 @@ button {
       position: absolute;
       height: 5px;
       width: 100%;
-      background-color: lighten($theme-deafult, 10%);
+      background-color: lighten($theme-default, 10%);
       content: '';
       left: 0;
       right: 0;
@@ -672,7 +672,7 @@ button {
 .title3 {
   text-align: center;
   h4 {
-    color: $theme-deafult;
+    color: $theme-default;
     padding-bottom: 10px;
     margin-bottom: 5px;
     margin-top: -3px;
@@ -686,7 +686,7 @@ button {
     position: relative;
     height: 5px;
     width: 45px;
-    background-color: $theme-deafult;
+    background-color: $theme-default;
     content: '';
     left: 0;
     right: 0;
@@ -699,7 +699,7 @@ button {
       height: 5px;
       width: 10px;
       content: '';
-      background-color: $theme-deafult;
+      background-color: $theme-default;
     }
     &:after {
       right: 50px;
@@ -721,7 +721,7 @@ button {
     position: relative;
     height: 1px;
     width: 180px;
-    background-color: $theme-deafult;
+    background-color: $theme-default;
     margin: 0 auto;
     margin-bottom: 55px;
     bottom: 0;
@@ -732,7 +732,7 @@ button {
       height: 10px;
       width: 10px;
       content: '';
-      background-color: $theme-deafult;
+      background-color: $theme-default;
       top: -4px;
     }
     &:after {
@@ -748,7 +748,7 @@ button {
         height: 10px;
         width: 10px;
         content: '';
-        background-color: $theme-deafult;
+        background-color: $theme-default;
         top: -4px;
       }
       &:after {
@@ -951,7 +951,7 @@ header {
       font-size: 14px;
       padding-right: 25px;
       i {
-        color: $theme-deafult;
+        color: $theme-default;
         padding-right: 10px;
       }
     }
@@ -990,14 +990,14 @@ header {
         }
         &:hover {
           i {
-            color: $theme-deafult;
+            color: $theme-default;
             transition: all 0.5s ease;
           }
         }
       }
       &:hover {
         i {
-          color: $theme-deafult;
+          color: $theme-default;
           transition: all 0.5s ease;
         }
       }
@@ -1039,7 +1039,7 @@ header {
           }
           &:hover {
             i {
-              color: $theme-deafult;
+              color: $theme-default;
             }
           }
         }
@@ -1066,7 +1066,7 @@ header {
           }
           &:hover {
             i {
-              color: $theme-deafult;
+              color: $theme-default;
             }
           }
         }
@@ -1093,7 +1093,7 @@ header {
           }
           &:hover {
             i {
-              color: $theme-deafult;
+              color: $theme-default;
             }
           }
         }
@@ -1146,7 +1146,7 @@ header {
     &.around-border {
       .navbar {
         > a {
-          border: 2px solid lighten($theme-deafult, 35%);
+          border: 2px solid lighten($theme-default, 35%);
           padding: 11px 10px 6px;
         }
       }
@@ -1237,7 +1237,7 @@ header {
                   text-transform: capitalize;
                   font-weight: 700;
                   &:hover {
-                    color: $theme-deafult;
+                    color: $theme-default;
                   }
                 }
                 .checkout {
@@ -1288,7 +1288,7 @@ header {
             }
             .search-btn {
               padding: 8px 12px;
-              background-color: $theme-deafult;
+              background-color: $theme-default;
               color: $white;
             }
           }
@@ -1617,7 +1617,7 @@ header {
 ==========================*/
 .instagram-box {
   position: relative;
-  background-color: $theme-deafult;
+  background-color: $theme-default;
   overflow: hidden;
   img {
     width: 100%;
@@ -1628,7 +1628,7 @@ header {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: rgba($theme-deafult, 0.5);
+    background-color: rgba($theme-default, 0.5);
     top: 0;
     text-align: center;
     display: flex;
@@ -1665,7 +1665,7 @@ header {
   overflow: hidden;
   &:before,
   &:after {
-    background: $theme-deafult;
+    background: $theme-default;
     width: 25%;
     position: absolute;
     content: '';
@@ -1687,7 +1687,7 @@ header {
   span {
     &:before,
     &:after {
-      background: $theme-deafult;
+      background: $theme-default;
       width: 25%;
       position: absolute;
       content: '';
@@ -1728,7 +1728,7 @@ header {
   padding-right: 15px;
 
   h4 {
-    color: $theme-deafult;
+    color: $theme-default;
     margin-top: 25px;
     line-height: 1;
     margin-bottom: 0;
@@ -1744,7 +1744,7 @@ header {
     margin-bottom: -5px;
     transition: all 0.5s ease;
     &:hover {
-      color: $theme-deafult;
+      color: $theme-default;
       transition: all 0.5s ease;
     }
   }
@@ -1779,7 +1779,7 @@ header {
     width: 60px;
     height: 60px;
     path {
-      fill: $theme-deafult;
+      fill: $theme-default;
     }
   }
   h4 {
@@ -1801,7 +1801,7 @@ header {
       transition: all 0.3s ease;
     }
     h4 {
-      color: $theme-deafult;
+      color: $theme-default;
       transition: all 0.3s ease;
     }
   }
@@ -1813,7 +1813,7 @@ header {
     width: 60px;
     height: 60px;
     path {
-      fill: $theme-deafult;
+      fill: $theme-default;
     }
   }
   h4 {
@@ -1832,7 +1832,7 @@ header {
       transition: all 0.3s ease;
     }
     h4 {
-      color: $theme-deafult;
+      color: $theme-default;
       transition: all 0.3s ease;
     }
   }
@@ -1865,7 +1865,7 @@ header {
       margin-bottom: 0;
       text-align: center;
       span {
-        color: $theme-deafult;
+        color: $theme-default;
       }
     }
   }
@@ -1928,7 +1928,7 @@ header {
   }
   &:hover {
     .category-image {
-      background-color: $theme-deafult;
+      background-color: $theme-default;
       transition: all 0.5s ease;
       img {
         filter: brightness(0) invert(1);
@@ -1937,7 +1937,7 @@ header {
     }
     .category-details {
       h5 {
-        color: $theme-deafult;
+        color: $theme-default;
         transition: all 0.5s ease;
       }
     }
@@ -1964,7 +1964,7 @@ header {
           transition: 0.5s ease;
         }
         h2 {
-          color: $theme-deafult;
+          color: $theme-default;
           transition: 0.5s ease;
         }
       }
@@ -1990,7 +1990,7 @@ header {
   }
 }
 .category-bg {
-  background-color: lighten($theme-deafult, 30%);
+  background-color: lighten($theme-default, 30%);
   padding: 40px 50px;
   .image-block {
     img {
@@ -2004,7 +2004,7 @@ header {
     &:after {
       content: '';
       position: absolute;
-      background-color: lighten($theme-deafult, 30%);
+      background-color: lighten($theme-default, 30%);
       height: 0;
       width: 40px;
       z-index: 1;
@@ -2038,7 +2038,7 @@ header {
     &:after {
       content: '';
       position: absolute;
-      background-color: lighten($theme-deafult, 30%);
+      background-color: lighten($theme-default, 30%);
       height: 0;
       width: 40px;
       z-index: 1;
@@ -2051,12 +2051,12 @@ header {
     }
     &:hover {
       h2 {
-        color: $theme-deafult;
+        color: $theme-default;
         transition: all 0.5s ease;
       }
       h6 {
         span {
-          color: $theme-deafult;
+          color: $theme-default;
           transition: all 0.5s ease;
         }
       }
@@ -2081,7 +2081,7 @@ header {
       transition: 0.5s ease;
     }
     h6 {
-      color: $theme-deafult;
+      color: $theme-default;
       text-transform: uppercase;
       letter-spacing: 0.3em;
       line-height: 1;
@@ -2123,7 +2123,7 @@ header {
         height: 0;
         position: absolute;
         transition: all 0.2s linear;
-        background: $theme-deafult;
+        background: $theme-default;
         transition-delay: 0s;
       }
       &:before {
@@ -2142,7 +2142,7 @@ header {
       height: 1px;
       position: absolute;
       transition: all 0.2s linear;
-      background: $theme-deafult;
+      background: $theme-default;
     }
     &:before {
       right: 0;
@@ -2192,7 +2192,7 @@ header {
         a {
           color: $grey-link;
           &:hover {
-            color: $theme-deafult;
+            color: $theme-default;
           }
         }
       }
@@ -2218,9 +2218,9 @@ header {
       transition: all 0.5s ease;
     }
     &:hover {
-      background-color: lighten($theme-deafult, 35%);
+      background-color: lighten($theme-default, 35%);
       h4 {
-        color: $theme-deafult;
+        color: $theme-default;
         transition: all 0.5s ease;
       }
     }
@@ -2275,7 +2275,7 @@ header {
           padding-left: 7px;
           transition: all 0.5s ease;
           &:hover {
-            color: $theme-deafult;
+            color: $theme-default;
             transition: all 0.5s ease;
           }
         }
@@ -2300,7 +2300,7 @@ header {
           .live-demo,
           .details_product {
             width: 50%;
-            background-color: rgba($theme-deafult, 0.6);
+            background-color: rgba($theme-default, 0.6);
             color: white;
             display: flex;
             align-items: center;
@@ -2435,7 +2435,7 @@ header {
         padding: 10px;
         border-radius: 100%;
         transform: translate(-50%, -50%);
-        color: $theme-deafult;
+        color: $theme-default;
         font-size: 22px;
         display: none;
         transition: all 0.4s ease;
@@ -2459,7 +2459,7 @@ header {
         width: 100%;
         height: 100%;
         z-index: 1;
-        background-color: rgba($theme-deafult, 0.2);
+        background-color: rgba($theme-default, 0.2);
         transition: all 0.4s ease;
         i {
           display: flex;
@@ -2482,7 +2482,7 @@ header {
     border: none;
     background-color: white;
     &.active {
-      background-color: $theme-deafult;
+      background-color: $theme-default;
       color: $white;
     }
   }
@@ -2633,7 +2633,7 @@ header {
         text-align: center;
       }
       .lable1 {
-        background-color: $theme-deafult;
+        background-color: $theme-default;
         color: $white;
         border-bottom-left-radius: 25px;
         border-top-left-radius: 25px;
@@ -2692,7 +2692,7 @@ header {
         transition: all 0.2s ease;
         display: inline-block;
         &:hover {
-          color: $theme-deafult;
+          color: $theme-default;
           transition: all 0.2s ease;
         }
       }
@@ -2700,7 +2700,7 @@ header {
     .lable-block {
       .lable3 {
         border-radius: 100%;
-        background-color: $theme-deafult;
+        background-color: $theme-default;
         text-align: center;
         font-size: 14px;
         font-weight: 700;
@@ -2783,7 +2783,7 @@ header {
       padding-right: 10px;
       padding-left: 10px;
       &:hover {
-        color: $theme-deafult;
+        color: $theme-default;
       }
     }
   }
@@ -2863,11 +2863,11 @@ header {
       transition: all 0.2s ease;
       z-index: 1;
       i {
-        color: $theme-deafult;
+        color: $theme-default;
       }
       .btn-outline {
         transition: all 0.2s ease;
-        color: $theme-deafult;
+        color: $theme-default;
         &:hover {
           color: $white;
           i {
@@ -3096,7 +3096,7 @@ header {
     .tab-title2 {
       .current {
         a {
-          border-bottom: 2px solid $theme-deafult;
+          border-bottom: 2px solid $theme-default;
           padding-bottom: 5px;
         }
       }
@@ -3120,7 +3120,7 @@ header {
       }
     }
     .add-button {
-      background-color: $theme-deafult;
+      background-color: $theme-default;
       color: white;
       text-align: center;
       font-size: 18px;
@@ -3161,16 +3161,16 @@ header {
 .react-tabs__tab--selected {
   background: unset !important;
   border-color: transparent !important;
-  color: $theme-deafult !important;
+  color: $theme-default !important;
   border-radius: 0 !important;
   .nav-link {
-    color: $theme-deafult !important;
+    color: $theme-default !important;
   }
 }
 .tab-content {
   &.nav-material {
     .react-tabs__tab--selected {
-      border-bottom: 2px solid $theme-deafult !important;
+      border-bottom: 2px solid $theme-default !important;
     }
   }
 }
@@ -3270,7 +3270,7 @@ header {
     margin-top: -9px;
     .current {
       a {
-        color: $theme-deafult;
+        color: $theme-default;
       }
     }
     li {
@@ -3307,7 +3307,7 @@ header {
   }
 }
 .tab-bg {
-  background-color: lighten($theme-deafult, 37%);
+  background-color: lighten($theme-default, 37%);
   padding: 70px 50px 60px 50px;
   &.tab-grey-bg {
     background-color: $grey-lighter;
@@ -3353,7 +3353,7 @@ header {
         margin-top: 10px;
       }
       .color {
-        color: $theme-deafult;
+        color: $theme-default;
         line-height: 1;
       }
     }
@@ -3386,7 +3386,7 @@ header {
     h2 {
       font-size: 100px;
       font-weight: 700;
-      color: $theme-deafult;
+      color: $theme-default;
       text-transform: uppercase;
       margin-top: -15px;
     }
@@ -3486,7 +3486,7 @@ header {
       }
     }
     h4 {
-      color: $theme-deafult;
+      color: $theme-default;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -3518,7 +3518,7 @@ header {
           margin-bottom: 0;
         }
         h4 {
-          color: $theme-deafult;
+          color: $theme-default;
         }
       }
     }
@@ -3532,7 +3532,7 @@ header {
           color: $dark-font;
         }
         h4 {
-          color: $theme-deafult;
+          color: $theme-default;
         }
       }
     }
@@ -3568,7 +3568,7 @@ header {
       text-align: center;
       transition: all 0.5s ease;
       h3 {
-        color: $theme-deafult;
+        color: $theme-default;
         text-transform: capitalize;
         margin-top: -5px;
         font-weight: 700;
@@ -3854,7 +3854,7 @@ header {
 .ribbon-1 {
   width: 24px;
   height: 45px;
-  background: $theme-deafult;
+  background: $theme-default;
   top: -6px;
   left: 25px;
   position: absolute;
@@ -3862,7 +3862,7 @@ header {
   &:before {
     height: 0;
     width: 0;
-    border-bottom: 6px solid darken($theme-deafult, 20%);
+    border-bottom: 6px solid darken($theme-default, 20%);
     border-right: 6px solid transparent;
     right: -6px;
     content: '';
@@ -3871,8 +3871,8 @@ header {
   &:after {
     height: 0;
     width: 0;
-    border-left: 12px solid $theme-deafult;
-    border-right: 12px solid $theme-deafult;
+    border-left: 12px solid $theme-default;
+    border-right: 12px solid $theme-default;
     border-bottom: 12px solid transparent;
     bottom: -11px;
     left: 0;
@@ -3909,15 +3909,15 @@ header {
         padding: 15px;
         background-image: linear-gradient(
           135deg,
-          $theme-deafult 5.77%,
+          $theme-default 5.77%,
           $white 5.77%,
           $white 25%,
           $grey01 25%,
           $grey01 30.77%,
           $white 30.77%,
           $white 50%,
-          $theme-deafult 50%,
-          $theme-deafult 55.77%,
+          $theme-default 50%,
+          $theme-default 55.77%,
           $white 55.77%,
           $white 75%,
           $grey01 75%,
@@ -4077,7 +4077,7 @@ header {
                   font-weight: 700;
                   text-transform: capitalize;
                   a {
-                    color: $theme-deafult;
+                    color: $theme-default;
                   }
                 }
               }
@@ -4237,7 +4237,7 @@ header {
           }
           h6 {
             text-transform: uppercase;
-            color: $theme-deafult;
+            color: $theme-default;
             margin-bottom: 0;
           }
         }
@@ -4254,7 +4254,7 @@ header {
         }
       }
       &:hover {
-        background-color: $theme-deafult;
+        background-color: $theme-default;
         -webkit-box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
         box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
         z-index: 10;
@@ -4337,7 +4337,7 @@ header {
         height: 60px;
         width: 60px;
         border-radius: 100%;
-        background-color: $theme-deafult;
+        background-color: $theme-default;
         text-align: center;
         justify-content: center;
         align-items: center;
@@ -4404,7 +4404,7 @@ header {
   .product-box {
     .img-wrapper {
       .cart-info {
-        background-color: rgba($theme-deafult, 0.5);
+        background-color: rgba($theme-default, 0.5);
         padding: 10px;
         border: none;
         transform: perspective(500px) rotateX(90deg);
@@ -4581,7 +4581,7 @@ footer {
     }
     .sub-footer {
       &.black-subfooter {
-        background-color: $theme-deafult;
+        background-color: $theme-default;
       }
       p {
         padding: 15px 0;
@@ -4627,7 +4627,7 @@ footer {
     border-radius: 5px;
     i {
       font-size: 18px;
-      color: $theme-deafult;
+      color: $theme-default;
     }
   }
 }
@@ -4972,7 +4972,7 @@ footer {
           margin-bottom: 0;
         }
         h4 {
-          color: $theme-deafult;
+          color: $theme-default;
         }
       }
     }
@@ -5094,7 +5094,7 @@ footer {
   }
 }
 .btn-gradient {
-  background: $theme-deafult;
+  background: $theme-default;
   background: linear-gradient(180deg, #01effc 0%, $gradient2 99%);
   transition: background 300ms ease-in-out;
   background-size: 300% 100%;
@@ -5327,7 +5327,7 @@ footer {
 }
 .header-6 {
   .top-header {
-    background-color: $theme-deafult;
+    background-color: $theme-default;
     .header-contact {
       li {
         color: $white;
@@ -5384,7 +5384,7 @@ footer {
     border-radius: 5px;
     i {
       font-size: 18px;
-      color: $theme-deafult;
+      color: $theme-default;
     }
   }
 }
@@ -5401,7 +5401,7 @@ footer {
   .top-header {
     background-color: transparent;
     .container {
-      background-color: $theme-deafult;
+      background-color: $theme-default;
     }
     .header-contact {
       padding: 10px 0;
@@ -5430,7 +5430,7 @@ footer {
   }
   .logo-menu-part {
     background-color: #fff;
-    border-bottom: 2px solid $theme-deafult;
+    border-bottom: 2px solid $theme-default;
   }
   .main-menu {
     .menu-left {
@@ -5595,7 +5595,7 @@ footer {
           color: $grey2;
         }
         &:hover {
-          background-color: $theme-deafult;
+          background-color: $theme-default;
           transition: all 0.5s ease;
           i {
             color: $white;
@@ -5614,7 +5614,7 @@ footer {
           display: none;
         }
         &:hover {
-          background-color: $theme-deafult;
+          background-color: $theme-default;
           color: $white;
           transition: all 0.5s ease;
         }
@@ -5625,7 +5625,7 @@ footer {
       top: 50%;
       left: 50%;
       margin-top: -20px;
-      background-color: $theme-deafult;
+      background-color: $theme-default;
       border-radius: 100%;
       width: 40px;
       height: 40px;
@@ -5718,7 +5718,7 @@ footer {
       transform: rotate(-45deg);
       width: 100px;
       display: block;
-      background: $theme-deafult;
+      background: $theme-default;
       box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
       position: absolute;
       top: 19px;
@@ -5729,10 +5729,10 @@ footer {
         left: 0px;
         top: 100%;
         z-index: -1;
-        border-left: 3px solid $theme-deafult;
+        border-left: 3px solid $theme-default;
         border-right: 3px solid transparent;
         border-bottom: 3px solid transparent;
-        border-top: 3px solid $theme-deafult;
+        border-top: 3px solid $theme-default;
       }
       &:after {
         content: '';
@@ -5741,9 +5741,9 @@ footer {
         top: 100%;
         z-index: -1;
         border-left: 3px solid transparent;
-        border-right: 3px solid $theme-deafult;
+        border-right: 3px solid $theme-default;
         border-bottom: 3px solid transparent;
-        border-top: 3px solid $theme-deafult;
+        border-top: 3px solid $theme-default;
       }
     }
   }
@@ -5814,7 +5814,7 @@ footer {
 }
 .green-gradient {
   .top-header {
-    background: $theme-deafult;
+    background: $theme-default;
     background-image: linear-gradient(to right, $gradient1, $gradient2);
     .header-contact {
       padding: 10px 0;
@@ -5841,7 +5841,7 @@ footer {
   .pixelstrap {
     li {
       .lable-nav {
-        background: $theme-deafult;
+        background: $theme-default;
         background-image: linear-gradient(to right, $gradient1, $gradient2);
       }
     }
@@ -5977,7 +5977,7 @@ footer {
     svg {
       width: 50px;
       margin-bottom: 15px;
-      fill: $theme-deafult;
+      fill: $theme-default;
     }
   }
 }
@@ -6098,7 +6098,7 @@ footer {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-color: $theme-deafult;
+    background-color: $theme-default;
     top: -10px;
     display: flex;
     align-items: center;
@@ -6108,7 +6108,7 @@ footer {
       position: absolute;
       width: 0;
       height: 0;
-      border-bottom: 10px solid darken($theme-deafult, 30%);
+      border-bottom: 10px solid darken($theme-default, 30%);
       border-right: 10px solid transparent;
       top: 0;
       right: -10px;
@@ -6207,7 +6207,7 @@ footer {
     display: block;
     margin-bottom: 15px;
     i {
-      color: $theme-deafult;
+      color: $theme-default;
       padding-right: 5px;
       font-size: 23px;
     }
@@ -6253,7 +6253,7 @@ footer {
     color: $black;
     transition: 0.5s ease;
     &:hover {
-      color: $theme-deafult !important;
+      color: $theme-default !important;
       transition: 0.5s ease;
     }
   }
@@ -6292,7 +6292,7 @@ footer {
           content: '';
           height: 2px;
           width: 0;
-          background-color: $theme-deafult;
+          background-color: $theme-default;
           transition: 0.5s ease;
         }
       }
@@ -6318,7 +6318,7 @@ footer {
         line-height: 28px;
         a {
           &:hover {
-            color: $theme-deafult;
+            color: $theme-default;
             transition: all 0.5s ease;
           }
         }
@@ -6385,7 +6385,7 @@ footer {
       a {
         color: $grey-shade;
         &:hover {
-          color: $theme-deafult;
+          color: $theme-default;
           transition: all 0.5s ease;
         }
       }
@@ -6499,14 +6499,14 @@ footer {
           a {
             color: $grey-shade;
             &:hover {
-              color: $theme-deafult;
+              color: $theme-default;
               transition: all 0.5s ease;
             }
           }
         }
       }
       .subscribe-white {
-        background-color: lighten($theme-deafult, 10%);
+        background-color: lighten($theme-default, 10%);
         width: 100%;
         padding: 85px 65px;
         border-left: 20px solid $border-grey;
@@ -6537,7 +6537,7 @@ footer {
 }
 .cart-qty-cls {
   position: absolute;
-  background: $theme-deafult;
+  background: $theme-default;
   width: 20px;
   height: 20px;
   color: #fff;
@@ -6571,7 +6571,7 @@ footer {
     transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
-    background-color: $theme-deafult;
+    background-color: $theme-default;
     border-radius: 50%;
     &:after {
       content: '';
@@ -6619,7 +6619,7 @@ footer {
   display: none;
   color: #fff;
   text-align: center;
-  background: $theme-deafult;
+  background: $theme-default;
   border: none;
   font-size: 22px;
   padding: 7px;
@@ -6894,7 +6894,7 @@ footer {
     border-bottom: 1px solid #efefef;
     .setting_buttons {
       .setting_btn {
-        background-color: $theme-deafult;
+        background-color: $theme-default;
         color: white;
         width: 100%;
       }
@@ -6971,7 +6971,7 @@ footer {
 .demo-section {
   .title-text {
     h3 {
-      color: $theme-deafult;
+      color: $theme-default;
       margin-bottom: 24px;
       display: inline-block;
       padding-bottom: 5px;
@@ -7026,11 +7026,11 @@ footer {
             border: 1px solid #ddd;
             background-color: white;
             width: 90px;
-            color: $theme-deafult;
+            color: $theme-default;
             padding: 5px 10px;
             border-radius: 30px;
             &:hover {
-              background-color: $theme-deafult;
+              background-color: $theme-default;
               color: white;
             }
           }
@@ -7133,7 +7133,7 @@ footer {
         margin-left: 5px;
       }
       &:hover {
-        color: $theme-deafult;
+        color: $theme-default;
       }
     }
   }
@@ -7231,7 +7231,7 @@ footer {
   display: flex;
   height: 100%;
   h2 {
-    color: $theme-deafult;
+    color: $theme-default;
     margin-bottom: 0;
   }
 }
@@ -7268,7 +7268,7 @@ footer {
       }
       h5 {
         font-weight: 700;
-        color: $theme-deafult;
+        color: $theme-default;
         margin-bottom: 0;
         margin-top: 7px;
       }
@@ -7336,7 +7336,7 @@ footer {
     text-align: center;
   }
   h4 {
-    color: $theme-deafult;
+    color: $theme-default;
     font-weight: 700;
     margin-top: 15px;
     margin-bottom: 5px;
@@ -7365,7 +7365,7 @@ footer {
         height: 40px;
         width: 40px;
         path {
-          fill: $theme-deafult;
+          fill: $theme-default;
         }
       }
       .media-body {
@@ -7851,7 +7851,7 @@ footer {
     }
     .page-item.active {
       a {
-        color: $theme-deafult;
+        color: $theme-default;
         background-color: $white;
         border-color: lighten($black, 86.5%);
       }
@@ -7953,7 +7953,7 @@ footer {
           }
           &:hover {
             text-decoration: none;
-            color: $theme-deafult;
+            color: $theme-default;
             transition: all 0.3s ease;
           }
         }
@@ -8266,7 +8266,7 @@ footer {
           }
         }
         .td-color {
-          color: $theme-deafult;
+          color: $theme-default;
         }
         h2 {
           font-size: 24px;
@@ -8487,7 +8487,7 @@ footer {
       .popular-blog {
         li {
           .blog-date {
-            background-color: $theme-deafult;
+            background-color: $theme-default;
             height: 70px;
             width: 70px;
             margin: 0 15px 0 0;
@@ -8523,7 +8523,7 @@ footer {
       justify-content: center;
       display: flex;
       h6 {
-        color: $theme-deafult;
+        color: $theme-default;
         text-transform: uppercase;
         margin-bottom: 10px;
         margin-top: -3px;
@@ -8581,7 +8581,7 @@ footer {
   }
 }
 .instock-cls {
-  color: $theme-deafult;
+  color: $theme-default;
   font-weight: 700;
 }
 .product-slick,
@@ -8749,7 +8749,7 @@ footer {
     }
     span {
       padding-left: 5px;
-      color: $theme-deafult;
+      color: $theme-default;
     }
   }
   .color-variant {
@@ -8832,7 +8832,7 @@ footer {
             font-size: 18px;
           }
           &:hover {
-            color: $theme-deafult;
+            color: $theme-default;
           }
         }
         &:last-child {
@@ -8856,7 +8856,7 @@ footer {
       }
       &:hover {
         i {
-          color: $theme-deafult;
+          color: $theme-default;
           transition: all 0.5s ease;
         }
       }
@@ -9018,7 +9018,7 @@ footer {
           cursor: pointer;
         }
         .material-border {
-          border-bottom: 2px solid $theme-deafult;
+          border-bottom: 2px solid $theme-default;
           opacity: 0;
         }
       }
@@ -9057,7 +9057,7 @@ footer {
   }
   .title {
     padding-right: 45px;
-    color: $theme-deafult;
+    color: $theme-default;
     padding-bottom: 20px;
   }
   .theme-slider {
@@ -9117,12 +9117,12 @@ footer {
         box-shadow: 0 0 12px 0 $round-border;
         :hover {
           transition: all 0.3s ease;
-          color: $theme-deafult;
+          color: $theme-default;
         }
       }
     }
     .lbl-1 {
-      background-color: $theme-deafult;
+      background-color: $theme-default;
       padding: 2px 20px 2px 10px;
       display: inline-block;
       text-align: center;
@@ -9140,8 +9140,8 @@ footer {
         top: 0;
         width: 0;
         height: 0;
-        border-top: 12px solid $theme-deafult;
-        border-bottom: 13px solid $theme-deafult;
+        border-top: 12px solid $theme-default;
+        border-bottom: 13px solid $theme-default;
         border-right: 7px solid $white;
       }
     }
@@ -9196,7 +9196,7 @@ footer {
       .price {
         padding-bottom: 10px;
         font-size: 16px;
-        color: $theme-deafult;
+        color: $theme-default;
       }
     }
   }
@@ -9392,7 +9392,7 @@ footer {
         position: relative;
         font-size: 18px;
         line-height: 20px;
-        color: $theme-deafult;
+        color: $theme-default;
         font-weight: 400;
         width: 35%;
         float: right;
@@ -9427,7 +9427,7 @@ footer {
         position: relative;
         font-size: 18px;
         line-height: 20px;
-        color: $theme-deafult;
+        color: $theme-default;
         font-weight: 400;
       }
       span {
@@ -9566,9 +9566,9 @@ footer {
       display: flex;
       transition: all 0.5s ease;
       &.active {
-        color: $theme-deafult;
+        color: $theme-default;
         a {
-          color: $theme-deafult;
+          color: $theme-default;
         }
       }
       &:before {
@@ -9632,7 +9632,7 @@ footer {
   }
   .box {
     a {
-      color: $theme-deafult;
+      color: $theme-default;
     }
     h6 {
       margin-bottom: 0;
@@ -9654,7 +9654,7 @@ footer {
         position: absolute;
         right: 0;
         top: 12px;
-        color: $theme-deafult;
+        color: $theme-default;
       }
     }
     address {
@@ -9669,13 +9669,13 @@ footer {
     margin-bottom: 0;
   }
   a {
-    color: $theme-deafult;
+    color: $theme-default;
   }
 }
 .account-sidebar {
   display: none;
   cursor: pointer;
-  background-color: $theme-deafult;
+  background-color: $theme-default;
   color: $white;
   width: 30%;
   font-size: 16px;
@@ -12363,7 +12363,7 @@ body {
                   a {
                     color: $dark-link;
                     &:hover {
-                      color: $theme-deafult;
+                      color: $theme-default;
                     }
                   }
                 }
@@ -12545,7 +12545,7 @@ body {
       }
       .current {
         a {
-          color: $theme-deafult;
+          color: $theme-default;
         }
       }
     }
@@ -13189,7 +13189,7 @@ body {
       transition: all 0.3s ease;
       color: $white-5;
       &.active {
-        background-color: $theme-deafult;
+        background-color: $theme-default;
         transition: all 0.3s ease;
         color: $white;
       }
@@ -13556,7 +13556,7 @@ body {
         }
         .nav-link {
           &.active {
-            color: $theme-deafult;
+            color: $theme-default;
           }
         }
       }
@@ -13567,7 +13567,7 @@ body {
       &.nav-tabs {
         .nav-link {
           &.active {
-            color: $theme-deafult;
+            color: $theme-default;
           }
         }
       }
@@ -13678,7 +13678,7 @@ body {
       }
       &:hover {
         h4 {
-          color: $theme-deafult;
+          color: $theme-default;
         }
       }
     }
@@ -13969,15 +13969,15 @@ body {
         .modal-body {
           background-image: linear-gradient(
             135deg,
-            $theme-deafult 5.77%,
+            $theme-default 5.77%,
             $dark-top 5.77%,
             $dark-top 25%,
             $white-1 25%,
             $white-1 30.77%,
             $dark-top 30.77%,
             $dark-top 50%,
-            $theme-deafult 50%,
-            $theme-deafult 55.77%,
+            $theme-default 50%,
+            $theme-default 55.77%,
             $dark-top 55.77%,
             $dark-top 75%,
             $white-1 75%,
@@ -14115,7 +14115,7 @@ body {
         a {
           color: $dark-link;
           &:hover {
-            color: $theme-deafult;
+            color: $theme-default;
           }
         }
       }

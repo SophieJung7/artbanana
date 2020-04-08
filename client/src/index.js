@@ -10,6 +10,7 @@ import './css/bootstrap/bootstrap.min.css';
 import './css/main.css';
 import './css/font-awesome.css';
 import './css/other-company.css';
+import './css/about-us.css';
 
 // Translation File
 import translations from './translations/translations';

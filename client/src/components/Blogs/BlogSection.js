@@ -13,7 +13,7 @@ const blogs = [
     dates: '2020년 3월 10일',
     title: '허니문 스냅의 모든 것',
     writer: '에밀리',
-    photoSrc: '/images/couple-lake.jpg',
+    photoSrc: '/images/photographer.jpg',
     link: '/blog/4569'
   },
   {

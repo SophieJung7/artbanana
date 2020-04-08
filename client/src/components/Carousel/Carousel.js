@@ -8,7 +8,7 @@ const Carousel = () => {
         <div className='col'>
           <div className='title1'>
             <h4>Review</h4>
-            <h2 className='title-inner1'>캣스냅 후기</h2>
+            <h2 className='title-inner1'>인터뷰온 합격후기</h2>
             <hr role='tournament6' />
           </div>
         </div>

@@ -11,6 +11,7 @@ import SignUp from './SignUp/SignUp';
 import MyPage from './MyPage/MyPage';
 import ChangePassword from './SignIn/ChangePassword';
 import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
+import Professional from './ProList/Professional';
 
 class App extends Component {
   componentDidMount() {
@@ -33,6 +34,7 @@ class App extends Component {
               path='/change-password/success'
               component={ChangePasswordSuccess}
             />
+            <Route exact path='/pro/sophie' component={Professional} />
           </div>
           <Footer />
         </Router>
