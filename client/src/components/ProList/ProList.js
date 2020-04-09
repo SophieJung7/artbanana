@@ -75,7 +75,7 @@ const renderPros = () => {
               </li>
             </ul>
 
-            <Link to='/' className='btn btn-outline'>
+            <Link to={`/pro/${photoName}`} className='btn btn-outline'>
               더 자세히보기
             </Link>
           </div>

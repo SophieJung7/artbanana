@@ -420,3 +420,115 @@ section {
     left: 0;
     height: 3rem;
     width: 100%; }
+
+.badge-transparent-light {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.badge-transparent-dark {
+  color: rgba(33, 37, 41, 0.5);
+  background-color: rgba(33, 37, 41, 0.8); }
+
+.badge-marketing {
+  padding: 0.5em 1em; }
+
+.badge-sm {
+  font-size: 0.75rem; }
+
+.badge-md {
+  font-size: 1rem; }
+
+.badge-lg {
+  font-size: 1.25rem; }
+
+.border-lg {
+  border-width: 0.25rem !important; }
+
+.border-top-lg {
+  border-top-width: 0.25rem !important; }
+
+.border-right-lg {
+  border-right-width: 0.25rem !important; }
+
+.border-bottom-lg {
+  border-bottom-width: 0.25rem !important; }
+
+.border-left-lg {
+  border-left-width: 0.25rem !important; }
+
+.border-primary {
+  border-color: #007bff !important; }
+
+.border-secondary {
+  border-color: #6c757d !important; }
+
+.border-success {
+  border-color: #28a745 !important; }
+
+.border-info {
+  border-color: #17a2b8 !important; }
+
+.border-warning {
+  border-color: #ffc107 !important; }
+
+.border-danger {
+  border-color: #dc3545 !important; }
+
+.border-light {
+  border-color: #f8f9fa !important; }
+
+.border-dark {
+  border-color: #343a40 !important; }
+
+.rounded-xl {
+  border-radius: 1rem !important; }
+
+.border-gray-100 {
+  border-color: #f8f9fa !important; }
+
+.border-gray-200 {
+  border-color: #e9ecef !important; }
+
+.border-gray-300 {
+  border-color: #dee2e6 !important; }
+
+.border-gray-400 {
+  border-color: #ced4da !important; }
+
+.border-gray-500 {
+  border-color: #adb5bd !important; }
+
+.border-gray-600 {
+  border-color: #6c757d !important; }
+
+.border-gray-700 {
+  border-color: #495057 !important; }
+
+.border-gray-800 {
+  border-color: #343a40 !important; }
+
+.border-gray-900 {
+  border-color: #212529 !important; }
+
+.lift {
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 37, 41, 0.15);
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  .lift:hover {
+    transform: translateY(-0.33333rem);
+    box-shadow: 0 0.5rem 2rem 0 rgba(33, 37, 41, 0.25); }
+  .lift:active {
+    transform: none;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 37, 41, 0.15); }
+
+.lift-sm {
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(33, 37, 41, 0.2); }
+  .lift-sm:hover {
+    transform: translateY(-0.16667rem);
+    box-shadow: 0 0.25rem 1rem 0 rgba(33, 37, 41, 0.25); }
+  .lift-sm:active {
+    transform: none;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(33, 37, 41, 0.2); }
+
+.card.lift {
+  text-decoration: none;
+  color: inherit; }

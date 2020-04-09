@@ -223,3 +223,163 @@ section {
     width: 100%;
   }
 }
+
+// Badges
+
+.badge-transparent-light {
+  color: fade-out($white, 0.5);
+  background-color: fade-out($black, 0.9);
+}
+
+.badge-transparent-dark {
+  color: fade-out($gray-900, 0.5);
+  background-color: fade-out($gray-900, 0.2);
+}
+
+.badge-marketing {
+  padding: 0.5em 1em;
+}
+
+.badge-sm {
+  font-size: 0.75rem;
+}
+.badge-md {
+  font-size: 1rem;
+}
+.badge-lg {
+  font-size: 1.25rem;
+}
+
+// Bootstrap components overrides
+//
+// define/redefine common padding and border radius sizes and more.
+
+$border-width: 1px;
+$border-color: $gray-200;
+
+$border-radius: 0.35rem;
+$border-radius-lg: 0.5rem;
+$border-radius-sm: 0.25rem;
+
+$border-radius-xl: 1rem;
+
+// Custom border width variable
+$border-width-lg: 0.25rem;
+
+$box-shadow-sm: 0 0.125rem 0.25rem 0 rgba($gray-900, 0.2);
+$box-shadow: 0 0.15rem 1.75rem 0 rgba($gray-900, 0.15);
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175);
+
+$transition-collapse: height 0.15s ease;
+
+// Custom box shadow variables
+$box-shadow-right-sm: 0.125rem 0 0.25rem 0 rgba($gray-900, 0.15);
+$box-shadow-right: 0.15rem 0 1.75rem 0 rgba($gray-900, 0.15);
+$box-shadow-right-lg: 1rem 0 3rem 0 rgba($gray-900, 0.15);
+
+$box-shadow-left-sm: -0.125rem 0 0.25rem 0 rgba($gray-900, 0.15);
+$box-shadow-left: -0.15rem 0 1.75rem 0 rgba($gray-900, 0.15);
+$box-shadow-left-lg: -1rem 0 3rem 0 rgba($gray-900, 0.15);
+
+// Box shadow lift utilities
+$box-shadow-lift-sm: 0 0.25rem 1rem 0 rgba($gray-900, 0.25);
+$box-shadow-lift: 0 0.5rem 2rem 0 rgba($gray-900, 0.25);
+$box-shadow-lift-lg: 0 1rem 2rem 0 rgba($gray-900, 0.25);
+
+// Border Large - Custom utility
+
+.border-lg {
+  border-width: $border-width-lg !important;
+}
+.border-top-lg {
+  border-top-width: $border-width-lg !important;
+}
+.border-right-lg {
+  border-right-width: $border-width-lg !important;
+}
+.border-bottom-lg {
+  border-bottom-width: $border-width-lg !important;
+}
+.border-left-lg {
+  border-left-width: $border-width-lg !important;
+}
+
+// Rebuild border after adding large borders
+@each $color, $value in $theme-colors {
+  .border-#{$color} {
+    border-color: $value !important;
+  }
+}
+
+// Border Radius
+.rounded-xl {
+  border-radius: $border-radius-xl !important;
+}
+
+// Grayscale Border Colors
+
+.border-gray-100 {
+  border-color: $gray-100 !important;
+}
+
+.border-gray-200 {
+  border-color: $gray-200 !important;
+}
+
+.border-gray-300 {
+  border-color: $gray-300 !important;
+}
+
+.border-gray-400 {
+  border-color: $gray-400 !important;
+}
+
+.border-gray-500 {
+  border-color: $gray-500 !important;
+}
+
+.border-gray-600 {
+  border-color: $gray-600 !important;
+}
+
+.border-gray-700 {
+  border-color: $gray-700 !important;
+}
+
+.border-gray-800 {
+  border-color: $gray-800 !important;
+}
+
+.border-gray-900 {
+  border-color: $gray-900 !important;
+}
+
+.lift {
+  box-shadow: $box-shadow;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    transform: translateY(-$spacer / 3);
+    box-shadow: $box-shadow-lift;
+  }
+  &:active {
+    transform: none;
+    box-shadow: $box-shadow;
+  }
+}
+
+.lift-sm {
+  box-shadow: $box-shadow-sm;
+  &:hover {
+    transform: translateY(-$spacer / 6);
+    box-shadow: $box-shadow-lift-sm;
+  }
+  &:active {
+    transform: none;
+    box-shadow: $box-shadow-sm;
+  }
+}
+
+.card.lift {
+  text-decoration: none;
+  color: inherit;
+}

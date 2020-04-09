@@ -20,6 +20,21 @@ class Landing extends Component {
         <div id='our-service'>
           <OurService />
         </div>
+        <div className='d-flex justify-content-center mt-5'>
+          <a
+            href='#prolist'
+            to='/'
+            className='btn btn-solid mt-5'
+            style={{
+              fontSize: '1.2rem',
+              border: 'none',
+              backgroundImage:
+                'linear-gradient(50deg, #ff73ca 50%, transparent 50%)',
+            }}
+          >
+            영어면접 전문가 살펴보기
+          </a>
+        </div>
         <div>
           <WhyUs />
         </div>
@@ -28,9 +43,6 @@ class Landing extends Component {
         </div>
         <div className='mb-5'>
           <Review />
-        </div>
-        <div>
-          <Subscribe className='mb-5' />
         </div>
       </div>
     );
