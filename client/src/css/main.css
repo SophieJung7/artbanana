@@ -9,7 +9,34 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 0.87rem; }
+  font-size: 0.87rem;
+  -ms-overflow-style: scrollbar;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: scroll;
+  overflow-x: hidden; }
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */ }
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000; }
+
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  -ms-overflow-style: scrollbar; }
+
+textarea {
+  overflow: auto;
+  resize: vertical; }
 
 body {
   /* For power of inheritance, we specify in the body */
@@ -54,12 +81,12 @@ input :active {
   color: #212121; }
 
 .bg-login-image {
-  background: url("../assets/photos/login-couple.jpg");
+  background: url("../assets/photos/follow-dream.jpg");
   background-position: center;
   background-size: cover; }
 
 .bg-signup-image {
-  background: url("../assets/photos/login-couple.jpg");
+  background: url("../assets/photos/follow-dream.jpg");
   background-position: center;
   background-size: cover; }
 
@@ -201,29 +228,36 @@ header.masthead {
 
 @media (max-width: 576px) {
   header.masthead {
-    background-image: url("../assets/photos/login-couple.jpg");
+    background-image: url("../assets/photos/top.jpg");
     color: black; }
     header.masthead .intro-text-bg {
-      font-size: 2rem;
+      font-size: 1.3rem;
       color: black; }
     header.masthead .intro-text-sm {
       font-size: 1rem;
+      text-align: left;
       letter-spacing: 0.1rem;
       color: black; } }
 
+ul li a.search-link {
+  color: black !important; }
+  @media (max-width: 577px) {
+    ul li a.search-link {
+      color: white !important; } }
+
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-setting {
-    top: 92% !important;
+    bottom: 20px;
     right: 29% !important;
     font-size: 1rem !important;
     color: white; } }
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-search {
-    top: 92% !important;
-    right: 83% !important;
+    bottom: 20px;
+    right: 66% !important;
     font-size: 1rem !important;
-    color: white; } }
+    color: white !important; } }
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-globe {
@@ -238,7 +272,7 @@ header.masthead {
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-person {
-    right: 47% !important; } }
+    right: 33% !important; } }
 
 .small-slider .home-slider .home .slider-contain .photo-section {
   margin: 0 30% !important; }

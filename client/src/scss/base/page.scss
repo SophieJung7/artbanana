@@ -1,3 +1,11 @@
+$black: #000 !default;
+// Color Preset
+$color-yellow: #ffc107;
+$color-black: #212121;
+$color-dark-grey: #757575;
+$color-light-grey: #bdbdbd;
+$color-purple: #e040fb;
+
 *,
 *::after,
 *::before {
@@ -9,6 +17,40 @@
 
 html {
   font-size: 0.87rem;
+  -ms-overflow-style: scrollbar; // 5
+  -webkit-text-size-adjust: 100%; // 4
+  -ms-text-size-adjust: 100%; // 4
+  -ms-overflow-style: scrollbar; // 5
+  -webkit-tap-highlight-color: rgba($black, 0); // 6
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+
+pre {
+  // Remove browser default top marginc
+  margin-top: 0;
+  // Reset browser default of `1em` to use `rem`s
+  margin-bottom: 1rem;
+  // Don't allow content to break outside
+  overflow: auto;
+  // We have @viewport set which causes scrollbars to overlap content in IE11 and Edge, so
+  // we force a non-overlapping, non-auto-hiding scrollbar to counteract.
+  -ms-overflow-style: scrollbar;
+}
+
+textarea {
+  overflow: auto; // Remove the default vertical scrollbar in IE.
+  // Textareas should really only resize vertically so they don't break their (horizontal) containers.
+  resize: vertical;
 }
 
 // 아래가 더 나음. 10px 이 기본값이 되기 때문에.
@@ -76,13 +118,13 @@ input {
 }
 
 .bg-login-image {
-  background: url('../assets/photos/login-couple.jpg');
+  background: url('../assets/photos/follow-dream.jpg');
   background-position: center;
   background-size: cover;
 }
 
 .bg-signup-image {
-  background: url('../assets/photos/login-couple.jpg');
+  background: url('../assets/photos/follow-dream.jpg');
   background-position: center;
   background-size: cover;
 }

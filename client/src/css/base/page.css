@@ -1,0 +1,89 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* Makes all the box-sizing get inherited from parents */
+  box-sizing: inherit; }
+
+html {
+  font-size: 0.87rem;
+  -ms-overflow-style: scrollbar;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: scroll;
+  overflow-x: hidden; }
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */ }
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000; }
+
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  -ms-overflow-style: scrollbar; }
+
+textarea {
+  overflow: auto;
+  resize: vertical; }
+
+body {
+  /* For power of inheritance, we specify in the body */
+  /* Lato and if its not available, sans-serif */
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* Line-height is 1.7times bigger than the pre-defined line height.*/
+  line-height: 1.7;
+  color: #212121;
+  /* change the box model so that the borders and the paddings are not added to the height and width of the box. */
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none !important; }
+  a:hover {
+    color: #212121; }
+
+input:focus,
+input :hover,
+input :active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #212121;
+  text-decoration: none; }
+
+.small-text {
+  font-size: 0.8rem;
+  color: #757575; }
+
+.make-link-black {
+  color: #212121; }
+
+.landing-titles {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-weight: 600; }
+
+.catcnap-logo-text {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #212121; }
+
+.bg-login-image {
+  background: url("../assets/photos/follow-dream.jpg");
+  background-position: center;
+  background-size: cover; }
+
+.bg-signup-image {
+  background: url("../assets/photos/follow-dream.jpg");
+  background-position: center;
+  background-size: cover; }

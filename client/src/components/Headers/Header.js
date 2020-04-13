@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import * as actions from '../../actions';
 
 // React-icons
-import { IoIosSearch, IoMdPerson, IoMdBasket, IoMdHeart } from 'react-icons/io';
+import { IoIosSearch, IoMdPerson } from 'react-icons/io';
 import { FaKiwiBird } from 'react-icons/fa';
 
 class Header extends Component {
@@ -42,12 +43,12 @@ class Header extends Component {
         return (
           <ul>
             <li>
-              <Link to='/signin' className='nav-link make-link-black'>
+              <Link to="/signin" className="nav-link make-link-black">
                 로그인
               </Link>
             </li>
             <li>
-              <Link to='/signup' className='btn btn-solid px-4'>
+              <Link to="/signup" className="btn btn-solid px-4">
                 화원가입
               </Link>
             </li>
@@ -58,12 +59,12 @@ class Header extends Component {
         return (
           <ul>
             <li>
-              <Link to='/mypage' className='nav-link make-link-black'>
+              <Link to="/mypage" className="nav-link make-link-black">
                 마이페이지
               </Link>
             </li>
             <li>
-              <Link to='/change-password' className='nav-link make-link-black'>
+              <Link to="/change-password" className="nav-link make-link-black">
                 비밀번호변경
               </Link>
             </li>
@@ -71,7 +72,7 @@ class Header extends Component {
               <a
                 href={null}
                 onClick={this.props.signOut}
-                className='nav-link make-link-black'
+                className="nav-link make-link-black"
               >
                 로그아웃
               </a>
@@ -103,57 +104,56 @@ class Header extends Component {
     return (
       <div>
         <header
-          id='sticky'
-          className='sticky'
+          id="sticky"
+          className="sticky"
           style={{ backgroundColor: '#1cdffe' }}
         >
-          <div className='mobile-fix-option'></div>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-sm-12'>
-                <div className='main-menu' style={{ height: '9vh' }}>
-                  <div className='menu-left'>
+          <div className="mobile-fix-option"></div>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="main-menu" style={{ height: '9vh' }}>
+                  <div className="menu-left">
                     {/* <div className='brand-logo'>CatSnap</div> */}
-                    <Link to='/'>
+                    <Link to="/">
                       <div
-                        className='d-flex align-items-center'
+                        className="d-flex align-items-center"
                         style={{ paddingTop: '2vh', paddingBottom: '2vh' }}
                       >
                         <FaKiwiBird
-                          className='d-inline mr-2'
+                          className="d-inline mr-2"
                           style={{ fontSize: '2rem', color: 'black' }}
                         />
-                        <div className='d-inline catcnap-logo-text mt-1'>
+                        <div className="d-inline catcnap-logo-text mt-1">
                           Interview
-                          <div className='d-inline' style={{ color: 'black' }}>
+                          <div className="d-inline" style={{ color: 'black' }}>
                             On
                           </div>
                         </div>
                       </div>
                     </Link>
                   </div>
-                  <div className='menu-right pull-right'>
+                  <div className="menu-right pull-right">
                     {/*Top Navigation Bar Component*/}
                     <div>
-                      <div className='icon-nav'>
+                      <div className="icon-nav">
                         <ul>
                           {/* SEARCH */}
-                          <li className='onhover-div mobile-search'>
-                            <div>
+                          <li className="onhover-div mobile-search">
+                            <HashLink to="/#prolist" className="search-link">
                               <IoIosSearch
-                                onClick={this.openSearch}
                                 style={{ width: '2em', height: '2em' }}
                               />
-                            </div>
+                            </HashLink>
                           </li>
                           {/* SIGN IN */}
-                          <li className='onhover-div mobile-setting mobile-person'>
+                          <li className="onhover-div mobile-setting mobile-person">
                             <div>
                               <IoMdPerson
                                 style={{ width: '2em', height: '2em' }}
                               />
                             </div>
-                            <div className='show-div setting'>
+                            <div className="show-div setting">
                               {this.renderAuth()}
                             </div>
                           </li>
@@ -166,30 +166,30 @@ class Header extends Component {
             </div>
           </div>
         </header>
-        <div id='search-overlay' className='search-overlay'>
+        <div id="search-overlay" className="search-overlay">
           <div>
             <span
-              className='closebtn'
+              className="closebtn"
               onClick={this.closeSearch}
-              title='Close Overlay'
+              title="Close Overlay"
             >
               ×
             </span>
-            <div className='overlay-content'>
-              <div className='container'>
-                <div className='row'>
-                  <div className='col-xl-12'>
+            <div className="overlay-content">
+              <div className="container">
+                <div className="row">
+                  <div className="col-xl-12">
                     <form>
-                      <div className='form-group'>
+                      <div className="form-group">
                         <input
-                          type='text'
-                          className='form-control'
-                          id='exampleInputPassword1'
-                          placeholder='Search a Product'
+                          type="text"
+                          className="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Search a Product"
                         />
                       </div>
-                      <button type='submit' className='btn btn-primary'>
-                        <i className='fa fa-search'></i>
+                      <button type="submit" className="btn btn-primary">
+                        <i className="fa fa-search"></i>
                       </button>
                     </form>
                   </div>

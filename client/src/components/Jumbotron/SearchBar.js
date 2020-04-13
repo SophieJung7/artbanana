@@ -4,16 +4,16 @@ import { FaSearch } from 'react-icons/fa';
 class SearchBar extends Component {
   render() {
     return (
-      <div className='d-flex justify-content-center'>
-        <form className='form_search mt-3' role='form'>
+      <div className="d-flex justify-content-center">
+        <form className="form_search mt-3">
           <input
-            id='query search-autocomplete'
-            type='search'
-            placeholder='스냅사진을 원하는 지역을 검색해주세요.'
-            className='nav-search nav-search-field'
-            aria-expanded='true'
+            id="query search-autocomplete"
+            type="search"
+            placeholder="스냅사진을 원하는 지역을 검색해주세요."
+            className="nav-search nav-search-field"
+            aria-expanded="true"
           />
-          <button type='submit' name='nav-submit-button' className='btn-search'>
+          <button type="submit" name="nav-submit-button" className="btn-search">
             <FaSearch />
           </button>
         </form>

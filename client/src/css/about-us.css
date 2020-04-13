@@ -12,6 +12,12 @@
   background-size: cover;
 }
 
+@media (max-width: 577px) {
+  .showcase .showcase-img {
+    min-height: 18rem !important;
+  }
+}
+
 @media (min-width: 768px) {
   .showcase .showcase-text {
     padding: 7rem;

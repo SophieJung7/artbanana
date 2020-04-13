@@ -5,11 +5,12 @@ import Education from './Education';
 
 class Resume extends Component {
   render() {
+    const { experiences, educations, skills, reviews } = this.props;
     return (
       <div>
-        <Experiences />
-        <Education />
-        <Skills />
+        <Experiences experiences={experiences} reviews={reviews} />
+        <Education educations={educations} />
+        <Skills skills={skills} reviews={reviews} />
       </div>
     );
   }

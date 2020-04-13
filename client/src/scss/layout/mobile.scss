@@ -1,8 +1,19 @@
 // **** Mobile Version Fixed Footer Black **** //
 // For HEART Icon --> I know it is weird..
+
+ul {
+  li {
+    a.search-link {
+      color: black !important;
+      @media (max-width: 577px) {
+        color: white !important;
+      }
+    }
+  }
+}
 .main-menu .menu-right .icon-nav .mobile-setting {
   @media (max-width: 577px) {
-    top: 92% !important;
+    bottom: 20px;
     right: 29% !important;
     font-size: 1rem !important;
     color: white;
@@ -11,10 +22,10 @@
 
 .main-menu .menu-right .icon-nav .mobile-search {
   @media (max-width: 577px) {
-    top: 92% !important;
-    right: 83% !important;
+    bottom: 20px;
+    right: 66% !important;
     font-size: 1rem !important;
-    color: white;
+    color: white !important;
   }
 }
 
@@ -38,7 +49,9 @@
 
 .main-menu .menu-right .icon-nav .mobile-person {
   @media (max-width: 577px) {
-    right: 47% !important;
+    //   정중앙을 원한다면!
+    // right: 47% !important;
+    right: 33% !important;
   }
 }
 

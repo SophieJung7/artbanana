@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { FaRegCheckCircle, FaExclamation } from 'react-icons/fa';
 
 const products = [
@@ -34,48 +35,50 @@ const products = [
 
 class ProductList extends Component {
   renderProducts() {
-    return products.map(({ name, price, des1, des2, des3 }) => {
+    return products.map(({ name, price, des1, des2, des3 }, index) => {
       return (
-        <div className='col-lg-3 col-md-6 mb-5'>
-          <a
-            className='card lift border-bottom-lg border-red'
-            href='#!'
+        <div key={index} className="col-lg-3 col-md-6 mb-5">
+          <div
+            className="card lift border-bottom-lg border-red"
             style={{ borderBottomColor: '#4df6c0' }}
           >
-            <div className='card-body text-center'>
-              <div className='text-secondary'>1회 수업 이용권</div>
+            <div className="card-body text-center">
+              <div className="text-secondary">1회 수업 이용권</div>
               <div style={{ fontSize: '1.4rem' }}>95,000원</div>
             </div>
-            <ul class='fa-ul pricing-list mb-4' style={{ color: '#1cdffe' }}>
-              <li class='pricing-list-item'>
-                <span class='fa-li'>
+            <ul
+              className="fa-ul pricing-list mb-4"
+              style={{ color: '#1cdffe' }}
+            >
+              <li className="pricing-list-item">
+                <span className="fa-li">
                   <FaRegCheckCircle />
                 </span>
-                <span class='text-dark' style={{ fontSize: '1rem' }}>
+                <span className="text-dark" style={{ fontSize: '1rem' }}>
                   1회 수업(모의면접, 컨설팅)
                 </span>
               </li>
-              <li class='pricing-list-item'>
-                <span class='fa-li'>
+              <li className="pricing-list-item">
+                <span className="fa-li">
                   <FaRegCheckCircle />
                 </span>
-                <span class='text-dark' style={{ fontSize: '1rem' }}>
+                <span className="text-dark" style={{ fontSize: '1rem' }}>
                   면접스터디자료(PDF) 제공
                 </span>
               </li>
-              <li class='pricing-list-item'>
-                <span class='fa-li'>
+              <li className="pricing-list-item">
+                <span className="fa-li">
                   <FaRegCheckCircle />
                 </span>
-                <span class='text-dark' style={{ fontSize: '1rem' }}>
+                <span className="text-dark" style={{ fontSize: '1rem' }}>
                   수업 후 보강할 사항에 대한 개인 맞춤자료 작성 및 발송
                 </span>
               </li>
             </ul>
-            <div className='d-flex justify-content-center mb-5'>
-              <a
-                href='#product'
-                className='btn btn-solid'
+            <div className="d-flex justify-content-center mb-5">
+              <Link
+                to={`/sorry/type${index}`}
+                className="btn btn-solid"
                 style={{
                   fontSize: '1rem',
                   border: 'none',
@@ -84,29 +87,29 @@ class ProductList extends Component {
                 }}
               >
                 선생님 예약하기
-              </a>
+              </Link>
             </div>
-          </a>
+          </div>
         </div>
       );
     });
   }
   render() {
     return (
-      <div className='mt-5'>
-        <h2 className='mb-4' style={{ fontSize: '1.8rem' }}>
+      <div className="mt-5">
+        <h2 className="mb-4" style={{ fontSize: '1.8rem' }}>
           수업 가격
         </h2>
-        <div className='container' style={{ paddingLeft: '0' }}>
+        <div className="container" style={{ paddingLeft: '0' }}>
           <div>
             <FaExclamation />
-            <p className='d-inline' style={{ color: 'black' }}>
+            <p className="d-inline" style={{ color: 'black' }}>
               인터뷰온의 모든 수업은 1회에 1시간으로 운영되며, 30분 모의 면접/
               30분 컨설팅으로 구성됩니다.
             </p>
           </div>
         </div>
-        <div className='row mt-5' style={{ marginBottom: '0' }}>
+        <div className="row mt-5" style={{ marginBottom: '0' }}>
           {this.renderProducts()}
         </div>
       </div>

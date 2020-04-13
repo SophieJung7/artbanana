@@ -3,13 +3,13 @@ import CarouselSection from './CarouselSection';
 
 const Carousel = () => {
   return (
-    <div className='container'>
-      <div className='row'>
-        <div className='col'>
-          <div className='title1'>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <div className="title1">
             <h4>Review</h4>
-            <h2 className='title-inner1'>인터뷰온 합격후기</h2>
-            <hr role='tournament6' />
+            <h2 className="title-inner1">인터뷰온 합격후기</h2>
+            <hr />
           </div>
         </div>
       </div>

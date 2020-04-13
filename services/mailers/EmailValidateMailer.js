@@ -7,7 +7,7 @@ class EmailValidateMailer extends helper.Mail {
     super();
 
     this.sgApi = sendgrid(keys.sendgridAPI);
-    this.from_email = new helper.Email('cs@catsnap.co.kr');
+    this.from_email = new helper.Email('sophiecheong7@gmail.com');
     this.subject = '이메일주소 확인메일 드립니다 ^^!';
     this.body = new helper.Content('text/html', content);
     this.recipients = new helper.Email(username);
@@ -37,7 +37,7 @@ class EmailValidateMailer extends helper.Mail {
     const request = this.sgApi.emptyRequest({
       method: 'POST',
       path: '/v3/mail/send',
-      body: this.toJSON()
+      body: this.toJSON(),
     });
     const response = await this.sgApi.API(request);
     return response;

@@ -1394,7 +1394,7 @@
     margin-bottom: 12px;
   }
   h4 {
-    font-size: 16px;
+    font-size: 13px;
   }
   .blog-details {
     h4 {
@@ -3670,6 +3670,27 @@
 }
 
 @media (max-width: 577px) {
+  h3 {
+    font-size: 17px;
+  }
+
+  h5 {
+    font-size: 1.1rem !important;
+    font-weight: 400;
+    color: #555555;
+  }
+
+  .progress-bar {
+    font-size: 1rem;
+  }
+
+  .title1 {
+    .title-inner1 {
+      &:after {
+        width: 20rem !important;
+      }
+    }
+  }
   .portfolio-section {
     .isotopeSelector {
       margin-bottom: 15px;
@@ -4695,6 +4716,13 @@
 }
 
 @media (min-width: 577px) {
+  .title1 {
+    .title-inner1 {
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+  }
+
   .rtl {
     .onhover-dropdown {
       &:before {
@@ -5754,7 +5782,7 @@
     }
   }
   h2 {
-    font-size: 25px;
+    font-size: 18px;
   }
   .category-button {
     .col {

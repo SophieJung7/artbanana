@@ -3,6 +3,7 @@ import Introduction from './Introduction';
 import Resume from './Resume';
 import ProductList from './ProductList';
 import OurService from '../OurService/OurService';
+const pros = require('../ProList/professionals');
 
 class Professional extends Component {
   componentDidMount() {
@@ -10,16 +11,36 @@ class Professional extends Component {
   }
 
   render() {
+    const id = this.props.match.params.id;
+    const {
+      name,
+      photoName,
+      introduction,
+      experiences,
+      educations,
+      skills,
+      reviews,
+    } = pros[id];
+
     return (
-      <section class='py-5'>
-        <div class='container'>
-          <Introduction />
-          <Resume />
-          <hr class='my-4' />
-          <div id='product'>
+      <section className="py-5">
+        <div className="container">
+          <Introduction
+            name={name}
+            photoName={photoName}
+            introduction={introduction}
+          />
+          <Resume
+            experiences={experiences}
+            educations={educations}
+            skills={skills}
+            reviews={reviews}
+          />
+          <hr className="my-4" />
+          <div id="product">
             <ProductList />
           </div>
-          <div className='mb-5'>
+          <div className="mb-5">
             <OurService />
           </div>
         </div>

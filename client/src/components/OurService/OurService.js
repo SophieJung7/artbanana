@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { IoIosPerson } from 'react-icons/io';
 import { MdComputer } from 'react-icons/md';
 import { FaAngellist, FaFilePdf, FaRegCheckCircle } from 'react-icons/fa';
@@ -34,27 +33,27 @@ const process = [
 ];
 
 const renderProcess = () => {
-  return process.map(({ name, iconName, des1, des2 }) => {
+  return process.map(({ name, iconName, des1, des2 }, index) => {
     return (
-      <div class='col-lg-3 mb-5 mb-lg-0'>
-        <div class='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
+      <div key={index} className="col-lg-3 mb-5 mb-lg-0">
+        <div className="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4">
           {renderIcon(iconName)}
         </div>
-        <h3 className='text-dark'>{name}</h3>
-        <ul class='fa-ul pricing-list my-4' style={{ color: '#1cdffe' }}>
-          <li class='pricing-list-item' style={{ textAlign: 'left' }}>
-            <span class='fa-li'>
+        <h3 className="text-dark">{name}</h3>
+        <ul className="fa-ul pricing-list my-4" style={{ color: '#1cdffe' }}>
+          <li className="pricing-list-item" style={{ textAlign: 'left' }}>
+            <span className="fa-li">
               <FaRegCheckCircle />
             </span>
-            <span class='text-dark' style={{ fontSize: '1.1rem' }}>
+            <span className="text-dark" style={{ fontSize: '1.1rem' }}>
               {des1}
             </span>
           </li>
-          <li class='pricing-list-item mt-3' style={{ textAlign: 'left' }}>
-            <span class='fa-li'>
+          <li className="pricing-list-item mt-3" style={{ textAlign: 'left' }}>
+            <span className="fa-li">
               <FaRegCheckCircle />
             </span>
-            <span class='text-dark' style={{ fontSize: '1.1rem' }}>
+            <span className="text-dark" style={{ fontSize: '1.1rem' }}>
               {des2}
             </span>
           </li>
@@ -91,26 +90,26 @@ const renderIcon = (iconName) => {
 
 const OurService = () => {
   return (
-    <div className='container'>
+    <div className="container">
       <section
-        className='blog blog-2 section-b-space ratio3_2'
+        className="blog blog-2 section-b-space ratio3_2"
         style={{ paddingBottom: '0' }}
       >
-        <div className='container'>
-          <div className='row mt-5'>
-            <div className='col'>
-              <div className='title1'>
+        <div className="container">
+          <div className="row mt-sm-5">
+            <div className="col">
+              <div className="title1">
                 <h4>How It Works</h4>
-                <h2 className='title-inner1'>인터뷰온은 이렇게 진행됩니다.</h2>
-                <hr role='tournament6' />
+                <h2 className="title-inner1">인터뷰온은 이렇게 진행됩니다.</h2>
+                <hr />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class='bg-white py-10'>
-        <div class='container'>
-          <div class='row text-center'>{renderProcess()}</div>
+      <section className="bg-white py-10">
+        <div className="container">
+          <div className="row text-center">{renderProcess()}</div>
         </div>
       </section>
     </div>

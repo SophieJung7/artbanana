@@ -1,16 +1,22 @@
+ul li a.search-link {
+  color: black !important; }
+  @media (max-width: 577px) {
+    ul li a.search-link {
+      color: white !important; } }
+
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-setting {
-    top: 92% !important;
+    bottom: 20px;
     right: 29% !important;
     font-size: 1rem !important;
     color: white; } }
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-search {
-    top: 92% !important;
-    right: 83% !important;
+    bottom: 20px;
+    right: 66% !important;
     font-size: 1rem !important;
-    color: white; } }
+    color: white !important; } }
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-globe {
@@ -25,7 +31,7 @@
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-person {
-    right: 47% !important; } }
+    right: 33% !important; } }
 
 .small-slider .home-slider .home .slider-contain .photo-section {
   margin: 0 30% !important; }

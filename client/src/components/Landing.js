@@ -5,7 +5,6 @@ import OurService from './OurService/OurService';
 import WhyUs from './WhyUs/WhyUs';
 import ProList from './ProList/ProList';
 import Review from './Review/Review';
-import Subscribe from './Subscribe/Subscribe';
 
 class Landing extends Component {
   render() {
@@ -17,14 +16,14 @@ class Landing extends Component {
         <div>
           <AboutUs />
         </div>
-        <div id='our-service'>
+        <div id="our-service">
           <OurService />
         </div>
-        <div className='d-flex justify-content-center mt-5'>
+        <div className="d-flex justify-content-center mt-sm-5">
           <a
-            href='#prolist'
-            to='/'
-            className='btn btn-solid mt-5'
+            href="#prolist"
+            to="/"
+            className="btn btn-solid mt-sm-5"
             style={{
               fontSize: '1.2rem',
               border: 'none',
@@ -38,10 +37,10 @@ class Landing extends Component {
         <div>
           <WhyUs />
         </div>
-        <div id='prolist'>
+        <div id="prolist">
           <ProList />
         </div>
-        <div className='mb-5'>
+        <div className="mb-5">
           <Review />
         </div>
       </div>

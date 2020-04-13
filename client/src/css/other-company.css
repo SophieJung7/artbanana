@@ -70,7 +70,7 @@ h2 {
   color: #222222;
   text-transform: uppercase;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.3;
   letter-spacing: 0.02em; }
 
 h3 {
@@ -1056,36 +1056,6 @@ header {
   .home-slider .slick-prev:before,
   .center-slider .slick-prev:before {
     font-weight: 900; }
-
-.home-slider .home,
-.center-slider .home {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 75vh; }
-  .home-slider .home.home1,
-  .center-slider .home.home1 {
-    background-image: url("../assets/photos/home-banner/1.jpg"); }
-  .home-slider .home.home2,
-  .center-slider .home.home2 {
-    background-image: url("../assets/photos/home-banner/2.jpg"); }
-  .home-slider .home.home3,
-  .center-slider .home.home3 {
-    background-image: url("../assets/photos/home-banner/3.jpg"); }
-  .home-slider .home.home4,
-  .center-slider .home.home4 {
-    background-image: url("../assets/photos/home-banner/4.jpg"); }
-  .home-slider .home.home5,
-  .center-slider .home.home5 {
-    background-image: url("../assets/photos/home-banner/5.jpg"); }
-
-@media (max-width: 576px) {
-  .home-slider .home.home1,
-  .center-slider .home.home1 {
-    background-image: url("../assets/photos/home-banner/mobile/1.jpg"); }
-  .home-slider .home.home2,
-  .center-slider .home.home2 {
-    background-image: url("../assets/photos/home-banner/mobile/2.jpg"); } }
 
 .home-slider .slider-contain,
 .center-slider .slider-contain {
@@ -12220,7 +12190,7 @@ header .layout3-menu .main-navbar .nav-menu {
     margin-top: 12px;
     margin-bottom: 12px; }
   h4 {
-    font-size: 16px; }
+    font-size: 13px; }
   .blog-details h4 {
     margin-top: 17px;
     font-size: 13px; }
@@ -13264,6 +13234,16 @@ header .layout3-menu .main-navbar .nav-menu {
     border-color: #404040; } }
 
 @media (max-width: 577px) {
+  h3 {
+    font-size: 17px; }
+  h5 {
+    font-size: 1.1rem !important;
+    font-weight: 400;
+    color: #555555; }
+  .progress-bar {
+    font-size: 1rem; }
+  .title1 .title-inner1:after {
+    width: 20rem !important; }
   .portfolio-section .isotopeSelector {
     margin-bottom: 15px; }
   .portfolio-section .filter-button {
@@ -13758,6 +13738,9 @@ header .layout3-menu .main-navbar .nav-menu {
     background-color: rgba(0, 0, 0, 0.2); } }
 
 @media (min-width: 577px) {
+  .title1 .title-inner1 {
+    margin-bottom: 20px;
+    line-height: 1.3; }
   .rtl .onhover-dropdown:before {
     right: unset;
     left: 3px; }
@@ -14208,7 +14191,7 @@ header .layout3-menu .main-navbar .nav-menu {
     padding-top: 30px;
     padding-bottom: 30px; }
   h2 {
-    font-size: 25px; }
+    font-size: 18px; }
   .category-button .col {
     flex-basis: unset; }
   .footer-theme2 .subscribe-block {

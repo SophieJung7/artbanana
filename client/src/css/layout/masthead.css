@@ -18,12 +18,13 @@ header.masthead {
 
 @media (max-width: 576px) {
   header.masthead {
-    background-image: url("../assets/photos/login-couple.jpg");
+    background-image: url("../assets/photos/top.jpg");
     color: black; }
     header.masthead .intro-text-bg {
-      font-size: 2rem;
+      font-size: 1.3rem;
       color: black; }
     header.masthead .intro-text-sm {
       font-size: 1rem;
+      text-align: left;
       letter-spacing: 0.1rem;
       color: black; } }

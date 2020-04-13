@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { withTranslate } from 'react-redux-multilingual';
 import _ from 'lodash';
 import validateEmail from '../utils/validateEmail';
 import validatePassword from '../utils/validatePassword';
@@ -10,38 +9,32 @@ import SignUpFormField from './SignUpFormField';
 
 const FIELDS = [
   {
-    label: 'Email',
+    label: '이메일',
     name: 'username',
-    noValueError: 'Enter_your_email',
+    noValueError: '이메일 주소를 입력해주세요.',
     id: 'exampleInputEmail',
-    type: 'text'
+    type: 'text',
   },
   {
-    label: 'Password',
+    label: '비밀번호',
     name: 'password',
-    noValueError: 'Enter_your_password',
+    noValueError: '비밀번호를 입력해주세요.',
     id: 'exampleInputPassword',
-    type: 'password'
-  }
+    type: 'password',
+  },
 ];
 
 class SignUpForm extends Component {
-  translate = this.props.translate;
-
   renderFields() {
     return _.map(FIELDS, ({ label, name, id, noValueError, type }) => {
-      const translated_label = this.translate(label || 'Email');
-      const translated_noValueError = this.translate(
-        noValueError || 'Enter_your_email'
-      );
       return (
         <Field
-          className='form-control form-control-user'
+          className="form-control form-control-user"
           component={SignUpFormField}
           key={name}
-          label={translated_label}
+          label={label}
           name={name}
-          noValueError={translated_noValueError}
+          noValueError={noValueError}
           id={id}
           type={type}
         />
@@ -54,9 +47,9 @@ class SignUpForm extends Component {
       return (
         <small
           style={{ color: 'red', fontWeight: '500' }}
-          className='form-text mb-3'
+          className="form-text mb-3"
         >
-          {this.translate('Already_registered')}
+          이미 가입되어 있는 이메일주소 입니다.
         </small>
       );
     }
@@ -66,23 +59,28 @@ class SignUpForm extends Component {
   render() {
     return (
       <form
-        onSubmit={this.props.handleSubmit(values => this.props.signUp(values))}
+        onSubmit={this.props.handleSubmit((values) =>
+          this.props.signUp(values)
+        )}
       >
         {this.renderFields()}
         {this.showError()}
         <button
-          type='submit'
-          className='btn btn-user btn-block btn-yellow'
-          id='btn-yellow-id'
+          type="submit"
+          className="btn btn-user btn-block py-3"
+          id="btn-yellow-id"
+          style={{
+            backgroundColor: '#1cdffe',
+          }}
         >
-          {this.translate('Sign_up_with_email_verification')}
+          회원가입과 함께 이메일인증
         </button>
       </form>
     );
   }
 }
 
-const validate = values => {
+const validate = (values) => {
   const errors = {};
   // Validating Email form
   errors.username = validateEmail(values.username || '');
@@ -96,14 +94,11 @@ const validate = values => {
   return errors;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { authErrorCode: state.authErrorCode };
 };
 
-const wrappedComponent = connect(
-  mapStateToProps,
-  actions
-)(withTranslate(SignUpForm));
+const wrappedComponent = connect(mapStateToProps, actions)(SignUpForm);
 export default reduxForm({ validate: validate, form: 'signUpForm' })(
   wrappedComponent
 );
