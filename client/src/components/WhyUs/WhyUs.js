@@ -10,7 +10,7 @@ const WhyUs = () => {
               <div className="title1">
                 <h4>Perfect Practice Makes Perfect</h4>
                 <h2 className="title-inner1">
-                  인터뷰온면접은 스터디면접과는 차원이 다른 실전연습입니다.
+                  지독하게 준비하는 취준생들만 인터뷰온을 찾습니다.
                 </h2>
                 <hr />
               </div>
@@ -34,8 +34,8 @@ const WhyUs = () => {
         <div className="col-lg-6" data-aos="fade" data-aos-delay="100">
           <div className="testimonial p-5">
             <p className="testimonial-quote text-dark">
-              물론 면접스터디도 매우 좋은 공부입니다. <br />
-              하지만 면접스터디는 경험과 실력이 비슷한 집단으로 <br />
+              물론 영어면접 스터디도 매우 좋은 공부입니다. <br />
+              하지만 스터디는 경험과 실력이 비슷한 집단으로 <br />
               이루어진다는 한계가 있습니다.
             </p>
             <div className="testimonial-name">박재원</div>

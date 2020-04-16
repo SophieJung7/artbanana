@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaExclamation, FaAngleDoubleRight } from 'react-icons/fa';
+import ReviewBoard from '../ProPage/ReviewBoard';
+import { FaExclamation } from 'react-icons/fa';
 
 const pros = require('./professionals');
 
@@ -10,8 +11,8 @@ const renderPros = () => {
       {
         name,
         photoName,
-        job,
-        specialty,
+        reviewScore,
+        numberOfReviews,
         ex1_short,
         ex2_short,
         ex3_short,
@@ -29,44 +30,11 @@ const renderPros = () => {
                 alt=""
               />
             </div>
-            <h4>{name}</h4>
-            <h4
-              style={{
-                padding: '0',
-                lineHeight: '1.3',
-                textAlign: 'left',
-              }}
-            >
-              직무 <FaAngleDoubleRight />
-            </h4>
-            <p
-              style={{
-                lineHeight: '1.5',
-                fontSize: '0.95rem',
-                textAlign: 'left',
-              }}
-            >
-              {job}
-            </p>
-            <h4
-              className="mt-3"
-              style={{
-                padding: '0',
-                lineHeight: '1.3',
-                textAlign: 'left',
-              }}
-            >
-              전문분야 <FaAngleDoubleRight />
-            </h4>
-            <p
-              style={{
-                lineHeight: '1.5',
-                fontSize: '0.95rem',
-                textAlign: 'left',
-              }}
-            >
-              {specialty}
-            </p>
+            <h4 className="pb-1">{name}</h4>
+            <ReviewBoard
+              reviewScore={reviewScore}
+              numberOfReviews={numberOfReviews}
+            />
             <ul className="category-link" style={{ textAlign: 'left' }}>
               <li>
                 <p style={{ lineHeight: '1.5', fontSize: '0.95rem' }}>
@@ -109,7 +77,7 @@ const ProList = () => {
             <div className="title1">
               <h4>InterviewOn Professionals</h4>
               <h2 className="title-inner1">
-                인터뷰온의 현업프로들을 소개합니다.
+                인터뷰온의 영어면접 전문가들을 소개합니다.
               </h2>
               <hr />
             </div>
@@ -120,21 +88,8 @@ const ProList = () => {
         <div>
           <FaExclamation />
           <p className="d-inline" style={{ color: 'black' }}>
-            '현업프로'란 현업에 종사하는 인터뷰온의 모의면접관을 뜻합니다.
-          </p>
-        </div>
-        <div>
-          <FaExclamation />
-          <p className="d-inline" style={{ color: 'black' }}>
-            인터뷰온에서는 경력증빙을 통해 동 업무에서 5년이상 근무한
-            전문가들만을 현업프로로 선정합니다.
-          </p>
-        </div>
-        <div>
-          <FaExclamation />
-          <p className="d-inline" style={{ color: 'black' }}>
-            인터뷰온에서는 현업프로의 현직장 이해관계 및 프라이버시를 위해
-            현직장은 공개하지 않습니다.
+            인터뷰온의 영어면접 전문가들은 영어권 국가에서 5년 이상 근무 경험이
+            있는 원어민 수준의 실무경력자들만으로 구성됩니다.
           </p>
         </div>
       </div>

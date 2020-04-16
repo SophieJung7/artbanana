@@ -6,30 +6,30 @@ const products = [
   {
     name: '1회 수업 이용권',
     price: '95,000',
-    des1: '1회 수업(모의면접, 컨설팅)',
+    des1: '1회 수업(모의면접, 속성과외)',
     des2: '면접스터디자료(PDF) 제공',
     des3: '수업 후 보강할 사항에 대한 개인 맞춤자료 작성 및 발송',
   },
   {
-    name: '1회 수업 이용권',
-    price: '95,000',
-    des1: '1회 수업(모의면접, 컨설팅)',
+    name: '1개월 수업 이용권(30%할인)',
+    price: '266,000',
+    des1: '4회 수업(모의면접, 속성과외)',
     des2: '면접스터디자료(PDF) 제공',
     des3: '수업 후 보강할 사항에 대한 개인 맞춤자료 작성 및 발송',
   },
   {
-    name: '1회 수업 이용권',
-    price: '95,000',
-    des1: '1회 수업(모의면접, 컨설팅)',
+    name: '2개월 수업 이용권(40%할인)',
+    price: '456,000',
+    des1: '8회 수업(모의면접, 컨설팅)',
     des2: '면접스터디자료(PDF) 제공',
     des3: '수업 후 보강할 사항에 대한 개인 맞춤자료 작성 및 발송',
   },
   {
-    name: '1회 수업 이용권',
-    price: '95,000',
-    des1: '1회 수업(모의면접, 컨설팅)',
-    des2: '면접스터디자료(PDF) 제공',
-    des3: '수업 후 보강할 사항에 대한 개인 맞춤자료 작성 및 발송',
+    name: '영문 이력서 및 커버레터 컨설팅',
+    price: '155,000',
+    des1: '영문 이력서 및 커버레터 양식 제공',
+    des2: '작성한 자료 수정 및 번역',
+    des3: '보강할 사항에 대한 개인 맞춤자료 작성 및 발송',
   },
 ];
 
@@ -43,8 +43,8 @@ class ProductList extends Component {
             style={{ borderBottomColor: '#4df6c0' }}
           >
             <div className="card-body text-center">
-              <div className="text-secondary">1회 수업 이용권</div>
-              <div style={{ fontSize: '1.4rem' }}>95,000원</div>
+              <div className="text-secondary">{name}</div>
+              <div style={{ fontSize: '1.4rem' }}>{`${price} 원`}</div>
             </div>
             <ul
               className="fa-ul pricing-list mb-4"
@@ -55,7 +55,7 @@ class ProductList extends Component {
                   <FaRegCheckCircle />
                 </span>
                 <span className="text-dark" style={{ fontSize: '1rem' }}>
-                  1회 수업(모의면접, 컨설팅)
+                  {des1}
                 </span>
               </li>
               <li className="pricing-list-item">
@@ -63,7 +63,7 @@ class ProductList extends Component {
                   <FaRegCheckCircle />
                 </span>
                 <span className="text-dark" style={{ fontSize: '1rem' }}>
-                  면접스터디자료(PDF) 제공
+                  {des2}
                 </span>
               </li>
               <li className="pricing-list-item">
@@ -71,7 +71,7 @@ class ProductList extends Component {
                   <FaRegCheckCircle />
                 </span>
                 <span className="text-dark" style={{ fontSize: '1rem' }}>
-                  수업 후 보강할 사항에 대한 개인 맞춤자료 작성 및 발송
+                  {des3}
                 </span>
               </li>
             </ul>

@@ -24,7 +24,7 @@ class Experiences extends Component {
   }
 
   render() {
-    const { reviews } = this.props;
+    const { reviews, reviewScore, numberOfReviews } = this.props;
     return (
       <div>
         <div className="d-flex align-items-center justify-content-between">
@@ -33,7 +33,11 @@ class Experiences extends Component {
         <hr className="mb-4" />
         <div className="row">
           <div className="col-lg-7 col-xl-8">{this.renderExperiences()}</div>
-          <ReviewSideCard reviews={reviews} />
+          <ReviewSideCard
+            reviews={reviews}
+            reviewScore={reviewScore}
+            numberOfReviews={numberOfReviews}
+          />
         </div>
       </div>
     );

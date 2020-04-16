@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { IoIosStar } from 'react-icons/io';
 import { FaUserNinja, FaAngleDoubleRight } from 'react-icons/fa';
 
-const Reviews = require('./Reviews');
-
 class ReviewSideCard extends Component {
   state = {
     numberOfReviews: 3,
@@ -16,7 +14,7 @@ class ReviewSideCard extends Component {
 
   increaseReviews = () => {
     const { reviews } = this.props;
-    let reviewsShowing = [...this.state.reviewsShowing];
+    let reviewsShowing = [];
     let numberOfReviews = this.state.numberOfReviews + 3;
     this.setState(() => {
       return { numberOfReviews: numberOfReviews };

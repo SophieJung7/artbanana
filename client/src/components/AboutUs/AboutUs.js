@@ -1,5 +1,5 @@
 import React from 'react';
-import Interview from '../../assets/photos/interview.jpg';
+import Pain from '../../assets/photos/pain.jpg';
 
 const AboutUs = () => {
   return (
@@ -25,12 +25,12 @@ const AboutUs = () => {
         <div className="container-fluid p-0">
           <div className="row no-gutters">
             <img
-              src={Interview}
+              src={Pain}
               className="d-none d-sm-block col-lg-6 order-lg-2 text-white showcase-img"
               alt="interview"
             />
             <img
-              src={Interview}
+              src={Pain}
               className="d-block d-sm-none col-lg-6 order-lg-2 text-white showcase-img"
               alt="interview"
             />
@@ -40,12 +40,13 @@ const AboutUs = () => {
                 className="lead mt-4 mb-0"
                 style={{ fontSize: '1rem', lineHeight: '1.3' }}
               >
-                "Why do we have to hire you?" <br />
+                "Why should we hire you?" <br />
                 이 말을 듣는 순간 내 심장은 콩닥콩닥 뛰기 시작합니다. <br />
-                면접관들이 뭐라고 하는지는 전혀 들리지 않고 내 심장소리만
-                들립니다. 어느새 20분이라는 시간이 훌쩍 지났고, 난 무슨 일이
-                일어났는지도 모른채 장소를 떠납니다. <br />
-                이게 슬프지만, 대부분의 현실입니다.
+                "Because.." <br />
+                갑자기 나를 뚫어져라 쳐다보는 면접관이 고개를 갸우뚱합니다. 못
+                알아들은 걸까요? 내 발음이 이상한 걸까요? 내용이 별로인걸 까요?
+                이렇게 생각하고 있는 동안 이 회사와 나는 점점 멀어져만 갑니다.
+                이렇게 해서는 영어면접에 합격할 수 없습니다.
               </p>
               <div className="d-flex justify-content-center">
                 <a
@@ -73,10 +74,10 @@ const AboutUs = () => {
               style={{ paddingTop: '8%', backgroundColor: '#f8f9fa' }}
             >
               <h3 style={{ textAlign: 'center', color: 'black' }}>
-                면접에서 가장 중요하게 평가하는 요소
+                가장 부담스럽게 느껴지는 면접유형은?
               </h3>
               <h5 style={{ textAlign: 'right', fontSize: '1rem' }}>
-                기업 263개사 설문조사 [자료제공: 사람인]
+                취업준비생 3189명 조사 [자료제공: YBM 한국토익위원회]
               </h5>
               <div className="progress">
                 <div
@@ -86,7 +87,7 @@ const AboutUs = () => {
                   aria-valuemin="0"
                   aria-valuemax="100"
                 >
-                  입사의지 14.1%
+                  합숙면접 14.2%
                 </div>
               </div>
               <div className="progress">
@@ -97,7 +98,7 @@ const AboutUs = () => {
                   aria-valuemin="0"
                   aria-valuemax="100"
                 >
-                  성실성 25.5%
+                  토론면접 15.5%
                 </div>
               </div>
               <div className="progress">
@@ -112,20 +113,19 @@ const AboutUs = () => {
                   aria-valuemin="0"
                   aria-valuemax="100"
                 >
-                  직무수행능력 41.1%
+                  영어면접 47.7%
                 </div>
               </div>
             </div>
             <div className="col-lg-6 order-lg-1 showcase-text">
-              <h2>본인이 지원한 직무에 대해서 얼마나 알고 계신가요?</h2>
+              <h2>영어면접은 여러분의 무기가 될 수 있습니다!</h2>
               <p
                 className="lead mt-4 mb-0"
                 style={{ fontSize: '1rem', lineHeight: '1.3' }}
               >
-                대부분의 취준생들은 실무 경험이 없기 때문에 실무가 무엇인지를
-                전혀 모릅니다. 그리고 이걸 가르쳐 줄 사람도 마땅히 없습니다.
-                인터넷으로 대략 파악하는 방법 밖에는 없는데, '대략'으로는 본인의
-                경쟁력을 만들 수 없습니다.
+                대부분의 취준생들이 영어면접을 어려워합니다. 실력은 다
+                고만고만합니다. 따라서 여기서 점수를 따는 것은 합격으로 가는
+                지름길입니다. 키위스픽으로 편안하고 쉽게 영어면접을 준비하세요!
               </p>
               <div className="d-flex justify-content-center">
                 <a

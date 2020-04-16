@@ -15,6 +15,8 @@ class Professional extends Component {
     const {
       name,
       photoName,
+      reviewScore,
+      numberOfReviews,
       introduction,
       experiences,
       educations,
@@ -28,6 +30,8 @@ class Professional extends Component {
           <Introduction
             name={name}
             photoName={photoName}
+            reviewScore={reviewScore}
+            numberOfReviews={numberOfReviews}
             introduction={introduction}
           />
           <Resume
@@ -35,6 +39,8 @@ class Professional extends Component {
             educations={educations}
             skills={skills}
             reviews={reviews}
+            reviewScore={reviewScore}
+            numberOfReviews={numberOfReviews}
           />
           <hr className="my-4" />
           <div id="product">

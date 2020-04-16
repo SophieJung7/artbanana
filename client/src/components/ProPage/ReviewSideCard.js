@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { IoIosStar } from 'react-icons/io';
+import { IoIosStar, IoIosStarOutline } from 'react-icons/io';
 import { FaUserNinja, FaAngleDoubleRight } from 'react-icons/fa';
-
-const Reviews = require('./Reviews');
 
 class ReviewSideCard extends Component {
   state = {
@@ -16,13 +14,13 @@ class ReviewSideCard extends Component {
 
   increaseReviews = () => {
     const { reviews } = this.props;
-    let reviewsShowing = [...this.state.reviewsShowing];
+    let reviewsShowing = [];
     let numberOfReviews = this.state.numberOfReviews + 3;
     this.setState(() => {
       return { numberOfReviews: numberOfReviews };
     });
     for (var i = 0; i < this.state.numberOfReviews; i++) {
-      if (reviews[i]) {
+      if (reviews[i] && reviews[i].reviewScore === 5) {
         reviewsShowing.push(
           <div key={i} className="d-flex align-items-center mb-4">
             <div className="avatar avatar-lg">
@@ -59,20 +57,57 @@ class ReviewSideCard extends Component {
             </div>
           </div>
         );
-      } else {
-        return <div>더 이상 리뷰가 없습니다.</div>;
+      }
+      if (reviews[i] && reviews[i].reviewScore === 4) {
+        reviewsShowing.push(
+          <div key={i} className="d-flex align-items-center mb-4">
+            <div className="avatar avatar-lg">
+              <FaUserNinja
+                className="avatar-img"
+                style={{
+                  height: '5em',
+                  width: '5em',
+                  backgroundColor: '#f8f9fa',
+                  padding: '1.2rem',
+                }}
+              />
+            </div>
+            <div className="ml-3">
+              <div
+                style={{ color: '#ffce03', fontSize: '1.2rem' }}
+                className="mb-2 text-left d-inline"
+              >
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStarOutline />
+              </div>
+              <div className="text-dark">
+                <h6 className="mb-1" style={{ fontSize: '0.9rem' }}>
+                  {reviews[i].review}
+                </h6>
+              </div>
+              <div className="small text-gray-500">
+                by{' '}
+                <div className="d-inline text-gray-500">{reviews[i].name}</div>
+              </div>
+            </div>
+          </div>
+        );
       }
     }
     this.setState({ reviewsShowing: reviewsShowing });
   };
 
   render() {
+    const { reviewScore, numberOfReviews } = this.props;
     return (
       <div className="col-lg-5 col-xl-4 d-none d-sm-block">
         <div className="card">
           <div className="card-body">
             <h6 style={{ fontSize: '1.3rem' }}>리뷰</h6>
-            (평점 4.8, 리뷰수 22)
+            {`평점 ${reviewScore}, 리뷰수 ${numberOfReviews}`}
             <hr />
             {this.state.reviewsShowing}
             <button onClick={this.increaseReviews} style={{ border: 'none' }}>

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { IoIosStar, IoIosStarHalf } from 'react-icons/io';
-import sophie from '../../assets/photos/sophie.jpg';
+import ReviewBoard from './ReviewBoard';
 
 class Introduction extends Component {
   render() {
-    const { name, photoName, introduction } = this.props;
+    const {
+      name,
+      photoName,
+      introduction,
+      reviewScore,
+      numberOfReviews,
+    } = this.props;
 
     return (
       <div>
@@ -13,23 +18,16 @@ class Introduction extends Component {
             <div className="avatar avatar-xl mb-3">
               <img
                 className="avatar-img rounded-circle"
-                src={`/images/pros/${photoName}.jpg`}
+                src={require(`../../assets/photos/${photoName}.jpg`)}
                 alt="Sophie"
               />
             </div>
             <h2>{name}</h2>
             <div className="text-secondary">면접전문가</div>
-            <div
-              style={{ color: '#ffce03', fontSize: '1.5rem' }}
-              className="mb-2 text-left d-inline"
-            >
-              <IoIosStar />
-              <IoIosStar />
-              <IoIosStar />
-              <IoIosStar />
-              <IoIosStarHalf />
-            </div>
-            <div className="d-inline ml-1">(평점 4.8, 리뷰수 22)</div>
+            <ReviewBoard
+              reviewScore={reviewScore}
+              numberOfReviews={numberOfReviews}
+            />
           </div>
         </div>
         <hr className="mb-4" />
