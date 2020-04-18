@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class CompanyIntro extends Component {
   componentDidMount() {
@@ -29,11 +30,21 @@ class CompanyIntro extends Component {
                 }}
               >
                 면접에 대한 어려움을 해결하고자 십년전 취준생이었던 선배 세명이
-                모여 인터뷰온을 시작했습니다. 면접에 대한 두려움을 한방에
-                날려드리겠습니다. 회사에 대한 문의, 서비스에 대한 문의 등
-                저희에게 하시고 싶은 이야기가 있으시다면
-                sophiecheong7@gmail.com으로 메일주시기 바랍니다. 감사합니다!
+                모여 인터뷰온을 시작했습니다. 문의사항이 있으시면 언제든지
+                연락주시기 바랍니다. 감사합니다!
               </div>
+              <Link
+                to="/contactus"
+                className="btn btn-solid mt-5"
+                style={{
+                  fontSize: '1.2rem',
+                  border: 'none',
+                  backgroundImage:
+                    'linear-gradient(50deg, #ff73ca 50%, transparent 50%)',
+                }}
+              >
+                인터뷰온에 문의하기
+              </Link>
             </div>
           </div>
         </div>

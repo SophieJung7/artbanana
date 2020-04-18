@@ -40,16 +40,15 @@ class Footer extends Component {
                       </Link>
                     </div>
                     <p>
-                      인터뷰온은 모의면접을 주로 면접을 속성과외하는
-                      플랫폼입니다. 면접 속성과외를 통해 면접에 대한 두려움을
-                      확실히 날려드리겠습니다.
+                      인터뷰온에서는 대기업, 공기업, 외국계기업에서 5년 이상
+                      근무한 취업전문가들을 만나실 수 있습니다. 취업전문가들을
+                      통해 본인의 강점을 찾아내고 실무를 정확히 파악해 취업에
+                      성공하실 수 있다고 장담합니다. 취준생을 응원합니다!
                     </p>
                     <div className="mt-5">
-                      <Link to="/" className="btn btn-solid mb-3">
-                        카카오톡 1:1 채팅상담
+                      <Link to="/contactus" className="btn btn-solid mb-3">
+                        인터뷰온 상담하기
                       </Link>
-                      <p>영업시간: 11:00 - 22:00</p>
-                      <p>카카오톡 아이디: interviewon</p>
                     </div>
                   </div>
                 </div>

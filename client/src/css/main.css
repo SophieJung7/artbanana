@@ -239,6 +239,37 @@ header.masthead {
       letter-spacing: 0.1rem;
       color: black; } }
 
+header.masthead2 {
+  text-align: center;
+  background-image: url("../assets/photos/wall.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 40rem; }
+  header.masthead2 .intro-text-bg {
+    font-size: 3rem;
+    color: black; }
+  header.masthead2 .intro-text-sm {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: black; }
+
+@media (max-width: 576px) {
+  header.masthead2 {
+    background-image: url("../assets/photos/pink-wall.jpg");
+    color: black; }
+    header.masthead2 .intro-text-bg {
+      font-size: 1.3rem;
+      color: black; }
+    header.masthead2 .intro-text-sm {
+      font-size: 1rem;
+      text-align: left;
+      letter-spacing: 0.1rem;
+      color: black; } }
+
 ul li a.search-link {
   color: black !important; }
   @media (max-width: 577px) {

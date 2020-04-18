@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import Jumbotron from './Jumbotron/Jumbotron';
-import AboutUs from './AboutUs/AboutUs';
-import OurService from './OurService/OurService';
-import WhyUs from './WhyUs/WhyUs';
-import ProList from './ProList/ProList';
-import Review from './Review/Review';
-
+import Jumbotron from './KrInterview/Jumbotron/Jumbotron';
+import AboutUs from './KrInterview/AboutUs/AboutUs';
+import ResumeService from './KrInterview/OurService/ResumeService';
+import InterviewService from './KrInterview/OurService/InterviewService';
+import Products from './KrInterview/Products/Products';
+import JobEx from './KrInterview/WhyUs/JobEx';
+import WhyUs from './KrInterview/WhyUs/WhyUs';
+import ProList from './KrInterview/ProList/ProList';
+import Review from './KrInterview/Review/Review';
 class Landing extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>
@@ -15,32 +21,27 @@ class Landing extends Component {
         </div>
         <div>
           <AboutUs />
+          <JobEx />
         </div>
-        <div id="our-service">
-          <OurService />
-        </div>
-        <div className="d-flex justify-content-center mt-sm-5">
-          <a
-            href="#prolist"
-            to="/"
-            className="btn btn-solid mt-sm-5"
-            style={{
-              fontSize: '1.2rem',
-              border: 'none',
-              backgroundImage:
-                'linear-gradient(50deg, #ff73ca 50%, transparent 50%)',
-            }}
-          >
-            영어면접 전문가 살펴보기
-          </a>
-        </div>
-        <div>
-          <WhyUs />
+        <div id="products">
+          <Products />
         </div>
         <div id="prolist">
           <ProList />
         </div>
         <div className="mb-5">
+          <WhyUs />
+        </div>
+        <div id="resume-service">
+          <ResumeService />
+        </div>
+        <div id="interview-service">
+          <InterviewService />
+        </div>
+        {/* <div id="productlist">
+          <Products />
+        </div> */}
+        <div className="my-5">
           <Review />
         </div>
       </div>
