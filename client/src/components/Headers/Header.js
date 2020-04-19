@@ -126,7 +126,10 @@ class Header extends Component {
                         />
                         <div className="d-inline catcnap-logo-text mt-1">
                           Interview
-                          <div className="d-inline" style={{ color: 'black' }}>
+                          <div
+                            className="d-inline catsnap-logo-on"
+                            style={{ color: 'black' }}
+                          >
                             On
                           </div>
                         </div>

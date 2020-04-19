@@ -11,8 +11,6 @@ class SignUp extends Component {
   }
 
   render() {
-    const { translate } = this.props;
-
     return (
       <div className="container">
         {/* <!-- Outer Row --> */}

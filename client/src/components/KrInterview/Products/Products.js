@@ -8,10 +8,10 @@ const Products = () => {
   return (
     <div>
       <TitleTemp bigTitle="인터뷰온 서비스" subTitle="Our Services" />
-      <section class="py-10">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-lg-4 mb-5 mb-lg-0">
+      <section className="py-10">
+        <div className="container">
+          <div className="row text-center">
+            <div className="col-lg-4 mb-5 mb-lg-0">
               <div className="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4">
                 <FaFilePdf
                   style={{ color: 'black', height: '2rem', width: '2rem' }}
@@ -19,7 +19,7 @@ const Products = () => {
               </div>
               <h3>이력서, 자소서 첨삭</h3>
               <p
-                class="mb-0 mt-5"
+                className="mb-0 mt-5"
                 style={{ textAlign: 'left', lineHeight: '1.3' }}
               >
                 본인이 원하는 취업전문가를 선택해서 이력서, 자소서를 첨삭받을 수
@@ -30,7 +30,7 @@ const Products = () => {
                 <button className="btn btn-solid mt-5">자세히 알아보기</button>
               </a>
             </div>
-            <div class="col-lg-4 mb-5 mb-lg-0">
+            <div className="col-lg-4 mb-5 mb-lg-0">
               <div className="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4">
                 <IoIosPerson
                   style={{ color: 'black', height: '2rem', width: '2rem' }}
@@ -38,7 +38,7 @@ const Products = () => {
               </div>
               <h3>면접속성과외</h3>
               <p
-                class="mb-0 mt-4"
+                className="mb-0 mt-4"
                 style={{ textAlign: 'left', lineHeight: '1.3' }}
               >
                 본인이 원하는 취업전문가를 선택해서 면접속성과외를 받을 수
@@ -49,7 +49,7 @@ const Products = () => {
                 <button className="btn btn-solid mt-5">자세히 알아보기</button>
               </a>
             </div>
-            <div class="col-lg-4">
+            <div className="col-lg-4">
               <div className="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4">
                 <FaFont
                   style={{ color: 'black', height: '2rem', width: '2rem' }}
@@ -57,7 +57,7 @@ const Products = () => {
               </div>
               <h3>영어면접 속성과외</h3>
               <p
-                class="mb-0 mt-4"
+                className="mb-0 mt-4"
                 style={{ textAlign: 'left', lineHeight: '1.3' }}
               >
                 영어면접도 인터뷰온입니다. 인터뷰온의 영어면접전문가들은
