@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- '13'
+  - '13'
 dist: trusty
 addons:
   chrome: stable
@@ -12,19 +12,19 @@ deploy:
 notifications:
   email: false
 before_install:
-- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
 services:
-- mongodb
+  - mongodb
 env:
-- NODE_ENV=ci PORT=3000
+  - NODE_ENV=ci PORT=3000
 cache:
   directories:
-  - node_modules
-  - client/node_modules
+    - node_modules
+    - client/node_modules
 install:
-- npm install
-- npm run build
+  - npm install
+  - npm run build
 script:
-- nohup npm run start &
-- sleep 3
-- npm run test
+  - nohup npm run start &
+  - sleep 3
+  - npm run test
