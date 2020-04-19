@@ -4,9 +4,9 @@ module.exports = [
     photoName: 'sophie',
     reviewScore: 4.8,
     numberOfReviews: 22,
-    ex1_short: '(전) 대한무역투자진흥공사(KOTRA) 런던지사 | 해외영업 및 마케팅',
-    ex2_short: '(전) 올세인츠(AllSaints) 런던본사',
-    ex3_short: '(전) 디에이치엘(DHL International)',
+    ex1_short: '(전) KOTRA | 해외영업 및 마케팅',
+    ex2_short: '(전) 올세인츠(AllSaints) 런던본사 | 마케팅',
+    ex3_short: '(전) DHL | 영업 및 마케팅',
     ex4_short: '(전) 포스코(POSCO)',
     introduction:
       '"회사에서 원하는 인재가 무엇인지, 그 인재가 당신이라는 걸 어떻게 입증하는지 알려드리겠습니다. 짧은 시간내에 당신을 뽑지 않으면 좀이 쑤시게 만들수 있습니다. 쉽고 재밌게 취업을 준비해봅시다!"',

@@ -5,18 +5,18 @@ const SignInFormField = ({
   id,
   noValueError,
   type,
-  meta: { error, touched }
+  meta: { error, touched },
 }) => {
   return (
-    <div className='form-group'>
+    <div className="form-group">
       <input
         {...input}
-        className='form-control form-control-user'
+        className={`form-control form-control-user input-${id}`}
         id={id}
         placeholder={noValueError}
         type={type}
       />
-      <small style={{ color: 'red' }} className='form-text'>
+      <small style={{ color: 'red' }} className="form-text">
         {touched && error}
       </small>
     </div>

@@ -66,7 +66,7 @@ class SignInForm extends Component {
         {this.showError()}
         <button
           type="submit"
-          className="btn btn-user btn-block"
+          className="btn btn-user btn-block btn-sign-in"
           style={{
             backgroundColor: '#4df6c0',
           }}

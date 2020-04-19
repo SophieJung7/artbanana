@@ -13,14 +13,14 @@ class Subscribe extends Component {
     if (this.state.status === 'SUCCESS') {
       return (
         <div className="pt-3 ml-3">
-          <h4>감사합니다!</h4>
+          <h4 className="thank-you">감사합니다!</h4>
         </div>
       );
     } else if (this.state.status === 'ERROR') {
       return (
         <div className="pt-3 ml-3">
           <h4 className="d-block" style={{ color: 'red' }}>
-            죄송하지만, 다시 입력 부탁드립니다.
+            잘못된 이메일 형식입니다. 다시 입력해주세요!
           </h4>
         </div>
       );
@@ -28,7 +28,7 @@ class Subscribe extends Component {
       return (
         <button
           type="submit"
-          className="btn btn-solid"
+          className="btn btn-solid btn-subscribe"
           style={{
             height: '6vh',
             backgroundImage:
@@ -69,7 +69,7 @@ class Subscribe extends Component {
                         <input
                           type="text"
                           name="email"
-                          className="form-control"
+                          className="form-control subscribe-input"
                           id="exampleFormControlInput"
                           placeholder="이메일주소를 입력하세요."
                           style={{ height: '6vh' }}

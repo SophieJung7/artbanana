@@ -9,7 +9,9 @@ const Review = () => {
         <div className="col">
           <div className="title1">
             <h4 className="mt-5">Review</h4>
-            <h2 className="title-inner1">인터뷰온 합격후기</h2>
+            <h2 className="title-inner1 interviewon-review">
+              인터뷰온 합격후기
+            </h2>
             <hr />
           </div>
         </div>

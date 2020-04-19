@@ -76,7 +76,7 @@ const ProList = () => {
           <div className="col">
             <div className="title1">
               <h4>InterviewOn Professionals</h4>
-              <h2 className="title-inner1">
+              <h2 className="title-inner1 introduce-pros">
                 인터뷰온의 취업전문가들을 소개합니다.
               </h2>
               <hr />

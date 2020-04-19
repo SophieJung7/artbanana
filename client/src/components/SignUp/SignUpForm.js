@@ -67,7 +67,7 @@ class SignUpForm extends Component {
         {this.showError()}
         <button
           type="submit"
-          className="btn btn-user btn-block py-3"
+          className="btn btn-user btn-block py-3 btn-signup"
           id="btn-yellow-id"
           style={{
             backgroundColor: '#1cdffe',

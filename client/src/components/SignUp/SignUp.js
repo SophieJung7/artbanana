@@ -24,7 +24,7 @@ class SignUp extends Component {
                   <div className="col-lg-6">
                     <div className="p-5">
                       <div className="mt-5 text-center">
-                        <h1 className="h4 text-gray-900 mb-4">
+                        <h1 className="h4 text-gray-900 mb-4 btn-sign-up">
                           1분안에 가입하기
                         </h1>
                       </div>

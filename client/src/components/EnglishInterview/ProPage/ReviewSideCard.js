@@ -106,7 +106,9 @@ class ReviewSideCard extends Component {
       <div className="col-lg-5 col-xl-4 d-none d-sm-block">
         <div className="card">
           <div className="card-body">
-            <h6 style={{ fontSize: '1.3rem' }}>리뷰</h6>
+            <h6 className="customer-review" style={{ fontSize: '1.3rem' }}>
+              리뷰
+            </h6>
             {`평점 ${reviewScore}, 리뷰수 ${numberOfReviews}`}
             <hr />
             {this.state.reviewsShowing}

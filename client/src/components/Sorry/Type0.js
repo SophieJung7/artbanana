@@ -37,7 +37,7 @@ class Type0 extends Component {
                 <div className="d-flex justify-content-center">
                   <Link
                     to="/contactus"
-                    className="btn btn-solid mt-5"
+                    className="btn btn-solid mt-5 btn-contact-us"
                     style={{
                       fontSize: '1.2rem',
                       border: 'none',
