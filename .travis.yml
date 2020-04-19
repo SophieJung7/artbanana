@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+- '13'
+dist: trusty
+addons:
+  chrome: stable
+deploy:
+  provider: heroku
+  api_key:
+    secure: gM5BLRl3FxGkjFXmH9BBPxfOBGUXWK73YauFk71d3VojSOa4XEmcnSlRJx42aEqS6n3FSlLawRo7lt1tW5Uz+YHmfcB7S4APCsMFKCzWMqNf4u4xfbHP0eXLGOVYdb0wckFHYiI2Peo2gBqWm4MQRf5s4cWjwdUDrykSaPLkS+FdljUMZpqixokkdZEHdUt+EdYtb5jMIVExU6vBqEU1eaM+Jqtl90GAeYvH9t0QMG9f4fpy6EVdyBGRQixAoDf95A2Nf/LgE4mizVTze8o4NwYfyVE+G5d1rUyZCIWLYzA7XlRBH380wSrptI2BQc7CmO8vY/cm3yqJi7lKFIjIm1U55c06NZ0KCW1z0FBlEabfotnrtsxzKT6HwcESYOtIGoW2SwXoy6NWhHxVbHkoQPIHZtQv7gc2lKyR+85eMJoiKPdvlUckuMn5ioo+3TtBnB3ohKBpWsfjsZORVOzoeiZUrfK7BSn66FW86+JS55hgxrU32Tqzd0g/CrjTOvIEW18ggXc3Jlo+yxgRxpmx9/3t6pDpUQpd6OhP0bV4w0vdffSYx/mIw5IQy4KwKlFVaE3L07jPj9FR3ryBQRMmZijNktjjJghMqkN8sVYo/Myw0YPCfmxb8vzE7QXLC6GU3fKPtLZJeDIhh9uXNOdNJJBqV9H+FghrPnux5OHMoGU=
+  app: interviewon
+notifications:
+  email: false
+before_install:
+- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
+services:
+- mongodb
+env:
+- NODE_ENV=ci PORT=3000
+cache:
+  directories:
+  - node_modules
+  - client/node_modules
+install:
+- npm install
+- npm run build
+script:
+- nohup npm run start &
+- sleep 3
+- npm run test
