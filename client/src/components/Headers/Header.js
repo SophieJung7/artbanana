@@ -69,13 +69,9 @@ class Header extends Component {
               </Link>
             </li>
             <li>
-              <a
-                href={null}
-                onClick={this.props.signOut}
-                className="nav-link make-link-black"
-              >
+              <button onClick={this.props.signOut} className="btn btn-solid">
                 로그아웃
-              </a>
+              </button>
             </li>
           </ul>
         );
