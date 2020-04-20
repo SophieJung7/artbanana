@@ -6,5 +6,5 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   cookieKey: process.env.COOKIE_KEY,
   sendgridAPI: process.env.SENDGRID_API,
-  redirectDomain: 'https://interviewon.herokuapp.com',
+  redirectDomain: 'https://www.interviewon.com',
 };
