@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import history from '../history';
@@ -30,6 +31,15 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>인터뷰온 | 취업준비는 인터뷰온에서!</title>
+          <link rel="canonical" href="https://www.interviewon.com" />
+          <meta
+            name="description"
+            content="대기업, 외국계기업, 공기업 출신의 선배들에게 이력서, 자소서 첨삭 및 취업속성과외를 받으세요!"
+          />
+        </Helmet>
         <Router history={history}>
           <Header />
           <div>
