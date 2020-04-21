@@ -128,7 +128,7 @@ const ResumeService = () => {
               'linear-gradient(50deg, #4df6c0 50%, transparent 50%)',
           }}
         >
-          취업전문가 살펴보기
+          이력서, 자소서 첨삭받기
         </a>
       </div>
     </div>

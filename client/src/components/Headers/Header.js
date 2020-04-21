@@ -5,7 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 import * as actions from '../../actions';
 
 // React-icons
-import { IoIosSearch, IoMdPerson } from 'react-icons/io';
+import { IoIosSearch, IoMdPerson, IoIosHome } from 'react-icons/io';
 import { FaKiwiBird } from 'react-icons/fa';
 
 class Header extends Component {
@@ -144,6 +144,14 @@ class Header extends Component {
                                 style={{ width: '2em', height: '2em' }}
                               />
                             </HashLink>
+                          </li>
+                          {/* Go back to Homepage */}
+                          <li className="d-block d-sm-none onhover-div mobile-globe">
+                            <Link to="/" className="search-link">
+                              <IoIosHome
+                                style={{ width: '2em', height: '2em' }}
+                              />
+                            </Link>
                           </li>
                           {/* SIGN IN */}
                           <li className="onhover-div mobile-setting mobile-person">

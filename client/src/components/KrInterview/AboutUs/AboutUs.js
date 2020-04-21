@@ -40,10 +40,10 @@ const AboutUs = () => {
                 className="lead mt-4 mb-0"
                 style={{ fontSize: '1rem', lineHeight: '1.3' }}
               >
-                인터뷰온이 만났던 수많은 취준생들은 저희를 만나고 울었고 저희
-                또한 울었습니다. 알바도 해야하고, 학교도 다녀야 하는데 이력서,
+                인터뷰온이 만났던 수많은 취준생들은 너무 힘든 생활을 하고
+                있었습니다. 알바도 해야하고, 학교도 다녀야 하는데 이력서,
                 자소서에 면접까지 준비해야되기 때문이죠. 저희는 이런 상황이
-                바뀌어야 한다고 믿었습니다.
+                바뀌어야 된다고 믿습니다. 면접, 이제 혼자 준비하지 마세요!
               </p>
             </div>
           </div>
@@ -53,7 +53,7 @@ const AboutUs = () => {
         <div className="container-fluid p-0">
           <div className="row no-gutters">
             <div
-              className="col-lg-6 text-white showcase-img px-5"
+              className="col-lg-6 text-white showcase-img px-3 px-sm-5"
               style={{ paddingTop: '8%', backgroundColor: '#f8f9fa' }}
             >
               <h3 style={{ textAlign: 'center', color: 'black' }}>

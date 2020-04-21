@@ -6,7 +6,7 @@ const JobEx = () => {
       <section style={{ paddingTop: '0' }} className="showcase">
         <div className="container-fluid p-0">
           <div className="row no-gutters">
-            <div className="col-lg-6 order-lg-1 showcase-text">
+            <div className="col-lg-6 order-lg-2 showcase-text">
               <h2>본인이 지원한 직무에 대해서 얼마나 알고 계신가요?</h2>
               <p
                 className="lead mt-4 mb-0"
@@ -34,7 +34,7 @@ const JobEx = () => {
               </div>
             </div>
             <div
-              className="col-lg-6 order-lg-2 text-white showcase-img px-5"
+              className="col-lg-6 order-lg-1 text-white showcase-img px-3 px-sm-5"
               style={{ paddingTop: '8%', backgroundColor: '#f8f9fa' }}
             >
               <h3 style={{ textAlign: 'center', color: 'black' }}>

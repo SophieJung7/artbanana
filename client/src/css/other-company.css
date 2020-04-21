@@ -11497,19 +11497,22 @@ header .layout3-menu .main-navbar .nav-menu {
     padding: 30px 45px 30px 0 !important; }
   .main-menu .menu-right .icon-nav .mobile-setting,
   .main-menu .menu-right .icon-nav .mobile-cart,
-  .main-menu .menu-right .icon-nav .mobile-search {
+  .main-menu .menu-right .icon-nav .mobile-search,
+  .main-menu .menu-right .icon-nav .mobile-globe {
     position: fixed;
     bottom: 20px;
     font-size: 0;
     padding: 0; }
     .main-menu .menu-right .icon-nav .mobile-setting .show-div,
     .main-menu .menu-right .icon-nav .mobile-cart .show-div,
-    .main-menu .menu-right .icon-nav .mobile-search .show-div {
+    .main-menu .menu-right .icon-nav .mobile-search .show-div,
+    .main-menu .menu-right .icon-nav .mobile-globe .show-div {
       top: -58px;
       left: 0; }
       .main-menu .menu-right .icon-nav .mobile-setting .show-div.shopping-cart,
       .main-menu .menu-right .icon-nav .mobile-cart .show-div.shopping-cart,
-      .main-menu .menu-right .icon-nav .mobile-search .show-div.shopping-cart {
+      .main-menu .menu-right .icon-nav .mobile-search .show-div.shopping-cart,
+      .main-menu .menu-right .icon-nav .mobile-globe .show-div.shopping-cart {
         top: unset;
         bottom: 42px;
         left: -118px !important; }
@@ -13237,11 +13240,11 @@ header .layout3-menu .main-navbar .nav-menu {
   h3 {
     font-size: 17px; }
   h5 {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
     font-weight: 400;
     color: #555555; }
   .progress-bar {
-    font-size: 1rem; }
+    font-size: 0.7rem; }
   .title1 .title-inner1:after {
     width: 20rem !important; }
   .portfolio-section .isotopeSelector {

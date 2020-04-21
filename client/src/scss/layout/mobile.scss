@@ -20,18 +20,32 @@ ul {
   }
 }
 
+// Search Icon Link
 .main-menu .menu-right .icon-nav .mobile-search {
   @media (max-width: 577px) {
     bottom: 20px;
-    right: 66% !important;
+    right: 75% !important;
     font-size: 1rem !important;
     color: white !important;
   }
 }
 
+// Homepage Icon Link --> 집모양 아이콘
 .main-menu .menu-right .icon-nav .mobile-globe {
   @media (max-width: 577px) {
-    right: 10% !important;
+    bottom: 20px;
+    right: 47% !important;
+    font-size: 1rem !important;
+    color: white !important;
+  }
+}
+
+// User(Sign In) Icon Link
+.main-menu .menu-right .icon-nav .mobile-person {
+  @media (max-width: 577px) {
+    //   정중앙을 원한다면!
+    // right: 47% !important;
+    right: 20% !important;
   }
 }
 
@@ -44,14 +58,6 @@ ul {
         color: white !important;
       }
     }
-  }
-}
-
-.main-menu .menu-right .icon-nav .mobile-person {
-  @media (max-width: 577px) {
-    //   정중앙을 원한다면!
-    // right: 47% !important;
-    right: 33% !important;
   }
 }
 

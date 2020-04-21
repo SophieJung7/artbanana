@@ -231,10 +231,10 @@ header.masthead {
     background-image: url("../assets/photos/top.jpg");
     color: black; }
     header.masthead .intro-text-bg {
-      font-size: 1.3rem;
+      font-size: 1.9rem;
       color: black; }
     header.masthead .intro-text-sm {
-      font-size: 1rem;
+      font-size: 1.2rem;
       text-align: left;
       letter-spacing: 0.1rem;
       color: black; } }
@@ -286,13 +286,20 @@ ul li a.search-link {
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-search {
     bottom: 20px;
-    right: 66% !important;
+    right: 75% !important;
     font-size: 1rem !important;
     color: white !important; } }
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-globe {
-    right: 10% !important; } }
+    bottom: 20px;
+    right: 47% !important;
+    font-size: 1rem !important;
+    color: white !important; } }
+
+@media (max-width: 577px) {
+  .main-menu .menu-right .icon-nav .mobile-person {
+    right: 20% !important; } }
 
 @media (max-width: 577px) {
   .main-menu .menu-right .icon-nav .mobile-basket {
@@ -300,10 +307,6 @@ ul li a.search-link {
     color: white !important; }
     .main-menu .menu-right .icon-nav .mobile-basket > div > a {
       color: white !important; } }
-
-@media (max-width: 577px) {
-  .main-menu .menu-right .icon-nav .mobile-person {
-    right: 33% !important; } }
 
 .small-slider .home-slider .home .slider-contain .photo-section {
   margin: 0 30% !important; }
