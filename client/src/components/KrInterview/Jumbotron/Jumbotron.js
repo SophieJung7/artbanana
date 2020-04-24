@@ -31,8 +31,8 @@ const Jumbotron = () => {
             <div className="intro-text-bg">취업준비가 힘드신가요?</div>
             <div className="intro-text-sm mt-3">
               대기업, 외국계기업, 공기업 출신의 취업전문가들과 함께 이력서,
-              자소서, 면접을 준비하세요! 취업에 성공하려면 성공한 실무자들을
-              만나는게 가장 빠른 방법입니다.
+              자소서, 면접을 준비하세요! <br />
+              취업하지 못한다면 전액 환불해드립니다.
             </div>
             <a
               href="#products"
