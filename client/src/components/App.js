@@ -22,6 +22,7 @@ import Type2 from './Sorry/Type2';
 import Type3 from './Sorry/Type3';
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
+import WebinarRegister from './Webinar/WebinarRegister';
 
 class App extends Component {
   componentDidMount() {
@@ -68,6 +69,7 @@ class App extends Component {
             <Route exact path="/sorry/type3" component={Type3} />
             <Route exact path="/aboutus" component={CompanyIntro} />
             <Route exact path="/contactus" component={ContactUs} />
+            <Route exact path="/webinar" component={WebinarRegister} />
           </div>
           <Footer />
         </Router>
