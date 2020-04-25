@@ -23,6 +23,7 @@ import Type3 from './Sorry/Type3';
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
 import WebinarRegister from './Webinar/WebinarRegister';
+import Spec from './Spec/Spec';
 
 class App extends Component {
   componentDidMount() {
@@ -70,6 +71,7 @@ class App extends Component {
             <Route exact path="/aboutus" component={CompanyIntro} />
             <Route exact path="/contactus" component={ContactUs} />
             <Route exact path="/webinar" component={WebinarRegister} />
+            <Route exact path="/spec" component={Spec} />
           </div>
           <Footer />
         </Router>
