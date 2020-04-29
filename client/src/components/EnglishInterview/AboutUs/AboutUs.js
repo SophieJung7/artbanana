@@ -14,7 +14,7 @@ const AboutUs = () => {
               <div className="title1">
                 <h4>Our story</h4>
                 <h2 className="title-inner1">
-                  인터뷰온은 이렇게 탄생했습니다.
+                  취업의 신이 여러분의 성공률을 500% 이상 높입니다!
                 </h2>
               </div>
             </div>

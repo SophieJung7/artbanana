@@ -17,7 +17,7 @@ const Products = () => {
                   style={{ color: 'black', height: '2rem', width: '2rem' }}
                 />
               </div>
-              <h3>이력서, 자소서 첨삭</h3>
+              <h3 style={{ color: 'black' }}>이력서, 자소서 첨삭</h3>
               <p
                 className="mb-0 mt-5"
                 style={{ textAlign: 'left', lineHeight: '1.3' }}
@@ -26,8 +26,8 @@ const Products = () => {
                 있습니다. 취업전문가가 본인의 강점을 살려 이력서, 자소서를 수정
                 및 보완해드립니다.
               </p>
-              <a href="/#resume-service">
-                <button className="btn btn-solid mt-5">자세히 알아보기</button>
+              <a href="/pro/0#product">
+                <button className="btn btn-solid mt-5">가격 알아보기</button>
               </a>
             </div>
             <div className="col-lg-4 mb-5 mb-lg-0">
@@ -36,7 +36,7 @@ const Products = () => {
                   style={{ color: 'black', height: '2rem', width: '2rem' }}
                 />
               </div>
-              <h3>면접속성과외</h3>
+              <h3 style={{ color: 'black' }}>면접속성과외</h3>
               <p
                 className="mb-0 mt-4"
                 style={{ textAlign: 'left', lineHeight: '1.3' }}
@@ -45,8 +45,8 @@ const Products = () => {
                 인터뷰온은 200건이 넘는 취업성공케이스들을 바탕으로 가장 빠르게
                 면접에 성공할 수 있는 면접속성과외를 구성했습니다.
               </p>
-              <a href="/#interview-service">
-                <button className="btn btn-solid mt-5">자세히 알아보기</button>
+              <a href="/pro/0#product">
+                <button className="btn btn-solid mt-5">가격 알아보기</button>
               </a>
             </div>
             <div className="col-lg-4">
@@ -55,7 +55,7 @@ const Products = () => {
                   style={{ color: 'black', height: '2rem', width: '2rem' }}
                 />
               </div>
-              <h3>영어면접 속성과외</h3>
+              <h3 style={{ color: 'black' }}>영어면접 속성과외</h3>
               <p
                 className="mb-0 mt-4"
                 style={{ textAlign: 'left', lineHeight: '1.3' }}
@@ -65,8 +65,8 @@ const Products = () => {
                 취업전문가입니다. 빠르고 쉽게 영어면접에 합격하는 방법을
                 알려드립니다.
               </p>
-              <Link to="/english">
-                <button className="btn btn-solid mt-5">자세히 알아보기</button>
+              <Link to="/pro/0#product">
+                <button className="btn btn-solid mt-5">가격 알아보기</button>
               </Link>
             </div>
           </div>

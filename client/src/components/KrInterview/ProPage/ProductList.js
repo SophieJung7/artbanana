@@ -108,6 +108,13 @@ class ProductList extends Component {
               30분 컨설팅으로 구성됩니다.
             </p>
           </div>
+          <div>
+            <FaExclamation />
+            <p className="d-inline" style={{ color: 'red', fontWeight: '800' }}>
+              처음 이용시엔 50% 할인코드 FIRST를 사용할 수 있습니다. 결재시에
+              FIRST를 입력해주세요! 5월 15일까지만 적용됩니다.
+            </p>
+          </div>
         </div>
         <div className="row mt-5" style={{ marginBottom: '0' }}>
           {this.renderProducts()}

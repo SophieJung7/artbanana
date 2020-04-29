@@ -1,5 +1,5 @@
 import React from 'react';
-import Sad from '../../../assets/photos/sad.jpg';
+import Pain from '../../../assets/photos/pain.jpg';
 
 const AboutUs = () => {
   return (
@@ -14,7 +14,7 @@ const AboutUs = () => {
               <div className="title1">
                 <h4>Our story</h4>
                 <h2 className="title-inner1">
-                  인터뷰온은 이렇게 탄생했습니다.
+                  취업의 신이 여러분의 성공률을 500% 이상 높입니다!
                 </h2>
               </div>
             </div>
@@ -25,25 +25,24 @@ const AboutUs = () => {
         <div className="container-fluid p-0">
           <div className="row no-gutters">
             <img
-              src={Sad}
+              src={Pain}
               className="d-none d-sm-block col-lg-6 order-lg-2 text-white showcase-img"
               alt="interview"
             />
             <img
-              src={Sad}
+              src={Pain}
               className="d-block d-sm-none col-lg-6 order-lg-2 text-white showcase-img"
               alt="interview"
             />
             <div className="col-lg-6 order-lg-1 showcase-text">
-              <h2>취업, 혼자 준비하기엔 너무 벅차다.</h2>
+              <h2>혼자하면 어렵고 같이하면 너무 쉽습니다.</h2>
               <p
                 className="lead mt-4 mb-0"
                 style={{ fontSize: '1rem', lineHeight: '1.3' }}
               >
-                인터뷰온이 만났던 수많은 취준생들은 너무 힘든 생활을 하고
-                있었습니다. 알바도 해야하고, 학교도 다녀야 하는데 이력서,
-                자소서에 면접까지 준비해야되기 때문이죠. 저희는 이런 상황이
-                바뀌어야 된다고 믿습니다. 면접, 이제 혼자 준비하지 마세요!
+                사상 최악의 취업 불황에 취업하기 위해서는 멘토가 필요합니다.
+                혼자하면 어렵고 같이하면 너무 쉽습니다. 쉽고 재밌게 취업에
+                성공하세요!
               </p>
             </div>
           </div>
@@ -101,7 +100,10 @@ const AboutUs = () => {
               </div>
             </div>
             <div className="col-lg-6 order-lg-1 showcase-text">
-              <h2>실질적인 취업준비과정을 인터뷰온이 책임집니다!</h2>
+              <h2>
+                인터뷰온 자소서 첨삭으로 인사담당자가 여러분의 자소서 읽을
+                확률을 223% 이상 높일 수 있습니다.
+              </h2>
               <p
                 className="lead mt-4 mb-0"
                 style={{ fontSize: '1rem', lineHeight: '1.3' }}

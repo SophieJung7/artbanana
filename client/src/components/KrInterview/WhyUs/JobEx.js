@@ -7,7 +7,7 @@ const JobEx = () => {
         <div className="container-fluid p-0">
           <div className="row no-gutters">
             <div className="col-lg-6 order-lg-2 showcase-text">
-              <h2>본인이 지원한 직무에 대해서 얼마나 알고 계신가요?</h2>
+              <h2>자다가도 직무를 읊을수 있게 만들어 드리겠습니다.</h2>
               <p
                 className="lead mt-4 mb-0"
                 style={{ fontSize: '1rem', lineHeight: '1.3' }}

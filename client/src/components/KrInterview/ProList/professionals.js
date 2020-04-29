@@ -1,6 +1,6 @@
 module.exports = [
   {
-    name: '정혜정',
+    name: '정혜정 취업전문가',
     photoName: 'sophie',
     reviewScore: 4.8,
     numberOfReviews: 22,
@@ -147,7 +147,7 @@ module.exports = [
     ],
   },
   {
-    name: '이상우',
+    name: '이상우 취업전문가',
     photoName: 'jong',
     reviewScore: 4.6,
     numberOfReviews: 7,
@@ -236,7 +236,7 @@ module.exports = [
     ],
   },
   {
-    name: '정명훈',
+    name: '정명훈 취업전문가',
     photoName: 'guy1',
     reviewScore: 4.2,
     numberOfReviews: 5,
@@ -300,7 +300,7 @@ module.exports = [
     ],
   },
   {
-    name: '박영욱',
+    name: '박영욱 취업전문가',
     photoName: 'guy2',
     reviewScore: 4,
     numberOfReviews: 3,

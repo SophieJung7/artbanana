@@ -30,7 +30,12 @@ const renderPros = () => {
                 alt=""
               />
             </div>
-            <h4 className="pb-1">{name}</h4>
+            <p
+              className="pb-1 mt-4"
+              style={{ fontSize: '1.5rem', color: 'black' }}
+            >
+              {name}
+            </p>
             <ReviewBoard
               reviewScore={reviewScore}
               numberOfReviews={numberOfReviews}
