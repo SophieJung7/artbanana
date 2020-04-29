@@ -74,24 +74,26 @@ class WebinarRegister extends Component {
                     </div>
                     <div className="col-md-12">
                       <label htmlFor="company">
-                        취업을 원하는 기업이 있다면 입력해주세요.
+                        취업을 원하는 직종 및 회사명(생략가능)을 입력해주세요.
                       </label>
                       <textarea
                         name="company"
                         className="form-control contents-input"
-                        placeholder="KT, 아시아나항공 등"
+                        placeholder="마케팅 | KT, 아시아나항공 등"
                         id="exampleFormControlTextarea1"
                         rows="2"
                       ></textarea>
                     </div>
                     <div className="col-md-12">
                       <label htmlFor="job">
-                        취업을 원하는 직종을 입력해주세요.
+                        이력서, 자소서, 면접 중 가장 힘든 부분이 어느 것인지
+                        알려주세요. 이 외에도 취업컨설팅에 대해 궁금한 점이
+                        있다면 얼마든지 적어주세요!
                       </label>
                       <textarea
                         name="job"
                         className="form-control contents-input"
-                        placeholder="마케팅, 개발 등"
+                        placeholder="이력서, 자소서 등"
                         id="exampleFormControlTextarea1"
                         rows="2"
                       ></textarea>
@@ -101,7 +103,7 @@ class WebinarRegister extends Component {
                         className="btn btn-solid btn-submit"
                         type="submit"
                       >
-                        스펙 진단신청{' '}
+                        무료 취업컨설팅 신청{' '}
                         <IoIosMail
                           style={{
                             height: '2rem',
@@ -148,8 +150,8 @@ class WebinarRegister extends Component {
     return (
       <div className="mt-3">
         <TitleTemp
-          bigTitle="무료스펙진단 신청하기"
-          subTitle="이메일로 스펙테스트양식을 보내드립니다."
+          bigTitle="무료 취업컨설팅 체험 신청하기"
+          subTitle="Facebook Special Promotion"
         />
         <div>{this.renderContents()}</div>
       </div>

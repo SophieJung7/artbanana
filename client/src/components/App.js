@@ -71,7 +71,7 @@ class App extends Component {
             <Route exact path="/aboutus" component={CompanyIntro} />
             <Route exact path="/contactus" component={ContactUs} />
             <Route exact path="/webinar" component={WebinarRegister} />
-            <Route exact path="/spec" component={Spec} />
+            <Route exact path="/consulting" component={Spec} />
           </div>
           <Footer />
         </Router>
