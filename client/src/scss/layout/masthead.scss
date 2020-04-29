@@ -1,7 +1,7 @@
 // Styling for the masthead(Jumbotron)
 header.masthead {
   text-align: center;
-  background-image: url('../assets/photos/yellow-landing.jpg');
+  background-image: url('../assets/photos/landing-god.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -24,7 +24,7 @@ header.masthead {
 // For Mobile Version: Different design.
 @media (max-width: 576px) {
   header.masthead {
-    background-image: url('../assets/photos/white-yellow-landing.jpg');
+    background-image: url('../assets/photos/landing-god-mobile.jpg');
     color: black;
     .intro-text {
       &-bg {
@@ -66,7 +66,7 @@ header.masthead2 {
 // For Mobile Version: Different design.
 @media (max-width: 576px) {
   header.masthead2 {
-    background-image: url('../assets/photos/white-yellow-landing.jpg');
+    background-image: url('../assets/photos/landing-god-mobile.jpg');
     color: black;
     .intro-text {
       &-bg {

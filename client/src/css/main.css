@@ -210,7 +210,7 @@ input :active {
 
 header.masthead {
   text-align: center;
-  background-image: url("../assets/photos/yellow-landing.jpg");
+  background-image: url("../assets/photos/landing-god.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -228,7 +228,7 @@ header.masthead {
 
 @media (max-width: 576px) {
   header.masthead {
-    background-image: url("../assets/photos/white-yellow-landing.jpg");
+    background-image: url("../assets/photos/landing-god-mobile.jpg");
     color: black; }
     header.masthead .intro-text-bg {
       font-size: 1.9rem;
@@ -259,7 +259,7 @@ header.masthead2 {
 
 @media (max-width: 576px) {
   header.masthead2 {
-    background-image: url("../assets/photos/white-yellow-landing.jpg");
+    background-image: url("../assets/photos/landing-god-mobile.jpg");
     color: black; }
     header.masthead2 .intro-text-bg {
       font-size: 1.3rem;

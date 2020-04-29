@@ -34,9 +34,8 @@ const WhyUs = () => {
         <div className="col-lg-6" data-aos="fade" data-aos-delay="100">
           <div className="testimonial p-5">
             <p className="testimonial-quote text-dark">
-              물론 취업스터디도 매우 좋은 공부입니다. <br />
-              하지만 스터디는 경험과 실력이 비슷한 집단으로 <br />
-              이루어진다는 한계가 있습니다.
+              2020년은 취직난이 가장 심할 것으로 예상됩니다. 따라서 전문가의
+              도움이 어느 때보다 필요한 때입니다.
             </p>
             <div className="testimonial-name">박재원</div>
             <div className="testimonial-position">
