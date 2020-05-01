@@ -15,7 +15,7 @@ const Jumbotron2 = () => {
             </div>
           </div>
           <div className="col-11 intro-text d-block d-sm-none">
-            <div className="intro-text-bg" style={{ fontFamily: '궁서체' }}>
+            <div className="intro-text-bg" style={{ fontFamily: '궁서체',  }}>
               "당신이 망설였던 그 시간에
               <div style={{ fontFamily: '900' }}>
                 누군가는 이미 취업에 성공했습니다."
