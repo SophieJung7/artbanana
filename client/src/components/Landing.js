@@ -7,7 +7,7 @@ import JobEx from './KrInterview/WhyUs/JobEx';
 import WhyUs from './KrInterview/WhyUs/WhyUs';
 import ProList from './KrInterview/ProList/ProList';
 import Review from './KrInterview/Review/Review';
-import MessengerChatbot from './MessengerChatbot/MessengerChatbot';
+// import MessengerChatbot from './MessengerChatbot/MessengerChatbot';
 class Landing extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -47,7 +47,7 @@ class Landing extends Component {
         <div className="my-5">
           <Review />
         </div>
-        <MessengerChatbot />
+        {/* <MessengerChatbot /> */}
       </div>
     );
   }
