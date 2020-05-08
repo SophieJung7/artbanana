@@ -1396,28 +1396,28 @@ header {
       font-weight: 900;
     }
   }
-  //   .home {
-  //     background-size: cover;
-  //     background-repeat: no-repeat;
-  //     background-position: center;
-  //     height: 75vh;
-  //     @for $i from 1 through 5 {
-  //       &.home#{$i} {
-  //         background-image: url('../assets/photos/home-banner/#{$i}.jpg');
-  //       }
-  //     }
-  //   }
+  .home {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 75vh;
+    @for $i from 1 through 6 {
+      &.home#{$i} {
+        background-image: url('../assets/photos/home-banner/#{$i}.jpg');
+      }
+    }
+  }
 
-  //   @media (max-width: 576px) {
-  //     .home {
-  //       @for $i from 1 through 2 {
-  //         &.home#{$i} {
-  //           // background-image: url('../assets/photos/home-banner/#{$i}.jpg');
-  //           background-image: url('../assets/photos/home-banner/mobile/#{$i}.jpg');
-  //         }
-  //       }
-  //     }
-  //   }
+  @media (max-width: 576px) {
+    .home {
+      @for $i from 1 through 2 {
+        &.home#{$i} {
+          // background-image: url('../assets/photos/home-banner/#{$i}.jpg');
+          background-image: url('../assets/photos/home-banner/mobile/#{$i}.jpg');
+        }
+      }
+    }
+  }
 
   .slider-contain {
     width: 100%;
@@ -1609,6 +1609,123 @@ header {
     position: relative;
     padding: 25px;
     box-shadow: 0 0 8px 0 #ddd;
+  }
+}
+
+/*=====================
+    3.Home slider CSS start - Jumbotron
+==========================*/
+
+.home-slider,
+.center-slider {
+  .slick-prev,
+  .slick-next {
+    opacity: 0;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    // margin-top: -10px;
+    &:before {
+      font: $font-awesome;
+      opacity: 1;
+      color: black;
+      background-color: rgba($white, 0.5);
+      border-radius: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .slick-next {
+    right: 1px;
+    &:before {
+      //   content: '\f105';
+      font-weight: 900;
+    }
+  }
+  .slick-prev {
+    left: 1px;
+    z-index: 1;
+    &:before {
+      //   content: '\f104';
+      font-weight: 900;
+    }
+  }
+  .home-jumbo {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 75vh;
+    @for $i from 1 through 5 {
+      &.home-jumbo#{$i} {
+        background-image: url('../assets/photos/home-banner/landing-jumbo/#{$i}.jpg');
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .home-jumbo {
+      @for $i from 1 through 5 {
+        &.home-jumbo#{$i} {
+          // background-image: url('../assets/photos/home-banner/#{$i}.jpg');
+          background-image: url('../assets/photos/home-banner/landing-jumbo/mobile/#{$i}.jpg');
+        }
+      }
+    }
+  }
+
+  .slider-contain {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    h1 {
+      margin-bottom: 0;
+      margin-top: 10px;
+      color: $dark-font;
+    }
+    h4 {
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      color: $grey;
+      margin-bottom: 0;
+    }
+    .btn-solid,
+    .btn-outline {
+      margin-top: 20px;
+    }
+  }
+  .p-left {
+    .slider-contain {
+      justify-content: flex-start;
+    }
+  }
+  .p-right {
+    .slider-contain {
+      justify-content: flex-end;
+    }
+  }
+  .p-center {
+    .slider-contain {
+      justify-content: center;
+    }
+  }
+  &:hover {
+    .slick-prev,
+    .slick-next {
+      opacity: 1;
+      transform: scale(2.5);
+      transition: all 0.5s ease;
+      &:before {
+        opacity: 1;
+      }
+    }
+    .slick-next {
+      right: 100px;
+    }
+    .slick-prev {
+      left: 100px;
+    }
   }
 }
 

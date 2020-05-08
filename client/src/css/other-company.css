@@ -1057,6 +1057,39 @@ header {
   .center-slider .slick-prev:before {
     font-weight: 900; }
 
+.home-slider .home,
+.center-slider .home {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 75vh; }
+  .home-slider .home.home1,
+  .center-slider .home.home1 {
+    background-image: url("../assets/photos/home-banner/1.jpg"); }
+  .home-slider .home.home2,
+  .center-slider .home.home2 {
+    background-image: url("../assets/photos/home-banner/2.jpg"); }
+  .home-slider .home.home3,
+  .center-slider .home.home3 {
+    background-image: url("../assets/photos/home-banner/3.jpg"); }
+  .home-slider .home.home4,
+  .center-slider .home.home4 {
+    background-image: url("../assets/photos/home-banner/4.jpg"); }
+  .home-slider .home.home5,
+  .center-slider .home.home5 {
+    background-image: url("../assets/photos/home-banner/5.jpg"); }
+  .home-slider .home.home6,
+  .center-slider .home.home6 {
+    background-image: url("../assets/photos/home-banner/6.jpg"); }
+
+@media (max-width: 576px) {
+  .home-slider .home.home1,
+  .center-slider .home.home1 {
+    background-image: url("../assets/photos/home-banner/mobile/1.jpg"); }
+  .home-slider .home.home2,
+  .center-slider .home.home2 {
+    background-image: url("../assets/photos/home-banner/mobile/2.jpg"); } }
+
 .home-slider .slider-contain,
 .center-slider .slider-contain {
   width: 100%;
@@ -1198,6 +1231,140 @@ header {
     position: relative;
     padding: 25px;
     box-shadow: 0 0 8px 0 #ddd; }
+
+/*=====================
+    3.Home slider CSS start - Jumbotron
+==========================*/
+.home-slider .slick-prev,
+.home-slider .slick-next,
+.center-slider .slick-prev,
+.center-slider .slick-next {
+  opacity: 0;
+  transform: scale(1);
+  transition: all 0.5s ease; }
+  .home-slider .slick-prev:before,
+  .home-slider .slick-next:before,
+  .center-slider .slick-prev:before,
+  .center-slider .slick-next:before {
+    font: "Font Awesome 5 Free";
+    opacity: 1;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.home-slider .slick-next,
+.center-slider .slick-next {
+  right: 1px; }
+  .home-slider .slick-next:before,
+  .center-slider .slick-next:before {
+    font-weight: 900; }
+
+.home-slider .slick-prev,
+.center-slider .slick-prev {
+  left: 1px;
+  z-index: 1; }
+  .home-slider .slick-prev:before,
+  .center-slider .slick-prev:before {
+    font-weight: 900; }
+
+.home-slider .home-jumbo,
+.center-slider .home-jumbo {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 75vh; }
+  .home-slider .home-jumbo.home-jumbo1,
+  .center-slider .home-jumbo.home-jumbo1 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/1.jpg"); }
+  .home-slider .home-jumbo.home-jumbo2,
+  .center-slider .home-jumbo.home-jumbo2 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/2.jpg"); }
+  .home-slider .home-jumbo.home-jumbo3,
+  .center-slider .home-jumbo.home-jumbo3 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/3.jpg"); }
+  .home-slider .home-jumbo.home-jumbo4,
+  .center-slider .home-jumbo.home-jumbo4 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/4.jpg"); }
+  .home-slider .home-jumbo.home-jumbo5,
+  .center-slider .home-jumbo.home-jumbo5 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/5.jpg"); }
+
+@media (max-width: 576px) {
+  .home-slider .home-jumbo.home-jumbo1,
+  .center-slider .home-jumbo.home-jumbo1 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/mobile/1.jpg"); }
+  .home-slider .home-jumbo.home-jumbo2,
+  .center-slider .home-jumbo.home-jumbo2 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/mobile/2.jpg"); }
+  .home-slider .home-jumbo.home-jumbo3,
+  .center-slider .home-jumbo.home-jumbo3 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/mobile/3.jpg"); }
+  .home-slider .home-jumbo.home-jumbo4,
+  .center-slider .home-jumbo.home-jumbo4 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/mobile/4.jpg"); }
+  .home-slider .home-jumbo.home-jumbo5,
+  .center-slider .home-jumbo.home-jumbo5 {
+    background-image: url("../assets/photos/home-banner/landing-jumbo/mobile/5.jpg"); } }
+
+.home-slider .slider-contain,
+.center-slider .slider-contain {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  align-items: center; }
+  .home-slider .slider-contain h1,
+  .center-slider .slider-contain h1 {
+    margin-bottom: 0;
+    margin-top: 10px;
+    color: #222222; }
+  .home-slider .slider-contain h4,
+  .center-slider .slider-contain h4 {
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    color: #777777;
+    margin-bottom: 0; }
+  .home-slider .slider-contain .btn-solid,
+  .home-slider .slider-contain .btn-outline,
+  .center-slider .slider-contain .btn-solid,
+  .center-slider .slider-contain .btn-outline {
+    margin-top: 20px; }
+
+.home-slider .p-left .slider-contain,
+.center-slider .p-left .slider-contain {
+  justify-content: flex-start; }
+
+.home-slider .p-right .slider-contain,
+.center-slider .p-right .slider-contain {
+  justify-content: flex-end; }
+
+.home-slider .p-center .slider-contain,
+.center-slider .p-center .slider-contain {
+  justify-content: center; }
+
+.home-slider:hover .slick-prev,
+.home-slider:hover .slick-next,
+.center-slider:hover .slick-prev,
+.center-slider:hover .slick-next {
+  opacity: 1;
+  transform: scale(2.5);
+  transition: all 0.5s ease; }
+  .home-slider:hover .slick-prev:before,
+  .home-slider:hover .slick-next:before,
+  .center-slider:hover .slick-prev:before,
+  .center-slider:hover .slick-next:before {
+    opacity: 1; }
+
+.home-slider:hover .slick-next,
+.center-slider:hover .slick-next {
+  right: 100px; }
+
+.home-slider:hover .slick-prev,
+.center-slider:hover .slick-prev {
+  left: 100px; }
 
 /*=====================
     4.Instagram CSS start

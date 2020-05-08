@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import * as actions from '../../actions';
+import catLogo from '../../assets/logos/cat.svg';
 
 // React-icons
 import { IoIosSearch, IoMdPerson, IoIosHome } from 'react-icons/io';
@@ -110,24 +111,22 @@ class Header extends Component {
               <div className="col-sm-12">
                 <div className="main-menu" style={{ height: '9vh' }}>
                   <div className="menu-left">
-                    {/* <div className='brand-logo'>CatSnap</div> */}
                     <Link to="/">
                       <div
                         className="d-flex align-items-center"
                         style={{ paddingTop: '2vh', paddingBottom: '2vh' }}
                       >
-                        <FaKiwiBird
-                          className="d-inline mr-2"
-                          style={{ fontSize: '2rem', color: 'black' }}
-                        />
+                        <div className="d-inline mr-2">
+                          <img
+                            src={catLogo}
+                            width="30"
+                            height="30"
+                            className="align-top"
+                            alt=""
+                          />
+                        </div>
                         <div className="d-inline catcnap-logo-text mt-1">
-                          Interview
-                          <div
-                            className="d-inline catsnap-logo-on"
-                            style={{ color: 'black' }}
-                          >
-                            On
-                          </div>
+                          CatSnap
                         </div>
                       </div>
                     </Link>
