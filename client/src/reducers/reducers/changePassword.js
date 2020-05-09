@@ -1,4 +1,4 @@
-import { CHANGE_PASSWORD } from '../actions/types';
+import { CHANGE_PASSWORD } from '../../actions/types';
 
 export default (state = null, action) => {
   switch (action.type) {

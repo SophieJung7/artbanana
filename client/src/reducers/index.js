@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { IntlReducer as Intl } from 'react-redux-multilingual';
-import authReducer from './authReducer';
-import authErrorCodeReducer from './authErrorCodeReducer';
-import changePasswordReducer from './changePasswordReducer';
-import proReducer from './proReducer';
+import authReducer from './reducers/auth';
+import authErrorCodeReducer from './reducers/authErrorCode';
+import changePasswordReducer from './reducers/changePassword';
+import proReducer from './reducers/pro';
+import photographerReducer from './reducers/photographer';
+import photographersReducer from './reducers/photographers';
 
 export default combineReducers({
   auth: authReducer,
@@ -12,5 +14,7 @@ export default combineReducers({
   authErrorCode: authErrorCodeReducer,
   changePassword: changePasswordReducer,
   pro: proReducer,
+  photographer: photographerReducer,
+  photographers: photographersReducer,
   Intl,
 });

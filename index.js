@@ -10,6 +10,7 @@ const keys = require('./config/keys');
 
 //Connecting Mongoose --> Don't change the order. userSchema should be called before passport.js.
 require('./models/User');
+require('./models/Photographer.js');
 require('./models/Pro');
 mongoose.connect(keys.mongoURI);
 
@@ -47,7 +48,8 @@ app.use(
 
 //Routes
 require('./routes/authRoutes')(app);
-require('./routes/proRoutes')(app);
+require('./routes/photographerRoutes')(app);
+require('./routes/photoUploadRoutes')(app);
 
 if (['production', 'ci'].includes(process.env.NODE_ENV)) {
   app.use(express.static('client/build'));

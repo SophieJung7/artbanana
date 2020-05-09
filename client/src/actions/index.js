@@ -6,6 +6,9 @@ import {
   CHANGE_PASSWORD,
   AUTH_ERROR_CODE,
   FETCH_PRO,
+  CREATE_PHOTOGRAPHER,
+  FETCH_PHOTOGRAPHERS,
+  FETCH_PHOTOGRAPHER,
 } from './types';
 
 export const fetchUser = () => async (dispatch) => {
@@ -92,11 +95,41 @@ export const changePW = (newPassword) => async (dispatch) => {
   }
 };
 
-export const submitPro = (values) => async (dispatch) => {
-  const res = await axios.post('/api/pros', values);
+// ********* Photographer Actions ********* //
+
+export const registerPhotographer = (values, photoFile) => async (dispatch) => {
+  const photoUploadConfig = await axios.get('/api/upload');
+
+  await axios.put(photoUploadConfig.data.url, photoFile, {
+    headers: {
+      'Content-Type': photoFile.type,
+    },
+  });
+
+  const res = await axios.post('/api/photographers', {
+    ...values,
+    profileImageUrl: photoUploadConfig.data.key,
+  });
+
   dispatch({
-    type: FETCH_PRO,
+    type: CREATE_PHOTOGRAPHER,
     payload: res.data,
   });
   history.push('/');
+};
+
+export const fetchPhotographers = () => async (dispatch) => {
+  const response = await axios.get('/api/photographers');
+  dispatch({
+    type: FETCH_PHOTOGRAPHERS,
+    payload: response.data,
+  });
+};
+
+export const fetchPhotographer = (id) => async (dispatch) => {
+  const response = await axios.get(`/api/photographers/${id}`);
+  dispatch({
+    type: FETCH_PHOTOGRAPHER,
+    payload: response.data,
+  });
 };

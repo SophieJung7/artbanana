@@ -12,7 +12,12 @@ import SignUp from './SignUp/SignUp';
 import MyPage from './MyPage/MyPage';
 import ChangePassword from './SignIn/ChangePassword';
 import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
-import Professional from './Landing/ProPage/Professional';
+
+// Photographers
+import PhotographerRegister from './Photographers/Register/Register';
+import PhotographerList from './Photographers/Show/PhotographerList';
+import PhotographerShow from './Photographers/Show/PhotographerShow';
+
 import Type0 from './Sorry/Type0';
 import Type1 from './Sorry/Type1';
 import Type2 from './Sorry/Type2';
@@ -51,8 +56,22 @@ class App extends Component {
               path="/change-password/success"
               component={ChangePasswordSuccess}
             />
-            <Route exact path="/pro/:id" component={Professional} />
-
+            {/* Photographer Page */}
+            <Route
+              exact
+              path="/photographers/register"
+              component={PhotographerRegister}
+            />
+            <Route
+              exact
+              path="/bali/photographers"
+              component={PhotographerList}
+            />
+            <Route
+              exact
+              path="/bali/photographers/:id"
+              component={PhotographerShow}
+            />
             {/* Sorry Pages based on the prices */}
             <Route exact path="/sorry/type0" component={Type0} />
             <Route exact path="/sorry/type1" component={Type1} />
