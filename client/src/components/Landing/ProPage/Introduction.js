@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReviewBoard from './ReviewBoard';
+import { Link } from 'react-router-dom';
 
 class Introduction extends Component {
   render() {
@@ -41,8 +42,8 @@ class Introduction extends Component {
               </div>
             </div>
             <div className="d-flex justify-content-center mb-5">
-              <a
-                href="#product"
+              <Link
+                to="/consulting"
                 className="btn btn-solid mt-5"
                 style={{
                   fontSize: '1.2rem',
@@ -51,8 +52,8 @@ class Introduction extends Component {
                     'linear-gradient(50deg, #ff73ca 50%, transparent 50%)',
                 }}
               >
-                선생님 예약하기
-              </a>
+                무료첨삭 맛보기 신청
+              </Link>
             </div>
           </div>
         </div>

@@ -70,7 +70,7 @@ class SignUpForm extends Component {
           className="btn btn-user btn-block py-3 btn-signup"
           id="btn-yellow-id"
           style={{
-            backgroundColor: '#1cdffe',
+            backgroundColor: '#81d8d0',
           }}
         >
           회원가입과 함께 이메일인증

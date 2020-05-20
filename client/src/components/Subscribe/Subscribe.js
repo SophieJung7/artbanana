@@ -32,7 +32,8 @@ class Subscribe extends Component {
           style={{
             height: '6vh',
             backgroundImage:
-              'linear-gradient(30deg, #4df6c0 50%, transparent 50%)',
+              'linear-gradient(30deg, black 50%, transparent 50%)',
+            color: 'white',
             border: 'none',
           }}
         >

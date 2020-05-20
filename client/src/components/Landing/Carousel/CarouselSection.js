@@ -5,8 +5,8 @@ import reviewContents from './reviewContents';
 
 const CarouselSection = () => {
   return (
-    <section className='p-0 small-slider'>
-      <Slider className='slide-1 home-slider'>{renderContents()}</Slider>
+    <section className="p-0 small-slider">
+      <Slider className="slide-1 home-slider">{renderContents()}</Slider>
     </section>
   );
 };
@@ -17,14 +17,14 @@ const renderContents = () => {
       return (
         <div>
           <div className={`home ${photo} text-left p-left`}>
-            <div className='container'>
-              <div className='row'>
-                <div className='col'>
-                  <div className='slider-contain'>
-                    <div className='photo-section'>
+            <div className="container">
+              <div className="row">
+                <div className="col">
+                  <div className="slider-contain">
+                    <div className="photo-section">
                       <div
-                        style={{ color: '#1cdffe', fontSize: '1.5rem' }}
-                        className='mb-2 text-center'
+                        style={{ color: '#81d8d0', fontSize: '1.5rem' }}
+                        className="mb-2 text-center"
                       >
                         <IoIosStar />
                         <IoIosStar />
@@ -34,7 +34,7 @@ const renderContents = () => {
                       </div>
 
                       <p className={`text-center ${fontColor}`}>{review}</p>
-                      <div className='text-right'>
+                      <div className="text-right">
                         <h5
                           className={`d-inline ${fontColor}`}
                           style={{ fontSize: '1.5rem' }}
@@ -42,11 +42,11 @@ const renderContents = () => {
                           {clientName}
                         </h5>
                         <IoIosHeart
-                          className='d-inline'
+                          className="d-inline"
                           style={{
                             fontSize: '2rem',
                             paddingBottom: '0.5rem',
-                            color: '#1cdffe',
+                            color: '#81d8d0',
                           }}
                         />
                       </div>

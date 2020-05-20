@@ -103,7 +103,7 @@ class Header extends Component {
         <header
           id="sticky"
           className="sticky"
-          style={{ backgroundColor: '#1cdffe' }}
+          style={{ backgroundColor: '#81d8d0' }}
         >
           <div className="mobile-fix-option"></div>
           <div className="container">
@@ -118,15 +118,18 @@ class Header extends Component {
                       >
                         <div className="d-inline mr-2">
                           <img
-                            src={catLogo}
+                            src="/favicon.svg"
                             width="30"
                             height="30"
                             className="align-top"
                             alt=""
                           />
                         </div>
-                        <div className="d-inline catcnap-logo-text mt-1">
-                          CatSnap
+                        <div
+                          className="d-inline catcnap-logo-text mt-1"
+                          style={{ fontFamily: 'Tinos', fontSize: '1.5rem' }}
+                        >
+                          ViviShake
                         </div>
                       </div>
                     </Link>

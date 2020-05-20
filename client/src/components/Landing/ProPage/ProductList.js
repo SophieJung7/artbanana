@@ -48,7 +48,7 @@ class ProductList extends Component {
             </div>
             <ul
               className="fa-ul pricing-list mb-4"
-              style={{ color: '#1cdffe' }}
+              style={{ color: '#81d8d0' }}
             >
               <li className="pricing-list-item">
                 <span className="fa-li">

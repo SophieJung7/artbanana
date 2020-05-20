@@ -35,7 +35,7 @@ class App extends Component {
       <div>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>캣스냅 | 인생스냅은 캣스냅에서!</title>
+          <title>비비쉐이크 | 사진을 작품으로 만드세요!</title>
           {/* <link rel="canonical" href="https://www.interviewon.com" /> */}
           <meta
             name="description"
