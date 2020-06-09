@@ -5,19 +5,23 @@ import * as actions from '../../../actions';
 import FIELDS from './RegisterFields';
 
 class RegisterFormReview extends Component {
-  state = { file: null };
+  state = {
+    file: null,
+  };
 
-  onFormSubmit(event) {
+  onFormSubmit = (event) => {
     event.preventDefault();
     const { createArtist, formValues } = this.props;
     createArtist(formValues, this.state.file);
-  }
-  onFileChange(event) {
+  };
+
+  onFileInputChange = (event) => {
     this.setState({ file: event.target.files[0] });
-  }
+  };
 
   render() {
     const { formValues } = this.props;
+
     const reviewFields = _.map(FIELDS, ({ name, label }) => {
       return (
         <div key={name} className='form-row'>
@@ -35,23 +39,20 @@ class RegisterFormReview extends Component {
             <div className='col-lg-12'>
               <h3>아트바나나 아티스트 등록하기</h3>
               <div className='theme-card'>
-                <form
-                  onSubmit={this.onFormSubmit.bind(this)}
-                  className='theme-form'
-                >
+                <form onSubmit={this.onFormSubmit} className='theme-form'>
                   <h5>작성한 내용을 확인해주세요.</h5>
                   {reviewFields}
-                  {/* <h5>사진을 업로드 해주세요.</h5>
+                  <h5>사진을 업로드 해주세요.</h5>
                   <div className='form-row'>
                     <div className='col-md-12'>
                       <label>프로필 사진</label>
                       <input
-                        onChange={this.onFileChange.bind(this)}
                         type='file'
                         accept='image/*'
+                        onChange={this.onFileInputChange}
                       />
                     </div>
-                  </div> */}
+                  </div>
                   <button
                     onClick={() => this.props.onCancel()}
                     className='btn btn-solid mr-5'

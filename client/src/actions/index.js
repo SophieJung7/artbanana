@@ -97,17 +97,17 @@ export const changePW = (newPassword) => async (dispatch) => {
 // ********* Artist Actions ********* //
 
 export const createArtist = (values, photoFile) => async (dispatch) => {
-  //   const photoUploadConfig = await axios.get('/api/upload');
+  const uploadConfig = await axios.get('/api/artist/upload');
 
-  //   await axios.put(photoUploadConfig.data.url, photoFile, {
-  //     headers: {
-  //       'Content-Type': photoFile.type,
-  //     },
-  //   });
+  await axios.put(uploadConfig.data.url, photoFile, {
+    headers: {
+      'Content-Type': photoFile.type,
+    },
+  });
 
   const res = await axios.post('/api/artists', {
     ...values,
-    // profileImageUrl: photoUploadConfig.data.key,
+    profileImageUrl: uploadConfig.data.key,
   });
 
   dispatch({
@@ -115,6 +115,22 @@ export const createArtist = (values, photoFile) => async (dispatch) => {
     payload: res.data,
   });
   history.push('/');
+};
+
+export const fetchArtists = () => async (dispatch) => {
+  const response = await axios.get('/api/artists');
+  dispatch({
+    type: FETCH_ARTISTS,
+    payload: response.data,
+  });
+};
+
+export const fetchArtist = (id) => async (dispatch) => {
+  const response = await axios.get(`/api/artists/${id}`);
+  dispatch({
+    type: FETCH_ARTIST,
+    payload: response.data,
+  });
 };
 
 // export const fetchPhotographers = () => async (dispatch) => {

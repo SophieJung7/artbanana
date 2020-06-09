@@ -13,10 +13,12 @@ module.exports = (app) => {
 
   // Create an artist
   app.post('/api/artists', requireLogin, async (req, res) => {
-    const { name, address } = req.body;
+    const { name, address, profileImageUrl } = req.body;
 
     const artist = new Artist({
       _user: req.user.id,
+      email: req.user.email,
+      profileImageUrl: profileImageUrl,
       name: name,
       address: address,
       dateRegistered: Date.now(),
@@ -28,5 +30,17 @@ module.exports = (app) => {
     } catch (err) {
       res.send(422, { error: 'Something went wrong!' });
     }
+  });
+
+  // Fetch artists
+  app.get('/api/artists', async (req, res) => {
+    const artists = await Artist.find();
+    res.send(artists);
+  });
+
+  // Featch an artist
+  app.get('/api/artists/:id', async (req, res) => {
+    const artist = await Artist.findById(req.params.id);
+    res.send(artist);
   });
 };

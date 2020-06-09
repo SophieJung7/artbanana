@@ -7,6 +7,8 @@ import history from '../history';
 import Header from './Headers/Header';
 import Footer from './Footer/Footer';
 import Landing from './Landing';
+
+// Authentication
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
 import MyPage from './MyPage/MyPage';
@@ -15,7 +17,10 @@ import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
 
 // Artists
 import ArtistRegister from './Artists/Register/Register';
+import ArtistsList from './Artists/Show/ArtistsList';
+import ArtistPage from './Artists/Show/ArtistPage';
 
+// Etc.
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
 
@@ -52,6 +57,8 @@ class App extends Component {
             />
             {/* Artists */}
             <Route exact path='/artists/register' component={ArtistRegister} />
+            <Route exact path='/artists' component={ArtistsList} />
+            <Route exact path='/artists/:id' component={ArtistPage} />
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />

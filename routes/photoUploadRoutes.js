@@ -11,14 +11,14 @@ const s3 = new AWS.S3({
 });
 
 module.exports = (app) => {
-  app.get('/api/upload', requireLogin, (req, res) => {
+  app.get('/api/artist/upload', requireLogin, (req, res) => {
     // Generate User ID folder and generate random filename.
     const key = `${req.user.id}/profile/${uuidv1()}.jpeg`;
 
     s3.getSignedUrl(
       'putObject',
       {
-        Bucket: 'catsnap-photographer',
+        Bucket: 'artbanana',
         ContentType: 'jpeg',
         Key: key,
       },
