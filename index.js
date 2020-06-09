@@ -9,9 +9,8 @@ const requestLanguage = require('express-request-language');
 const keys = require('./config/keys');
 
 //Connecting Mongoose --> Don't change the order. userSchema should be called before passport.js.
-require('./models/User');
-require('./models/Photographer.js');
-require('./models/Pro');
+require('./models/User.js');
+require('./models/Artist.js');
 mongoose.connect(keys.mongoURI);
 
 //Connect bodyParser
@@ -48,8 +47,8 @@ app.use(
 
 //Routes
 require('./routes/authRoutes')(app);
-require('./routes/photographerRoutes')(app);
 require('./routes/photoUploadRoutes')(app);
+require('./routes/artistRoutes')(app);
 
 if (['production', 'ci'].includes(process.env.NODE_ENV)) {
   app.use(express.static('client/build'));

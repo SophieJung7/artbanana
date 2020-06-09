@@ -41,3 +41,65 @@ header.masthead {
       text-align: left;
       letter-spacing: 0.1rem;
       color: black; } }
+
+header.masthead-2 {
+  text-align: center;
+  background-image: url("../assets/photos/white-landscape.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 40rem; }
+  header.masthead-2 .intro-text-bg {
+    font-size: 3rem;
+    color: black; }
+  header.masthead-2 .intro-text-sm {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: black; }
+
+@media (max-width: 576px) {
+  header.masthead-2 {
+    background-image: url("../assets/photos/white-portrait.jpg");
+    color: black; }
+    header.masthead-2 .intro-text-bg {
+      font-size: 1.9rem;
+      color: black; }
+    header.masthead-2 .intro-text-sm {
+      font-size: 1.2rem;
+      text-align: left;
+      letter-spacing: 0.1rem;
+      color: black; } }
+
+header.masthead-3 {
+  text-align: center;
+  background-image: url("../assets/photos/painter.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 40rem; }
+  header.masthead-3 .intro-text-bg {
+    font-size: 3rem;
+    color: black; }
+  header.masthead-3 .intro-text-sm {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: black; }
+
+@media (max-width: 576px) {
+  header.masthead-3 {
+    background-image: url("../assets/photos/white-portrait.jpg");
+    color: black; }
+    header.masthead-3 .intro-text-bg {
+      font-size: 1.9rem;
+      color: black; }
+    header.masthead-3 .intro-text-sm {
+      font-size: 1.2rem;
+      text-align: left;
+      letter-spacing: 0.1rem;
+      color: black; } }

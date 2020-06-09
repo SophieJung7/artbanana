@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const NaverStrategy = require('passport-naver').Strategy;
 const mongoose = require('mongoose');
-const User = mongoose.model('users');
+const User = mongoose.model('User');
 const keys = require('../config/keys');
 const WelcomeMailer = require('../services/mailers/WelcomeMailer');
 const welcomeTemplate = require('../services/emailTemplates/welcomeTemplate');
@@ -15,7 +15,7 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback'
+      callbackURL: '/auth/google/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
@@ -32,7 +32,7 @@ passport.use(
           email: email,
           emailValidated: true,
           picture: picture,
-          userAccountProvider: profile.provider
+          userAccountProvider: profile.provider,
         }).save();
         // *** Send Welcome Mail *** //
         try {
@@ -52,7 +52,7 @@ passport.use(
     {
       clientID: keys.naverClientID,
       clientSecret: keys.naverClientSecret,
-      callbackURL: '/auth/naver/callback'
+      callbackURL: '/auth/naver/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ naverId: profile.id });
@@ -68,7 +68,7 @@ passport.use(
           picture: profile_image,
           age: age,
           birthday: birthday,
-          userAccountProvider: profile.provider
+          userAccountProvider: profile.provider,
         }).save();
         // *** Send Welcome Mail *** //
         try {

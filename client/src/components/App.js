@@ -13,15 +13,9 @@ import MyPage from './MyPage/MyPage';
 import ChangePassword from './SignIn/ChangePassword';
 import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
 
-// Photographers
-import PhotographerRegister from './Photographers/Register/Register';
-import PhotographerList from './Photographers/Show/PhotographerList';
-import PhotographerShow from './Photographers/Show/PhotographerShow';
+// Artists
+import ArtistRegister from './Artists/Register/Register';
 
-import Type0 from './Sorry/Type0';
-import Type1 from './Sorry/Type1';
-import Type2 from './Sorry/Type2';
-import Type3 from './Sorry/Type3';
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
 
@@ -34,51 +28,33 @@ class App extends Component {
     return (
       <div>
         <Helmet>
-          <meta charSet="utf-8" />
-          <title>비비쉐이크 | 사진을 작품으로 만드세요!</title>
+          <meta charSet='utf-8' />
+          <title>아트바나나 | 사진을 작품으로 만드세요!</title>
           {/* <link rel="canonical" href="https://www.interviewon.com" /> */}
           <meta
-            name="description"
-            content="대기업, 외국계기업, 공기업 출신의 선배들에게 이력서, 자소서 첨삭 및 취업속성과외를 받으세요!"
+            name='description'
+            content='대기업, 외국계기업, 공기업 출신의 선배들에게 이력서, 자소서 첨삭 및 취업속성과외를 받으세요!'
           />
         </Helmet>
         <Router history={history}>
           <Header />
           <div>
-            <Route exact path="/" component={Landing} />
-
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/mypage" component={MyPage} />
-            <Route exact path="/change-password" component={ChangePassword} />
+            <Route exact path='/' component={Landing} />
+            {/* Authentication */}
+            <Route exact path='/signin' component={SignIn} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/mypage' component={MyPage} />
+            <Route exact path='/change-password' component={ChangePassword} />
             <Route
               exact
-              path="/change-password/success"
+              path='/change-password/success'
               component={ChangePasswordSuccess}
             />
-            {/* Photographer Page */}
-            <Route
-              exact
-              path="/photographers/register"
-              component={PhotographerRegister}
-            />
-            <Route
-              exact
-              path="/bali/photographers"
-              component={PhotographerList}
-            />
-            <Route
-              exact
-              path="/bali/photographers/:id"
-              component={PhotographerShow}
-            />
-            {/* Sorry Pages based on the prices */}
-            <Route exact path="/sorry/type0" component={Type0} />
-            <Route exact path="/sorry/type1" component={Type1} />
-            <Route exact path="/sorry/type2" component={Type2} />
-            <Route exact path="/sorry/type3" component={Type3} />
-            <Route exact path="/aboutus" component={CompanyIntro} />
-            <Route exact path="/contactus" component={ContactUs} />
+            {/* Artists */}
+            <Route exact path='/artists/register' component={ArtistRegister} />
+            {/* Etc. */}
+            <Route exact path='/aboutus' component={CompanyIntro} />
+            <Route exact path='/contactus' component={ContactUs} />
           </div>
           <Footer />
         </Router>

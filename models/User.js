@@ -15,8 +15,8 @@ const userSchema = new Schema({
   picture: String,
   age: String,
   birthday: String,
-  userAccountProvider: String
+  userAccountProvider: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
-mongoose.model('users', userSchema);
+mongoose.model('User', userSchema);

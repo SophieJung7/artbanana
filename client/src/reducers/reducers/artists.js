@@ -1,10 +1,10 @@
-import { FETCH_PHOTOGRAPHERS, CREATE_PHOTOGRAPHER } from '../../actions/types';
+import { FETCH_ARTISTS, CREATE_ARTIST } from '../../actions/types';
 
 export default (state = [], action) => {
   switch (action.type) {
-    case FETCH_PHOTOGRAPHERS:
+    case FETCH_ARTISTS:
       return action.payload;
-    case CREATE_PHOTOGRAPHER:
+    case CREATE_ARTIST:
       return [...state, action.payload];
     default:
       return state;

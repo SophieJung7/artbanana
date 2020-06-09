@@ -29,7 +29,7 @@ class SignUpForm extends Component {
     return _.map(FIELDS, ({ label, name, id, noValueError, type }) => {
       return (
         <Field
-          className="form-control form-control-user"
+          className='form-control form-control-user'
           component={SignUpFormField}
           key={name}
           label={label}
@@ -47,7 +47,7 @@ class SignUpForm extends Component {
       return (
         <small
           style={{ color: 'red', fontWeight: '500' }}
-          className="form-text mb-3"
+          className='form-text mb-3'
         >
           이미 가입되어 있는 이메일주소 입니다.
         </small>
@@ -66,11 +66,11 @@ class SignUpForm extends Component {
         {this.renderFields()}
         {this.showError()}
         <button
-          type="submit"
-          className="btn btn-user btn-block py-3 btn-signup"
-          id="btn-yellow-id"
+          type='submit'
+          className='btn btn-user btn-block py-3 btn-signup'
+          id='btn-yellow-id'
           style={{
-            backgroundColor: '#81d8d0',
+            backgroundColor: '#ffe256',
           }}
         >
           회원가입과 함께 이메일인증

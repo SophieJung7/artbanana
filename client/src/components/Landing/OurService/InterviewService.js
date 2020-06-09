@@ -34,25 +34,25 @@ const process = [
 const renderProcess = () => {
   return process.map(({ name, iconName, des1, des2 }, index) => {
     return (
-      <div key={index} className="col-lg-3 mb-5 mb-lg-0">
-        <div className="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4">
+      <div key={index} className='col-lg-3 mb-5 mb-lg-0'>
+        <div className='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
           {renderIcon(iconName)}
         </div>
-        <h3 className="text-dark">{name}</h3>
-        <ul className="fa-ul pricing-list my-4" style={{ color: '#81d8d0' }}>
-          <li className="pricing-list-item" style={{ textAlign: 'left' }}>
-            <span className="fa-li">
+        <h3 className='text-dark'>{name}</h3>
+        <ul className='fa-ul pricing-list my-4' style={{ color: '#ffe256' }}>
+          <li className='pricing-list-item' style={{ textAlign: 'left' }}>
+            <span className='fa-li'>
               <FaRegCheckCircle />
             </span>
-            <span className="text-dark" style={{ fontSize: '1.1rem' }}>
+            <span className='text-dark' style={{ fontSize: '1.1rem' }}>
               {des1}
             </span>
           </li>
-          <li className="pricing-list-item mt-3" style={{ textAlign: 'left' }}>
-            <span className="fa-li">
+          <li className='pricing-list-item mt-3' style={{ textAlign: 'left' }}>
+            <span className='fa-li'>
               <FaRegCheckCircle />
             </span>
-            <span className="text-dark" style={{ fontSize: '1.1rem' }}>
+            <span className='text-dark' style={{ fontSize: '1.1rem' }}>
               {des2}
             </span>
           </li>
@@ -89,32 +89,32 @@ const renderIcon = (iconName) => {
 
 const InterviewService = () => {
   return (
-    <div className="container">
+    <div className='container'>
       <section
-        className="blog blog-2 section-b-space ratio3_2"
+        className='blog blog-2 section-b-space ratio3_2'
         style={{ paddingBottom: '0' }}
       >
-        <div className="container">
-          <div className="row mt-sm-5">
-            <div className="col">
-              <div className="title1">
+        <div className='container'>
+          <div className='row mt-sm-5'>
+            <div className='col'>
+              <div className='title1'>
                 <h4>How It Works</h4>
-                <h2 className="title-inner1">면접속성과외란?</h2>
+                <h2 className='title-inner1'>면접속성과외란?</h2>
                 <hr />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-white py-10">
-        <div className="container">
-          <div className="row text-center">{renderProcess()}</div>
+      <section className='bg-white py-10'>
+        <div className='container'>
+          <div className='row text-center'>{renderProcess()}</div>
         </div>
       </section>
-      <div className="d-flex justify-content-center">
+      <div className='d-flex justify-content-center'>
         <a
-          href="#prolist"
-          className="btn btn-solid mt-5"
+          href='#prolist'
+          className='btn btn-solid mt-5'
           style={{
             fontSize: '1.2rem',
             border: 'none',

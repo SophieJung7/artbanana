@@ -84,88 +84,89 @@ header.masthead {
 }
 
 // Styling for the 2ND masthead(Jumbotron)
-// header.masthead-2 {
-//   text-align: center;
-//   background-image: url('../assets/photos/white-landscape.jpg');
-//   background-repeat: no-repeat;
-//   background-attachment: scroll;
-//   background-position: center center;
-//   background-size: cover;
-//   width: 100vw;
-//   height: 40rem;
-//   .intro-text {
-//     &-bg {
-//       font-size: 3rem;
-//       color: black;
-//     }
-//     &-sm {
-//       font-size: 1.5rem;
-//       font-weight: 500;
-//       letter-spacing: 0.1rem;
-//       color: black;
-//     }
-//   }
-// }
+header.masthead-2 {
+  text-align: center;
+  background-image: url('../assets/photos/white-landscape.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 40rem;
+  .intro-text {
+    &-bg {
+      font-size: 3rem;
+      color: black;
+    }
+    &-sm {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+      color: black;
+    }
+  }
+}
 // Styling for the 2ND masthead(Jumbotron)
 // For Mobile Version: Different design.
-// @media (max-width: 576px) {
-//   header.masthead-2 {
-//     background-image: url('../assets/photos/white-portrait.jpg');
-//     color: black;
-//     .intro-text {
-//       &-bg {
-//         font-size: 1.9rem;
-//         color: black;
-//       }
-//       &-sm {
-//         font-size: 1.2rem;
-//         text-align: left;
-//         letter-spacing: 0.1rem;
-//         color: black;
-//       }
-//     }
-//   }
-// }
+@media (max-width: 576px) {
+  header.masthead-2 {
+    background-image: url('../assets/photos/white-portrait.jpg');
+    color: black;
+    .intro-text {
+      &-bg {
+        font-size: 1.9rem;
+        color: black;
+      }
+      &-sm {
+        font-size: 1.2rem;
+        text-align: left;
+        letter-spacing: 0.1rem;
+        color: black;
+      }
+    }
+  }
+}
 
-//   header.masthead2 {
-//     text-align: center;
-//     background-image: url('../assets/photos/wall.jpg');
-//     background-repeat: no-repeat;
-//     background-attachment: scroll;
-//     background-position: center center;
-//     background-size: cover;
-//     width: 100vw;
-//     height: 40rem;
-//     .intro-text {
-//       &-bg {
-//         font-size: 3rem;
-//         color: black;
-//       }
-//       &-sm {
-//         font-size: 1.5rem;
-//         font-weight: 500;
-//         letter-spacing: 0.1rem;
-//         color: black;
-//       }
-//     }
-//   }
-//   // Styling for the 2ND masthead(Jumbotron)
-//   // For Mobile Version: Different design.
-//   @media (max-width: 576px) {
-//     header.masthead2 {
-//       background-image: url('../assets/photos/white-portrait.jpg');
-//       color: black;
-//       .intro-text {
-//         &-bg {
-//           font-size: 1.3rem;
-//           color: black;
-//         }
-//         &-sm {
-//           font-size: 1rem;
-//           text-align: left;
-//           letter-spacing: 0.1rem;
-//           color: black;
-//         }
-//       }
-//     }
-//   }
+// Styling for the 2ND masthead(Jumbotron)
+header.masthead-3 {
+  text-align: center;
+  background-image: url('../assets/photos/painter.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 40rem;
+  .intro-text {
+    &-bg {
+      font-size: 3rem;
+      color: black;
+    }
+    &-sm {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+      color: black;
+    }
+  }
+}
+// Styling for the 2ND masthead(Jumbotron)
+// For Mobile Version: Different design.
+@media (max-width: 576px) {
+  header.masthead-3 {
+    background-image: url('../assets/photos/white-portrait.jpg');
+    color: black;
+    .intro-text {
+      &-bg {
+        font-size: 1.9rem;
+        color: black;
+      }
+      &-sm {
+        font-size: 1.2rem;
+        text-align: left;
+        letter-spacing: 0.1rem;
+        color: black;
+      }
+    }
+  }
+}

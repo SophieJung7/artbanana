@@ -1,6 +1,6 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-const User = mongoose.model('users');
+const User = mongoose.model('User');
 const _ = require('lodash');
 const { Path } = require('path-parser');
 const { URL } = require('url');
@@ -9,7 +9,7 @@ const emailValidateTemplate = require('../services/emailTemplates/emailValidateT
 const WelcomeMailer = require('../services/mailers/WelcomeMailer');
 const welcomeTemplate = require('../services/emailTemplates/welcomeTemplate');
 
-module.exports = app => {
+module.exports = (app) => {
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
@@ -22,7 +22,7 @@ module.exports = app => {
   // Local Auth
   app.post('/auth/signup', (req, res) => {
     const { username, password } = req.body;
-    User.findOne({ username: username }).then(existingUser => {
+    User.findOne({ username: username }).then((existingUser) => {
       if (existingUser) {
         res.status(409).send('Already Registered');
       } else {
@@ -111,7 +111,7 @@ module.exports = app => {
   app.get(
     '/auth/google',
     passport.authenticate('google', {
-      scope: ['profile', 'email']
+      scope: ['profile', 'email'],
     })
   );
 
@@ -127,14 +127,14 @@ module.exports = app => {
   app.get(
     '/auth/naver',
     passport.authenticate('naver', {
-      failureRedirect: '/'
+      failureRedirect: '/',
     })
   );
 
   app.get(
     '/auth/naver/callback',
     passport.authenticate('naver', {
-      failureRedirect: '/'
+      failureRedirect: '/',
     }),
     (req, res) => {
       res.redirect('/');

@@ -44,12 +44,12 @@ class Header extends Component {
         return (
           <ul>
             <li>
-              <Link to="/signin" className="nav-link make-link-black">
+              <Link to='/signin' className='nav-link make-link-black'>
                 로그인
               </Link>
             </li>
             <li>
-              <Link to="/signup" className="btn btn-solid px-4">
+              <Link to='/signup' className='btn btn-solid px-4'>
                 화원가입
               </Link>
             </li>
@@ -60,17 +60,17 @@ class Header extends Component {
         return (
           <ul>
             <li>
-              <Link to="/mypage" className="nav-link make-link-black">
+              <Link to='/mypage' className='nav-link make-link-black'>
                 마이페이지
               </Link>
             </li>
             <li>
-              <Link to="/change-password" className="nav-link make-link-black">
+              <Link to='/change-password' className='nav-link make-link-black'>
                 비밀번호변경
               </Link>
             </li>
             <li>
-              <button onClick={this.props.signOut} className="btn btn-solid">
+              <button onClick={this.props.signOut} className='btn btn-solid'>
                 로그아웃
               </button>
             </li>
@@ -101,68 +101,80 @@ class Header extends Component {
     return (
       <div>
         <header
-          id="sticky"
-          className="sticky"
-          style={{ backgroundColor: '#81d8d0' }}
+          id='sticky'
+          className='sticky'
+          style={{ backgroundColor: '#ffe256' }}
         >
-          <div className="mobile-fix-option"></div>
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-                <div className="main-menu" style={{ height: '9vh' }}>
-                  <div className="menu-left">
-                    <Link to="/">
+          <div className='mobile-fix-option'></div>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-sm-12'>
+                <div className='main-menu' style={{ height: '9vh' }}>
+                  <div className='menu-left'>
+                    <Link to='/'>
                       <div
-                        className="d-flex align-items-center"
+                        className='d-flex align-items-center'
                         style={{ paddingTop: '2vh', paddingBottom: '2vh' }}
                       >
-                        <div className="d-inline mr-2">
+                        <div className='d-inline mr-2'>
                           <img
-                            src="/favicon.svg"
-                            width="30"
-                            height="30"
-                            className="align-top"
-                            alt=""
+                            src='/favicon.svg'
+                            width='30'
+                            height='30'
+                            className='align-top'
+                            alt=''
                           />
                         </div>
                         <div
-                          className="d-inline catcnap-logo-text mt-1"
-                          style={{ fontFamily: 'Tinos', fontSize: '1.5rem' }}
+                          className='d-inline catcnap-logo-text mt-1'
+                          style={{
+                            fontFamily: 'Roboto Condensed',
+                            fontSize: '1.5rem',
+                          }}
                         >
-                          ViviShake
+                          ArtBanana |
+                        </div>
+                        <div
+                          className='d-inline catcnap-logo-text mt-1 ml-2'
+                          style={{
+                            fontFamily: 'Nanum Pen Script',
+                            fontSize: '2rem',
+                          }}
+                        >
+                          아트바나나
                         </div>
                       </div>
                     </Link>
                   </div>
-                  <div className="menu-right pull-right">
+                  <div className='menu-right pull-right'>
                     {/*Top Navigation Bar Component*/}
                     <div>
-                      <div className="icon-nav">
+                      <div className='icon-nav'>
                         <ul>
                           {/* SEARCH */}
-                          <li className="onhover-div mobile-search">
-                            <HashLink to="/#prolist" className="search-link">
+                          <li className='onhover-div mobile-search'>
+                            <HashLink to='/#prolist' className='search-link'>
                               <IoIosSearch
                                 style={{ width: '2em', height: '2em' }}
                               />
                             </HashLink>
                           </li>
                           {/* Go back to Homepage */}
-                          <li className="d-block d-sm-none onhover-div mobile-globe">
-                            <Link to="/" className="search-link">
+                          <li className='d-block d-sm-none onhover-div mobile-globe'>
+                            <Link to='/' className='search-link'>
                               <IoIosHome
                                 style={{ width: '2em', height: '2em' }}
                               />
                             </Link>
                           </li>
                           {/* SIGN IN */}
-                          <li className="onhover-div mobile-setting mobile-person">
+                          <li className='onhover-div mobile-setting mobile-person'>
                             <div>
                               <IoMdPerson
                                 style={{ width: '2em', height: '2em' }}
                               />
                             </div>
-                            <div className="show-div setting">
+                            <div className='show-div setting'>
                               {this.renderAuth()}
                             </div>
                           </li>
@@ -175,30 +187,30 @@ class Header extends Component {
             </div>
           </div>
         </header>
-        <div id="search-overlay" className="search-overlay">
+        <div id='search-overlay' className='search-overlay'>
           <div>
             <span
-              className="closebtn"
+              className='closebtn'
               onClick={this.closeSearch}
-              title="Close Overlay"
+              title='Close Overlay'
             >
               ×
             </span>
-            <div className="overlay-content">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xl-12">
+            <div className='overlay-content'>
+              <div className='container'>
+                <div className='row'>
+                  <div className='col-xl-12'>
                     <form>
-                      <div className="form-group">
+                      <div className='form-group'>
                         <input
-                          type="text"
-                          className="form-control"
-                          id="exampleInputPassword1"
-                          placeholder="Search a Product"
+                          type='text'
+                          className='form-control'
+                          id='exampleInputPassword1'
+                          placeholder='Search a Product'
                         />
                       </div>
-                      <button type="submit" className="btn btn-primary">
-                        <i className="fa fa-search"></i>
+                      <button type='submit' className='btn btn-primary'>
+                        <i className='fa fa-search'></i>
                       </button>
                     </form>
                   </div>

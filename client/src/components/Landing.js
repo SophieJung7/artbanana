@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Jumbotron from './Landing/Jumbotron/Jumbotron';
-import Destinations from './Destinations/Destinations';
-import Blogs from './Blogs/Blogs';
-import ReviewCarousel from './Landing/ReviewCarousel/ReviewCarousel';
+import Jumbotron3 from './Landing/Jumbotron/Jumbotron3';
+import Mediums from './Mediums/Mediums';
+import Prints from './Prints/Prints';
 class Landing extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -15,13 +15,13 @@ class Landing extends Component {
           <Jumbotron style={{ position: 'absolute' }} />
         </div>
         <div>
-          <Destinations />
+          <Mediums />
         </div>
         <div>
-          <Blogs />
+          <Jumbotron3 />
         </div>
-        <div className="mb-5">
-          <ReviewCarousel />
+        <div>
+          <Prints />
         </div>
       </div>
     );

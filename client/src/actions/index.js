@@ -5,10 +5,9 @@ import {
   SIGN_OUT,
   CHANGE_PASSWORD,
   AUTH_ERROR_CODE,
-  FETCH_PRO,
-  CREATE_PHOTOGRAPHER,
-  FETCH_PHOTOGRAPHERS,
-  FETCH_PHOTOGRAPHER,
+  CREATE_ARTIST,
+  FETCH_ARTISTS,
+  FETCH_ARTIST,
 } from './types';
 
 export const fetchUser = () => async (dispatch) => {
@@ -95,41 +94,41 @@ export const changePW = (newPassword) => async (dispatch) => {
   }
 };
 
-// ********* Photographer Actions ********* //
+// ********* Artist Actions ********* //
 
-export const registerPhotographer = (values, photoFile) => async (dispatch) => {
-  const photoUploadConfig = await axios.get('/api/upload');
+export const createArtist = (values, photoFile) => async (dispatch) => {
+  //   const photoUploadConfig = await axios.get('/api/upload');
 
-  await axios.put(photoUploadConfig.data.url, photoFile, {
-    headers: {
-      'Content-Type': photoFile.type,
-    },
-  });
+  //   await axios.put(photoUploadConfig.data.url, photoFile, {
+  //     headers: {
+  //       'Content-Type': photoFile.type,
+  //     },
+  //   });
 
-  const res = await axios.post('/api/photographers', {
+  const res = await axios.post('/api/artists', {
     ...values,
-    profileImageUrl: photoUploadConfig.data.key,
+    // profileImageUrl: photoUploadConfig.data.key,
   });
 
   dispatch({
-    type: CREATE_PHOTOGRAPHER,
+    type: CREATE_ARTIST,
     payload: res.data,
   });
   history.push('/');
 };
 
-export const fetchPhotographers = () => async (dispatch) => {
-  const response = await axios.get('/api/photographers');
-  dispatch({
-    type: FETCH_PHOTOGRAPHERS,
-    payload: response.data,
-  });
-};
+// export const fetchPhotographers = () => async (dispatch) => {
+//   const response = await axios.get('/api/photographers');
+//   dispatch({
+//     type: FETCH_PHOTOGRAPHERS,
+//     payload: response.data,
+//   });
+// };
 
-export const fetchPhotographer = (id) => async (dispatch) => {
-  const response = await axios.get(`/api/photographers/${id}`);
-  dispatch({
-    type: FETCH_PHOTOGRAPHER,
-    payload: response.data,
-  });
-};
+// export const fetchPhotographer = (id) => async (dispatch) => {
+//   const response = await axios.get(`/api/photographers/${id}`);
+//   dispatch({
+//     type: FETCH_PHOTOGRAPHER,
+//     payload: response.data,
+//   });
+// };

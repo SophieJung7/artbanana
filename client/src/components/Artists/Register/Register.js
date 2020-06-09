@@ -5,8 +5,11 @@ import RegisterFormReview from './RegisterFormReview';
 
 class Register extends Component {
   state = {
-    showFormReview: false
+    showFormReview: false,
   };
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   renderContent() {
     if (this.state.showFormReview) {
