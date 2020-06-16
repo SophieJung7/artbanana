@@ -12,17 +12,18 @@ const s3 = new AWS.S3({
 
 module.exports = (app) => {
   app.get('/api/artist/upload', requireLogin, (req, res) => {
-    // Generate User ID folder and generate random filename.
-    const key = `${req.user.id}/profile/${uuidv1()}.jpeg`;
+    const imgFiles = [];
+    const numberOfFiles = parseInt(req.query.numberOfFiles);
 
-    s3.getSignedUrl(
-      'putObject',
-      {
+    for (var i = 0; i < numberOfFiles; i++) {
+      let key = `${req.user.id}/products/${uuidv1()}.jpeg`;
+      let url = s3.getSignedUrl('putObject', {
         Bucket: 'artbanana',
         ContentType: 'jpeg',
         Key: key,
-      },
-      (err, url) => res.send({ key, url })
-    );
+      });
+      imgFiles.push({ key: key, url: url });
+    }
+    res.send(imgFiles);
   });
 };

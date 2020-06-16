@@ -96,23 +96,30 @@ export const changePW = (newPassword) => async (dispatch) => {
 
 // ********* Artist Actions ********* //
 
-export const createArtist = (values, photoFile) => async (dispatch) => {
-  const uploadConfig = await axios.get('/api/artist/upload');
+export const createArtist = (values, photoFiles) => async (dispatch) => {
+  const keysAndUrls = await axios.get(
+    `/api/artist/upload?numberOfFiles=${photoFiles.length}`
+  );
+  const numberOfFiles = parseInt(photoFiles.length);
 
-  await axios.put(uploadConfig.data.url, photoFile, {
-    headers: {
-      'Content-Type': photoFile.type,
-    },
-  });
+  for (var i = 0; i < numberOfFiles; i++) {
+    await axios.put(keysAndUrls.data[i].url, photoFiles[i], {
+      headers: {
+        'Content-Type': photoFiles[i].type,
+      },
+    });
+  }
 
   const res = await axios.post('/api/artists', {
     ...values,
-    profileImageUrl: uploadConfig.data.key,
+    productImgs: [...keysAndUrls.data],
   });
+
+  console.log(res.data);
 
   dispatch({
     type: CREATE_ARTIST,
-    payload: res.data,
+    // payload: res.data,
   });
   history.push('/');
 };

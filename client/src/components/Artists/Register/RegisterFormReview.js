@@ -6,17 +6,54 @@ import FIELDS from './RegisterFields';
 
 class RegisterFormReview extends Component {
   state = {
-    file: null,
+    profileImg: {},
+    profileImgBlob: '',
+    productImgs: [],
+    productImgBlobs: [],
+    productFiles: null,
   };
 
   onFormSubmit = (event) => {
     event.preventDefault();
     const { createArtist, formValues } = this.props;
-    createArtist(formValues, this.state.file);
+    createArtist(formValues, this.state.productFiles);
   };
 
-  onFileInputChange = (event) => {
-    this.setState({ file: event.target.files[0] });
+  onProfileImgChange = (event) => {
+    const file = event.target.files[0];
+    const fileBlob = URL.createObjectURL(file, { oneTimeOnly: true });
+    this.setState({ profileImg: file, profileImgBlob: fileBlob });
+  };
+
+  onProductImgsChange = (event) => {
+    this.setState({ productFiles: event.target.files });
+    const files = [...this.state.productImgs, ...event.target.files];
+    const fileBlobs = [];
+    for (var i = 0; i < files.length; i++) {
+      let fileBlob = URL.createObjectURL(files[i], { oneTimeOnly: true });
+      fileBlobs.push({
+        path: fileBlob,
+        name: files[i].name,
+      });
+    }
+    this.setState({ productImgs: files, productImgBlobs: fileBlobs });
+  };
+
+  showProductImgs = () => {
+    if (this.state.productImgBlobs) {
+      return this.state.productImgBlobs.map(({ path }) => {
+        return (
+          <img
+            key={path}
+            src={path}
+            style={{ maxWidth: '20%', height: '15vh' }}
+            className='img-fluid img-thumbnail mx-3'
+            alt='profile photo'
+          />
+        );
+      });
+    }
+    return null;
   };
 
   render() {
@@ -49,9 +86,35 @@ class RegisterFormReview extends Component {
                       <input
                         type='file'
                         accept='image/*'
-                        onChange={this.onFileInputChange}
+                        onChange={this.onProfileImgChange}
                       />
                     </div>
+                  </div>
+                  <div className='form-row'>
+                    <div className='col-md-12'>
+                      {this.state.profileImgBlob ? (
+                        <img
+                          src={this.state.profileImgBlob}
+                          style={{ maxWidth: '20%', height: '15vh' }}
+                          className='img-fluid img-thumbnail'
+                          alt='profile photo'
+                        />
+                      ) : null}
+                    </div>
+                  </div>
+                  <div className='form-row'>
+                    <div className='col-md-12'>
+                      <label>제품사진</label>
+                      <input
+                        type='file'
+                        accept='image/*'
+                        onChange={this.onProductImgsChange}
+                        multiple
+                      />
+                    </div>
+                  </div>
+                  <div className='form-row'>
+                    <div className='col-md-12'>{this.showProductImgs()}</div>
                   </div>
                   <button
                     onClick={() => this.props.onCancel()}

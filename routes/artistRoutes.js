@@ -13,7 +13,7 @@ module.exports = (app) => {
 
   // Create an artist
   app.post('/api/artists', requireLogin, async (req, res) => {
-    const { name, address, profileImageUrl } = req.body;
+    const { name, address, profileImageUrl, productImgs } = req.body;
 
     const artist = new Artist({
       _user: req.user.id,
@@ -22,6 +22,7 @@ module.exports = (app) => {
       name: name,
       address: address,
       dateRegistered: Date.now(),
+      productImgs: productImgs.map((img) => ({ key: img.key, url: img.url })),
     });
 
     try {

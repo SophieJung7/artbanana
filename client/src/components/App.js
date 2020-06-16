@@ -58,7 +58,7 @@ class App extends Component {
             {/* Artists */}
             <Route exact path='/artists/register' component={ArtistRegister} />
             <Route exact path='/artists' component={ArtistsList} />
-            <Route exact path='/artists/:id' component={ArtistPage} />
+            <Route exact path='/artists/show/:id' component={ArtistPage} />
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />
