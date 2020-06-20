@@ -23,6 +23,8 @@ import ArtistPage from './Artists/Show/ArtistPage';
 // Etc.
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
+import ShowProducts from './Products/ShowProducts';
+import ShowPortfolio from './Portfolio/ShowPortfolio';
 
 class App extends Component {
   componentDidMount() {
@@ -62,6 +64,8 @@ class App extends Component {
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />
+            <Route exact path='/products' component={ShowProducts} />
+            <Route exact path='/portfolio' component={ShowPortfolio} />
           </div>
           <Footer />
         </Router>

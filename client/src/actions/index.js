@@ -96,31 +96,65 @@ export const changePW = (newPassword) => async (dispatch) => {
 
 // ********* Artist Actions ********* //
 
-export const createArtist = (values, photoFiles) => async (dispatch) => {
-  const keysAndUrls = await axios.get(
-    `/api/artist/upload?numberOfFiles=${photoFiles.length}`
-  );
-  const numberOfFiles = parseInt(photoFiles.length);
+export const createArtist = (
+  values,
+  profilePhoto,
+  productPhotos,
+  portfolioPhotos
+) => async (dispatch) => {
+  //For profile photo: Get presignedURL from S3
+  const profileKeysAndUrls = await axios.get('/api/artist/profile/upload');
+  //For profile photo: Upload photos to S3
+  await axios.put(profileKeysAndUrls.data.url, profilePhoto, {
+    headers: {
+      'Content-Type': profilePhoto.type,
+    },
+  });
 
-  for (var i = 0; i < numberOfFiles; i++) {
-    await axios.put(keysAndUrls.data[i].url, photoFiles[i], {
+  //For portfolio photos: Get presignedURL from S3
+  const portfolioKeysAndUrls = await axios.get(
+    `/api/artist/portfolio/upload?numberOfFiles=${portfolioPhotos.length}`
+  );
+  //For portfolio photos: Upload photos to S3
+  const portfolioNumberOfFiles = parseInt(portfolioPhotos.length);
+  for (var i = 0; i < portfolioNumberOfFiles; i++) {
+    await axios.put(portfolioKeysAndUrls.data[i].url, portfolioPhotos[i], {
       headers: {
-        'Content-Type': photoFiles[i].type,
+        'Content-Type': portfolioPhotos[i].type,
       },
     });
   }
 
+  //For product photos: Get presignedURL from S3
+  const productKeysAndUrls = await axios.get(
+    `/api/artist/products/upload?numberOfFiles=${productPhotos.length}`
+  );
+
+  //For product photos: Upload photos to S3
+  const productNumberOfFiles = parseInt(productPhotos.length);
+  for (var i = 0; i < productNumberOfFiles; i++) {
+    await axios.put(productKeysAndUrls.data[i].url, productPhotos[i], {
+      headers: {
+        'Content-Type': productPhotos[i].type,
+      },
+    });
+  }
+
+  //Save artist data to MongoDB
   const res = await axios.post('/api/artists', {
     ...values,
-    productImgs: [...keysAndUrls.data],
+    profileImg: profileKeysAndUrls.data.key,
+    productImgs: [...productKeysAndUrls.data],
+    portfolioImgs: [...portfolioKeysAndUrls.data],
   });
 
-  console.log(res.data);
-
+  //Call Redux
   dispatch({
     type: CREATE_ARTIST,
     // payload: res.data,
   });
+
+  //Go back to homepage
   history.push('/');
 };
 

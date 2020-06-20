@@ -15,9 +15,10 @@ const Jumbotron3 = () => {
               className='btn btn-solid mt-5'
               style={{
                 backgroundImage:
-                  'linear-gradient(30deg, #ffe256 50%, transparent 50%)',
+                  'linear-gradient(30deg, black 50%, transparent 50%)',
                 border: 'none',
                 fontSize: '1.1rem',
+                color: 'white',
               }}
             >
               아티스트 지원하기
@@ -32,7 +33,7 @@ const Jumbotron3 = () => {
               className='btn btn-solid mt-5'
               style={{
                 backgroundImage:
-                  'linear-gradient(30deg, #ffe256 50%, transparent 50%)',
+                  'linear-gradient(30deg, #fbc531 50%, transparent 50%)',
                 border: 'none',
                 fontSize: '1.1rem',
               }}

@@ -44,6 +44,7 @@
 /* 25. Dark CSS */
 /* 26. Menu CSS */
 /* 27. Responsive CSS */
+/* 28. Masonry */
 
 /*=====================
     1.General CSS start
@@ -264,7 +265,7 @@ del {
     top: 0;
     z-index: 999;
     transition: all 300ms ease;
-    background: #ffe256;
+    background: #fbc531;
     box-shadow: 0px 0px 8px #ddd;
     animation: smoothScroll 1s forwards;
     .brand-logo {
@@ -8129,7 +8130,7 @@ footer {
       label {
         text-transform: capitalize;
         color: $font-color;
-        font-size: 14px;
+        font-size: 1.1rem;
         font-weight: 600;
       }
       input {
@@ -8259,7 +8260,7 @@ footer {
     label {
       text-transform: capitalize;
       color: $font-color;
-      font-size: 14px;
+      font-size: 1.1rem;
       font-weight: 600;
     }
     input {
@@ -14291,4 +14292,26 @@ body {
       }
     }
   }
+}
+
+/*=====================
+    28.Masonry
+==========================*/
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: 100%;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 30px;
 }

@@ -103,7 +103,7 @@ class Header extends Component {
         <header
           id='sticky'
           className='sticky'
-          style={{ backgroundColor: '#ffe256' }}
+          style={{ backgroundColor: 'white' }}
         >
           <div className='mobile-fix-option'></div>
           <div className='container'>
@@ -118,7 +118,7 @@ class Header extends Component {
                       >
                         <div className='d-inline mr-2'>
                           <img
-                            src='/favicon.svg'
+                            src='/logo.svg'
                             width='30'
                             height='30'
                             className='align-top'
@@ -126,22 +126,22 @@ class Header extends Component {
                           />
                         </div>
                         <div
-                          className='d-inline catcnap-logo-text mt-1'
+                          className='d-inline mt-1'
                           style={{
-                            fontFamily: 'Roboto Condensed',
+                            fontFamily: 'Cantarell',
+                            color: 'black',
+                            fontWeight: '700',
                             fontSize: '1.5rem',
                           }}
                         >
-                          ArtBanana |
-                        </div>
-                        <div
-                          className='d-inline catcnap-logo-text mt-1 ml-2'
-                          style={{
-                            fontFamily: 'Nanum Pen Script',
-                            fontSize: '2rem',
-                          }}
-                        >
-                          아트바나나
+                          ART
+                          <div
+                            className='d-inline'
+                            style={{ color: '#fbc531' }}
+                          >
+                            |
+                          </div>
+                          BANANA
                         </div>
                       </div>
                     </Link>

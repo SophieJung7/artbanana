@@ -11,12 +11,40 @@ const s3 = new AWS.S3({
 });
 
 module.exports = (app) => {
-  app.get('/api/artist/upload', requireLogin, (req, res) => {
+  // For profile photo: Get presignedURL from S3
+  app.get('/api/artist/profile/upload', requireLogin, (req, res) => {
+    let key = `${req.user.id}/profile/${uuidv1()}.jpeg`;
+    let url = s3.getSignedUrl('putObject', {
+      Bucket: 'artbanana',
+      ContentType: 'jpeg',
+      Key: key,
+    });
+    res.send({ key: key, url: url });
+  });
+
+  // For product photos: Get presignedURL from S3
+  app.get('/api/artist/products/upload', requireLogin, (req, res) => {
     const imgFiles = [];
     const numberOfFiles = parseInt(req.query.numberOfFiles);
 
     for (var i = 0; i < numberOfFiles; i++) {
       let key = `${req.user.id}/products/${uuidv1()}.jpeg`;
+      let url = s3.getSignedUrl('putObject', {
+        Bucket: 'artbanana',
+        ContentType: 'jpeg',
+        Key: key,
+      });
+      imgFiles.push({ key: key, url: url });
+    }
+    res.send(imgFiles);
+  });
+  // For portfolio photos: Get presignedURL from S3
+  app.get('/api/artist/portfolio/upload', requireLogin, (req, res) => {
+    const imgFiles = [];
+    const numberOfFiles = parseInt(req.query.numberOfFiles);
+
+    for (var i = 0; i < numberOfFiles; i++) {
+      let key = `${req.user.id}/portfolio/${uuidv1()}.jpeg`;
       let url = s3.getSignedUrl('putObject', {
         Bucket: 'artbanana',
         ContentType: 'jpeg',
