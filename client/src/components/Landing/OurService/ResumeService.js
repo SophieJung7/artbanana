@@ -45,7 +45,7 @@ const renderProcess = () => {
           {renderIcon(iconName)}
         </div>
         <h3 className='text-dark'>{name}</h3>
-        <ul className='fa-ul pricing-list my-4' style={{ color: '#fbc531' }}>
+        <ul className='fa-ul pricing-list my-4' style={{ color: '#b5dccd' }}>
           <li className='pricing-list-item' style={{ textAlign: 'left' }}>
             <span className='fa-li'>
               <FaRegCheckCircle />

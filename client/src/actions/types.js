@@ -8,6 +8,8 @@ export const FETCH_PRO = 'FETCH_PRO';
 // Artists Action Types
 export const CREATE_ARTIST = 'CREATE_ARTIST';
 export const FETCH_ARTISTS = 'FETCH_ARTISTS';
+export const FETCH_PENCIL_ARTISTS = 'FETCH_PENCIL_ARTISTS';
+export const FETCH_PHOTODESIGN_ARTISTS = 'FETCH_PHOTODESIGN_ARTISTS';
 export const FETCH_ARTIST = 'FETCH_ARTIST';
 export const EDIT_ARTIST = 'EDIT_ARTIST';
 export const DELETE_ARTIST = 'DELETE_ARTIST';

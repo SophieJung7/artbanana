@@ -3,20 +3,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import * as actions from '../../actions';
-import catLogo from '../../assets/logos/cat.svg';
 
 // React-icons
 import { IoIosSearch, IoMdPerson, IoIosHome } from 'react-icons/io';
-import { FaKiwiBird } from 'react-icons/fa';
 
 class Header extends Component {
   /*=====================
          Pre loader
      ==========================*/
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
   }
+
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
@@ -128,16 +127,16 @@ class Header extends Component {
                         <div
                           className='d-inline mt-1'
                           style={{
-                            fontFamily: 'Cantarell',
+                            fontFamily: 'Work Sans',
                             color: 'black',
-                            fontWeight: '700',
+                            fontWeight: '500',
                             fontSize: '1.5rem',
                           }}
                         >
                           ART
                           <div
                             className='d-inline'
-                            style={{ color: '#fbc531' }}
+                            style={{ color: '#b5dccd' }}
                           >
                             |
                           </div>

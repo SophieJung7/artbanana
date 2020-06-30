@@ -33,7 +33,7 @@ class SignIn extends Component {
                         to='/signup'
                         className='mt-5 btn btn-user btn-block'
                         style={{
-                          backgroundColor: '#fbc531',
+                          backgroundColor: '#b5dccd',
                         }}
                       >
                         무료 회원가입

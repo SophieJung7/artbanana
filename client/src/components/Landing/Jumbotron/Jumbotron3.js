@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Jumbotron3 = () => {
   return (
@@ -33,7 +32,7 @@ const Jumbotron3 = () => {
               className='btn btn-solid mt-5'
               style={{
                 backgroundImage:
-                  'linear-gradient(30deg, #fbc531 50%, transparent 50%)',
+                  'linear-gradient(30deg, #b5dccd 50%, transparent 50%)',
                 border: 'none',
                 fontSize: '1.1rem',
               }}

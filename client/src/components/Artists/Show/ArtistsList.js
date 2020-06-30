@@ -1,44 +1,124 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import Masonry from 'react-masonry-css';
 import * as actions from '../../../actions/index';
+import TitleTemp from '../../TitleTemp';
 
 class ArtistsList extends Component {
+  state = {
+    masonryBreakpoint: 4,
+  };
+
   componentDidMount() {
+    this.props.fetchPencilArtists();
     window.scrollTo(0, 0);
-    this.props.fetchArtists();
+    window.addEventListener('load', this.updateMasonry);
+    window.addEventListener('resize', this.updateMasonry);
   }
 
-  renderArtists() {
-    return this.props.artists.map(({ _id, name, address, profileImageUrl }) => {
-      return (
-        <div key={_id} className='col-sm-4 d-inline-block'>
-          <div className='card'>
-            <img
-              src={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${profileImageUrl}`}
-              className='card-img-top'
-              alt='...'
-            />
-            <div className='card-body'>
-              <h5 className='card-title'>{name}</h5>
-              <p className='card-text'>{address}</p>
-              <Link to={`/artists/${_id}`} className='btn btn-primary'>
-                Check Details
-              </Link>
+  componentWillUnmount() {
+    window.removeEventListener('load', this.updateMasonry);
+    window.removeEventListener('resize', this.updateMasonry);
+  }
+
+  updateMasonry = () => {
+    if (window.innerWidth <= 768) {
+      this.setState({ masonryBreakpoint: 2 });
+    } else {
+      this.setState({ masonryBreakpoint: 4 });
+    }
+  };
+
+  renderArtists = () => {
+    return this.props.pencilArtists.map(
+      ({ _id, name, address, profileImg, productImgs }) => {
+        return (
+          <div key={_id} className='isotopeSelector fashion'>
+            <div className='overlay'>
+              <div className='border-portfolio'>
+                <a
+                  href={`/artists/show/${_id}`}
+                  className='overlay-background d-flex justify-content-center align-items-center'
+                >
+                  <br style={{ display: 'none' }} />
+                </a>
+                <img
+                  src={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${productImgs[0].key}`}
+                  alt={name}
+                />
+              </div>
+            </div>
+            <div className='mt-2 row d-flex align-items-center'>
+              <div className='col-3'>
+                <img
+                  className='avatar-img rounded-circle'
+                  src={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${profileImg}`}
+                  style={{ width: '3rem', height: '3rem' }}
+                  alt='profile'
+                />
+              </div>
+              <div
+                className='col ml-2'
+                style={{
+                  paddingLeft: '0',
+                }}
+              >
+                <div
+                  className='d-inline'
+                  style={{
+                    color: '#cbcbcb',
+                    fontFamily: 'Work Sans',
+                    fontSize: '1.1rem',
+                  }}
+                >
+                  by
+                </div>
+                <div
+                  className='d-inline ml-1'
+                  style={{
+                    color: '#777',
+                    fontSize: '1.1rem',
+                    fontWeight: '700',
+                  }}
+                >
+                  {name}
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: '700' }}>
+                  56,000원 ~
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      );
-    });
-  }
+        );
+      }
+    );
+  };
 
   render() {
-    return <div>{this.renderArtists()}</div>;
+    return (
+      <div className='my-5'>
+        <TitleTemp bigTitle='펜슬드로잉' subTitle='Pencil Drawing' />
+        <section className='portfolio-section portfolio-padding pt-0 port-col zoom-gallery'>
+          <div className='container'>
+            <div className='isotopeContainer row'>
+              <Masonry
+                breakpointCols={this.state.masonryBreakpoint}
+                className='my-masonry-grid'
+                columnClassName='my-masonry-grid_column'
+              >
+                {/* SHOW Artists */}
+                {this.renderArtists()}
+              </Masonry>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { artists: state.artists };
+  return { pencilArtists: state.pencilArtists };
 };
 
 export default connect(mapStateToProps, actions)(ArtistsList);

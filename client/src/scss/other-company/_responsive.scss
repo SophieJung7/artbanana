@@ -2078,17 +2078,12 @@
     padding: 10px 0;
   }
   .product-right {
-    text-align: center;
     margin: 20px 0 10px 0;
     .detail-section,
     .product-icon {
       justify-content: center;
     }
-    .product-description {
-      .qty-box {
-        justify-content: center;
-      }
-    }
+
     .size-text {
       text-align: left;
     }
@@ -2233,11 +2228,7 @@
       .size-text {
         text-align: right;
       }
-      .product-description {
-        .qty-box {
-          justify-content: center;
-        }
-      }
+
       .payment-card-bottom {
         text-align: center;
       }

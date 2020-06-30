@@ -1,21 +1,15 @@
-// ********* Buttons ********* //
-
-// ********* Radio Input Styling ********* //
 .radio-item {
   display: block;
   position: relative;
   padding: 0 6px;
-  margin: 10px 0 0;
-}
+  margin: 10px 0 0; }
 
 .radio-item input[type='radio'] {
-  display: none;
-}
+  display: none; }
 
 .radio-item label {
   color: #666;
-  font-weight: 600;
-}
+  font-weight: 600; }
 
 .radio-item label:before {
   content: ' ';
@@ -27,8 +21,7 @@
   height: 20px;
   border-radius: 11px;
   border: 2px solid #b5dccd;
-  background-color: transparent;
-}
+  background-color: transparent; }
 
 .radio-item input[type='radio']:checked + label:after {
   border-radius: 11px;
@@ -39,14 +32,11 @@
   left: 10px;
   content: ' ';
   display: block;
-  background: #b5dccd;
-}
+  background: #b5dccd; }
 
-// ********* 사진업로드버튼 ********* //
 .btn-file {
   position: relative;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 .btn-file input[type='file'] {
   position: absolute;
@@ -60,54 +50,42 @@
   opacity: 0;
   outline: none;
   cursor: inherit;
-  display: block;
-}
+  display: block; }
 
 .border-radius-zero {
-  border-radius: 0;
-}
+  border-radius: 0; }
 
 .btn-yellow {
   background-color: 'yellow';
   color: 'black';
   border-radius: 0;
-  border: none;
-  //   Getting rid of blue nasty ring in Chrome.
-  &:focus,
-  :hover,
-  :active {
+  border: none; }
+  .btn-yellow:focus,
+  .btn-yellow :hover,
+  .btn-yellow :active {
     outline: none;
     box-shadow: none;
     border: none;
-    text-decoration: none;
-  }
-}
+    text-decoration: none; }
 
 .btn-clear {
   background: transparent;
-  border: none;
-  &:focus,
-  :hover,
-  :active {
+  border: none; }
+  .btn-clear:focus,
+  .btn-clear :hover,
+  .btn-clear :active {
     outline: none;
     box-shadow: none;
     border: none;
-    text-decoration: none;
-  }
-}
+    text-decoration: none; }
 
-.nav-link {
-  &:focus,
-  :hover,
-  :active {
-    background: transparent !important;
-  }
-}
+.nav-link:focus,
+.nav-link :hover,
+.nav-link :active {
+  background: transparent !important; }
 
 .btn-naver {
-  background-color: #00c73c;
-}
+  background-color: #00c73c; }
 
 .btn-google {
-  background-color: #de5246;
-}
+  background-color: #de5246; }

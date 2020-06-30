@@ -19,12 +19,12 @@ import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
 import ArtistRegister from './Artists/Register/Register';
 import ArtistsList from './Artists/Show/ArtistsList';
 import ArtistPage from './Artists/Show/ArtistPage';
+import ArtistEdit from './Artists/Edit/ArtistEdit';
 
 // Etc.
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
 import ShowProducts from './Products/ShowProducts';
-import ShowPortfolio from './Portfolio/ShowPortfolio';
 
 class App extends Component {
   componentDidMount() {
@@ -61,11 +61,11 @@ class App extends Component {
             <Route exact path='/artists/register' component={ArtistRegister} />
             <Route exact path='/artists' component={ArtistsList} />
             <Route exact path='/artists/show/:id' component={ArtistPage} />
+            <Route exact path='/artists/edit/:id' component={ArtistEdit} />
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />
             <Route exact path='/products' component={ShowProducts} />
-            <Route exact path='/portfolio' component={ShowPortfolio} />
           </div>
           <Footer />
         </Router>

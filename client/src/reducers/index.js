@@ -5,7 +5,7 @@ import authReducer from './reducers/auth';
 import authErrorCodeReducer from './reducers/authErrorCode';
 import changePasswordReducer from './reducers/changePassword';
 import artistReducer from './reducers/artist';
-import artistsReducer from './reducers/artists';
+import pencilArtistsReducer from './reducers/pencilArtists';
 
 export default combineReducers({
   auth: authReducer,
@@ -13,6 +13,6 @@ export default combineReducers({
   authErrorCode: authErrorCodeReducer,
   changePassword: changePasswordReducer,
   artist: artistReducer,
-  artists: artistsReducer,
+  pencilArtists: pencilArtistsReducer,
   Intl,
 });

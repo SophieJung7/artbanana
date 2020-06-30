@@ -265,7 +265,7 @@ del {
     top: 0;
     z-index: 999;
     transition: all 300ms ease;
-    background: #fbc531;
+    background: #b5dccd;
     box-shadow: 0px 0px 8px #ddd;
     animation: smoothScroll 1s forwards;
     .brand-logo {
@@ -8886,11 +8886,11 @@ footer {
     .btn-outline {
       padding: 7px 25px;
     }
-    a {
-      &:last-child {
-        margin-left: 10px;
-      }
-    }
+    // a {
+    //   &:last-child {
+    //     margin-left: 10px;
+    //   }
+    // }
   }
   .product-description {
     h6 {
@@ -9145,7 +9145,7 @@ footer {
   .theme-form {
     input {
       border-color: $round-border;
-      font-size: 15px;
+      font-size: 0.85rem;
       padding: 15px 25px;
       margin-bottom: 15px;
       height: inherit;
@@ -9156,7 +9156,7 @@ footer {
     }
     textarea {
       border-color: $round-border;
-      font-size: 15px;
+      font-size: 1rem;
       padding: 17px 25px;
       margin-bottom: 15px;
       height: inherit;
@@ -9168,7 +9168,7 @@ footer {
       margin-bottom: -8px;
       line-height: 2;
       letter-spacing: 0.05em;
-    }
+    }     
     .media {
       margin-top: 20px;
     }
@@ -14302,16 +14302,17 @@ body {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
-  margin-left: -30px; /* gutter size offset */
+  //   margin-left: -30px; /* gutter size offset */
   width: 100%;
 }
 .my-masonry-grid_column {
-  padding-left: 30px; /* gutter size */
+  padding-left: 10px; /* gutter size */
+  padding-right: 10px; /* gutter size */
   background-clip: padding-box;
 }
 
-/* Style your items */
-.my-masonry-grid_column > div {
-  /* change div to reference your elements you put in <Masonry> */
-  margin-bottom: 30px;
-}
+// /* Style your items */
+// .my-masonry-grid_column > div {
+//   /* change div to reference your elements you put in <Masonry> */
+//   margin-bottom: 30px;
+// }

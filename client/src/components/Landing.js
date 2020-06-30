@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Jumbotron from './Landing/Jumbotron/Jumbotron';
+import ArtistList from './Artists/Show/ArtistsList';
 import Jumbotron3 from './Landing/Jumbotron/Jumbotron3';
-import Mediums from './Mediums/Mediums';
 import Prints from './Prints/Prints';
 class Landing extends Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class Landing extends Component {
           <Jumbotron style={{ position: 'absolute' }} />
         </div>
         <div>
-          <Mediums />
+          <ArtistList />
         </div>
         <div>
           <Jumbotron3 />

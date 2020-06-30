@@ -23,7 +23,7 @@ const renderContents = () => {
                   <div className='slider-contain'>
                     <div className='photo-section'>
                       <div
-                        style={{ color: '#fbc531', fontSize: '1.5rem' }}
+                        style={{ color: '#b5dccd', fontSize: '1.5rem' }}
                         className='mb-2 text-center'
                       >
                         <IoIosStar />
@@ -46,7 +46,7 @@ const renderContents = () => {
                           style={{
                             fontSize: '2rem',
                             paddingBottom: '0.5rem',
-                            color: '#fbc531',
+                            color: '#b5dccd',
                           }}
                         />
                       </div>

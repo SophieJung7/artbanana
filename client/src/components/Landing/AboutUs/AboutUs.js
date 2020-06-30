@@ -88,7 +88,7 @@ const AboutUs = () => {
                   className='progress-bar'
                   style={{
                     width: '85%',
-                    backgroundColor: '#fbc531',
+                    backgroundColor: '#b5dccd',
                     color: 'black',
                   }}
                   aria-valuenow='75'

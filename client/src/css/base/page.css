@@ -39,7 +39,7 @@ textarea {
 body {
   /* For power of inheritance, we specify in the body */
   /* Lato and if its not available, sans-serif */
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   /* Line-height is 1.7times bigger than the pre-defined line height.*/
   line-height: 1.7;
@@ -73,7 +73,7 @@ input :active {
   font-weight: 600; }
 
 .catcnap-logo-text {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 1.3rem;
   color: #212121; }

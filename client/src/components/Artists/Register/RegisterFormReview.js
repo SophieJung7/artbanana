@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import _ from 'lodash';
 import PacmanLoader from 'react-spinners/PacmanLoader';
@@ -36,13 +35,6 @@ class RegisterFormReview extends Component {
   //**** Submit the form
   onFormSubmit = (event) => {
     event.preventDefault();
-    // const { createArtist, formValues } = this.props;
-    // createArtist(
-    //   formValues,
-    //   this.state.profileFile,
-    //   this.state.productFiles,
-    //   this.state.portfolioFiles
-    // );
     if (
       this.state.profileFile &&
       this.state.productFiles &&
@@ -103,7 +95,7 @@ class RegisterFormReview extends Component {
         return (
           <div key={path} className='col-lg-3 col-md-6'>
             <div className='collection-block'>
-              <img src={path} className='img-fluid' alt='product-photo' />
+              <img src={path} className='img-fluid' alt='product-blob' />
             </div>
           </div>
         );
@@ -131,7 +123,11 @@ class RegisterFormReview extends Component {
                     <AiOutlineClose style={{ fontSize: '1.5rem' }} />
                   </button>
                 </div>
-                <img src={path} className='img-fluid blur-up lazyload bg-img' />
+                <img
+                  src={path}
+                  alt='portfolio-blob'
+                  className='img-fluid blur-up lazyload bg-img'
+                />
               </div>
             </div>
           </div>
@@ -223,7 +219,7 @@ class RegisterFormReview extends Component {
                           className='avatar-img rounded-circle mb-5'
                           src={this.state.profileImgBlob}
                           style={{ maxWidth: '20%', height: '15vh' }}
-                          alt='profile photo'
+                          alt='profile-blob'
                         />
                       ) : null}
                     </div>
@@ -235,8 +231,8 @@ class RegisterFormReview extends Component {
                         본인의 드로잉을 대표하는 드로잉작품 이미지 1개를
                         업로드해주세요.
                         <br />
-                        이미지 최적화를 위해 사진의 가로:세로 비율을 1:1로
-                        맞춰주시고 2MB 이하의 파일을 업로드 해주시기 바랍니다.{' '}
+                        제품이미지는 비율에 상관없이 자동 최적화되며 다만 개별
+                        이미지 사이즈를 5MB이하로 조정하시길 추천드립니다.{' '}
                       </p>
                       <div className='d-block'>
                         <div
@@ -273,8 +269,7 @@ class RegisterFormReview extends Component {
                         포트폴리오 이미지는 최대 40개까지 업로드 할 수 있습니다.
                         <br />
                         포트폴리오 이미지는 비율에 상관없이 자동 최적화되며 다만
-                        개별 이미지 사이즈를 1.5MB이하로 조정하시길
-                        추천드립니다.
+                        개별 이미지 사이즈를 5MB이하로 조정하시길 추천드립니다.
                       </p>
                       <div className='d-block'>
                         <div
@@ -355,7 +350,7 @@ class RegisterFormReview extends Component {
 
                   <PacmanLoader
                     size={100}
-                    color={'#fbc531'}
+                    color={'#8aad3a'}
                     loading={this.state.loading}
                   />
                 </div>
