@@ -4,7 +4,7 @@
   "description": "Airbnb for photographers.",
   "main": "index.js",
   "engines": {
-    "node": "13.8.0",
+    "node": "12.18.2",
     "npm": "6.13.7"
   },
   "jest": {

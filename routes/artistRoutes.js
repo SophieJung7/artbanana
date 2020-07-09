@@ -50,11 +50,14 @@ module.exports = (app) => {
     res.send(artists);
   });
 
-  //   Fetch artists By Category
+  //   Fetch Verified artists By Category
   app.get('/api/category/:category', async (req, res) => {
     try {
       const category = req.params.category;
-      const artists = await Artist.find({ productCategory: category });
+      const artists = await Artist.find({
+        productCategory: category,
+        verified: true,
+      });
       res.send(artists);
     } catch (err) {
       res.send(422, { error: 'Couldnt find artists.' });
@@ -82,6 +85,20 @@ module.exports = (app) => {
       .then(() => Artist.findById({ _id: artistId }))
       .then((artist) => res.send(artist))
       .catch((err) => res.send(422, { error: 'Artist update failed.' }));
+  });
+
+  // Submit Reviews
+  app.put('/api/reviews/:id', async (req, res) => {
+    const artistId = req.params.id;
+    const { email, score, review } = req.body;
+    const artist = await Artist.findById(artistId);
+    await artist.reviews.push({ email, score, review });
+    await artist.save((err) => {
+      if (err) {
+        res.send(422, { error: 'Review submission failed.' });
+      }
+      res.send(artist);
+    });
   });
 
   // Delete an artist

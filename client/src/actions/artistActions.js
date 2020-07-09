@@ -5,6 +5,7 @@ import {
   FETCH_PENCIL_ARTISTS,
   FETCH_ARTIST,
   EDIT_ARTIST,
+  SUBMIT_REVIEW,
 } from './types';
 
 // ********* Artist Actions ********* //
@@ -104,13 +105,30 @@ const editArtist = (
   productPhotos,
   portfolioPhotos
 ) => async (dispatch) => {
-  const response = await axios.put(`/api/artists/${id}`, editedValues);
+  const res = await axios.put(`/api/artists/${id}`, editedValues);
   dispatch({
     type: EDIT_ARTIST,
-    payload: response.data,
+    payload: res.data,
   });
 };
 
 // Delete Artist
 
-export { createArtist, fetchArtist, editArtist, fetchPencilArtists };
+// Submit a review
+const submitReview = (id, reviewObject) => async (dispatch) => {
+  const res = await axios.put(`/api/reviews/${id}`, reviewObject);
+  dispatch({
+    type: SUBMIT_REVIEW,
+    payload: res.data,
+  });
+  //Go back to previous page.
+  history.push(`/artists/show/${id}`);
+};
+
+export {
+  createArtist,
+  fetchArtist,
+  editArtist,
+  fetchPencilArtists,
+  submitReview,
+};

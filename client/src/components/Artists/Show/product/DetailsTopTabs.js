@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.scss';
-import StarRatings from 'react-star-ratings';
+import Reviews from './Reviews';
+import ReviewForm from './ReviewForm';
 
 class DetailsTopTabs extends Component {
   state = {
@@ -18,6 +19,7 @@ class DetailsTopTabs extends Component {
   };
 
   render() {
+    const { artistId, profileImg, reviews } = this.props;
     return (
       <section className='tab-product m-0 mb-5'>
         <div className='row'>
@@ -90,81 +92,35 @@ class DetailsTopTabs extends Component {
                 </table>
               </TabPanel>
               <TabPanel>
-                <p className='mt-4 p-0'>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </TabPanel>
-              <TabPanel>
-                <p className='mt-4 p-0'>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </TabPanel>
-              <TabPanel>
-                <form className='theme-form mt-4'>
-                  <div className='form-row'>
-                    <div className='col-md-12 mb-4'>
-                      <div className='d-block'>평점</div>
-                      <div className='media m-0'>
-                        <div className='d-block'>
-                          <StarRatings
-                            rating={this.state.rating}
-                            starRatedColor='#d8a6a2'
-                            starHoverColor='#d8a6a2'
-                            starDimension='1.5rem'
-                            starSpacing='3px'
-                            changeRating={this.changeRating}
-                            numberOfStars={5}
-                            name='rating'
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <label htmlFor='name'>
-                        이메일주소(이메일주소는 공개되지 않습니다.)
-                      </label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        id='email'
-                        placeholder='이메일주소를 입력해주세요.'
-                        required
-                      />
-                    </div>
-                    <div className='col-md-12'>
-                      <label htmlFor='review'>제품리뷰</label>
-                      <textarea
-                        className='form-control'
-                        placeholder='리뷰를 작성해주세요!'
-                        id='exampleFormControlTextarea1'
-                        rows='6'
-                      ></textarea>
-                    </div>
-                    <div className='col-md-12'>
-                      <button className='btn btn-solid' type='submit'>
-                        제출하기
-                      </button>
-                    </div>
+                {/* <p className='mt-4 p-0'>
+                 
+                </p> */}
+                <div className='row d-flex align-items-center mt-4 p-0'>
+                  <div className='col-2'>
+                    <img
+                      className='avatar-img rounded-circle'
+                      src={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${profileImg}`}
+                      style={{ width: '6rem', height: '6rem' }}
+                      alt='profile'
+                    />
                   </div>
-                </form>
+                  <div className='col-10'>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining
+                  </div>
+                </div>
+              </TabPanel>
+              <TabPanel>
+                {/* Show REVIEWS */}
+                <Reviews reviews={reviews} />
+              </TabPanel>
+              <TabPanel>
+                {/* REVIEW FORM */}
+                <ReviewForm artistId={artistId} />
               </TabPanel>
             </Tabs>
           </div>

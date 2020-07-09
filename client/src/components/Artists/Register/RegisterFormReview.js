@@ -110,24 +110,20 @@ class RegisterFormReview extends Component {
           <div key={path} className='isotopeSelector fashion'>
             <div className='overlay'>
               <div className='border-portfolio'>
-                <div
-                  className='overlay-background d-flex justify-content-center align-items-center'
-                  // onClick={() => this.selectImage(index, 'fashion')}
-                >
+                <div className='overlay-background d-flex justify-content-center align-items-center'>
                   <button
                     onClick={() => this.onRemovePortfolioImg(index)}
                     type='button'
                     className='btn btn-dark'
                     aria-hidden='true'
                   >
-                    <AiOutlineClose style={{ fontSize: '1.5rem' }} />
+                    <AiOutlineClose
+                      style={{ fontSize: '1.5rem' }}
+                      aria-hidden='true'
+                    />
                   </button>
                 </div>
-                <img
-                  src={path}
-                  alt='portfolio-blob'
-                  className='img-fluid blur-up lazyload bg-img'
-                />
+                <img src={path} alt='portfolio-blob' />
               </div>
             </div>
           </div>
@@ -187,10 +183,9 @@ class RegisterFormReview extends Component {
                     <div className='col-md-12 mb-5'>
                       <label>프로필 사진</label>
                       <p style={{ lineHeight: '1.3' }}>
-                        프로필 사진은 최소 108 X 108px 이상의 이미지를
-                        추천드립니다. <br />
                         이미지 최적화를 위해 사진의 가로:세로 비율을 1:1로
-                        맞춰주시고 100KB 이하의 파일을 업로드 해주시기 바랍니다.{' '}
+                        맞춰주시기 바랍니다. 또한 108px X 108px 이상의 이미지를
+                        업로드해주시기 바랍니다.
                       </p>
                       <div className='d-block'>
                         <div
@@ -231,8 +226,8 @@ class RegisterFormReview extends Component {
                         본인의 드로잉을 대표하는 드로잉작품 이미지 1개를
                         업로드해주세요.
                         <br />
-                        제품이미지는 비율에 상관없이 자동 최적화되며 다만 개별
-                        이미지 사이즈를 5MB이하로 조정하시길 추천드립니다.{' '}
+                        제품이미지는 비율에 상관없이 자동 최적화되며 다만 가로
+                        1,000px 이상의 이미지를 업로드해주시기 바랍니다.{' '}
                       </p>
                       <div className='d-block'>
                         <div
@@ -269,7 +264,7 @@ class RegisterFormReview extends Component {
                         포트폴리오 이미지는 최대 40개까지 업로드 할 수 있습니다.
                         <br />
                         포트폴리오 이미지는 비율에 상관없이 자동 최적화되며 다만
-                        개별 이미지 사이즈를 5MB이하로 조정하시길 추천드립니다.
+                        가로 1,000px 이상의 이미지들을 업로드해주시기 바랍니다.
                       </p>
                       <div className='d-block'>
                         <div

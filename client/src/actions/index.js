@@ -6,7 +6,13 @@ import {
   signOut,
   changePW,
 } from './authActions';
-import { createArtist, fetchArtist, fetchPencilArtists } from './artistActions';
+import {
+  createArtist,
+  fetchArtist,
+  editArtist,
+  fetchPencilArtists,
+  submitReview,
+} from './artistActions';
 
 export {
   fetchUser,
@@ -18,4 +24,6 @@ export {
   createArtist,
   fetchArtist,
   fetchPencilArtists,
+  editArtist,
+  submitReview,
 };

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-css';
+import Lightbox from 'react-image-lightbox';
 import TitleTemp from '../../../TitleTemp';
+import 'react-image-lightbox/style.css';
 
 class Portfolio extends Component {
   state = {
     masonryBreakpoint: 4,
+    photoIndex: 0,
+    isOpen: false,
+    imgs: [...this.props.productImgs, ...this.props.portfolioImgs],
   };
 
   componentDidMount() {
@@ -26,21 +31,28 @@ class Portfolio extends Component {
     }
   };
 
+  selectImage = (index) => {
+    this.setState({
+      photoIndex: index,
+      isOpen: true,
+    });
+  };
+
   renderImgs = () => {
-    const { imgs } = this.props;
-    return imgs.map(({ _id, key }) => {
+    return this.state.imgs.map(({ _id, key }, index) => {
       return (
         <div key={_id} className='isotopeSelector fashion'>
           <div className='overlay'>
             <div className='border-portfolio'>
-              <a
-                href='/'
+              <div
+                style={{ cursor: 'pointer' }}
                 className='overlay-background d-flex justify-content-center align-items-center'
+                onClick={() => this.selectImage(index)}
               >
                 <br style={{ display: 'none' }} />
-              </a>
+              </div>
               <img
-                src={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${key}`}
+                src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${key}`}
                 alt='portfolio'
               />
             </div>
@@ -51,24 +63,50 @@ class Portfolio extends Component {
   };
 
   render() {
-    if (this.props.imgs) {
+    const { photoIndex, imgs } = this.state;
+
+    if (imgs) {
       return (
-        <div className='mb-5'>
-          <TitleTemp bigTitle='작가 포트폴리오' subTitle='Portfolio Images' />
-          <section className='portfolio-section portfolio-padding pt-0 port-col zoom-gallery'>
-            <div className='container'>
-              <div className='isotopeContainer row'>
-                <Masonry
-                  breakpointCols={this.state.masonryBreakpoint}
-                  className='my-masonry-grid'
-                  columnClassName='my-masonry-grid_column'
-                >
-                  {/* SHOW Artists */}
-                  {this.renderImgs()}
-                </Masonry>
+        <div>
+          <div className='mb-5'>
+            <TitleTemp bigTitle='작가 포트폴리오' subTitle='Portfolio Images' />
+            <section className='portfolio-section portfolio-padding pt-0 port-col zoom-gallery'>
+              <div className='container'>
+                <div className='isotopeContainer row'>
+                  <Masonry
+                    breakpointCols={this.state.masonryBreakpoint}
+                    className='my-masonry-grid'
+                    columnClassName='my-masonry-grid_column'
+                  >
+                    {/* SHOW ARTWORKS */}
+                    {this.renderImgs()}
+                  </Masonry>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
+          {this.state.isOpen && imgs ? (
+            <Lightbox
+              mainSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${imgs[photoIndex].key}`}
+              nextSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${
+                imgs[(photoIndex + 1) % imgs.length]
+              }`}
+              prevSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${
+                imgs[(photoIndex + imgs.length - 1) % imgs.length].key
+              }`}
+              onCloseRequest={() => this.setState({ isOpen: false })}
+              onMovePrevRequest={() => {
+                this.setState({
+                  photoIndex: (photoIndex + imgs.length - 1) % imgs.length,
+                });
+              }}
+              onMoveNextRequest={() => {
+                this.setState({
+                  photoIndex: (photoIndex + 1) % imgs.length,
+                });
+              }}
+            />
+          ) : null}
         </div>
       );
     }

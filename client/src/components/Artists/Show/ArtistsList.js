@@ -43,7 +43,7 @@ class ArtistsList extends Component {
                   <br style={{ display: 'none' }} />
                 </a>
                 <img
-                  src={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${productImgs[0].key}`}
+                  src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${productImgs[0].key}`}
                   alt={name}
                 />
               </div>
@@ -52,7 +52,7 @@ class ArtistsList extends Component {
               <div className='col-3'>
                 <img
                   className='avatar-img rounded-circle'
-                  src={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${profileImg}`}
+                  src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${profileImg}`}
                   style={{ width: '3rem', height: '3rem' }}
                   alt='profile'
                 />
