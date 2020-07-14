@@ -1,4 +1,10 @@
 module.exports = {
+  awsRegion: process.env.AWS_REGION,
+  emailFrom: process.env.EMAIL_FROM,
+  emailTo: process.env.EMAIL_TO,
+  adminEmail: process.env.ADMIN_EMAIL,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   googleClientID: process.env.GOOGLE_CLIENT_ID,
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
   naverClientID: process.env.NAVER_CLIENT_ID,
@@ -6,5 +12,5 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   cookieKey: process.env.COOKIE_KEY,
   sendgridAPI: process.env.SENDGRID_API,
-  redirectDomain: 'https://www.catsnap.net',
+  redirectDomain: 'https://www.artbanana.co.kr',
 };
