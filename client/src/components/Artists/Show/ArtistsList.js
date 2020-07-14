@@ -30,68 +30,71 @@ class ArtistsList extends Component {
   };
 
   renderArtists = () => {
-    return this.props.pencilArtists.map(
-      ({ _id, name, address, profileImg, productImgs }) => {
-        return (
-          <div key={_id} className='isotopeSelector fashion'>
-            <div className='overlay'>
-              <div className='border-portfolio'>
-                <a
-                  href={`/artists/show/${_id}`}
-                  className='overlay-background d-flex justify-content-center align-items-center'
-                >
-                  <br style={{ display: 'none' }} />
-                </a>
-                <img
-                  src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${productImgs[0].key}`}
-                  alt={name}
-                />
+    if (this.props.pencilArtists) {
+      return this.props.pencilArtists.map(
+        ({ _id, name, address, profileImg, productImgs }) => {
+          return (
+            <div key={_id} className='isotopeSelector fashion'>
+              <div className='overlay'>
+                <div className='border-portfolio'>
+                  <a
+                    href={`/artists/show/${_id}`}
+                    className='overlay-background d-flex justify-content-center align-items-center'
+                  >
+                    <br style={{ display: 'none' }} />
+                  </a>
+                  <img
+                    src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${productImgs[0].key}`}
+                    alt={name}
+                  />
+                </div>
               </div>
-            </div>
-            <div className='mt-2 row d-flex align-items-center'>
-              <div className='col-3'>
-                <img
-                  className='avatar-img rounded-circle'
-                  src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${profileImg}`}
-                  style={{ width: '3rem', height: '3rem' }}
-                  alt='profile'
-                />
-              </div>
-              <div
-                className='col ml-2'
-                style={{
-                  paddingLeft: '0',
-                }}
-              >
-                <div
-                  className='d-inline'
-                  style={{
-                    color: '#cbcbcb',
-                    fontFamily: 'Work Sans',
-                    fontSize: '1.1rem',
-                  }}
-                >
-                  by
+              <div className='mt-2 row d-flex align-items-center'>
+                <div className='col-3'>
+                  <img
+                    className='avatar-img rounded-circle'
+                    src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${profileImg}`}
+                    style={{ width: '3rem', height: '3rem' }}
+                    alt='profile'
+                  />
                 </div>
                 <div
-                  className='d-inline ml-1'
+                  className='col ml-2'
                   style={{
-                    color: '#777',
-                    fontSize: '1.1rem',
-                    fontWeight: '700',
+                    paddingLeft: '0',
                   }}
                 >
-                  {name}
-                </div>
-                <div style={{ fontSize: '1rem', fontWeight: '700' }}>
-                  56,000원 ~
+                  <div
+                    className='d-inline'
+                    style={{
+                      color: '#cbcbcb',
+                      fontFamily: 'Work Sans',
+                      fontSize: '1.1rem',
+                    }}
+                  >
+                    by
+                  </div>
+                  <div
+                    className='d-inline ml-1'
+                    style={{
+                      color: '#777',
+                      fontSize: '1.1rem',
+                      fontWeight: '700',
+                    }}
+                  >
+                    {name}
+                  </div>
+                  <div style={{ fontSize: '1rem', fontWeight: '700' }}>
+                    56,000원 ~
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        );
-      }
-    );
+          );
+        }
+      );
+    }
+    return null;
   };
 
   render() {

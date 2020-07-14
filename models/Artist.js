@@ -12,15 +12,9 @@ const artistSchema = new Schema({
   },
   name: String,
   email: String,
-  address: String,
   phone: String,
   intro: String,
-  homePage: String,
-  SNS: {
-    face: { type: String },
-    insta: { type: String },
-    etc: { type: String },
-  },
+  SNS: [String],
   productCategory: {
     type: String,
     default: 'pencil',

@@ -32,7 +32,7 @@ class RegisterFormReview extends Component {
     this.setState({ loading: false });
   }
 
-  //**** Submit the form
+  //*********** Submit the form ***********
   onFormSubmit = (event) => {
     event.preventDefault();
     if (

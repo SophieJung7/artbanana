@@ -24,6 +24,7 @@
   "author": "Sophie Jung",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.2.1",
     "accept-language": "^3.0.18",
     "aws-sdk": "^2.672.0",
     "axios": "^0.19.2",

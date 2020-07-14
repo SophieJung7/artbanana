@@ -11,6 +11,8 @@ import Landing from './Landing';
 // Authentication
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
+import EmailVerify from './SignUp/EmailVerifyMessage';
+import EmailVerified from './SignUp/EmailVerified';
 import MyPage from './MyPage/MyPage';
 import ChangePassword from './SignIn/ChangePassword';
 import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
@@ -24,7 +26,6 @@ import ArtistEdit from './Artists/Edit/ArtistEdit';
 // Etc.
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
-import ShowProducts from './Products/ShowProducts';
 
 class App extends Component {
   componentDidMount() {
@@ -50,6 +51,8 @@ class App extends Component {
             {/* Authentication */}
             <Route exact path='/signin' component={SignIn} />
             <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/verify-email-sent' component={EmailVerify} />
+            <Route exact path='/verify/email/:id' component={EmailVerified} />
             <Route exact path='/mypage' component={MyPage} />
             <Route exact path='/change-password' component={ChangePassword} />
             <Route
@@ -65,7 +68,6 @@ class App extends Component {
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />
-            <Route exact path='/products' component={ShowProducts} />
           </div>
           <Footer />
         </Router>

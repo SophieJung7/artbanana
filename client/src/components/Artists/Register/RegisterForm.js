@@ -66,7 +66,7 @@ function validate(values) {
   const errors = {};
 
   _.each(FIELDS, ({ name, noValueError }) => {
-    if (!values[name]) {
+    if (!values[name] && noValueError) {
       errors[name] = noValueError;
     }
   });

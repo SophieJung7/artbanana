@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Jumbotron from './Landing/Jumbotron/Jumbotron';
 import ArtistList from './Artists/Show/ArtistsList';
 import Jumbotron3 from './Landing/Jumbotron/Jumbotron3';
-import Prints from './Prints/Prints';
 class Landing extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -19,9 +18,6 @@ class Landing extends Component {
         </div>
         <div>
           <Jumbotron3 />
-        </div>
-        <div>
-          <Prints />
         </div>
       </div>
     );

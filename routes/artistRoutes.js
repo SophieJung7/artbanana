@@ -1,6 +1,20 @@
 const mongoose = require('mongoose');
 const Artist = mongoose.model('Artist');
 const requireLogin = require('../middlewares/requireLogin');
+const AWS = require('aws-sdk');
+const keys = require('../config/keys');
+const {
+  artistWelcomeParams,
+} = require('../services/emails/artistWelcomeParams');
+
+AWS.config.update({
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
+  region: keys.awsRegion,
+});
+
+// AWS Simple Email Service
+const ses = new AWS.SES({ apiVersion: '2010-12-01' });
 
 module.exports = (app) => {
   // Attempt to register for an artist
@@ -15,7 +29,12 @@ module.exports = (app) => {
   app.post('/api/artists', requireLogin, async (req, res) => {
     const {
       name,
-      address,
+      email,
+      phone,
+      intro,
+      homepage,
+      insta,
+      etc,
       profileImg,
       productImgs,
       portfolioImgs,
@@ -24,9 +43,11 @@ module.exports = (app) => {
 
     const artist = new Artist({
       _user: req.user.id,
-      email: req.user.email,
-      name: name,
-      address: address,
+      name,
+      email,
+      phone,
+      intro,
+      SNS: [homepage, insta, etc],
       profileImg: profileImg,
       productImgs: productImgs.map((img) => ({ key: img.key })),
       portfolioImgs: portfolioImgs.map((img) => ({
@@ -38,9 +59,18 @@ module.exports = (app) => {
 
     try {
       await artist.save();
-      res.send(artist);
+      // Send Welcome Email to Artists.
+      const params = artistWelcomeParams(email);
+      const sendEmail = ses.sendEmail(params).promise();
+      sendEmail
+        .then(() => {
+          res.send(artist);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
-      res.send(422, { error: 'Something went wrong!' });
+      res.send(422, { error: '아티스트 등록 오류입니다. 다시 가입해주세요.' });
     }
   });
 

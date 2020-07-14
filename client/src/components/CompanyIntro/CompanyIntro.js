@@ -8,34 +8,34 @@ class CompanyIntro extends Component {
 
   render() {
     return (
-      <section className="bg-white py-10">
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <div className="title1">
+      <section className='bg-white py-10'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col'>
+              <div className='title1'>
                 <h4>Beta Service</h4>
-                <h2 className="title-inner1">인터뷰온은?</h2>
+                <h2 className='title-inner1'>아트바나나는?</h2>
                 <hr />
               </div>
             </div>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-xl-6 col-lg-8 col-md-10 text-center mb-5 p-5">
+          <div className='row justify-content-center'>
+            <div className='col-xl-6 col-lg-8 col-md-10 text-center mb-5 p-5'>
               <div
-                className="lead mb-5"
+                className='lead mb-5'
                 style={{
                   lineHeight: '1.4',
                   fontSize: '1.1rem',
                   textAlign: 'left',
                 }}
               >
-                면접에 대한 어려움을 해결하고자 십년전 취준생이었던 선배 세명이
-                모여 인터뷰온을 시작했습니다. 문의사항이 있으시면 언제든지
-                연락주시기 바랍니다. 감사합니다!
+                우리는 예술의 힘을 믿고, 예술가들을 응원합니다!
+                <br />
+                예술가들의 정성이 담긴 제품들을 아트바나나에서 만나보세요!
               </div>
               <Link
-                to="/contactus"
-                className="btn btn-solid mt-5"
+                to='/contactus'
+                className='btn btn-solid mt-5'
                 style={{
                   fontSize: '1.2rem',
                   border: 'none',
@@ -43,7 +43,7 @@ class CompanyIntro extends Component {
                     'linear-gradient(50deg, #ff73ca 50%, transparent 50%)',
                 }}
               >
-                인터뷰온에 문의하기
+                아트바나나에 문의하기
               </Link>
             </div>
           </div>

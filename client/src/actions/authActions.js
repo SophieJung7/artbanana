@@ -5,6 +5,7 @@ import {
   SIGN_OUT,
   CHANGE_PASSWORD,
   AUTH_ERROR_CODE,
+  VERIFICATION_STATUS,
 } from './types';
 
 // Code for catching error message.
@@ -60,12 +61,20 @@ const signUp = (values) => async (dispatch) => {
     });
     history.push('/signup');
   } else {
-    dispatch({
-      type: FETCH_USER,
-      payload: res.data,
-    });
-    history.push('/');
+    // dispatch({
+    //   type: FETCH_USER,
+    //   payload: res.data,
+    // });
+    history.push('/verify-email-sent');
   }
+};
+
+const verifyEmail = (userId) => async (dispatch) => {
+  const res = await axios.get(`/auth/signup/thanks/${userId}`);
+  dispatch({
+    type: VERIFICATION_STATUS,
+    payload: res.data,
+  });
 };
 
 const signOut = () => async (dispatch) => {
@@ -91,4 +100,12 @@ const changePW = (newPassword) => async (dispatch) => {
   }
 };
 
-export { fetchUser, signInWithUs, removeAuthError, signUp, signOut, changePW };
+export {
+  fetchUser,
+  signInWithUs,
+  removeAuthError,
+  signUp,
+  verifyEmail,
+  signOut,
+  changePW,
+};

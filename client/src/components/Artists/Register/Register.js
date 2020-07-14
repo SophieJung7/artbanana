@@ -31,4 +31,4 @@ class Register extends Component {
   }
 }
 
-export default reduxForm({ form: 'photographerForm' })(Register);
+export default reduxForm({ form: 'artistForm' })(Register);

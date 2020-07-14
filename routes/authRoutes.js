@@ -1,13 +1,23 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const AWS = require('aws-sdk');
 const _ = require('lodash');
-const { Path } = require('path-parser');
-const { URL } = require('url');
-const EmailValidateMailer = require('../services/mailers/EmailValidateMailer');
-const emailValidateTemplate = require('../services/emailTemplates/emailValidateTemplate');
-const WelcomeMailer = require('../services/mailers/WelcomeMailer');
-const welcomeTemplate = require('../services/emailTemplates/welcomeTemplate');
+// const { Path } = require('path-parser');
+// const { URL } = require('url');
+const keys = require('../config/keys');
+const {
+  emailValidateParams,
+} = require('../services/emails/emailValidateParams');
+
+AWS.config.update({
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
+  region: keys.awsRegion,
+});
+
+// AWS Simple Email Service
+const ses = new AWS.SES({ apiVersion: '2010-12-01' });
 
 module.exports = (app) => {
   app.get('/api/current_user', (req, res) => {
@@ -29,18 +39,22 @@ module.exports = (app) => {
         User.register(
           new User({ username: username }),
           password,
-          (err, user) => {
+          async (err, user) => {
             try {
               // *** Send Email Verfication Email *** //
-              const mailer = new EmailValidateMailer(
-                user,
-                emailValidateTemplate(user)
-              );
-              mailer.send();
-              // *** Sign In *** //
-              passport.authenticate('local')(req, res, () => {
-                res.send(user);
-              });
+              const params = emailValidateParams(username, user._id);
+              const sendEmail = ses.sendEmail(params).promise();
+              sendEmail
+                .then(() => {
+                  passport.authenticate('local')(req, res, () => {
+                    res.send(user);
+                  });
+                })
+                .catch((err) => {
+                  res.status(409).send({
+                    error: '오류입니다. 다시 회원가입을 해주세요.',
+                  });
+                });
             } catch (err) {
               res.status(409).send(err);
             }
@@ -50,38 +64,16 @@ module.exports = (app) => {
     });
   });
 
-  // SendGrid Email Verification Webhook
-  app.post('/auth/signup/webhooks', (req, res) => {
-    const p = new Path('/auth/signup/thanks/:userId');
-    _.chain(req.body)
-      .map(({ url }) => {
-        const match = p.test(new URL(url).pathname);
-        if (match) {
-          return { userId: match.userId };
-        }
-      })
-      .compact()
-      .uniqBy('userId')
-      .each(async ({ userId }) => {
-        try {
-          // *** Save: User Verified her Email *** //
-          const user = await User.findOne({ _id: userId });
-          user.emailValidated = true;
-          await user.save();
-          // *** Send a Welcome Email(The below code doesn't work.) *** //
-          //   const mailer = new WelcomeMailer(user, welcomeTemplate(user));
-          //   await mailer.send();
-        } catch (err) {
-          console.log(err);
-        }
-      })
-      .value();
-
-    res.send({});
-  });
-
-  app.get('/auth/signup/thanks/:userId', (req, res) => {
-    res.send('이메일 인증이 완료되었습니다^^!');
+  app.get('/auth/signup/thanks/:userId', async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const user = await User.findOne({ _id: userId });
+      user.emailValidated = true;
+      await user.save();
+      res.send(true);
+    } catch (err) {
+      res.send(false);
+    }
   });
 
   app.post('/auth/signin', passport.authenticate('local'), (req, res) => {

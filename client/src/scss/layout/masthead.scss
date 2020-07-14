@@ -1,30 +1,30 @@
 // Styling for the masthead(Jumbotron)
-header.masthead {
-  text-align: center;
-  background-image: url('../assets/photos/couple-pool.jpg');
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  width: 100vw;
-  height: 40rem;
-  .intro-text {
-    &-bg {
-      font-size: 3rem;
-      color: black;
-    }
-    &-sm {
-      font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: 0.1rem;
-      color: black;
-    }
-  }
-}
+// header.masthead {
+//   text-align: center;
+//   background-image: url('../assets/photos/couple-pool.jpg');
+//   background-repeat: no-repeat;
+//   background-attachment: scroll;
+//   background-position: center center;
+//   background-size: cover;
+//   width: 100vw;
+//   height: 40rem;
+//   .intro-text {
+//     &-bg {
+//       font-size: 3rem;
+//       color: black;
+//     }
+//     &-sm {
+//       font-size: 1.5rem;
+//       font-weight: 500;
+//       letter-spacing: 0.1rem;
+//       color: black;
+//     }
+//   }
+// }
 // For Mobile Version: Different design.
 @media (max-width: 576px) {
   header.masthead {
-    background-image: url('../assets/photos/login-couple.jpg');
+    background-image: url('../assets/photos/login.jpg');
     color: black;
     .intro-text {
       &-bg {
@@ -66,7 +66,7 @@ header.masthead {
 // For Mobile Version: Different design.
 @media (max-width: 576px) {
   header.masthead2 {
-    background-image: url('../assets/photos/login-couple.jpg');
+    background-image: url('../assets/photos/login.jpg');
     color: black;
     .intro-text {
       &-bg {
@@ -86,7 +86,7 @@ header.masthead {
 // Styling for the 2ND masthead(Jumbotron)
 header.masthead-2 {
   text-align: center;
-  background-image: url('../assets/photos/white-landscape.jpg');
+  background-image: url('../assets/photos/green-landscape.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

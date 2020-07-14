@@ -3,6 +3,7 @@ import {
   signInWithUs,
   removeAuthError,
   signUp,
+  verifyEmail,
   signOut,
   changePW,
 } from './authActions';
@@ -19,6 +20,7 @@ export {
   signInWithUs,
   removeAuthError,
   signUp,
+  verifyEmail,
   signOut,
   changePW,
   createArtist,

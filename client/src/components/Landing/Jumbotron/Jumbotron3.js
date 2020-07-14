@@ -2,7 +2,7 @@ import React from 'react';
 
 const Jumbotron3 = () => {
   return (
-    <header className='masthead-3 d-flex align-items-center'>
+    <header className='masthead-3 d-flex align-items-center mb-5'>
       <div className='container'>
         <div className='row d-flex justify-content-center'>
           <div className='col-10 intro-text d-none d-sm-block'>

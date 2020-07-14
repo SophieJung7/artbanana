@@ -16,7 +16,13 @@ const Jumbotron = ({ translate }) => {
                     style={{ justifyContent: 'left' }}
                   >
                     <div className='ml-5'>
-                      <h1 style={{ fontSize: '2.7rem', lineHeight: '1.4' }}>
+                      <h1
+                        style={{
+                          fontSize: '3.3rem',
+                          lineHeight: '1.4',
+                          color: '#DAA520',
+                        }}
+                      >
                         평생 남기고 싶은 사진을 <br /> 예술작품으로 만드세요!
                       </h1>
                       <h4 className='my-4'>
@@ -43,7 +49,7 @@ const Jumbotron = ({ translate }) => {
                 <div className='col'>
                   <div className='slider-contain' style={{ height: '40vh' }}>
                     <div>
-                      <h1>
+                      <h1 style={{ color: '#DAA520' }}>
                         평생 남기고 싶은 사진을 <br /> 예술작품으로 만드세요!
                       </h1>
                       <h4 className='my-4'>

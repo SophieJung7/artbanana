@@ -4,9 +4,18 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const NaverStrategy = require('passport-naver').Strategy;
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const AWS = require('aws-sdk');
 const keys = require('../config/keys');
-const WelcomeMailer = require('../services/mailers/WelcomeMailer');
-const welcomeTemplate = require('../services/emailTemplates/welcomeTemplate');
+const { welcomeParams } = require('../services/emails/welcomeParams');
+
+AWS.config.update({
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
+  region: keys.awsRegion,
+});
+
+// AWS Simple Email Service
+const ses = new AWS.SES({ apiVersion: '2010-12-01' });
 
 passport.use(new LocalStrategy(User.authenticate()));
 
@@ -34,11 +43,17 @@ passport.use(
           picture: picture,
           userAccountProvider: profile.provider,
         }).save();
-        // *** Send Welcome Mail *** //
         try {
-          const mailer = new WelcomeMailer(user, welcomeTemplate(user));
-          await mailer.send();
-          done(null, user);
+          // *** Send Welcome Mail *** //
+          const params = welcomeParams(email, user._id);
+          const sendEmail = ses.sendEmail(params).promise();
+          sendEmail
+            .then(() => {
+              done(null, user);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         } catch (err) {
           throw err;
         }
@@ -72,8 +87,8 @@ passport.use(
         }).save();
         // *** Send Welcome Mail *** //
         try {
-          const mailer = new WelcomeMailer(user, welcomeTemplate(user));
-          await mailer.send();
+          //   const mailer = new WelcomeMailer(user, welcomeTemplate(user));
+          //   await mailer.send();
           done(null, user);
         } catch (err) {
           throw err;

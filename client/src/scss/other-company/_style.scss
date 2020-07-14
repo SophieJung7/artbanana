@@ -1402,9 +1402,9 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     height: 75vh;
-    @for $i from 1 through 6 {
+    @for $i from 1 through 5 {
       &.home#{$i} {
-        background-image: url('../assets/photos/home-banner/#{$i}.jpg');
+        background-image: url('../assets/photos/home-banner/landing-jumbo/#{$i}.jpg');
       }
     }
   }
@@ -1414,7 +1414,7 @@ header {
       @for $i from 1 through 2 {
         &.home#{$i} {
           // background-image: url('../assets/photos/home-banner/#{$i}.jpg');
-          background-image: url('../assets/photos/home-banner/mobile/#{$i}.jpg');
+          background-image: url('../assets/photos/home-banner/landing-jumbo/mobile/#{$i}.jpg');
         }
       }
     }
@@ -9168,7 +9168,7 @@ footer {
       margin-bottom: -8px;
       line-height: 2;
       letter-spacing: 0.05em;
-    }     
+    }
     .media {
       margin-top: 20px;
     }

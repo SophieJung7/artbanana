@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const keys = require('../../config/keys');
 
 class Subscribe extends Component {
   constructor(props) {
@@ -12,14 +13,14 @@ class Subscribe extends Component {
   renderButton() {
     if (this.state.status === 'SUCCESS') {
       return (
-        <div className="pt-3 ml-3">
-          <h4 className="thank-you">감사합니다!</h4>
+        <div className='pt-3 ml-3'>
+          <h4 className='thank-you'>감사합니다!</h4>
         </div>
       );
     } else if (this.state.status === 'ERROR') {
       return (
-        <div className="pt-3 ml-3">
-          <h4 className="d-block" style={{ color: 'red' }}>
+        <div className='pt-3 ml-3'>
+          <h4 className='d-block' style={{ color: 'red' }}>
             잘못된 이메일 형식입니다. 다시 입력해주세요!
           </h4>
         </div>
@@ -27,8 +28,8 @@ class Subscribe extends Component {
     } else {
       return (
         <button
-          type="submit"
-          className="btn btn-solid btn-subscribe"
+          type='submit'
+          className='btn btn-solid btn-subscribe'
           style={{
             height: '6vh',
             backgroundImage:
@@ -44,35 +45,35 @@ class Subscribe extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <div className="title1">
+      <div className='container mt-5'>
+        <div className='row'>
+          <div className='col'>
+            <div className='title1'>
               <h4>Subscribe</h4>
-              <h2 className="title-inner1">이메일 뉴스레터에 가입하세요!</h2>
+              <h2 className='title-inner1'>이메일 뉴스레터에 가입하세요!</h2>
               <hr />
             </div>
           </div>
         </div>
-        <div className="white-layout">
-          <div className="container">
-            <section className="small-section">
-              <div className="row">
-                <div className="col-xl-6 offset-xl-3">
-                  <div className="subscribe">
+        <div className='white-layout'>
+          <div className='container'>
+            <section className='small-section'>
+              <div className='row'>
+                <div className='col-xl-6 offset-xl-3'>
+                  <div className='subscribe'>
                     <form
                       onSubmit={this.submitForm}
-                      action="https://formspree.io/mknvrpdl"
-                      method="POST"
-                      className="form-inline subscribe-form classic-form"
+                      action={keys.formspreeUrl}
+                      method='POST'
+                      className='form-inline subscribe-form classic-form'
                     >
-                      <div className="form-group">
+                      <div className='form-group'>
                         <input
-                          type="text"
-                          name="email"
-                          className="form-control subscribe-input"
-                          id="exampleFormControlInput"
-                          placeholder="이메일주소를 입력하세요."
+                          type='text'
+                          name='email'
+                          className='form-control subscribe-input'
+                          id='exampleFormControlInput'
+                          placeholder='이메일주소를 입력하세요.'
                           style={{ height: '6vh' }}
                         />
                       </div>

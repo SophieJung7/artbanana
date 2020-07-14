@@ -1066,30 +1066,27 @@ header {
   height: 75vh; }
   .home-slider .home.home1,
   .center-slider .home.home1 {
-    background-image: url("../assets/photos/home-banner/1.jpg"); }
+    background-image: url("../assets/photos/home-banner/landing-jumbo/1.jpg"); }
   .home-slider .home.home2,
   .center-slider .home.home2 {
-    background-image: url("../assets/photos/home-banner/2.jpg"); }
+    background-image: url("../assets/photos/home-banner/landing-jumbo/2.jpg"); }
   .home-slider .home.home3,
   .center-slider .home.home3 {
-    background-image: url("../assets/photos/home-banner/3.jpg"); }
+    background-image: url("../assets/photos/home-banner/landing-jumbo/3.jpg"); }
   .home-slider .home.home4,
   .center-slider .home.home4 {
-    background-image: url("../assets/photos/home-banner/4.jpg"); }
+    background-image: url("../assets/photos/home-banner/landing-jumbo/4.jpg"); }
   .home-slider .home.home5,
   .center-slider .home.home5 {
-    background-image: url("../assets/photos/home-banner/5.jpg"); }
-  .home-slider .home.home6,
-  .center-slider .home.home6 {
-    background-image: url("../assets/photos/home-banner/6.jpg"); }
+    background-image: url("../assets/photos/home-banner/landing-jumbo/5.jpg"); }
 
 @media (max-width: 576px) {
   .home-slider .home.home1,
   .center-slider .home.home1 {
-    background-image: url("../assets/photos/home-banner/mobile/1.jpg"); }
+    background-image: url("../assets/photos/home-banner/landing-jumbo/mobile/1.jpg"); }
   .home-slider .home.home2,
   .center-slider .home.home2 {
-    background-image: url("../assets/photos/home-banner/mobile/2.jpg"); } }
+    background-image: url("../assets/photos/home-banner/landing-jumbo/mobile/2.jpg"); } }
 
 .home-slider .slider-contain,
 .center-slider .slider-contain {
