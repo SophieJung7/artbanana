@@ -1,12 +1,8 @@
 {
-  "name": "catsnap",
+  "name": "artbanana",
   "version": "1.0.0",
-  "description": "Airbnb for photographers.",
+  "description": "Artist Platform",
   "main": "index.js",
-  "engines": {
-    "node": "12.18.2",
-    "npm": "6.13.7"
-  },
   "jest": {
     "setupTestFrameworkScriptFile": "./tests/setup.js",
     "testEnvironment": "node",
