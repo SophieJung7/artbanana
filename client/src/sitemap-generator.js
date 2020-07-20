@@ -5,10 +5,10 @@ require('babel-register')({
 const router = require('./sitemap-routes').default;
 const Sitemap = require('react-router-sitemap').default;
 
-const generateSitemap = () => {
+function generateSitemap() {
   return new Sitemap(router)
-    .build('https://www.interviewon.com')
+    .build('https://www.artbanana.co.kr')
     .save('./public/sitemap.xml');
-};
+}
 
 generateSitemap();

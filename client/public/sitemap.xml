@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://www.catsnap.net/</loc> </url>
-<url> <loc>https://www.catsnap.net/</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/bali</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/bangkok</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/bern</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/cancun</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/london</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/maldives</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/blog/london</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/blog/honeymoon</loc> </url>
-<url> <loc>https://www.catsnap.net/sorry/blog/family</loc> </url>
-<url> <loc>https://www.catsnap.net/contactus</loc> </url>
-<url> <loc>https://www.catsnap.net/signin</loc> </url>
-<url> <loc>https://www.catsnap.net/signup</loc> </url>
+<url> <loc>https://www.artbanana.co.kr/</loc> </url>
+<url> <loc>https://www.artbanana.co.kr/signin</loc> </url>
+<url> <loc>https://www.artbanana.co.kr/signup</loc> </url>
+<url> <loc>https://www.artbanana.co.kr/artists/register</loc> </url>
+<url> <loc>https://www.artbanana.co.kr/aboutus</loc> </url>
+<url> <loc>https://www.artbanana.co.kr/contactus</loc> </url>
 </urlset>

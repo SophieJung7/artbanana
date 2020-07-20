@@ -84,8 +84,19 @@ class ArtistsList extends Component {
                   >
                     {name}
                   </div>
+                  <div>
+                    <del
+                      style={{ fontSize: '0.9rem', fontWeight: '700' }}
+                    >{`296,000원`}</del>
+                    <span
+                      className='ml-1'
+                      style={{ color: '#d8a6a2', fontWeight: '700' }}
+                    >
+                      50% Off
+                    </span>
+                  </div>
                   <div style={{ fontSize: '1rem', fontWeight: '700' }}>
-                    56,000원 ~
+                    148,000원
                   </div>
                 </div>
               </div>

@@ -30,7 +30,7 @@ class SignInForm extends Component {
       return (
         <Field
           type={type}
-          className="form-control form-control-user"
+          className='form-control form-control-user'
           component={SignInFormField}
           key={name}
           label={label}
@@ -46,7 +46,7 @@ class SignInForm extends Component {
       return (
         <small
           style={{ color: 'red', fontWeight: '500' }}
-          className="form-text mb-3"
+          className='form-text mb-3'
         >
           이메일주소나 비밀번호가 틀렸습니다.
         </small>
@@ -65,16 +65,16 @@ class SignInForm extends Component {
         {this.renderFields()}
         {this.showError()}
         <button
-          type="submit"
-          className="btn btn-user btn-block btn-sign-in"
+          type='submit'
+          className='btn btn-user btn-block btn-sign-in'
           style={{
-            backgroundColor: '#4df6c0',
+            backgroundColor: '#b5dccd',
           }}
         >
           로그인
         </button>
-        <div className="text-right">
-          <Link className="small-text" to="/change-password">
+        <div className='text-right'>
+          <Link className='small-text' to='/change-password'>
             비밀번호 찾기
           </Link>
         </div>

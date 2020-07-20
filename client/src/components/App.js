@@ -37,11 +37,11 @@ class App extends Component {
       <div>
         <Helmet>
           <meta charSet='utf-8' />
-          <title>아트바나나 | 사진을 작품으로 만드세요!</title>
-          {/* <link rel="canonical" href="https://www.interviewon.com" /> */}
+          <title>아트바나나 | 아티스트 사진 드로잉</title>
+          <link rel='canonical' href='https://www.artbanana.co.kr' />
           <meta
             name='description'
-            content='대기업, 외국계기업, 공기업 출신의 선배들에게 이력서, 자소서 첨삭 및 취업속성과외를 받으세요!'
+            content='아티스트플랫폼 아트바나나에서 추억이 담긴 사진을 시간을 초월하는 예술작품으로 바꿔보세요.'
           />
         </Helmet>
         <Router history={history}>

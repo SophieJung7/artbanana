@@ -8,14 +8,25 @@ import {
   FaInstagram,
 } from 'react-icons/fa';
 
+const price = {
+  sizeS: 296000,
+  sizeM: 592000,
+  sizeL: 996000,
+  sizeXL: 1693200,
+};
+
 class DetailsWithPrice extends Component {
   state = {
     quantity: 1,
-    sizeOption: 'optionA',
+    sizeOption: 'sizeS',
+    price: price.sizeS,
+    sale: true,
   };
 
   handleSizeOptionChange = (event) => {
-    this.setState({ sizeOption: event.target.value });
+    const sizeOption = event.target.value;
+    const chosenPrice = price[sizeOption];
+    this.setState({ sizeOption: sizeOption, price: chosenPrice });
   };
 
   render() {
@@ -54,39 +65,70 @@ class DetailsWithPrice extends Component {
               {name}{' '}
             </h2>
           </div>
-          <h4>
-            <del>155,000원</del>
-            <span
-              className='ml-1'
-              style={{ color: '#d8a6a2', fontWeight: '700' }}
-            >
-              30% off
-            </span>
-          </h4>
-          {/* Not visible on Mobile */}
-          <div className='d-none d-sm-block mb-3'>
-            <h3
-              className='d-inline'
-              style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
-            >
-              95,000
-            </h3>
-            <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
-              원
-            </h4>
-          </div>
-          {/* Only visible on Mobile */}
-          <div className='d-block d-sm-none mb-3'>
-            <h3
-              className='d-inline'
-              style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
-            >
-              95,000
-            </h3>
-            <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
-              원
-            </h4>
-          </div>
+          {this.state.sale ? (
+            <div className='price-part'>
+              <h4>
+                <del>{`${this.state.price.toLocaleString('en')}원`}</del>
+                <span
+                  className='ml-1'
+                  style={{ color: '#d8a6a2', fontWeight: '700' }}
+                >
+                  50% off
+                </span>
+              </h4>
+              {/* Not visible on Mobile */}
+              <div className='d-none d-sm-block mb-3'>
+                <h3
+                  className='d-inline'
+                  style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
+                >
+                  {(this.state.price * 0.5).toLocaleString('en')}
+                </h3>
+                <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
+                  원
+                </h4>
+              </div>
+              {/* Only visible on Mobile */}
+              <div className='d-block d-sm-none mb-3'>
+                <h3
+                  className='d-inline'
+                  style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
+                >
+                  {(this.state.price * 0.5).toLocaleString('en')}
+                </h3>
+                <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
+                  원
+                </h4>
+              </div>
+            </div>
+          ) : (
+            <div className='price-part'>
+              {/* Not visible on Mobile */}
+              <div className='d-none d-sm-block mb-3'>
+                <h3
+                  className='d-inline'
+                  style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
+                >
+                  {this.state.price}
+                </h3>
+                <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
+                  원
+                </h4>
+              </div>
+              {/* Only visible on Mobile */}
+              <div className='d-block d-sm-none mb-3'>
+                <h3
+                  className='d-inline'
+                  style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
+                >
+                  {this.state.price}
+                </h3>
+                <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
+                  원
+                </h4>
+              </div>
+            </div>
+          )}
 
           <div className='product-description border-product'>
             <div className='mb-4'>
@@ -97,35 +139,54 @@ class DetailsWithPrice extends Component {
                 <div className='radio-item'>
                   <input
                     type='radio'
-                    value='optionA'
-                    id='optionA'
+                    value='sizeS'
+                    id='sizeS'
                     name='options'
-                    checked={this.state.sizeOption === 'optionA'}
+                    checked={this.state.sizeOption === 'sizeS'}
                     onChange={this.handleSizeOptionChange}
                   />
-                  <label htmlFor='optionA'>1호(10cm X 10cm)</label>
+                  <label htmlFor='sizeS'>
+                    S (A5사이즈/ 148mm X 210mm/ 최대 오브젝트 1명)
+                  </label>
                 </div>
                 <div className='radio-item'>
                   <input
                     type='radio'
-                    value='optionB'
-                    id='optionB'
+                    value='sizeM'
+                    id='sizeM'
                     name='options'
-                    checked={this.state.sizeOption === 'optionB'}
+                    checked={this.state.sizeOption === 'sizeM'}
                     onChange={this.handleSizeOptionChange}
                   />
-                  <label htmlFor='optionB'>2호(20cm X 20cm)</label>
+                  <label htmlFor='sizeM'>
+                    M (A4사이즈/ 210mm X 297mm/ 최대 오브젝트 2명)
+                  </label>
                 </div>
                 <div className='radio-item'>
                   <input
                     type='radio'
-                    value='optionC'
-                    id='optionC'
+                    value='sizeL'
+                    id='sizeL'
                     name='options'
-                    checked={this.state.sizeOption === 'optionC'}
+                    checked={this.state.sizeOption === 'sizeL'}
                     onChange={this.handleSizeOptionChange}
                   />
-                  <label htmlFor='optionC'>3호(30cm X 30cm)</label>
+                  <label htmlFor='sizeL'>
+                    L (A3사이즈/ 297mm X 420mm/ 최대 오브젝트 4명)
+                  </label>
+                </div>
+                <div className='radio-item'>
+                  <input
+                    type='radio'
+                    value='sizeXL'
+                    id='sizeXL'
+                    name='options'
+                    checked={this.state.sizeOption === 'sizeXL'}
+                    onChange={this.handleSizeOptionChange}
+                  />
+                  <label htmlFor='sizeXL'>
+                    XL (A2사이즈/ 420mm X 594mm/ 최대 오브젝트 5명)
+                  </label>
                 </div>
               </div>
             </div>
