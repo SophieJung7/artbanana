@@ -11,7 +11,7 @@ module.exports = {
   naverClientID: '1rqSDCKEET5x1MCR1M3r',
   naverClientSecret: '0KLenJgFr5',
   mongoURI:
-    'mongodb+srv://cherryart7:56vdpLznYBtuWetf@cluster0-uwazu.mongodb.net/banana?retryWrites=true&w=majority',
+    'mongodb+srv://sophie:WucUSwc9aZh0GicJ@cluster0.dzmmu.mongodb.net/artBanana?retryWrites=true&w=majority',
   cookieKey: 'dlkglkagl342fgfg',
   sendgridAPI:
     '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',
