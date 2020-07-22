@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Jumbotron from './Landing/Jumbotron/Jumbotron';
+import Jumbotron2 from './Landing/Jumbotron/Jumbotron2';
 import ArtistList from './Artists/Show/ArtistsList';
 import Jumbotron3 from './Landing/Jumbotron/Jumbotron3';
-import AboutUs from './Landing/AboutUs/AboutUs';
 class Landing extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -15,7 +15,7 @@ class Landing extends Component {
           <Jumbotron style={{ position: 'absolute' }} />
         </div>
         <div>
-          <AboutUs />
+          <Jumbotron2 />
         </div>
         <div>
           <ArtistList />

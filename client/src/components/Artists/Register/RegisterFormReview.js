@@ -16,8 +16,8 @@ class RegisterFormReview extends Component {
     profileImgBlob: '',
     profileFile: null,
     // Product Imgs
-    productImgs: [],
-    productImgBlobs: [],
+    productImgs: {},
+    productImgBlobs: '',
     productFiles: null,
     // Portfolio Imgs
     portfolioImgs: [],
@@ -62,18 +62,25 @@ class RegisterFormReview extends Component {
   };
 
   onProductImgsChange = (event) => {
-    this.setState({ productFiles: event.target.files });
-    const files = [...this.state.productImgs, ...event.target.files];
-    const fileBlobs = [];
-    for (var i = 0; i < files.length; i++) {
-      let fileBlob = URL.createObjectURL(files[i], { oneTimeOnly: true });
-      fileBlobs.push({
-        path: fileBlob,
-        name: files[i].name,
-      });
-    }
-    this.setState({ productImgs: files, productImgBlobs: fileBlobs });
+    this.setState({ productFile: event.target.files[0] });
+    const file = event.target.files[0];
+    const fileBlob = URL.createObjectURL(file, { oneTimeOnly: true });
+    this.setState({ productImgs: file, productImgBlobs: fileBlob });
   };
+
+  //   onProductImgsChange = (event) => {
+  //     this.setState({ productFiles: event.target.files });
+  //     const files = [...this.state.productImgs, ...event.target.files];
+  //     const fileBlobs = [];
+  //     for (var i = 0; i < files.length; i++) {
+  //       let fileBlob = URL.createObjectURL(files[i], { oneTimeOnly: true });
+  //       fileBlobs.push({
+  //         path: fileBlob,
+  //         name: files[i].name,
+  //       });
+  //     }
+  //     this.setState({ productImgs: files, productImgBlobs: fileBlobs });
+  //   };
 
   onPortfolioImgsChange = (event) => {
     this.setState({ portfolioFiles: event.target.files });
@@ -91,15 +98,17 @@ class RegisterFormReview extends Component {
 
   showProductImgs = () => {
     if (this.state.productImgBlobs) {
-      return this.state.productImgBlobs.map(({ path }) => {
-        return (
-          <div key={path} className='col-lg-3 col-md-6'>
-            <div className='collection-block'>
-              <img src={path} className='img-fluid' alt='product-blob' />
-            </div>
+      return (
+        <div className='col-lg-3 col-md-6'>
+          <div className='collection-block'>
+            <img
+              src={this.state.productImgBlobs}
+              className='img-fluid'
+              alt='product-blob'
+            />
           </div>
-        );
-      });
+        </div>
+      );
     }
     return null;
   };

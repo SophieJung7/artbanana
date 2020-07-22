@@ -67,7 +67,10 @@ module.exports = (app) => {
           res.send(artist);
         })
         .catch((err) => {
-          console.log(err);
+          res.send(422, {
+            error:
+              '아티스트 등록 오류입니다. 이메일주소를 기입했는지 확인해주세요.',
+          });
         });
     } catch (err) {
       res.send(422, { error: '아티스트 등록 오류입니다. 다시 가입해주세요.' });

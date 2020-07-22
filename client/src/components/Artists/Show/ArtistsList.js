@@ -78,7 +78,7 @@ class ArtistsList extends Component {
                     className='d-inline ml-1'
                     style={{
                       color: '#777',
-                      fontSize: '1.1rem',
+                      fontSize: '1rem',
                       fontWeight: '700',
                     }}
                   >
