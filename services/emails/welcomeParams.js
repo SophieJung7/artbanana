@@ -7,6 +7,7 @@ exports.welcomeParams = (username, id) => {
     },
     Source: keys.emailFrom,
     ReplyToAddresses: [keys.emailFrom],
+    ReturnPath: keys.adminEmail,
     Message: {
       Body: {
         /* required */

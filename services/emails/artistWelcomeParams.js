@@ -7,6 +7,7 @@ exports.artistWelcomeParams = (email) => {
     },
     Source: keys.emailFrom,
     ReplyToAddresses: [keys.emailFrom],
+    ReturnPath: keys.adminEmail,
     Message: {
       Body: {
         /* required */
