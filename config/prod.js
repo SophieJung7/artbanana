@@ -1,5 +1,5 @@
 module.exports = {
-  awsRegion: process.env.AWS_REGION,
+  awsRegion: process.env.AWS_MY_REGION,
   emailFrom: process.env.EMAIL_FROM,
   emailTo: process.env.EMAIL_TO,
   adminEmail: process.env.ADMIN_EMAIL,
