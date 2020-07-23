@@ -10379,11 +10379,6 @@ body.dark {
   .sm > li > h6 {
     margin: 0;
     padding: 0; }
-  .sm a {
-    position: relative;
-    display: block; }
-    .sm a.disabled {
-      cursor: default; }
   .sm * {
     box-sizing: inherit; }
   .sm *::before {
@@ -10724,9 +10719,6 @@ header .layout3-menu .main-navbar .nav-menu {
 .pixelstrap a:hover {
   color: #b5dccd; }
 
-.pixelstrap a.disabled {
-  color: white; }
-
 .pixelstrap a .sub-arrow {
   position: absolute;
   top: 50%;
@@ -10767,8 +10759,6 @@ header .layout3-menu .main-navbar .nav-menu {
   .pixelstrap ul a.current {
     background: #b5dccd;
     color: #fff; }
-  .pixelstrap ul a.disabled {
-    color: #b3b3b3; }
   .pixelstrap ul ul a,
   .pixelstrap ul ul a:hover,
   .pixelstrap ul ul a:focus,
