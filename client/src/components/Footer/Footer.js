@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Subscribe from '../Subscribe/Subscribe';
 import { MdCopyright } from 'react-icons/md';
-import { FaKiwiBird } from 'react-icons/fa';
 import visa from '../../assets/icons/visa.png';
 import master from '../../assets/icons/mastercard.png';
 

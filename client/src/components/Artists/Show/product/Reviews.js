@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
-import { IoIosStar, IoIosStarOutline } from 'react-icons/io';
 import { FaUser, FaAngleDoubleRight } from 'react-icons/fa';
 
 class Reviews extends Component {
@@ -35,7 +34,7 @@ class Reviews extends Component {
     }
   }
 
-  calAvgScore = () => {
+  calAvgScore() {
     const { reviews } = this.props;
     let totalScores = 0;
     // Sum all the scores of reviews
@@ -46,7 +45,7 @@ class Reviews extends Component {
     const avgS = totalScores / numberOfReviews;
     const avgScore = avgS.toFixed(2);
     this.setState({ avgScore: avgScore });
-  };
+  }
 
   hideUserEmail = function (email) {
     let characterArray = email.split('');
