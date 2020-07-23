@@ -29,6 +29,7 @@ class Reviews extends Component {
         if (this.state.numberOfReviews) {
           this.increaseReviews();
           this.calAvgScore();
+        } else {
         }
       });
     }
@@ -39,7 +40,7 @@ class Reviews extends Component {
     let totalScores = 0;
     // Sum all the scores of reviews
     reviews.map(({ score }) => {
-      totalScores += score;
+      return (totalScores += score);
     });
     const numberOfReviews = reviews.length;
     const avgS = totalScores / numberOfReviews;
