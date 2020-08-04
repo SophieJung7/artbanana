@@ -39,6 +39,7 @@ module.exports = (app) => {
       productImgs,
       portfolioImgs,
       productCategory,
+      products,
     } = req.body;
 
     const artist = new Artist({
@@ -54,6 +55,16 @@ module.exports = (app) => {
         key: img.key,
       })),
       productCategory: productCategory,
+      products: products.map(
+        ({ key, name, width, height, quantity, price }) => ({
+          key,
+          name,
+          width,
+          height,
+          quantity,
+          price,
+        })
+      ),
       dateRegistered: Date.now(),
     });
 

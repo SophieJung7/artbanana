@@ -91,7 +91,8 @@ class Footer extends Component {
                     <p style={{ fontSize: '0.8rem' }}>
                       회사명 아트바나나 | 정혜정 | 개인정보보호책임자 정혜정 |
                       본사주소 The Zenith, 258 Queen's Road East, Wan Chai, Hong
-                      Kong | 이메일 art@artbanana.co.uk <br /> <MdCopyright />
+                      Kong | 이메일 sophie@artbanana.co.kr <br />{' '}
+                      <MdCopyright />
                       ArtBanana. All rights reserved.
                     </p>
                   </div>

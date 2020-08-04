@@ -40,7 +40,8 @@ const createArtist = (
   values,
   profilePhoto,
   productPhotos,
-  portfolioPhotos
+  portfolioPhotos,
+  productInfo
 ) => async (dispatch) => {
   //For profile photo: Get presignedURL from S3
   const profileKeysAndUrls = await axios.get('/api/artist/profile/upload');
@@ -86,6 +87,7 @@ const createArtist = (
     profileImg: profileKeysAndUrls.data.key,
     productImgs: [...productKeysAndUrls.data],
     portfolioImgs: [...portfolioKeysAndUrls.data],
+    products: [{ ...productInfo, ...productKeysAndUrls.data }],
   });
 
   //Call Redux

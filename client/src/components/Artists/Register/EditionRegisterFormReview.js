@@ -7,7 +7,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import * as actions from '../../../actions';
 import FIELDS from './RegisterFields';
 
-class RegisterFormReview extends Component {
+class EditionRegisterFormReview extends Component {
   state = {
     loading: false,
     error: false,
@@ -23,7 +23,16 @@ class RegisterFormReview extends Component {
     portfolioImgs: [],
     portfolioImgBlobs: [],
     portfolioFiles: null,
+    // 아트에디션 작가들을 위한 Product Info
+    product: {
+      name: '',
+      width: 0,
+      height: 0,
+      quantity: 0,
+      price: 0,
+    },
   };
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -46,7 +55,8 @@ class RegisterFormReview extends Component {
         formValues,
         this.state.profileFile,
         this.state.productFiles,
-        this.state.portfolioFiles
+        this.state.portfolioFiles,
+        this.state.product
       );
     } else {
       this.setState({ error: true });
@@ -230,10 +240,10 @@ class RegisterFormReview extends Component {
                   </div>
                   <div className='form-row mb-3'>
                     <div className='col-md-12'>
-                      <label>제품 대표이미지</label>
+                      <label>작품</label>
                       <p style={{ lineHeight: '1.3' }}>
-                        본인의 드로잉을 대표하는 드로잉작품 이미지 1개를
-                        업로드해주세요.
+                        본인의 작품중 판매를 원하는 작품 1개의 정보를
+                        올려주세요(추후 더 많은 제품을 올리실 수 있습니다).
                         <br />
                         제품이미지는 비율에 상관없이 자동 최적화되며 다만 가로
                         1,000px 이상의 이미지를 업로드해주시기 바랍니다.{' '}
@@ -248,7 +258,7 @@ class RegisterFormReview extends Component {
                             border: 'none',
                           }}
                         >
-                          제품사진 업로드
+                          작품사진 업로드
                           <input
                             type='file'
                             accept='image/*'
@@ -256,6 +266,72 @@ class RegisterFormReview extends Component {
                           />
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <div className='form-row'>
+                    <div className='form-group col-md-3'>
+                      <label>작품명</label>
+                      <input
+                        onChange={(e) => {
+                          let product = { ...this.state.product };
+                          product.name = e.target.value;
+                          this.setState({ product });
+                        }}
+                        className='form-control'
+                        placeholder='무제'
+                      />
+                    </div>
+                    <div className='form-group col-md-2'>
+                      <label>가로(cm)</label>
+                      <input
+                        onChange={(e) => {
+                          let product = { ...this.state.product };
+                          let value = e.target.value;
+                          product.width = parseInt(value.replace(/\D/g, ''));
+                          this.setState({ product });
+                        }}
+                        className='form-control'
+                        placeholder='100'
+                      />
+                    </div>
+                    <div className='form-group col-md-2'>
+                      <label>세로(cm)</label>
+                      <input
+                        onChange={(e) => {
+                          let product = { ...this.state.product };
+                          let value = e.target.value;
+                          product.height = parseInt(value.replace(/\D/g, ''));
+                          this.setState({ product });
+                        }}
+                        className='form-control'
+                        placeholder='60'
+                      />
+                    </div>
+                    <div className='form-group col-md-2'>
+                      <label>에디션 총수량</label>
+                      <input
+                        onChange={(e) => {
+                          let product = { ...this.state.product };
+                          let value = e.target.value;
+                          product.quantity = parseInt(value.replace(/\D/g, ''));
+                          this.setState({ product });
+                        }}
+                        className='form-control'
+                        placeholder='30'
+                      />
+                    </div>
+                    <div className='form-group col-md-3'>
+                      <label>가격</label>
+                      <input
+                        onChange={(e) => {
+                          let product = { ...this.state.product };
+                          let value = e.target.value;
+                          product.price = parseInt(value.replace(/\D/g, ''));
+                          this.setState({ product });
+                        }}
+                        className='form-control'
+                        placeholder='255,000'
+                      />
                     </div>
                   </div>
                   <div
@@ -371,4 +447,4 @@ const mapStateToProps = (state) => {
   return { formValues: state.form.artistForm.values };
 };
 
-export default connect(mapStateToProps, actions)(RegisterFormReview);
+export default connect(mapStateToProps, actions)(EditionRegisterFormReview);

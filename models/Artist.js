@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 const ProductImgsSchema = require('./ProductImgs');
 const PortfolioImgsSchema = require('./PortfolioImgs');
 const ReviewSchema = require('./Review');
+const ProductSchema = require('./Product');
 
 const artistSchema = new Schema({
   _user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -19,6 +20,7 @@ const artistSchema = new Schema({
     type: String,
     default: 'pencil',
   },
+  products: [ProductSchema],
   price: {
     sm: { type: Number },
     md: { type: Number },
