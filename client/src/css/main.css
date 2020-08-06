@@ -350,6 +350,38 @@ header.masthead-3 {
       letter-spacing: 0.1rem;
       color: black; } }
 
+header.masthead-4 {
+  background-image: url("https://artbanana.s3.ap-northeast-2.amazonaws.com/website/catalogue1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 60rem; }
+  header.masthead-4 .intro-text-bg {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black; }
+  header.masthead-4 .intro-text-sm {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: black; }
+
+@media (max-width: 576px) {
+  header.masthead-4 {
+    background-image: url("https://artbanana.s3.ap-northeast-2.amazonaws.com/website/catalogue-mobile.jpg");
+    color: black;
+    height: 30rem; }
+    header.masthead-4 .intro-text-bg {
+      font-size: 1.9rem;
+      color: black; }
+    header.masthead-4 .intro-text-sm {
+      font-size: 1.2rem;
+      text-align: left;
+      letter-spacing: 0.1rem;
+      color: black; } }
+
 ul li a.search-link {
   color: black !important; }
   @media (max-width: 577px) {

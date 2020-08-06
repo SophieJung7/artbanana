@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.scss';
-import Reviews from './Reviews';
-import ReviewForm from './ReviewForm';
+import Reviews from '../ProductCommon/Reviews';
+import ReviewForm from '../ProductCommon/ReviewForm';
 
 class DetailsTopTabs extends Component {
   state = {
@@ -19,7 +19,7 @@ class DetailsTopTabs extends Component {
   };
 
   render() {
-    const { artistId, profileImg, reviews } = this.props;
+    const { intro, artistId, profileImg, reviews, quantity } = this.props;
     return (
       <section className='tab-product m-0 mb-5'>
         <div className='row'>
@@ -44,11 +44,28 @@ class DetailsTopTabs extends Component {
                 </Tab>
               </TabList>
               <TabPanel className='tab-pane fade mt-4 show active'>
-                <table className='table table-striped mb-0'>
+                <table
+                  className='table table-striped mb-0'
+                  style={{ fontSize: '0.9rem' }}
+                >
                   <tbody>
                     <tr>
                       <th>작품소재 :</th>
-                      <td>연필</td>
+                      <td>유화</td>
+                    </tr>
+                    <tr>
+                      <th>에디션소개 :</th>
+                      <td>
+                        유화를 특수프린트하여 정밀도와 세밀도면에서 원본과
+                        다름없는 작품입니다.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>에디션수량 :</th>
+                      <td>
+                        {quantity}개 / 에디션은 아티스트가 정한 한정수량만을
+                        제작해 에디션의 가치를 높입니다.
+                      </td>
                     </tr>
                     <tr>
                       <th>배송비 :</th>
@@ -57,22 +74,15 @@ class DetailsTopTabs extends Component {
                     <tr>
                       <th>작품제작기간 :</th>
                       <td>
-                        평일기준 10일(작가가 손으로 직접 정성을 다해 그리기
-                        때문에 최대 2주가 걸립니다.)
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>사진선택 :</th>
-                      <td>
-                        어떤 사진을 의뢰할지 고민이 되신다면 제품 구매후, 작가와
-                        함께 결정하실 수 있습니다.
+                        평일기준 10일 / 아티스트가 주문 후 직접 제작하기 때문에
+                        시간이 걸립니다.
                       </td>
                     </tr>
                     <tr>
                       <th>작품사이즈 :</th>
                       <td>
-                        제출하시는 사진사이즈와 관계없이 구매시 선택하신
-                        사이즈로 아티스트가 제작해 드립니다.
+                        동 사이즈가 아닌 다른 사이즈로 제작을 원하신다면
+                        고객센터로 연락 부탁드립니다.
                       </td>
                     </tr>
                     <tr>
@@ -84,8 +94,10 @@ class DetailsTopTabs extends Component {
                     <tr>
                       <th>액자 :</th>
                       <td>
-                        작품에 액자는 포함되어 있지 않습니다. 액자로 제작해서
-                        배송되길 원하신다면 문의 부탁드립니다.
+                        아트바나나의 모든 에디션제품들은 캔버스형태로 제작되어
+                        바로 벽에 거실 수 있습니다. <br />
+                        인테리어효과를 위해 액자를 원하신다면 개별적으로 주문
+                        부탁드립니다.
                       </td>
                     </tr>
                   </tbody>
@@ -104,14 +116,7 @@ class DetailsTopTabs extends Component {
                       alt='profile'
                     />
                   </div>
-                  <div className='col-10'>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                  </div>
+                  <div className='col-10'>{intro}</div>
                 </div>
               </TabPanel>
               <TabPanel>

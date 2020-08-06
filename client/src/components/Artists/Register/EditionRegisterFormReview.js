@@ -26,6 +26,8 @@ class EditionRegisterFormReview extends Component {
     // 아트에디션 작가들을 위한 Product Info
     product: {
       name: '',
+      medium: '',
+      year: '',
       width: 0,
       height: 0,
       quantity: 0,
@@ -282,6 +284,30 @@ class EditionRegisterFormReview extends Component {
                       />
                     </div>
                     <div className='form-group col-md-2'>
+                      <label>작품소재</label>
+                      <input
+                        onChange={(e) => {
+                          let product = { ...this.state.product };
+                          product.medium = e.target.value;
+                          this.setState({ product });
+                        }}
+                        className='form-control'
+                        placeholder='아크릴'
+                      />
+                    </div>
+                    <div className='form-group col-md-2'>
+                      <label>제작연도</label>
+                      <input
+                        onChange={(e) => {
+                          let product = { ...this.state.product };
+                          product.year = e.target.value;
+                          this.setState({ product });
+                        }}
+                        className='form-control'
+                        placeholder='2020'
+                      />
+                    </div>
+                    <div className='form-group col-md-1'>
                       <label>가로(cm)</label>
                       <input
                         onChange={(e) => {
@@ -294,7 +320,7 @@ class EditionRegisterFormReview extends Component {
                         placeholder='100'
                       />
                     </div>
-                    <div className='form-group col-md-2'>
+                    <div className='form-group col-md-1'>
                       <label>세로(cm)</label>
                       <input
                         onChange={(e) => {
@@ -330,7 +356,7 @@ class EditionRegisterFormReview extends Component {
                           this.setState({ product });
                         }}
                         className='form-control'
-                        placeholder='255,000'
+                        placeholder='255000'
                       />
                     </div>
                   </div>

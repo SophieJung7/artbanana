@@ -20,7 +20,8 @@ import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
 // Artists
 import ArtistRegister from './Artists/Register/Register';
 import ArtistsList from './Artists/Show/ArtistsList';
-import ArtistPage from './Artists/Show/ArtistPage';
+import PencilProductPage from './Artists/Show/PencilProductPage';
+import EditionProductPage from './Artists/Show/EditionProductPage';
 import ArtistEdit from './Artists/Edit/ArtistEdit';
 
 // Etc.
@@ -63,7 +64,16 @@ class App extends Component {
             {/* Artists */}
             <Route exact path='/artists/register' component={ArtistRegister} />
             <Route exact path='/artists' component={ArtistsList} />
-            <Route exact path='/artists/show/:id' component={ArtistPage} />
+            <Route
+              exact
+              path='/artists/show/:id'
+              component={PencilProductPage}
+            />
+            <Route
+              exact
+              path='/artists/edition/show/:id'
+              component={EditionProductPage}
+            />
             <Route exact path='/artists/edit/:id' component={ArtistEdit} />
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />

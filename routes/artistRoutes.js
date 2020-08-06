@@ -56,9 +56,11 @@ module.exports = (app) => {
       })),
       productCategory: productCategory,
       products: products.map(
-        ({ key, name, width, height, quantity, price }) => ({
+        ({ key, name, medium, year, width, height, quantity, price }) => ({
           key,
           name,
+          medium,
+          year,
           width,
           height,
           quantity,

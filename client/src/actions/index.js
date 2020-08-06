@@ -12,6 +12,7 @@ import {
   fetchArtist,
   editArtist,
   fetchPencilArtists,
+  fetchEditionArtists,
   submitReview,
 } from './artistActions';
 
@@ -26,6 +27,7 @@ export {
   createArtist,
   fetchArtist,
   fetchPencilArtists,
+  fetchEditionArtists,
   editArtist,
   submitReview,
 };

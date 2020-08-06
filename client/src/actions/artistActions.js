@@ -3,6 +3,7 @@ import history from '../history';
 import {
   CREATE_ARTIST,
   FETCH_PENCIL_ARTISTS,
+  FETCH_EDITION_ARTISTS,
   FETCH_ARTIST,
   EDIT_ARTIST,
   SUBMIT_REVIEW,
@@ -24,6 +25,14 @@ const fetchPencilArtists = () => async (dispatch) => {
   const response = await axios.get('/api/category/pencil');
   dispatch({
     type: FETCH_PENCIL_ARTISTS,
+    payload: response.data,
+  });
+};
+
+const fetchEditionArtists = () => async (dispatch) => {
+  const response = await axios.get('/api/category/edition');
+  dispatch({
+    type: FETCH_EDITION_ARTISTS,
     payload: response.data,
   });
 };
@@ -87,7 +96,7 @@ const createArtist = (
     profileImg: profileKeysAndUrls.data.key,
     productImgs: [...productKeysAndUrls.data],
     portfolioImgs: [...portfolioKeysAndUrls.data],
-    products: [{ ...productInfo, ...productKeysAndUrls.data }],
+    products: [{ ...productInfo, ...productKeysAndUrls.data[0] }],
   });
 
   //Call Redux
@@ -132,5 +141,6 @@ export {
   fetchArtist,
   editArtist,
   fetchPencilArtists,
+  fetchEditionArtists,
   submitReview,
 };

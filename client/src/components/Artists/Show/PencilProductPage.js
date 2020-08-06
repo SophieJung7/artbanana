@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Lightbox from 'react-image-lightbox';
 import * as actions from '../../../actions/index';
-import DetailsWithPrice from './product/DetailsWithPrice';
-import DetailsTopTabs from './product/DetailsTopTabs';
-import Portfolio from './product/Portfolio';
+import DetailsWithPrice from './pencilProduct/DetailsWithPrice';
+import DetailsTopTabs from './pencilProduct/DetailsTopTabs';
+import Portfolio from './ProductCommon/Portfolio';
 import 'react-image-lightbox/style.css';
 
-class ArtistPage extends Component {
+class PencilProductPage extends Component {
   state = {
     photoIndex: 0,
     isOpen: false,
@@ -120,4 +120,4 @@ const mapStateToProps = (state) => {
   return { artist: state.artist };
 };
 
-export default connect(mapStateToProps, actions)(ArtistPage);
+export default connect(mapStateToProps, actions)(PencilProductPage);

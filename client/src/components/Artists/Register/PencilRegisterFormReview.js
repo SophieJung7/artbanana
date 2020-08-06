@@ -7,7 +7,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import * as actions from '../../../actions';
 import FIELDS from './RegisterFields';
 
-class RegisterFormReview extends Component {
+class PencilRegisterFormReview extends Component {
   state = {
     loading: false,
     error: false,
@@ -371,4 +371,4 @@ const mapStateToProps = (state) => {
   return { formValues: state.form.artistForm.values };
 };
 
-export default connect(mapStateToProps, actions)(RegisterFormReview);
+export default connect(mapStateToProps, actions)(PencilRegisterFormReview);
