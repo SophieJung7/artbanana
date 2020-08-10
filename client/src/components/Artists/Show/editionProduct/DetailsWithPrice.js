@@ -21,7 +21,7 @@ class DetailsWithPrice extends Component {
   //   };
 
   render() {
-    const { name, productName, price, width, height } = this.props;
+    const { name, productName, price, width, height, quantity } = this.props;
 
     return (
       <div className='col-lg-6 rtl-text'>
@@ -64,12 +64,20 @@ class DetailsWithPrice extends Component {
               {productName}
             </h3>
           </div>
-          <div className='mb-3'>
+          <div className=''>
             <h3
               className='d-inline'
               style={{ fontSize: '1rem', color: '#777777' }}
             >
               {`${width}cm X ${height}cm`}
+            </h3>
+          </div>
+          <div className='mb-3'>
+            <h3
+              className='d-inline'
+              style={{ fontSize: '1rem', color: '#777777' }}
+            >
+              {`리미티드에디션 한정수량 ${quantity}개`}
             </h3>
           </div>
           {this.state.sale ? (

@@ -44,6 +44,10 @@ class PencilProductPage extends Component {
 
     if (name) {
       const imgs = [...productImgs, ...portfolioImgs];
+      const images = imgs.map(
+        (img) => `https://artbanana.s3.ap-northeast-2.amazonaws.com/${img.key}`
+      );
+
       return (
         <div>
           <div>
@@ -89,26 +93,45 @@ class PencilProductPage extends Component {
           </div>
           {this.state.isOpen && imgs ? (
             <Lightbox
-              mainSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${imgs[photoIndex].key}`}
-              nextSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${
-                imgs[(photoIndex + 1) % imgs.length]
-              }`}
-              prevSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${
-                imgs[(photoIndex + imgs.length - 1) % imgs.length].key
-              }`}
+              mainSrc={images[photoIndex]}
+              nextSrc={images[(photoIndex + 1) % images.length]}
+              prevSrc={images[(photoIndex + images.length - 1) % images.length]}
               onCloseRequest={() => this.setState({ isOpen: false })}
-              onMovePrevRequest={() => {
+              onMovePrevRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + imgs.length - 1) % imgs.length,
-                });
-              }}
-              onMoveNextRequest={() => {
+                  photoIndex: (photoIndex + images.length - 1) % images.length,
+                })
+              }
+              onMoveNextRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + 1) % imgs.length,
-                });
-              }}
+                  photoIndex: (photoIndex + 1) % images.length,
+                })
+              }
             />
-          ) : null}
+          ) : // <Lightbox
+          //   onImageLoadError={(imageSrc, _srcType, errorEvent) =>
+          //     console.log(imageSrc)
+          //   }
+          //   mainSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${imgs[photoIndex].key}`}
+          //   nextSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${
+          //     imgs[(photoIndex + 1) % imgs.length]
+          //   }`}
+          //   prevSrc={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${
+          //     imgs[(photoIndex + imgs.length - 1) % imgs.length].key
+          //   }`}
+          //   onCloseRequest={() => this.setState({ isOpen: false })}
+          //   onMovePrevRequest={() => {
+          //     this.setState({
+          //       photoIndex: (photoIndex + imgs.length - 1) % imgs.length,
+          //     });
+          //   }}
+          //   onMoveNextRequest={() => {
+          //     this.setState({
+          //       photoIndex: (photoIndex + 1) % imgs.length,
+          //     });
+          //   }}
+          // />
+          null}
         </div>
       );
     }
