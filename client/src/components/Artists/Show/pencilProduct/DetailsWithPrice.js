@@ -9,10 +9,10 @@ import {
 } from 'react-icons/fa';
 
 const price = {
-  sizeS: 296000,
-  sizeM: 592000,
-  sizeL: 996000,
-  sizeXL: 1693200,
+  sizeS: 98000,
+  sizeM: 198000,
+  sizeL: 298000,
+  sizeXL: 498000,
 };
 
 class DetailsWithPrice extends Component {
@@ -68,7 +68,7 @@ class DetailsWithPrice extends Component {
           {this.state.sale ? (
             <div className='price-part'>
               <h4>
-                <del>{`${this.state.price.toLocaleString('en')}원`}</del>
+                <del>{`${(this.state.price * 2).toLocaleString('en')}원`}</del>
                 <span
                   className='ml-1'
                   style={{ color: '#d8a6a2', fontWeight: '700' }}
@@ -82,7 +82,7 @@ class DetailsWithPrice extends Component {
                   className='d-inline'
                   style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
                 >
-                  {(this.state.price * 0.5).toLocaleString('en')}
+                  {this.state.price.toLocaleString('en')}
                 </h3>
                 <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
                   원

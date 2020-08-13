@@ -7,6 +7,7 @@ import TitleTemp from '../../TitleTemp';
 class ArtistsList extends Component {
   state = {
     masonryBreakpoint: 4,
+    priceS: 98000,
   };
 
   componentDidMount() {
@@ -85,9 +86,9 @@ class ArtistsList extends Component {
                     {name}
                   </div>
                   <div>
-                    <del
-                      style={{ fontSize: '0.9rem', fontWeight: '700' }}
-                    >{`296,000원`}</del>
+                    <del style={{ fontSize: '0.9rem', fontWeight: '700' }}>{`${(
+                      this.state.priceS * 2
+                    ).toLocaleString('en')}원`}</del>
                     <span
                       className='ml-1'
                       style={{ color: '#d8a6a2', fontWeight: '700' }}
@@ -96,7 +97,7 @@ class ArtistsList extends Component {
                     </span>
                   </div>
                   <div style={{ fontSize: '1rem', fontWeight: '700' }}>
-                    148,000원
+                    {`${this.state.priceS.toLocaleString('en')}원`}
                   </div>
                 </div>
               </div>
