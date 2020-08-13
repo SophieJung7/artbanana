@@ -26,7 +26,10 @@ const Jumbotron4 = () => {
       {/* DESKTOP VERSION */}
       <header className='masthead-4 mb-5 d-flex align-items-center justify-content-center'>
         <div className='d-none d-sm-block' style={{ textAlign: 'center' }}>
-          <h1 className='mb-3' style={{ color: '#094b09' }}>
+          <h1
+            className='mb-3'
+            style={{ color: '#094b09', textShadow: '4px 4px #f0d5c0' }}
+          >
             집에걸면 딱!
           </h1>
           <div
