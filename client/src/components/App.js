@@ -25,6 +25,7 @@ import EditionProductPage from './Artists/Show/EditionProductPage';
 import ArtistEdit from './Artists/Edit/ArtistEdit';
 
 // Etc.
+import Checkout from './Checkout/Checkout';
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
 
@@ -75,6 +76,8 @@ class App extends Component {
               component={EditionProductPage}
             />
             <Route exact path='/artists/edit/:id' component={ArtistEdit} />
+            {/* Checkout */}
+            <Route exact path='/checkout' component={Checkout} />
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />

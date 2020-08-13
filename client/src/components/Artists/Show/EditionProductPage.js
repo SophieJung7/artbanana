@@ -16,13 +16,7 @@ class EditionProductPage extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.fetchArtist(id);
-    window.onpopstate = this.onBackButtonEvent;
   }
-
-  onBackButtonEvent = (e) => {
-    e.preventDefault();
-    this.goBack('/');
-  };
 
   selectImage = (index) => {
     this.setState({

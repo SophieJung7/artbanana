@@ -193,7 +193,6 @@ class DetailsWithPrice extends Component {
             <Link
               to={`${process.env.PUBLIC_URL}/checkout`}
               className='btn btn-solid'
-              onClick={() => {}}
               style={{
                 backgroundImage:
                   'linear-gradient(30deg, #f8d5ce 50%, transparent 50%)',
@@ -214,7 +213,6 @@ class DetailsWithPrice extends Component {
             <Link
               to={`${process.env.PUBLIC_URL}/checkout`}
               className='btn btn-solid'
-              onClick={() => {}}
               style={{
                 backgroundImage:
                   'linear-gradient(30deg, #cfd4da 50%, transparent 50%)',
