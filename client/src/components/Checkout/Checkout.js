@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Checkout extends Component {
   render() {
-    return <div>Checkout</div>;
+    // const { artistId, price, size, quantity } = this.props.orderDetail;
+
+    return (
+      <div>
+        <h3>페이지 준비중입니다.</h3>
+      </div>
+    );
   }
 }
 
-export default Checkout;
+const mapStateToProps = (state) => {
+  return {
+    orderDetail: state.order,
+  };
+};
+
+export default connect(mapStateToProps)(Checkout);

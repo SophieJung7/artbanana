@@ -62,7 +62,10 @@ class PencilProductPage extends Component {
                         alt={name}
                       />
                     </div>
-                    <DetailsWithPrice name={name} />
+                    <DetailsWithPrice
+                      name={name}
+                      artistId={this.props.artist._id}
+                    />
                   </div>
                 </div>
               </div>

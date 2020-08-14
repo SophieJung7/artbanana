@@ -15,6 +15,7 @@ import {
   fetchEditionArtists,
   submitReview,
 } from './artistActions';
+import { startCheckout } from './checkoutActions';
 
 export {
   fetchUser,
@@ -30,4 +31,5 @@ export {
   fetchEditionArtists,
   editArtist,
   submitReview,
+  startCheckout,
 };

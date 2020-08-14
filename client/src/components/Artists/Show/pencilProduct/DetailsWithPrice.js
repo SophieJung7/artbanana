@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { startCheckout } from '../../../../actions';
 import {
   FaAngleLeft,
   FaAngleRight,
@@ -27,6 +29,16 @@ class DetailsWithPrice extends Component {
     const sizeOption = event.target.value;
     const chosenPrice = price[sizeOption];
     this.setState({ sizeOption: sizeOption, price: chosenPrice });
+  };
+
+  startCheckout = () => {
+    const orderDetail = {
+      artistId: this.props.artistId,
+      price: this.state.price,
+      size: this.state.sizeOption,
+      quantity: this.state.quantity,
+    };
+    this.props.startCheckout(orderDetail);
   };
 
   render() {
@@ -235,8 +247,9 @@ class DetailsWithPrice extends Component {
             </div>
           </div>
           <div className='product-buttons'>
-            <Link
-              to={`${process.env.PUBLIC_URL}/checkout`}
+            <button
+              //   to={`${process.env.PUBLIC_URL}/checkout`}
+              onClick={this.startCheckout}
               className='btn btn-solid'
               style={{
                 backgroundImage:
@@ -246,7 +259,7 @@ class DetailsWithPrice extends Component {
               }}
             >
               지금 주문하기
-            </Link>
+            </button>
           </div>
           <div className='border-product'>
             <h6 className='mb-2 product-title'>제품 상세정보</h6>
@@ -329,4 +342,4 @@ class DetailsWithPrice extends Component {
   }
 }
 
-export default DetailsWithPrice;
+export default connect(null, { startCheckout })(DetailsWithPrice);

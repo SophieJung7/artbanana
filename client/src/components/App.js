@@ -77,7 +77,7 @@ class App extends Component {
             />
             <Route exact path='/artists/edit/:id' component={ArtistEdit} />
             {/* Checkout */}
-            <Route exact path='/checkout' component={Checkout} />
+            <Route exact path='/checkout/:id' component={Checkout} />
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />

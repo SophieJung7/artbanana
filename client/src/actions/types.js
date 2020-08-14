@@ -16,3 +16,6 @@ export const FETCH_ARTIST = 'FETCH_ARTIST';
 export const EDIT_ARTIST = 'EDIT_ARTIST';
 export const DELETE_ARTIST = 'DELETE_ARTIST';
 export const SUBMIT_REVIEW = 'SUBMIT_REVIEW';
+
+export const START_CHECKOUT = 'START_CHECKOUT';
+export const ORDER_PRODUCT = 'ORDER_PRODUCT';
