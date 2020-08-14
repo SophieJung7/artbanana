@@ -23,6 +23,7 @@ import ArtistsList from './Artists/Show/ArtistsList';
 import PencilProductPage from './Artists/Show/PencilProductPage';
 import EditionProductPage from './Artists/Show/EditionProductPage';
 import ArtistEdit from './Artists/Edit/ArtistEdit';
+import BecomeArtist from './Artists/BecomeArtist';
 
 // Etc.
 import Checkout from './Checkout/Checkout';
@@ -81,6 +82,11 @@ class App extends Component {
             {/* Etc. */}
             <Route exact path='/aboutus' component={CompanyIntro} />
             <Route exact path='/contactus' component={ContactUs} />
+            <Route
+              exact
+              path='/become-artbanana-artists'
+              component={BecomeArtist}
+            />
           </div>
           <Footer />
         </Router>

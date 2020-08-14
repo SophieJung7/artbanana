@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Jumbotron3 = () => {
   return (
@@ -9,8 +10,8 @@ const Jumbotron3 = () => {
             <div className='intro-text-bg' style={{ fontFamily: '궁서체' }}>
               아트바나나와 함께할 <br /> 최고의 아티스트들을 찾습니다!
             </div>
-            <a
-              href='/api/attempt/artist'
+            <Link
+              to='/become-artbanana-artists'
               className='btn btn-solid mt-5'
               style={{
                 backgroundImage:
@@ -20,15 +21,15 @@ const Jumbotron3 = () => {
                 color: 'white',
               }}
             >
-              아티스트 지원하기
-            </a>
+              아티스트등록 알아보기
+            </Link>
           </div>
           <div className='col-11 intro-text d-block d-sm-none'>
             <div className='intro-text-bg' style={{ fontFamily: '궁서체' }}>
               아트바나나와 함께할 <br /> 최고의 아티스트들을 찾습니다!
             </div>
-            <a
-              href='/api/attempt/artist'
+            <Link
+              to='/become-artbanana-artists'
               className='btn btn-solid mt-5'
               style={{
                 backgroundImage:
@@ -37,8 +38,8 @@ const Jumbotron3 = () => {
                 fontSize: '1.1rem',
               }}
             >
-              아티스트 지원하기
-            </a>
+              아티스트등록 알아보기
+            </Link>
           </div>
         </div>
       </div>
