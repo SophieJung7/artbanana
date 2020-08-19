@@ -1,15 +1,40 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const ProductImgsSchema = require('./ProductImgs');
 
 const productSchema = new Schema({
-  key: String,
+  artistId: { type: Schema.Types.ObjectId, ref: 'Artist' },
+  productCategory: String,
+  refImg: String,
   name: String,
   medium: String,
   year: String,
-  width: Number,
-  height: Number,
   quantity: Number,
-  price: Number,
+  size: {
+    sm: {
+      width: Number,
+      height: Number,
+    },
+    md: {
+      width: Number,
+      height: Number,
+    },
+    lg: {
+      width: Number,
+      height: Number,
+    },
+    xl: {
+      width: Number,
+      height: Number,
+    },
+  },
+  price: {
+    sm: { type: Number },
+    md: { type: Number },
+    lg: { type: Number },
+    xl: { type: Number },
+  },
+  productImgs: [ProductImgsSchema],
 });
 
-module.exports = productSchema;
+mongoose.model('Product', productSchema);

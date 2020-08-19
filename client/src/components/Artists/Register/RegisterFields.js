@@ -1,11 +1,5 @@
 export default [
   {
-    label: '제품 카테고리 *',
-    name: 'productCategory',
-    size: 'col-md-12',
-    noValueError: '지원 카테고리를 선택해주세요.',
-  },
-  {
     label: '이름 *',
     name: 'name',
     size: 'col-md-6',

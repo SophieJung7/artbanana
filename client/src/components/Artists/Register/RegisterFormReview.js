@@ -7,7 +7,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import * as actions from '../../../actions';
 import FIELDS from './RegisterFields';
 
-class EditionRegisterFormReview extends Component {
+class RegisterFormReview extends Component {
   state = {
     loading: false,
     error: false,
@@ -15,24 +15,9 @@ class EditionRegisterFormReview extends Component {
     profileImg: {},
     profileImgBlob: '',
     profileFile: null,
-    // Product Imgs
-    productImgs: {},
-    productImgBlobs: '',
-    productFiles: null,
-    // Portfolio Imgs
     portfolioImgs: [],
     portfolioImgBlobs: [],
     portfolioFiles: null,
-    // 아트에디션 작가들을 위한 Product Info
-    product: {
-      name: '',
-      medium: '',
-      year: '',
-      width: 0,
-      height: 0,
-      quantity: 0,
-      price: 0,
-    },
   };
 
   componentDidMount() {
@@ -46,19 +31,13 @@ class EditionRegisterFormReview extends Component {
   //*********** Submit the form ***********
   onFormSubmit = (event) => {
     event.preventDefault();
-    if (
-      this.state.profileFile &&
-      this.state.productFiles &&
-      this.state.portfolioFiles
-    ) {
+    if (this.state.profileFile && this.state.portfolioFiles) {
       this.setState({ loading: true });
       const { createArtist, formValues } = this.props;
       createArtist(
         formValues,
         this.state.profileFile,
-        this.state.productFiles,
-        this.state.portfolioFiles,
-        this.state.product
+        this.state.portfolioFiles
       );
     } else {
       this.setState({ error: true });
@@ -72,27 +51,6 @@ class EditionRegisterFormReview extends Component {
     const fileBlob = URL.createObjectURL(file, { oneTimeOnly: true });
     this.setState({ profileImg: file, profileImgBlob: fileBlob });
   };
-
-  onProductImgsChange = (event) => {
-    this.setState({ productFiles: event.target.files });
-    const file = event.target.files[0];
-    const fileBlob = URL.createObjectURL(file, { oneTimeOnly: true });
-    this.setState({ productImgs: file, productImgBlobs: fileBlob });
-  };
-
-  //   onProductImgsChange = (event) => {
-  //     this.setState({ productFiles: event.target.files });
-  //     const files = [...this.state.productImgs, ...event.target.files];
-  //     const fileBlobs = [];
-  //     for (var i = 0; i < files.length; i++) {
-  //       let fileBlob = URL.createObjectURL(files[i], { oneTimeOnly: true });
-  //       fileBlobs.push({
-  //         path: fileBlob,
-  //         name: files[i].name,
-  //       });
-  //     }
-  //     this.setState({ productImgs: files, productImgBlobs: fileBlobs });
-  //   };
 
   onPortfolioImgsChange = (event) => {
     this.setState({ portfolioFiles: event.target.files });
@@ -108,22 +66,6 @@ class EditionRegisterFormReview extends Component {
     this.setState({ portfolioImgs: files, portfolioImgBlobs: fileBlobs });
   };
 
-  showProductImgs = () => {
-    if (this.state.productImgBlobs) {
-      return (
-        <div className='col-lg-3 col-md-6'>
-          <div className='collection-block'>
-            <img
-              src={this.state.productImgBlobs}
-              className='img-fluid'
-              alt='product-blob'
-            />
-          </div>
-        </div>
-      );
-    }
-    return null;
-  };
   showPortfolioImgs = () => {
     if (this.state.portfolioImgBlobs) {
       return this.state.portfolioImgBlobs.map(({ path }, index) => {
@@ -240,134 +182,7 @@ class EditionRegisterFormReview extends Component {
                       ) : null}
                     </div>
                   </div>
-                  <div className='form-row mb-3'>
-                    <div className='col-md-12'>
-                      <label>작품</label>
-                      <p style={{ lineHeight: '1.3' }}>
-                        본인의 작품중 판매를 원하는 작품 1개의 정보를
-                        올려주세요(추후 더 많은 제품을 올리실 수 있습니다).
-                        <br />
-                        제품이미지는 비율에 상관없이 자동 최적화되며 다만 가로
-                        1,000px 이상의 이미지를 업로드해주시기 바랍니다.{' '}
-                      </p>
-                      <div className='d-block'>
-                        <div
-                          className='btn btn-solid btn-file'
-                          style={{
-                            backgroundImage:
-                              'linear-gradient(30deg, black 50%, transparent 50%)',
-                            color: 'white',
-                            border: 'none',
-                          }}
-                        >
-                          작품사진 업로드
-                          <input
-                            type='file'
-                            accept='image/*'
-                            onChange={this.onProductImgsChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='form-row'>
-                    <div className='form-group col-md-3'>
-                      <label>작품명</label>
-                      <input
-                        onChange={(e) => {
-                          let product = { ...this.state.product };
-                          product.name = e.target.value;
-                          this.setState({ product });
-                        }}
-                        className='form-control'
-                        placeholder='무제'
-                      />
-                    </div>
-                    <div className='form-group col-md-2'>
-                      <label>작품소재</label>
-                      <input
-                        onChange={(e) => {
-                          let product = { ...this.state.product };
-                          product.medium = e.target.value;
-                          this.setState({ product });
-                        }}
-                        className='form-control'
-                        placeholder='아크릴'
-                      />
-                    </div>
-                    <div className='form-group col-md-2'>
-                      <label>제작연도</label>
-                      <input
-                        onChange={(e) => {
-                          let product = { ...this.state.product };
-                          product.year = e.target.value;
-                          this.setState({ product });
-                        }}
-                        className='form-control'
-                        placeholder='2020'
-                      />
-                    </div>
-                    <div className='form-group col-md-1'>
-                      <label>가로(cm)</label>
-                      <input
-                        onChange={(e) => {
-                          let product = { ...this.state.product };
-                          let value = e.target.value;
-                          product.width = parseInt(value.replace(/\D/g, ''));
-                          this.setState({ product });
-                        }}
-                        className='form-control'
-                        placeholder='100'
-                      />
-                    </div>
-                    <div className='form-group col-md-1'>
-                      <label>세로(cm)</label>
-                      <input
-                        onChange={(e) => {
-                          let product = { ...this.state.product };
-                          let value = e.target.value;
-                          product.height = parseInt(value.replace(/\D/g, ''));
-                          this.setState({ product });
-                        }}
-                        className='form-control'
-                        placeholder='60'
-                      />
-                    </div>
-                    <div className='form-group col-md-2'>
-                      <label>에디션 총수량</label>
-                      <input
-                        onChange={(e) => {
-                          let product = { ...this.state.product };
-                          let value = e.target.value;
-                          product.quantity = parseInt(value.replace(/\D/g, ''));
-                          this.setState({ product });
-                        }}
-                        className='form-control'
-                        placeholder='30'
-                      />
-                    </div>
-                    <div className='form-group col-md-3'>
-                      <label>가격</label>
-                      <input
-                        onChange={(e) => {
-                          let product = { ...this.state.product };
-                          let value = e.target.value;
-                          product.price = parseInt(value.replace(/\D/g, ''));
-                          this.setState({ product });
-                        }}
-                        className='form-control'
-                        placeholder='255000'
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className='collection section-b-space mb-5'
-                    style={{ padding: '0' }}
-                  >
-                    <div className='row partition-collection'>
-                      {this.showProductImgs()}
-                    </div>
-                  </div>
+
                   <div className='form-row'>
                     <div className='col-md-12 mb-5'>
                       <label>포트폴리오 이미지</label>
@@ -417,8 +232,8 @@ class EditionRegisterFormReview extends Component {
                       className='text-center my-5'
                       style={{ fontSize: '1.1rem', color: 'red' }}
                     >
-                      프로필, 제품, 포트폴리오 사진은 필수 항목입니다. 사진을
-                      업로드 해주세요.
+                      프로필, 포트폴리오 사진은 필수 항목입니다. 사진을 업로드
+                      해주세요.
                     </p>
                   ) : null}
                   <div className='d-flex justify-content-center mb-5'>
@@ -473,4 +288,4 @@ const mapStateToProps = (state) => {
   return { formValues: state.form.artistForm.values };
 };
 
-export default connect(mapStateToProps, actions)(EditionRegisterFormReview);
+export default connect(mapStateToProps, actions)(RegisterFormReview);

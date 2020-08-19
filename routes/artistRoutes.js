@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Artist = mongoose.model('Artist');
+const Product = mongoose.model('Product');
 const requireLogin = require('../middlewares/requireLogin');
 const AWS = require('aws-sdk');
 const keys = require('../config/keys');
@@ -36,10 +37,7 @@ module.exports = (app) => {
       insta,
       etc,
       profileImg,
-      productImgs,
       portfolioImgs,
-      productCategory,
-      products,
     } = req.body;
 
     const artist = new Artist({
@@ -50,26 +48,11 @@ module.exports = (app) => {
       intro,
       SNS: [homepage, insta, etc],
       profileImg: profileImg,
-      productImgs: productImgs.map((img) => ({ key: img.key })),
       portfolioImgs: portfolioImgs.map((img) => ({
         key: img.key,
       })),
-      productCategory: productCategory,
-      products: products.map(
-        ({ key, name, medium, year, width, height, quantity, price }) => ({
-          key,
-          name,
-          medium,
-          year,
-          width,
-          height,
-          quantity,
-          price,
-        })
-      ),
       dateRegistered: Date.now(),
     });
-
     try {
       await artist.save();
       // Send Welcome Email to Artists.

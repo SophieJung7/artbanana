@@ -11,6 +11,7 @@ const keys = require('./config/keys');
 //Connecting Mongoose --> Don't change the order. userSchema should be called before passport.js.
 require('./models/User.js');
 require('./models/Artist.js');
+require('./models/Product.js');
 mongoose.connect(keys.mongoURI);
 
 //Connect bodyParser

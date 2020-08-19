@@ -26,23 +26,6 @@ const RegisterFormField = ({
     );
   }
 
-  if (input.name === 'productCategory') {
-    return (
-      <div className={`${size} ${styleName}`}>
-        <label>{label}</label>
-        <select
-          {...input}
-          className='form-control mb-3'
-          placeholder={placeholder}
-        >
-          <option></option>
-          <option value='pencil'>사진드로잉(연필, 색연필 등)</option>
-          <option value='edition'>아트에디션</option>
-        </select>
-      </div>
-    );
-  }
-
   return (
     <div className={`${size} ${styleName}`}>
       <label>{label}</label>

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
-import PencilRegisterFormReview from './PencilRegisterFormReview';
-import EditionRegisterFormReview from './EditionRegisterFormReview';
+import RegisterFormReview from './RegisterFormReview';
 
 class Register extends Component {
   state = {
@@ -14,22 +13,9 @@ class Register extends Component {
   }
 
   renderContent() {
-    if (
-      this.state.showFormReview &&
-      this.props.form.artistForm.values.productCategory === 'pencil'
-    ) {
+    if (this.state.showFormReview) {
       return (
-        <PencilRegisterFormReview
-          onCancel={() => this.setState({ showFormReview: false })}
-        />
-      );
-    }
-    if (
-      this.state.showFormReview &&
-      this.props.form.artistForm.values.productCategory === 'edition'
-    ) {
-      return (
-        <EditionRegisterFormReview
+        <RegisterFormReview
           onCancel={() => this.setState({ showFormReview: false })}
         />
       );

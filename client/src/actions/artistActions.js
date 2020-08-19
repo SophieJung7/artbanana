@@ -45,13 +45,9 @@ const fetchArtist = (id) => async (dispatch) => {
   });
 };
 
-const createArtist = (
-  values,
-  profilePhoto,
-  productPhotos,
-  portfolioPhotos,
-  productInfo
-) => async (dispatch) => {
+const createArtist = (values, profilePhoto, portfolioPhotos) => async (
+  dispatch
+) => {
   //For profile photo: Get presignedURL from S3
   const profileKeysAndUrls = await axios.get('/api/artist/profile/upload');
   //For profile photo: Upload photos to S3
@@ -75,28 +71,28 @@ const createArtist = (
     });
   }
 
-  //For product photos: Get presignedURL from S3
-  const productKeysAndUrls = await axios.get(
-    `/api/artist/products/upload?numberOfFiles=${productPhotos.length}`
-  );
+  //   //For product photos: Get presignedURL from S3
+  //   const productKeysAndUrls = await axios.get(
+  //     `/api/artist/products/upload?numberOfFiles=${productPhotos.length}`
+  //   );
 
-  //For product photos: Upload photos to S3
-  const productNumberOfFiles = parseInt(productPhotos.length);
-  for (i = 0; i < productNumberOfFiles; i++) {
-    await axios.put(productKeysAndUrls.data[i].url, productPhotos[i], {
-      headers: {
-        'Content-Type': productPhotos[i].type,
-      },
-    });
-  }
+  //   //For product photos: Upload photos to S3
+  //   const productNumberOfFiles = parseInt(productPhotos.length);
+  //   for (i = 0; i < productNumberOfFiles; i++) {
+  //     await axios.put(productKeysAndUrls.data[i].url, productPhotos[i], {
+  //       headers: {
+  //         'Content-Type': productPhotos[i].type,
+  //       },
+  //     });
+  //   }
 
   //Save artist data to MongoDB
   const res = await axios.post('/api/artists', {
     ...values,
     profileImg: profileKeysAndUrls.data.key,
-    productImgs: [...productKeysAndUrls.data],
+    // productImgs: [...productKeysAndUrls.data],
     portfolioImgs: [...portfolioKeysAndUrls.data],
-    products: [{ ...productInfo, ...productKeysAndUrls.data[0] }],
+    // products: [{ ...productInfo, ...productKeysAndUrls.data[0] }],
   });
 
   //Call Redux

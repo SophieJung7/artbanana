@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const ProductImgsSchema = require('./ProductImgs');
 const PortfolioImgsSchema = require('./PortfolioImgs');
 const ReviewSchema = require('./Review');
-const ProductSchema = require('./Product');
 
 const artistSchema = new Schema({
   _user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -16,19 +14,7 @@ const artistSchema = new Schema({
   phone: String,
   intro: String,
   SNS: [String],
-  productCategory: {
-    type: String,
-    default: 'pencil',
-  },
-  products: [ProductSchema],
-  price: {
-    sm: { type: Number },
-    md: { type: Number },
-    lg: { type: Number },
-    xl: { type: Number },
-  },
   profileImg: String,
-  productImgs: [ProductImgsSchema],
   portfolioImgs: [PortfolioImgsSchema],
   reviews: [ReviewSchema],
 });
