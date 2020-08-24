@@ -5,27 +5,27 @@ const ProductImgsSchema = require('./ProductImgs');
 const productSchema = new Schema({
   artistId: { type: Schema.Types.ObjectId, ref: 'Artist' },
   productCategory: String,
-  refImg: String,
   name: String,
   medium: String,
+  description: String,
   year: String,
   quantity: Number,
   size: {
     sm: {
-      width: Number,
-      height: Number,
+      width: { type: Number },
+      height: { type: Number },
     },
     md: {
-      width: Number,
-      height: Number,
+      width: { type: Number },
+      height: { type: Number },
     },
     lg: {
-      width: Number,
-      height: Number,
+      width: { type: Number },
+      height: { type: Number },
     },
     xl: {
-      width: Number,
-      height: Number,
+      width: { type: Number },
+      height: { type: Number },
     },
   },
   price: {
@@ -35,6 +35,7 @@ const productSchema = new Schema({
     xl: { type: Number },
   },
   productImgs: [ProductImgsSchema],
+  dateRegistered: String,
 });
 
 mongoose.model('Product', productSchema);

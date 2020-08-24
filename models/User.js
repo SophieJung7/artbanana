@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
   email: String,
   username: String,
+  artist: { type: Boolean, default: false },
   emailValidated: { type: Boolean, default: false },
   password: String,
   displayName: String,

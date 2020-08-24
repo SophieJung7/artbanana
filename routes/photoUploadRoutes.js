@@ -13,7 +13,7 @@ const s3 = new AWS.S3({
 module.exports = (app) => {
   // For profile photo: Get presignedURL from S3
   app.get('/api/artist/profile/upload', requireLogin, (req, res) => {
-    let key = `${req.user.id}/profile/${uuidv1()}.jpeg`;
+    let key = `artists/${req.user.id}/profile/${uuidv1()}.jpeg`;
     let url = s3.getSignedUrl('putObject', {
       Bucket: 'artbanana',
       ContentType: 'jpeg',
@@ -28,7 +28,7 @@ module.exports = (app) => {
     const numberOfFiles = parseInt(req.query.numberOfFiles);
 
     for (var i = 0; i < numberOfFiles; i++) {
-      let key = `${req.user.id}/products/${uuidv1()}.jpeg`;
+      let key = `products/${req.user.id}/${uuidv1()}.jpeg`;
       let url = s3.getSignedUrl('putObject', {
         Bucket: 'artbanana',
         ContentType: 'jpeg',
@@ -44,7 +44,7 @@ module.exports = (app) => {
     const numberOfFiles = parseInt(req.query.numberOfFiles);
 
     for (var i = 0; i < numberOfFiles; i++) {
-      let key = `${req.user.id}/portfolio/${uuidv1()}.jpeg`;
+      let key = `artists/${req.user.id}/portfolio/${uuidv1()}.jpeg`;
       let url = s3.getSignedUrl('putObject', {
         Bucket: 'artbanana',
         ContentType: 'jpeg',

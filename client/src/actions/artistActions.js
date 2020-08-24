@@ -63,28 +63,13 @@ const createArtist = (values, profilePhoto, portfolioPhotos) => async (
   );
   //For portfolio photos: Upload photos to S3
   const portfolioNumberOfFiles = parseInt(portfolioPhotos.length);
-  for (var i = 0; i < portfolioNumberOfFiles; i++) {
+  for (let i = 0; i < portfolioNumberOfFiles; i++) {
     await axios.put(portfolioKeysAndUrls.data[i].url, portfolioPhotos[i], {
       headers: {
         'Content-Type': portfolioPhotos[i].type,
       },
     });
   }
-
-  //   //For product photos: Get presignedURL from S3
-  //   const productKeysAndUrls = await axios.get(
-  //     `/api/artist/products/upload?numberOfFiles=${productPhotos.length}`
-  //   );
-
-  //   //For product photos: Upload photos to S3
-  //   const productNumberOfFiles = parseInt(productPhotos.length);
-  //   for (i = 0; i < productNumberOfFiles; i++) {
-  //     await axios.put(productKeysAndUrls.data[i].url, productPhotos[i], {
-  //       headers: {
-  //         'Content-Type': productPhotos[i].type,
-  //       },
-  //     });
-  //   }
 
   //Save artist data to MongoDB
   const res = await axios.post('/api/artists', {

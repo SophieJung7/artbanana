@@ -22,13 +22,17 @@ import ArtistRegister from './Artists/Register/Register';
 import ArtistsList from './Artists/Show/ArtistsList';
 import PencilProductPage from './Artists/Show/PencilProductPage';
 import EditionProductPage from './Artists/Show/EditionProductPage';
-import ArtistEdit from './Artists/Edit/ArtistEdit';
 import BecomeArtist from './Artists/BecomeArtist';
 
 // Etc.
 import Checkout from './Checkout/Checkout';
 import CompanyIntro from './CompanyIntro/CompanyIntro';
 import ContactUs from './ContactUs/ContactUs';
+
+// Artist Admin Page
+import AddProduct from './Artists/Admin/menus/AddProduct';
+import ProductList from './Artists/Admin/menus/ProductList';
+import Profile from './Artists/Admin/menus/settings/Profile';
 
 class App extends Component {
   componentDidMount() {
@@ -76,7 +80,6 @@ class App extends Component {
               path='/artists/edition/show/:id'
               component={EditionProductPage}
             />
-            <Route exact path='/artists/edit/:id' component={ArtistEdit} />
             {/* Checkout */}
             <Route exact path='/checkout/:id' component={Checkout} />
             {/* Etc. */}
@@ -87,6 +90,13 @@ class App extends Component {
               path='/become-artbanana-artists'
               component={BecomeArtist}
             />
+            {/* Admin Page */}
+            <Route
+              path={`/products/product-list/:id`}
+              component={ProductList}
+            />
+            <Route path={`/products/add-product/:id`} component={AddProduct} />
+            <Route path={`/settings/profile/:id`} component={Profile} />
           </div>
           <Footer />
         </Router>

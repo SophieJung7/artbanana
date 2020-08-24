@@ -13,6 +13,8 @@ require('./models/User.js');
 require('./models/Artist.js');
 require('./models/Product.js');
 mongoose.connect(keys.mongoURI);
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
 
 //Connect bodyParser
 app.use(bodyParser.json());
@@ -50,15 +52,7 @@ app.use(
 require('./routes/authRoutes')(app);
 require('./routes/photoUploadRoutes')(app);
 require('./routes/artistRoutes')(app);
-
-// if (['production', 'ci'].includes(process.env.NODE_ENV)) {
-//   app.use(express.static('client/build'));
-
-//   const path = require('path');
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve('client', 'build', 'index.html'));
-//   });
-// }
+require('./routes/productRoutes')(app);
 
 //NODE_ENV comes from Heroku setup
 if (process.env.NODE_ENV === 'production') {

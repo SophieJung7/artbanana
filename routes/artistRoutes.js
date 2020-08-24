@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = mongoose.model('User');
 const Artist = mongoose.model('Artist');
 const Product = mongoose.model('Product');
 const requireLogin = require('../middlewares/requireLogin');
@@ -55,6 +56,8 @@ module.exports = (app) => {
     });
     try {
       await artist.save();
+      await User.findByIdAndUpdate({ _id: req.user.id }, { artist: true });
+
       // Send Welcome Email to Artists.
       const params = artistWelcomeParams(email);
       const sendEmail = ses.sendEmail(params).promise();
@@ -101,7 +104,7 @@ module.exports = (app) => {
 
   // Fetch an artist
   app.get('/api/artists/:id', async (req, res) => {
-    const artist = await Artist.findById(req.params.id);
+    const artist = await Artist.findOne({ _user: req.params.id });
     res.send(artist);
   });
 

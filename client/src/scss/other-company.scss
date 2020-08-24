@@ -5,3 +5,9 @@ $theme-default: #b5dccd;
 @import 'other-company/responsive';
 @import 'other-company/landing-page';
 @import 'other-company/modal';
+
+// Admin
+
+@import 'admin/variables';
+@import 'admin/admin_style';
+@import 'admin/rtl';

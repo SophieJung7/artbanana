@@ -17,5 +17,13 @@ export const EDIT_ARTIST = 'EDIT_ARTIST';
 export const DELETE_ARTIST = 'DELETE_ARTIST';
 export const SUBMIT_REVIEW = 'SUBMIT_REVIEW';
 
+// Products Action Types
+export const FETCH_ONE_ARTIST_PRODUCTS = 'FETCH_ONE_ARTIST_PRODUCTS';
+export const CREATE_PRODUCT = 'CREATE_PRODUCT';
+export const FETCH_PRODUCT = 'FETCH_PRODUCT';
+export const EDIT_PRODUCT = 'EDIT_PRODUCT';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+
+// ETC.
 export const START_CHECKOUT = 'START_CHECKOUT';
 export const ORDER_PRODUCT = 'ORDER_PRODUCT';

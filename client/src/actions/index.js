@@ -15,8 +15,14 @@ import {
   fetchEditionArtists,
   submitReview,
 } from './artistActions';
+import {
+  fetchOneArtistProducts,
+  createProduct,
+  fetchProduct,
+  editProduct,
+  deleteProduct,
+} from './productsActions';
 import { startCheckout } from './checkoutActions';
-
 export {
   fetchUser,
   signInWithUs,
@@ -31,5 +37,10 @@ export {
   fetchEditionArtists,
   editArtist,
   submitReview,
+  fetchOneArtistProducts,
+  createProduct,
+  fetchProduct,
+  editProduct,
+  deleteProduct,
   startCheckout,
 };

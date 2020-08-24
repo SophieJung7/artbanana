@@ -35,27 +35,36 @@ class Header extends Component {
     }
   };
   renderAuth() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
-        // ****** 로그인 안했을때! ****** //
+    if (this.props.auth) {
+      if (this.props.auth.artist) {
         return (
           <ul>
             <li>
-              <Link to='/signin' className='nav-link make-link-black'>
-                로그인
+              <Link to='/mypage' className='nav-link make-link-black'>
+                마이페이지
               </Link>
             </li>
             <li>
-              <Link to='/signup' className='btn btn-solid px-4'>
-                화원가입
+              <Link
+                to={`/products/product-list/${this.props.auth._id}`}
+                className='nav-link make-link-black'
+              >
+                아티스트페이지
               </Link>
+            </li>
+            <li>
+              <Link to='/change-password' className='nav-link make-link-black'>
+                비밀번호변경
+              </Link>
+            </li>
+            <li>
+              <button onClick={this.props.signOut} className='btn btn-solid'>
+                로그아웃
+              </button>
             </li>
           </ul>
         );
-      default:
-        // ****** 로그인 했을때! ****** //
+      } else {
         return (
           <ul>
             <li>
@@ -75,6 +84,22 @@ class Header extends Component {
             </li>
           </ul>
         );
+      }
+    } else {
+      return (
+        <ul>
+          <li>
+            <Link to='/signin' className='nav-link make-link-black'>
+              로그인
+            </Link>
+          </li>
+          <li>
+            <Link to='/signup' className='btn btn-solid px-4'>
+              화원가입
+            </Link>
+          </li>
+        </ul>
+      );
     }
   }
 
