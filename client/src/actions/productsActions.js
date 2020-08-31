@@ -3,6 +3,9 @@ import axios from 'axios';
 import {
   CREATE_PRODUCT,
   FETCH_PRODUCT,
+  FETCH_PENCIL_PRODUCTS,
+  FETCH_ILLUSTRATION_PRODUCTS,
+  FETCH_PHOTOSHOP_PRODUCTS,
   EDIT_PRODUCT,
   DELETE_PRODUCT,
   FETCH_ONE_ARTIST_PRODUCTS,
@@ -36,6 +39,7 @@ const createProduct = (id, productInfo) => async (dispatch) => {
     ...productInfo,
     productImgs: [...productKeysAndUrls.data],
   });
+  console.log(response.data);
   dispatch({
     type: CREATE_PRODUCT,
     payload: response.data,
@@ -46,11 +50,40 @@ const createProduct = (id, productInfo) => async (dispatch) => {
 };
 
 const fetchProduct = (id) => async (dispatch) => {
-  const response = await axios.get(`/api/products${id}`);
+  const response = await axios.get(`/api/products/${id}`);
   dispatch({
     type: FETCH_PRODUCT,
     payload: response.data,
   });
+};
+
+const fetchCategoryProducts = (category) => async (dispatch) => {
+  const response = await axios.get(`/api/category/${category}`);
+  switch (category) {
+    case 'pencil':
+      dispatch({
+        type: FETCH_PENCIL_PRODUCTS,
+        payload: response.data,
+      });
+      break;
+    case 'illustration':
+      dispatch({
+        type: FETCH_ILLUSTRATION_PRODUCTS,
+        payload: response.data,
+      });
+      break;
+    case 'photoshop':
+      dispatch({
+        type: FETCH_PHOTOSHOP_PRODUCTS,
+        payload: response.data,
+      });
+      break;
+    default:
+      dispatch({
+        type: FETCH_PENCIL_PRODUCTS,
+        payload: response.data,
+      });
+  }
 };
 
 const editProduct = (id, editedProduct) => async (dispatch) => {
@@ -81,6 +114,7 @@ const fetchOneArtistProducts = (id) => async (dispatch) => {
 export {
   createProduct,
   fetchProduct,
+  fetchCategoryProducts,
   editProduct,
   deleteProduct,
   fetchOneArtistProducts,

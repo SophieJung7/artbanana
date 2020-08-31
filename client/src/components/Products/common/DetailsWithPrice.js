@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { startCheckout } from '../../../../actions';
 import {
   FaAngleLeft,
   FaAngleRight,
@@ -10,44 +8,35 @@ import {
   FaInstagram,
 } from 'react-icons/fa';
 
-const price = {
-  sizeS: 98000,
-  sizeM: 198000,
-  sizeL: 298000,
-  sizeXL: 498000,
-};
-
 class DetailsWithPrice extends Component {
   state = {
     quantity: 1,
-    sizeOption: 'sizeS',
-    price: price.sizeS,
     sale: true,
+    sizeOption: 'sm',
+    price: {},
+    chosenPrice: 0,
   };
+
+  componentDidMount() {
+    if (this.props.price) {
+      this.setState({ price: this.props.price });
+      this.setState({ chosenPrice: this.props.price.sm });
+    }
+  }
 
   handleSizeOptionChange = (event) => {
     const sizeOption = event.target.value;
-    const chosenPrice = price[sizeOption];
-    this.setState({ sizeOption: sizeOption, price: chosenPrice });
-  };
-
-  startCheckout = () => {
-    const orderDetail = {
-      artistId: this.props.artistId,
-      price: this.state.price,
-      size: this.state.sizeOption,
-      quantity: this.state.quantity,
-    };
-    this.props.startCheckout(orderDetail);
+    const chosenPrice = this.state.price[sizeOption];
+    this.setState({ sizeOption: sizeOption, chosenPrice: chosenPrice });
   };
 
   render() {
-    const { name } = this.props;
+    const { name, productName } = this.props;
 
     return (
-      <div className='col-lg-6 rtl-text'>
+      <div className='col-lg-4 rtl-text'>
         <div className='product-right'>
-          <div className='mb-4 d-flex align-items-center'>
+          <div className='d-flex align-items-center'>
             <h2
               className='d-inline'
               style={{
@@ -77,10 +66,34 @@ class DetailsWithPrice extends Component {
               {name}{' '}
             </h2>
           </div>
+          <div className=''>
+            <h3
+              className='d-inline'
+              style={{ fontSize: '1rem', color: '#777777' }}
+            >
+              {productName}
+            </h3>
+          </div>
+          <div className=''>
+            {/* <h3
+              className='d-inline'
+              style={{ fontSize: '1rem', color: '#777777' }}
+            >
+              {`${width}cm X ${height}cm`}
+            </h3> */}
+          </div>
+          <div className='mb-3'>
+            {/* <h3
+              className='d-inline'
+              style={{ fontSize: '1rem', color: '#777777' }}
+            >
+              {`리미티드에디션 한정수량 ${quantity}개`}
+            </h3> */}
+          </div>
           {this.state.sale ? (
             <div className='price-part'>
               <h4>
-                <del>{`${(this.state.price * 2).toLocaleString('en')}원`}</del>
+                <del>{`${this.state.chosenPrice.toLocaleString('en')}원`}</del>
                 <span
                   className='ml-1'
                   style={{ color: '#d8a6a2', fontWeight: '700' }}
@@ -94,7 +107,7 @@ class DetailsWithPrice extends Component {
                   className='d-inline'
                   style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
                 >
-                  {this.state.price.toLocaleString('en')}
+                  {(this.state.chosenPrice * 0.5).toLocaleString('en')}
                 </h3>
                 <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
                   원
@@ -106,7 +119,7 @@ class DetailsWithPrice extends Component {
                   className='d-inline'
                   style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
                 >
-                  {(this.state.price * 0.5).toLocaleString('en')}
+                  {(this.state.chosenPrice * 0.5).toLocaleString('en')}
                 </h3>
                 <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
                   원
@@ -121,7 +134,7 @@ class DetailsWithPrice extends Component {
                   className='d-inline'
                   style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
                 >
-                  {this.state.price}
+                  {this.state.chosenPrice}
                 </h3>
                 <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
                   원
@@ -133,7 +146,7 @@ class DetailsWithPrice extends Component {
                   className='d-inline'
                   style={{ fontFamily: 'Work Sans', fontWeight: '500' }}
                 >
-                  {this.state.price}
+                  {this.state.chosenPrice}
                 </h3>
                 <h4 className='d-inline ml-1' style={{ fontSize: '1rem' }}>
                   원
@@ -141,7 +154,6 @@ class DetailsWithPrice extends Component {
               </div>
             </div>
           )}
-
           <div className='product-description border-product'>
             <div className='mb-4'>
               <h6 className='product-title size-text'>
@@ -151,52 +163,52 @@ class DetailsWithPrice extends Component {
                 <div className='radio-item'>
                   <input
                     type='radio'
-                    value='sizeS'
-                    id='sizeS'
+                    value='sm'
+                    id='sm'
                     name='options'
-                    checked={this.state.sizeOption === 'sizeS'}
+                    checked={this.state.sizeOption === 'sm'}
                     onChange={this.handleSizeOptionChange}
                   />
-                  <label htmlFor='sizeS'>
+                  <label htmlFor='sm'>
                     S (A5사이즈/ 148mm X 210mm/ 최대 오브젝트 1명)
                   </label>
                 </div>
                 <div className='radio-item'>
                   <input
                     type='radio'
-                    value='sizeM'
-                    id='sizeM'
+                    value='md'
+                    id='md'
                     name='options'
-                    checked={this.state.sizeOption === 'sizeM'}
+                    checked={this.state.sizeOption === 'md'}
                     onChange={this.handleSizeOptionChange}
                   />
-                  <label htmlFor='sizeM'>
+                  <label htmlFor='md'>
                     M (A4사이즈/ 210mm X 297mm/ 최대 오브젝트 2명)
                   </label>
                 </div>
                 <div className='radio-item'>
                   <input
                     type='radio'
-                    value='sizeL'
-                    id='sizeL'
+                    value='lg'
+                    id='lg'
                     name='options'
-                    checked={this.state.sizeOption === 'sizeL'}
+                    checked={this.state.sizeOption === 'lg'}
                     onChange={this.handleSizeOptionChange}
                   />
-                  <label htmlFor='sizeL'>
+                  <label htmlFor='lg'>
                     L (A3사이즈/ 297mm X 420mm/ 최대 오브젝트 4명)
                   </label>
                 </div>
                 <div className='radio-item'>
                   <input
                     type='radio'
-                    value='sizeXL'
-                    id='sizeXL'
+                    value='xl'
+                    id='xl'
                     name='options'
-                    checked={this.state.sizeOption === 'sizeXL'}
+                    checked={this.state.sizeOption === 'xl'}
                     onChange={this.handleSizeOptionChange}
                   />
-                  <label htmlFor='sizeXL'>
+                  <label htmlFor='xl'>
                     XL (A2사이즈/ 420mm X 594mm/ 최대 오브젝트 5명)
                   </label>
                 </div>
@@ -247,9 +259,8 @@ class DetailsWithPrice extends Component {
             </div>
           </div>
           <div className='product-buttons'>
-            <button
-              //   to={`${process.env.PUBLIC_URL}/checkout`}
-              onClick={this.startCheckout}
+            <Link
+              to={`${process.env.PUBLIC_URL}/checkout`}
               className='btn btn-solid'
               style={{
                 backgroundImage:
@@ -259,7 +270,7 @@ class DetailsWithPrice extends Component {
               }}
             >
               지금 주문하기
-            </button>
+            </Link>
           </div>
           <div className='border-product'>
             <h6 className='mb-2 product-title'>제품 상세정보</h6>
@@ -342,4 +353,4 @@ class DetailsWithPrice extends Component {
   }
 }
 
-export default connect(null, { startCheckout })(DetailsWithPrice);
+export default DetailsWithPrice;

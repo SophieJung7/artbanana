@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.scss';
-import Reviews from '../ProductCommon/Reviews';
-import ReviewForm from '../ProductCommon/ReviewForm';
+import Reviews from './Reviews';
+import ReviewForm from './ReviewForm';
 
 class DetailsTopTabs extends Component {
   state = {
@@ -19,7 +19,14 @@ class DetailsTopTabs extends Component {
   };
 
   render() {
-    const { intro, artistId, profileImg, reviews, quantity } = this.props;
+    const {
+      intro,
+      artistId,
+      profileImg,
+      reviews,
+      medium,
+      description,
+    } = this.props;
     return (
       <section className='tab-product m-0 mb-5'>
         <div className='row'>
@@ -27,7 +34,7 @@ class DetailsTopTabs extends Component {
             <Tabs className='tab-content nav-material'>
               <TabList className='nav nav-tabs nav-material'>
                 <Tab className='nav-item'>
-                  <span className='nav-link active'>작품정보</span>
+                  <span className='nav-link active'>제품정보</span>
                   <div className='material-border'></div>
                 </Tab>
                 <Tab className='nav-item'>
@@ -51,21 +58,11 @@ class DetailsTopTabs extends Component {
                   <tbody>
                     <tr>
                       <th>작품소재 :</th>
-                      <td>유화</td>
+                      <td>{medium}</td>
                     </tr>
                     <tr>
-                      <th>에디션소개 :</th>
-                      <td>
-                        유화를 특수프린트하여 정밀도와 세밀도면에서 원본과
-                        다름없는 작품입니다.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>에디션수량 :</th>
-                      <td>
-                        {quantity}개 / 에디션은 아티스트가 정한 한정수량만을
-                        제작해 에디션의 가치를 높입니다.
-                      </td>
+                      <th>작품소개 :</th>
+                      <td>{description}</td>
                     </tr>
                     <tr>
                       <th>배송비 :</th>
@@ -94,10 +91,8 @@ class DetailsTopTabs extends Component {
                     <tr>
                       <th>액자 :</th>
                       <td>
-                        아트바나나의 모든 에디션제품들은 캔버스형태로 제작되어
-                        바로 벽에 거실 수 있습니다. <br />
-                        인테리어효과를 위해 액자를 원하신다면 개별적으로 주문
-                        부탁드립니다.
+                        동 제품은 액자가 포함되어 있지 않습니다. 액자를
+                        원하신다면 개별적으로 주문 부탁드립니다.
                       </td>
                     </tr>
                   </tbody>

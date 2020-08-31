@@ -13,7 +13,7 @@ export class AddProduct extends Component {
     this.state = {
       artistId: '',
       bigProductImg:
-        'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/1.jpg',
+        'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/photo_icon.jpg',
       productImgs: [],
       productImgFiles: [{}, {}, {}, {}, {}, {}],
       dummyimgs: [
@@ -40,6 +40,7 @@ export class AddProduct extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.setState({ artistId: this.props.match.params.id });
     this.props.fetchArtist(this.props.match.params.id);
   }
@@ -77,50 +78,49 @@ export class AddProduct extends Component {
             <div className='col-sm-12'>
               <div className='card'>
                 <div className='card-header'>
-                  <h5>Add Product</h5>
+                  <h5>제품추가하기</h5>
                 </div>
                 <div className='card-body'>
                   <div className='row product-adding'>
-                    <div className='col-xl-5'>
-                      <div className='add-product'>
-                        <div className='row'>
-                          <div className='col-xl-9 xl-50 col-sm-6 col-9'>
-                            <img
-                              src={this.state.bigProductImg}
-                              alt='UploadImage'
-                              className='img-fluid image_zoom_1 blur-up lazyloaded'
-                            />
-                          </div>
-                          <div className='col-xl-3 xl-50 col-sm-6 col-3'>
-                            <ul className='file-upload-product'>
-                              {this.state.dummyimgs.map((res, i) => {
-                                return (
-                                  <li key={i}>
-                                    <div className='box-input-file'>
-                                      <input
-                                        className='upload'
-                                        type='file'
-                                        onChange={(e) =>
-                                          this.handleImgChange(e, i)
-                                        }
-                                      />
-                                      <img
-                                        src={res.img}
-                                        style={{ width: 50, height: 50 }}
-                                        onClick={(e) => {
-                                          this.handleImgClick(e);
-                                        }}
-                                        alt='products'
-                                      />
-                                    </div>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
+                    <div className='add-product'>
+                      <div className='row'>
+                        <div className='col-9'>
+                          <img
+                            src={this.state.bigProductImg}
+                            alt='UploadImage'
+                            className='img-fluid image_zoom_1 blur-up lazyloaded'
+                          />
+                        </div>
+                        <div className='col-3'>
+                          <ul className='file-upload-product'>
+                            {this.state.dummyimgs.map((res, i) => {
+                              return (
+                                <li key={i}>
+                                  <div className='box-input-file'>
+                                    <input
+                                      className='upload'
+                                      type='file'
+                                      onChange={(e) =>
+                                        this.handleImgChange(e, i)
+                                      }
+                                    />
+                                    <img
+                                      src={res.img}
+                                      style={{ width: 50, height: 50 }}
+                                      onClick={(e) => {
+                                        this.handleImgClick(e);
+                                      }}
+                                      alt='products'
+                                    />
+                                  </div>
+                                </li>
+                              );
+                            })}
+                          </ul>
                         </div>
                       </div>
                     </div>
+
                     <AddProductForm
                       productImgFiles={this.state.productImgFiles}
                     />

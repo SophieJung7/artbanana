@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
 import { connect } from 'react-redux';
-import { submitReview } from '../../../../actions/index';
+import { submitReview } from '../../../actions';
 
 class ReviewForm extends Component {
   state = {

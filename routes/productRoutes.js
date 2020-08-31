@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('Product');
+const Artist = mongoose.model('Artist');
 const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = (app) => {
@@ -13,21 +14,24 @@ module.exports = (app) => {
       description,
       year,
       quantity,
-      size,
       price,
       productImgs,
     } = req.body;
 
+    //   Find Artist Info
+    const artistInfo = await Artist.findById(artistId);
+
     //   Make MongoDB data
     let product = new Product({
       artistId: artistId,
+      artistProfile: artistInfo.profileImg,
+      artistName: artistInfo.name,
       productCategory,
       name,
       medium,
       description,
       year,
       quantity,
-      size,
       price,
       productImgs: productImgs.map((img) => ({ key: img.key })),
       dateRegistered: Date.now(),
@@ -54,6 +58,21 @@ module.exports = (app) => {
     } catch (err) {
       res.status(422).send({
         error: '제품 불러오기에 실패했습니다. 고객센터로 연락해주세요!',
+      });
+    }
+  });
+
+  // Fetch a category products
+  app.get('/api/category/:category', async (req, res) => {
+    const category = req.params.category;
+    try {
+      const products = await Product.find({
+        productCategory: category,
+      });
+      res.send(products);
+    } catch (err) {
+      res.status(422).send({
+        error: '제품 불러오기에 실패했습니다.',
       });
     }
   });

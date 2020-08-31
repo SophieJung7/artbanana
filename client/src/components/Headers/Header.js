@@ -46,7 +46,7 @@ class Header extends Component {
             </li>
             <li>
               <Link
-                to={`/products/product-list/${this.props.auth._id}`}
+                to={`/products/product-list/${this.props.auth.artistId}`}
                 className='nav-link make-link-black'
               >
                 아티스트페이지

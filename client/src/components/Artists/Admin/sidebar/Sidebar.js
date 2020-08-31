@@ -50,41 +50,58 @@ export class Sidebar extends Component {
 
     this.state.mainmenu.filter((items) => {
       if (!items.children) {
-        if (items.path === currentUrl) this.setNavActive(items);
-        return false;
+        if (items.path === currentUrl) {
+          this.setNavActive(items);
+          return false;
+        }
       }
       items.children.filter((subItems) => {
-        if (subItems.path === currentUrl) this.setNavActive(subItems);
-        if (!subItems.children) return false;
+        if (subItems.path === currentUrl) {
+          return this.setNavActive(subItems);
+        }
+        if (!subItems.children) {
+          return false;
+        }
         subItems.children.filter((subSubItems) => {
-          if (subSubItems.path === currentUrl) this.setNavActive(subSubItems);
+          if (subSubItems.path === currentUrl) {
+            return this.setNavActive(subSubItems);
+          }
+          return null;
         });
+        return null;
       });
+      return null;
     });
   }
 
   setNavActive(item) {
     let mainmenu = this.state.mainmenu;
     mainmenu.filter((menuItem) => {
-      if (menuItem !== item) menuItem.active = false;
-      if (menuItem.children && menuItem.children.includes(item))
-        menuItem.active = true;
+      if (menuItem !== item) {
+        return (menuItem.active = false);
+      }
+      if (menuItem.children && menuItem.children.includes(item)) {
+        return (menuItem.active = true);
+      }
       if (menuItem.children) {
         menuItem.children.filter((submenuItems) => {
           if (submenuItems !== item) {
-            submenuItems.active = false;
+            return (submenuItems.active = false);
           }
           if (submenuItems.children) {
             submenuItems.children.map((childItem) => {
-              childItem.active = false;
+              return (childItem.active = false);
             });
             if (submenuItems.children.includes(item)) {
               submenuItems.active = true;
               menuItem.active = true;
+              return null;
             }
           }
+          return null;
         });
       }
+      return null;
     });
     item.active = !item.active;
 
@@ -214,7 +231,7 @@ export class Sidebar extends Component {
       <Fragment>
         <div className='page-sidebar'>
           <div className='sidebar custom-scrollbar'>
-            {this.props.artist && (
+            {this.props.artist.profileImg && (
               <UserPanel
                 profilePhoto={`https://artbanana.s3.ap-northeast-2.amazonaws.com/${this.props.artist.profileImg}`}
                 artistName={`${this.props.artist.name}`}

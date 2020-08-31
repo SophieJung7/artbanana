@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import Masonry from 'react-masonry-css';
-import * as actions from '../../../actions/index';
-import TitleTemp from '../../TitleTemp';
+import * as actions from '../../actions';
+import TitleTemp from '../TitleTemp';
 
-class ArtistsList extends Component {
+class ProductsList extends Component {
   state = {
     masonryBreakpoint: 4,
-    priceS: 98000,
+    products: [],
   };
 
-  componentDidMount() {
-    this.props.fetchPencilArtists();
+  componentDidMount = async () => {
+    this.props.fetchEditionArtists();
     window.scrollTo(0, 0);
     window.addEventListener('load', this.updateMasonry);
     window.addEventListener('resize', this.updateMasonry);
-  }
+    const response = await axios.get(`/api/category/${this.props.category}`);
+    this.setState({ products: response.data });
+  };
 
   componentWillUnmount() {
     window.removeEventListener('load', this.updateMasonry);
@@ -30,16 +33,49 @@ class ArtistsList extends Component {
     }
   };
 
-  renderArtists = () => {
-    if (this.props.pencilArtists) {
-      return this.props.pencilArtists.map(
-        ({ _id, name, address, profileImg, productImgs }) => {
+  showTitle = () => {
+    switch (this.props.category) {
+      case 'pencil':
+        return (
+          <TitleTemp
+            bigTitle='사진을 펜슬드로잉 작품으로 바꿔보세요!'
+            subTitle='Transform your photos to alive artworks!'
+          />
+        );
+      case 'illustration':
+        return (
+          <TitleTemp
+            bigTitle='사진을 재밌는 일러스트레이션 작품으로 바꿔보세요!'
+            subTitle='Meet beautiful illustrations created with your photos!'
+          />
+        );
+      case 'photoshop':
+        return (
+          <TitleTemp
+            bigTitle='소중한 사진을 작품으로 만들어보세요!'
+            subTitle='Make your photos even more precious!'
+          />
+        );
+      default:
+        return (
+          <TitleTemp
+            bigTitle='소중한 사진을 작품으로 만들어보세요!'
+            subTitle='Make your photos even more precious!'
+          />
+        );
+    }
+  };
+
+  renderProducts = () => {
+    if (this.state.products) {
+      return this.state.products.map(
+        ({ _id, artistProfile, artistName, name, price, productImgs }) => {
           return (
             <div key={_id} className='isotopeSelector fashion'>
               <div className='overlay'>
                 <div className='border-portfolio'>
                   <a
-                    href={`/artists/show/${_id}`}
+                    href={`/products/show/${_id}`}
                     className='overlay-background d-flex justify-content-center align-items-center'
                   >
                     <br style={{ display: 'none' }} />
@@ -50,21 +86,30 @@ class ArtistsList extends Component {
                   />
                 </div>
               </div>
-              <div className='mt-2 row d-flex align-items-center'>
+              <div className='mt-2row d-flex align-items-center'>
                 <div className='col-3'>
                   <img
                     className='avatar-img rounded-circle'
-                    src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${profileImg}`}
+                    src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${artistProfile}`}
                     style={{ width: '3rem', height: '3rem' }}
                     alt='profile'
                   />
                 </div>
                 <div
-                  className='col ml-2'
+                  className='col mt-3'
                   style={{
                     paddingLeft: '0',
                   }}
                 >
+                  <div
+                    style={{
+                      color: '#777',
+                      fontSize: '1rem',
+                      fontWeight: '700',
+                    }}
+                  >
+                    {name}
+                  </div>
                   <div
                     className='d-inline'
                     style={{
@@ -83,12 +128,12 @@ class ArtistsList extends Component {
                       fontWeight: '700',
                     }}
                   >
-                    {name}
+                    {artistName}
                   </div>
                   <div>
-                    <del style={{ fontSize: '0.9rem', fontWeight: '700' }}>{`${(
-                      this.state.priceS * 2
-                    ).toLocaleString('en')}원`}</del>
+                    <del
+                      style={{ fontSize: '0.9rem', fontWeight: '700' }}
+                    >{`${price.sm.toLocaleString('en')}원`}</del>
                     <span
                       className='ml-1'
                       style={{ color: '#d8a6a2', fontWeight: '700' }}
@@ -97,7 +142,7 @@ class ArtistsList extends Component {
                     </span>
                   </div>
                   <div style={{ fontSize: '1rem', fontWeight: '700' }}>
-                    {`${this.state.priceS.toLocaleString('en')}원`}
+                    {`${(price.sm * 0.5).toLocaleString('en')}원`}
                   </div>
                 </div>
               </div>
@@ -112,7 +157,7 @@ class ArtistsList extends Component {
   render() {
     return (
       <div className='my-5'>
-        <TitleTemp bigTitle='펜슬드로잉' subTitle='Pencil Drawing' />
+        {this.showTitle()}
         <section className='portfolio-section portfolio-padding pt-0 port-col zoom-gallery'>
           <div className='container'>
             <div className='isotopeContainer row'>
@@ -122,7 +167,7 @@ class ArtistsList extends Component {
                 columnClassName='my-masonry-grid_column'
               >
                 {/* SHOW Artists */}
-                {this.renderArtists()}
+                {this.renderProducts()}
               </Masonry>
             </div>
           </div>
@@ -133,7 +178,7 @@ class ArtistsList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { pencilArtists: state.pencilArtists };
+  return { editionArtists: state.editionArtists };
 };
 
-export default connect(mapStateToProps, actions)(ArtistsList);
+export default connect(mapStateToProps, actions)(ProductsList);

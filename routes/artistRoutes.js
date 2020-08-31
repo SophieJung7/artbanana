@@ -55,8 +55,12 @@ module.exports = (app) => {
       dateRegistered: Date.now(),
     });
     try {
-      await artist.save();
-      await User.findByIdAndUpdate({ _id: req.user.id }, { artist: true });
+      await artist.save(async (err, artist) => {
+        await User.findByIdAndUpdate(
+          { _id: req.user.id },
+          { artist: true, artistId: artist.id }
+        );
+      });
 
       // Send Welcome Email to Artists.
       const params = artistWelcomeParams(email);
@@ -82,20 +86,6 @@ module.exports = (app) => {
     res.send(artists);
   });
 
-  //   Fetch Verified artists By Category
-  app.get('/api/category/:category', async (req, res) => {
-    try {
-      const category = req.params.category;
-      const artists = await Artist.find({
-        productCategory: category,
-        verified: true,
-      });
-      res.send(artists);
-    } catch (err) {
-      res.send(422, { error: 'Couldnt find artists.' });
-    }
-  });
-
   // Fetch portfolio imgs
   app.get('/api/portfolio', async (req, res) => {
     const portfolioImgs = await Artist.portfolioImgs.find();
@@ -104,7 +94,7 @@ module.exports = (app) => {
 
   // Fetch an artist
   app.get('/api/artists/:id', async (req, res) => {
-    const artist = await Artist.findOne({ _user: req.params.id });
+    const artist = await Artist.findById(req.params.id);
     res.send(artist);
   });
 

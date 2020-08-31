@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-css';
 import Lightbox from 'react-image-lightbox';
-import TitleTemp from '../../../TitleTemp';
+import TitleTemp from '../../TitleTemp';
 import 'react-image-lightbox/style.css';
 
 class Portfolio extends Component {
@@ -9,7 +9,7 @@ class Portfolio extends Component {
     masonryBreakpoint: 4,
     photoIndex: 0,
     isOpen: false,
-    imgs: [...this.props.productImgs, ...this.props.portfolioImgs],
+    imgs: [...this.props.portfolioImgs],
   };
 
   componentDidMount() {
@@ -39,7 +39,7 @@ class Portfolio extends Component {
   };
 
   renderImgs = () => {
-    return this.state.imgs.map(({ _id, key }, index) => {
+    return this.props.portfolioImgs.map(({ _id, key }, index) => {
       return (
         <div key={_id} className='isotopeSelector fashion'>
           <div className='overlay'>

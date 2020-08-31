@@ -3,6 +3,10 @@ import SidebarWrapper from '../../sidebar/SidebarWrapper';
 import TabsetProfile from './TabsetProfile';
 
 export class Profile extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <SidebarWrapper

@@ -7,6 +7,7 @@ export class ProductList extends Component {
   state = {};
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const artistId = this.props.match.params.id;
     fetchOneArtistProducts(artistId);
   }

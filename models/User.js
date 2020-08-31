@@ -6,6 +6,7 @@ const userSchema = new Schema({
   email: String,
   username: String,
   artist: { type: Boolean, default: false },
+  artistId: { type: Schema.Types.ObjectId, ref: 'Artist' },
   emailValidated: { type: Boolean, default: false },
   password: String,
   displayName: String,
