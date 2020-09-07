@@ -27,6 +27,17 @@ module.exports = (app) => {
     res.redirect('/artists/register');
   });
 
+  // Edit an artist
+  app.put('/api/artists/:id', async (req, res) => {
+    const artistId = req.params.id;
+    const editedInfo = req.body;
+
+    Artist.findByIdAndUpdate({ _id: artistId }, { ...editedInfo })
+      .then(() => Artist.findById({ _id: artistId }))
+      .then((artist) => res.send(artist))
+      .catch((err) => res.send(422, { error: 'Artist update failed.' }));
+  });
+
   // Create an artist
   app.post('/api/artists', requireLogin, async (req, res) => {
     const {
@@ -34,9 +45,7 @@ module.exports = (app) => {
       email,
       phone,
       intro,
-      homepage,
-      insta,
-      etc,
+      SNS,
       profileImg,
       portfolioImgs,
     } = req.body;
@@ -47,7 +56,7 @@ module.exports = (app) => {
       email,
       phone,
       intro,
-      SNS: [homepage, insta, etc],
+      SNS,
       profileImg: profileImg,
       portfolioImgs: portfolioImgs.map((img) => ({
         key: img.key,

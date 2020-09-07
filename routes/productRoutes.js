@@ -4,6 +4,40 @@ const Artist = mongoose.model('Artist');
 const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = (app) => {
+  // Edit a product
+  app.put('/api/edit-product/:id', (req, res) => {
+    const productId = req.params.id;
+    const {
+      productCategory,
+      name,
+      medium,
+      description,
+      year,
+      quantity,
+      price,
+      productImgs,
+    } = req.body;
+
+    Product.findByIdAndUpdate(productId, {
+      productCategory,
+      name,
+      medium,
+      description,
+      year,
+      quantity,
+      price,
+      productImgs: productImgs.map((img) => ({ key: img.key })),
+    })
+      .then(() => Product.findById({ _id: productId }))
+      .then((product) => res.send(product))
+      .catch((err) =>
+        res.send(422, {
+          error: err,
+          //   error: '제품수정에 실패했습니다. 고객센터로 연락해주세요 ㅠㅠ!',
+        })
+      );
+  });
+
   // Create an product
   app.post('/api/products/:id', async (req, res) => {
     const artistId = req.params.id;
@@ -48,7 +82,7 @@ module.exports = (app) => {
   });
 
   //  Fetch One Artist Products
-  app.get('/api/products/artist/:id', async (req, res) => {
+  app.get('/api/artist-products/:id', async (req, res) => {
     const artistId = req.params.id;
     try {
       const products = await Product.find({
@@ -85,21 +119,6 @@ module.exports = (app) => {
     } catch (err) {
       res.status(422).send({ error: 'Failed to fetch a product' });
     }
-  });
-
-  // Edit a product
-  app.put('/api/edit-product/:id', (req, res) => {
-    const productId = req.params.id;
-    const editedProduct = req.body;
-
-    Product.findByIdAndUpdate(productId, editedProduct)
-      .then(() => Product.findById({ _id: productId }))
-      .then((product) => res.send(product))
-      .catch((err) =>
-        res.send(422, {
-          error: '제품수정에 실패했습니다. 고객센터로 연락해주세요 ㅠㅠ!',
-        })
-      );
   });
 
   // Delete a product

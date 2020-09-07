@@ -22,20 +22,20 @@ export default [
   },
   {
     label: '홈페이지주소',
-    name: 'homepage',
+    name: 'SNS.homepage',
     size: 'col-md-6',
     placeholder:
       '개인홈페이지가 있다면 주소를 기입해주세요. 예)https://www.artist.com',
   },
   {
     label: '인스타그램',
-    name: 'insta',
+    name: 'SNS.insta',
     size: 'col-md-6',
     placeholder: '인스타그램이 있다면 주소를 기입해주세요.',
   },
   {
     label: '기타 SNS주소',
-    name: 'etc',
+    name: 'SNS.etc',
     size: 'col-md-6',
     placeholder: '블로그, 페이스북, 트위터 등이 있다면 주소를 기입해주세요.',
   },

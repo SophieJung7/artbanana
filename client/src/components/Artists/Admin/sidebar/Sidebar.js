@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Settings, List, ThumbsUp } from 'react-feather';
+import { Settings, List, Plus, Image } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { fetchArtist } from '../../../../actions';
 import UserPanel from './UserPanel';
@@ -32,7 +32,7 @@ export class Sidebar extends Component {
       {
         title: '제품추가',
         path: `/products/add-product/${artistId}`,
-        icon: ThumbsUp,
+        icon: Plus,
         type: 'link',
         active: false,
       },

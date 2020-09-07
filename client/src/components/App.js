@@ -31,6 +31,7 @@ import ContactUs from './ContactUs/ContactUs';
 
 // Artist Admin Page
 import AddProduct from './Artists/Admin/menus/AddProduct';
+import EditProduct from './Artists/Admin/menus/EditProduct';
 import ProductList from './Artists/Admin/menus/ProductList';
 import Profile from './Artists/Admin/menus/settings/Profile';
 
@@ -87,6 +88,10 @@ class App extends Component {
               component={ProductList}
             />
             <Route path={`/products/add-product/:id`} component={AddProduct} />
+            <Route
+              path={`/products/edit-product/:id`}
+              component={EditProduct}
+            />
             <Route path={`/settings/profile/:id`} component={Profile} />
           </div>
           <Footer />

@@ -22,6 +22,17 @@ module.exports = (app) => {
     res.send({ key: key, url: url });
   });
 
+  // For Single photo: Get presignedURL from S3
+  app.get('/api/photos/add-product-photo', requireLogin, (req, res) => {
+    let key = `products/${req.user.id}/${uuidv1()}.jpeg`;
+    let url = s3.getSignedUrl('putObject', {
+      Bucket: 'artbanana',
+      ContentType: 'jpeg',
+      Key: key,
+    });
+    res.send({ key: key, url: url });
+  });
+
   // For product photos: Get presignedURL from S3
   app.get('/api/artist/products/upload', requireLogin, (req, res) => {
     const imgFiles = [];

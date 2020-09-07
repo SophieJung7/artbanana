@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import history from '../history';
+import history from '../history';
 import {
   CREATE_PRODUCT,
   FETCH_PRODUCT,
@@ -11,10 +11,47 @@ import {
   FETCH_ONE_ARTIST_PRODUCTS,
 } from './types';
 
+const editProduct = (productId, artistId, editedInfo) => async (dispatch) => {
+  let productImgs = editedInfo.productImgs;
+  //   Upload Product Imgs
+  const uploadedProductImgs = await Promise.all(
+    productImgs.map(async (img) => {
+      if (typeof img.name === 'string') {
+        let productKeyAndUrl = await axios.get('/api/photos/add-product-photo');
+        await axios.put(productKeyAndUrl.data.url, img, {
+          headers: {
+            'Content-Type': img.type,
+          },
+        });
+        return productKeyAndUrl.data;
+      }
+      return img;
+    })
+  );
+  // Remove empty objects
+  const pureProductImgs = uploadedProductImgs.filter(
+    (value) => typeof value.key === 'string'
+  );
+
+  const response = await axios.put(`/api/edit-product/${productId}`, {
+    ...editedInfo,
+    productImgs: [...pureProductImgs],
+  });
+
+  dispatch({
+    type: EDIT_PRODUCT,
+    payload: response.data,
+  });
+
+  alert('제품수정을 완료했습니다. 사진이 보이지 않는다면 새로고침해주세요!');
+
+  history.push(`/products/product-list/${artistId}`);
+};
+
 const createProduct = (id, productInfo) => async (dispatch) => {
   const productImgs = productInfo.productImgs;
 
-  // Remove empty objects from productImgs
+  // Remove empty objects(none-files) from productImgs
   const pureProductImgs = productImgs.filter(
     (value) => typeof value.name === 'string'
   );
@@ -39,7 +76,7 @@ const createProduct = (id, productInfo) => async (dispatch) => {
     ...productInfo,
     productImgs: [...productKeysAndUrls.data],
   });
-  console.log(response.data);
+
   dispatch({
     type: CREATE_PRODUCT,
     payload: response.data,
@@ -86,16 +123,6 @@ const fetchCategoryProducts = (category) => async (dispatch) => {
   }
 };
 
-const editProduct = (id, editedProduct) => async (dispatch) => {
-  const response = await axios.put(`/api/edit-product/${id}`, {
-    ...editedProduct,
-  });
-  dispatch({
-    type: EDIT_PRODUCT,
-    payload: response.data,
-  });
-};
-
 const deleteProduct = (id) => async (dispatch) => {
   await axios.delete(`/api/delete-product/${id}`);
   dispatch({
@@ -104,7 +131,7 @@ const deleteProduct = (id) => async (dispatch) => {
 };
 
 const fetchOneArtistProducts = (id) => async (dispatch) => {
-  const response = await axios.get('/');
+  const response = await axios.get(`/api/artist-products/${id}`);
   dispatch({
     type: FETCH_ONE_ARTIST_PRODUCTS,
     payload: response.data,

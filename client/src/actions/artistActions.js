@@ -45,6 +45,66 @@ const fetchArtist = (id) => async (dispatch) => {
   });
 };
 
+const editArtist = (id, editedInfo, profilePhoto) => async (dispatch) => {
+  //  Check Portfolio Img Change
+  let portfolioImgs = editedInfo.portfolioImgs;
+  //   Upload Portfolio Imgs
+  const uploadedPortfolioImgs = await Promise.all(
+    portfolioImgs.map(async (img) => {
+      if (typeof img.name === 'string') {
+        let productKeyAndUrl = await axios.get('/api/photos/add-product-photo');
+        await axios.put(productKeyAndUrl.data.url, img, {
+          headers: {
+            'Content-Type': img.type,
+          },
+        });
+        return productKeyAndUrl.data;
+      }
+      return img;
+    })
+  );
+  const portfolioImgKeys = uploadedPortfolioImgs.map((img) => ({
+    key: img.key,
+  }));
+
+  // If user changed the profile photo
+  if (profilePhoto) {
+    //For profile photo: Get presignedURL from S3
+    const profileKeysAndUrls = await axios.get('/api/artist/portfolio/upload');
+    //For profile photo: Upload photos to S3
+    await axios.put(profileKeysAndUrls.data.url, profilePhoto, {
+      headers: {
+        'Content-Type': profilePhoto.type,
+      },
+    });
+
+    const res = await axios.put(`/api/artists/${id}`, {
+      ...editedInfo,
+      profileImg: profileKeysAndUrls.data.key,
+      portfolioImgs: [...portfolioImgKeys],
+    });
+
+    dispatch({
+      type: EDIT_ARTIST,
+      payload: res.data,
+    });
+
+    alert('프로필이 수정되었습니다!');
+  } else {
+    const res = await axios.put(`/api/artists/${id}`, {
+      ...editedInfo,
+      portfolioImgs: [...portfolioImgKeys],
+    });
+
+    dispatch({
+      type: EDIT_ARTIST,
+      payload: res.data,
+    });
+
+    alert('프로필이 수정되었습니다!');
+  }
+};
+
 const createArtist = (values, profilePhoto, portfolioPhotos) => async (
   dispatch
 ) => {
@@ -88,20 +148,6 @@ const createArtist = (values, profilePhoto, portfolioPhotos) => async (
 
   //Go back to homepage
   history.push('/');
-};
-
-const editArtist = (
-  id,
-  editedValues,
-  profilePhoto,
-  productPhotos,
-  portfolioPhotos
-) => async (dispatch) => {
-  const res = await axios.put(`/api/artists/${id}`, editedValues);
-  dispatch({
-    type: EDIT_ARTIST,
-    payload: res.data,
-  });
 };
 
 // Delete Artist

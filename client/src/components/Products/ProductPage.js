@@ -20,7 +20,9 @@ class ProductPage extends Component {
     if (this.props.product) {
       const artistId = this.props.product.artistId;
       this.props.fetchArtist(artistId);
-      this.setState({ selectedImg: this.props.product.productImgs[0].key });
+      if (this.props.product.productImgs[0]) {
+        this.setState({ selectedImg: this.props.product.productImgs[0].key });
+      }
     }
     window.onpopstate = this.onBackButtonEvent;
   };

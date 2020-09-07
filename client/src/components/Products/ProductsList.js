@@ -81,13 +81,17 @@ class ProductsList extends Component {
                     <br style={{ display: 'none' }} />
                   </a>
                   <img
-                    src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${productImgs[0].key}`}
+                    src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${
+                      productImgs[0]
+                        ? productImgs[0].key
+                        : 'website/photo_icon.jpg'
+                    }`}
                     alt={name}
                   />
                 </div>
               </div>
               <div className='mt-2row d-flex align-items-center'>
-                <div className='col-3'>
+                <div className='col-4'>
                   <img
                     className='avatar-img rounded-circle'
                     src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${artistProfile}`}

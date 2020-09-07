@@ -13,7 +13,11 @@ const artistSchema = new Schema({
   email: String,
   phone: String,
   intro: String,
-  SNS: [String],
+  SNS: {
+    homepage: String,
+    insta: String,
+    etc: String,
+  },
   profileImg: String,
   portfolioImgs: [PortfolioImgsSchema],
   reviews: [ReviewSchema],
