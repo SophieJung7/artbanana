@@ -119,11 +119,10 @@ export class AddProduct extends Component {
                           </ul>
                         </div>
                       </div>
+                      <AddProductForm
+                        productImgFiles={this.state.productImgFiles}
+                      />
                     </div>
-
-                    <AddProductForm
-                      productImgFiles={this.state.productImgFiles}
-                    />
                   </div>
                 </div>
               </div>

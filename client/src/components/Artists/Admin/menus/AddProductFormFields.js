@@ -19,25 +19,6 @@ const AddProductFormFields = ({
           rows='5'
           placeholder={placeholder}
         ></textarea>
-        <div className='mb-4'>
-          <h3>사이즈 및 가격정보</h3>
-          <ul>
-            <li>* S사이즈: A5사이즈/ 148mm X 210mm/ 최대 오브젝트 1명 </li>
-            <br />
-            <li>* M사이즈: A4사이즈/ 210mm X 297mm/ 최대 오브젝트 2명</li>
-            <br />
-            <li>* L사이즈: A3사이즈/ 297mm X 420mm/ 최대 오브젝트 4명</li>
-            <br />
-            <li>* XL사이즈: A2사이즈/ 420mm X 594mm/ 최대 오브젝트 5명</li>
-          </ul>
-
-          <div className='mt-3'>
-            <h5 style={{ fontSize: '1.1rem', fontWeight: '600' }}>
-              아트바나나는 월 1회 2주간 50% 할인행사를 진행합니다. 이에 유의하여
-              가격을 결정해주세요.^^
-            </h5>
-          </div>
-        </div>
       </div>
     );
   }
@@ -58,6 +39,37 @@ const AddProductFormFields = ({
           <option value='photoshop'>사진아트</option>
         </select>
         <small style={{ color: 'red' }}>{touched && error}</small>
+      </div>
+    );
+  }
+  if (
+    input.name === 'price.sm' ||
+    input.name === 'price.md' ||
+    input.name === 'price.lg' ||
+    input.name === 'price.xl' ||
+    input.name === 'price.per'
+  ) {
+    return (
+      <div className={`${size}`}>
+        <label>{label}</label>
+        <input
+          {...input}
+          className='form-control mb-3'
+          placeholder={placeholder}
+          required
+        />
+        {input.value ? (
+          <div>
+            <h5 style={{ fontSize: '1.1rem', color: 'red' }}>
+              {input.value.search(/\D/i) > 0
+                ? '쉼표, 문자를 제외한 숫자만 입력해주세요.'
+                : `50% 할인가격: ${(input.value * 0.5).toLocaleString('en')}원`}
+            </h5>
+          </div>
+        ) : null}
+        <small className='form-text' style={{ color: 'red' }}>
+          {touched && error}
+        </small>
       </div>
     );
   }

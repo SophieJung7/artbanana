@@ -1394,7 +1394,7 @@
     margin-bottom: 12px;
   }
   h4 {
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .blog-details {
     h4 {
@@ -5259,7 +5259,8 @@
 
 @media (max-width: 420px) {
   h2 {
-    font-size: 22px;
+    font-size: 22px !important;
+    line-height: 1.4 !important;
   }
   .subscribe {
     h4 {

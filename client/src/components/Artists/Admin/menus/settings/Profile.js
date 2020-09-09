@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formValueSelector } from 'redux-form';
 import Masonry from 'react-masonry-css';
 import { editArtist } from '../../../../../actions';
 import SidebarWrapper from '../../sidebar/SidebarWrapper';

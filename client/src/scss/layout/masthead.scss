@@ -86,7 +86,7 @@
 // Styling for the 2ND masthead(Jumbotron)
 header.masthead-2 {
   text-align: center;
-  background-image: url('https://artbanana.s3.ap-northeast-2.amazonaws.com/website/pink-landscape.jpg');
+  background-image: url('https://artbanana.s3.ap-northeast-2.amazonaws.com/website/street-with-pencil.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -110,7 +110,7 @@ header.masthead-2 {
 // For Mobile Version: Different design.
 @media (max-width: 576px) {
   header.masthead-2 {
-    background-image: url('https://artbanana.s3.ap-northeast-2.amazonaws.com/website/pink-portrait.jpg');
+    background-image: url('https://artbanana.s3.ap-northeast-2.amazonaws.com/website/street-portrait.jpg');
     color: black;
     .intro-text {
       &-bg {

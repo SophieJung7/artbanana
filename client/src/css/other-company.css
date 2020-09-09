@@ -12365,7 +12365,7 @@ header .layout3-menu .main-navbar .nav-menu {
     margin-top: 12px;
     margin-bottom: 12px; }
   h4 {
-    font-size: 13px; }
+    font-size: 13px !important; }
   .blog-details h4 {
     margin-top: 17px;
     font-size: 13px; }
@@ -14147,7 +14147,8 @@ header .layout3-menu .main-navbar .nav-menu {
 
 @media (max-width: 420px) {
   h2 {
-    font-size: 22px; }
+    font-size: 22px !important;
+    line-height: 1.4 !important; }
   .subscribe h4 {
     display: block; }
   footer .btn-solid {
@@ -16034,7 +16035,7 @@ a:hover {
     max-width: 900px; }
     .authentication-box .container .bg-primary {
       padding: 50px;
-      background-image: url("https://artbanana.s3.ap-northeast-2.amazonaws.com/website/pink-landscape.jpg");
+      background-image: url("https://artbanana.s3.ap-northeast-2.amazonaws.com/website/street-with-pencil.jpg");
       background-position: center;
       box-shadow: 1px 5px 24px 0 rgba(255, 128, 132, 0.8); }
     .authentication-box .container .form-group {

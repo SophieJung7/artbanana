@@ -17,10 +17,12 @@ const productSchema = new Schema({
     md: { type: Number },
     lg: { type: Number },
     xl: { type: Number },
-    digital: { type: Number },
+    per: { type: Number },
   },
   productImgs: [ProductImgsSchema],
   dateRegistered: String,
 });
+
+// productCategory: pencil || caricature || photoshop || illustration
 
 mongoose.model('Product', productSchema);

@@ -15,7 +15,9 @@ import EmailVerify from './SignUp/EmailVerifyMessage';
 import EmailVerified from './SignUp/EmailVerified';
 import MyPage from './MyPage/MyPage';
 import ChangePassword from './SignIn/ChangePassword';
-import ChangePasswordSuccess from './SignIn/Notification/ChangePasswordSuccess';
+import ChangePasswordSuccess from './SignIn/ChangePasswordSuccess';
+import LostPassword from './SignIn/LostPassword';
+import ResetPassword from './SignIn/ResetPassword';
 
 // Artists
 import ArtistRegister from './Artists/Register/Register';
@@ -68,6 +70,8 @@ class App extends Component {
               path='/change-password/success'
               component={ChangePasswordSuccess}
             />
+            <Route exact path='/lost-password' component={LostPassword} />
+            <Route exact path='/pw-reset/:token' component={ResetPassword} />
             {/* Artists */}
             <Route exact path='/artists/register' component={ArtistRegister} />
             {/* Products */}

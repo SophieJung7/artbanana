@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { Check } from 'react-feather';
 import _ from 'lodash';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import { createProduct } from '../../../../actions';
 import AddProductFormFields from './AddProductFormFields';
-import { COMMON_FIELDS, CONDITION_FIELDS } from './formFields';
+import {
+  COMMON_FIELDS,
+  PHYSICAL_PRICE_FIELDS,
+  DIGITAL_PRICE_FIELDS,
+} from './formFields';
 
 class AddProductForm extends Component {
   state = {
@@ -62,27 +67,146 @@ class AddProductForm extends Component {
       );
     });
   }
-  // Render For Digital Media
-  renderConditionFields() {
+  // Render For Pencil & Caricature Media
+  renderPhysicalPriceFields() {
     if (
-      this.state.productCategory === 'illustration' ||
-      this.state.productCategory === 'photoshop'
+      this.state.productCategory === 'pencil' ||
+      this.state.productCategory === 'caricature'
     ) {
-      return _.map(CONDITION_FIELDS, ({ label, name, size, placeholder }) => {
-        return (
-          <Field
-            type='text'
-            component={AddProductFormFields}
-            key={name}
-            name={name}
-            label={label}
-            size={size}
-            placeholder={placeholder}
-          />
-        );
-      });
+      return _.map(
+        PHYSICAL_PRICE_FIELDS,
+        ({ label, name, size, placeholder }) => {
+          return (
+            <Field
+              type='text'
+              component={AddProductFormFields}
+              key={name}
+              name={name}
+              label={label}
+              size={size}
+              placeholder={placeholder}
+            />
+          );
+        }
+      );
     }
     return null;
+  }
+
+  renderIllustPriceFields() {
+    if (this.state.productCategory === 'illustration') {
+      return _.map(
+        DIGITAL_PRICE_FIELDS,
+        ({ label, name, size, placeholder }) => {
+          return (
+            <Field
+              type='text'
+              component={AddProductFormFields}
+              key={name}
+              name={name}
+              label={label}
+              size={size}
+              placeholder={placeholder}
+            />
+          );
+        }
+      );
+    }
+    return null;
+  }
+  renderPhotoshopPriceFields() {
+    if (this.state.productCategory === 'photoshop') {
+      return (
+        <Field
+          type='text'
+          component={AddProductFormFields}
+          name='price.sm'
+          label='가격'
+          size='col-md-12'
+          placeholder='숫자만 입력 예)155000'
+        />
+      );
+    }
+    return null;
+  }
+  renderPriceInfo() {
+    switch (this.state.productCategory) {
+      case 'illustration':
+        return (
+          <div className='mb-4 col-12'>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '600' }}>
+              <Check />
+              가격정보
+            </h3>
+            <h5 style={{ fontSize: '1.1rem' }}>
+              디지털미디어의 경우 오브젝트 수에 따라 가격이 결정됩니다. <br />{' '}
+              제작이 완료된 원본파일을 아트바나나에 보내주시면 아트바나나가 직접
+              프린트하여 고객에게 발송합니다.
+            </h5>
+            <div className='mt-3'>
+              <h5
+                style={{ fontSize: '1.1rem', fontWeight: '600', color: 'red' }}
+              >
+                아트바나나는 월 1회 2주간 50% 할인행사를 진행합니다. 이에
+                유의하여 가격을 결정해주세요.^^
+              </h5>
+            </div>
+          </div>
+        );
+      case 'photoshop':
+        return (
+          <div className='mb-4 col-12'>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '600' }}>
+              <Check />
+              사이즈 및 가격정보
+            </h3>
+            <h5 style={{ fontSize: '1.1rem' }}>
+              제작이 완료된 원본파일을 아트바나나에 보내주시면 아트바나나가 직접
+              프린트하여 고객에게 발송합니다.
+            </h5>
+            <div className='mt-3'>
+              <h5
+                style={{ fontSize: '1.1rem', fontWeight: '600', color: 'red' }}
+              >
+                아트바나나는 월 1회 2주간 50% 할인행사를 진행합니다. 이에
+                유의하여 가격을 결정해주세요.^^
+              </h5>
+            </div>
+          </div>
+        );
+      case 'pencil':
+      case 'caricature':
+        return (
+          <div className='mb-4 col-12'>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '600' }}>
+              <Check />
+              사이즈 및 가격정보
+            </h3>
+            <ul>
+              <li>* S사이즈: A5사이즈/ 148mm X 210mm/ 최대 오브젝트 1명 </li>
+              <br />
+              <li>* M사이즈: A4사이즈/ 210mm X 297mm/ 최대 오브젝트 2명</li>
+              <br />
+              <li>* L사이즈: A3사이즈/ 297mm X 420mm/ 최대 오브젝트 4명</li>
+              <br />
+              <li>* XL사이즈: A2사이즈/ 420mm X 594mm/ 최대 오브젝트 5명</li>
+            </ul>
+
+            <div className='mt-3'>
+              <h5
+                style={{ fontSize: '1.1rem', fontWeight: '600', color: 'red' }}
+              >
+                아트바나나는 월 1회 2주간 50% 할인행사를 진행합니다. 이에
+                유의하여 가격을 결정해주세요.^^ <br />
+                사진정밀묘사 및 캐리커처의 경우 아티스트 보호를 위해 최소금액
+                98,000원(할인 전) 이하를 책정할 수 없습니다.
+              </h5>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
   }
 
   render() {
@@ -95,8 +219,12 @@ class AddProductForm extends Component {
                 <form onSubmit={this.onSubmit} className='theme-form'>
                   <div className='form-row mb-5'>
                     {this.renderProductCategory()}
+                    {this.renderPriceInfo()}
+                    {this.renderPhysicalPriceFields()}
+                    {this.renderIllustPriceFields()}
+                    {this.renderPhotoshopPriceFields()}
                     {this.renderFields()}
-                    {this.renderConditionFields()}
+                    {/* {this.renderConditionFields()} */}
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <button

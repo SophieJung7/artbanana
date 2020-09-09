@@ -2,13 +2,14 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const AWS = require('aws-sdk');
+const crypto = require('crypto');
+const { promisify } = require('util');
 const _ = require('lodash');
-// const { Path } = require('path-parser');
-// const { URL } = require('url');
 const keys = require('../config/keys');
 const {
   emailValidateParams,
 } = require('../services/emails/emailValidateParams');
+const { pwResetParams } = require('../services/emails/pwResetParams');
 
 AWS.config.update({
   accessKeyId: keys.accessKeyId,
@@ -84,10 +85,80 @@ module.exports = (app) => {
     }
   });
 
-  //Local Auth - Change Password
+  //Local Auth - User Forgot the PW: Reset Password
 
-  app.post('/api/change-password', async (req, res) => {
-    const userName = req.user.username;
+  app.post('/auth/forgot', async (req, res) => {
+    User.findOne({ username: req.body.userName }).then((user) => {
+      if (!user) {
+        return res.status(401).send({ error: '등록되어있지 않은 메일입니다.' });
+      }
+      //  Generate and set password reset token
+      user.generatePasswordReset();
+      // Save the updated user object
+      user.save().then((user) => {
+        // Send PW Reset Email
+        try {
+          const params = pwResetParams(
+            req.body.userName,
+            user.resetPasswordToken
+          );
+          const sendEmail = ses.sendEmail(params).promise();
+          sendEmail
+            .then(() => {
+              res.send(
+                '기입해주신 이메일로 비밀번호 재설정 링크를 보냈습니다. 확인해주세요.'
+              );
+            })
+            .catch((err) => {
+              res.status(409).send(err);
+            });
+        } catch (err) {
+          res.status(409).send(err);
+        }
+      });
+    });
+  });
+
+  app.get('/auth/pw-reset/:token', async (req, res) => {
+    User.findOne({
+      resetPasswordToken: req.params.token,
+      resetPasswordExpires: { $gt: Date.now() },
+    }).then((user) => {
+      if (!user) {
+        res.status(401).send({ error: '비밀번호 변경 기간이 지났습니다.' });
+      }
+      res.status(200).send('success');
+    });
+  });
+
+  app.post('/auth/pw-reset/:token', async (req, res) => {
+    User.findOne({
+      resetPasswordToken: req.params.token,
+      resetPasswordExpires: { $gt: Date.now() },
+    }).then(async (user) => {
+      if (!user) {
+        res.status(401).send({ error: '비밀번호 변경기간이 지났습니다.' });
+      }
+      // Set the new password
+      await user.setPassword(req.body.newPassword);
+      user.resetPasswordToken = undefined;
+      user.resetPasswordExpires = undefined;
+
+      // Save
+      user.save((err) => {
+        if (err) {
+          res.status(500).send({ error: err });
+        }
+        res.status(200).send('비밀번호가 변경되었습니다. 다시 로그인해주세요.');
+      });
+    });
+  });
+
+  // User knows the current PW but wants to change PW.
+
+  app.post('/api/attempt/change-password', async (req, res) => {
+    //   UserName in Local Strategy is user email. If your user is signed up with Google, Naver, they don't have userName.
+    const userName = req.body.userName;
     const newPassword = req.body.newPassword;
     const sanitizedUser = await User.findByUsername(userName);
     try {

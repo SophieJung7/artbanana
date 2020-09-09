@@ -74,7 +74,7 @@ class SignInForm extends Component {
           로그인
         </button>
         <div className='text-right'>
-          <Link className='small-text' to='/change-password'>
+          <Link className='small-text' to='/lost-password'>
             비밀번호 찾기
           </Link>
         </div>

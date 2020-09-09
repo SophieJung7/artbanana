@@ -5,7 +5,7 @@ import _ from 'lodash';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import { editProduct } from '../../../../actions';
 import AddProductFormFields from './AddProductFormFields';
-import { COMMON_FIELDS, CONDITION_FIELDS } from './formFields';
+import { COMMON_FIELDS } from './formFields';
 
 class EditProductForm extends Component {
   state = {
@@ -69,27 +69,27 @@ class EditProductForm extends Component {
     });
   }
   // Render For Digital Media
-  renderConditionFields() {
-    if (
-      this.state.productCategory === 'illustration' ||
-      this.state.productCategory === 'photoshop'
-    ) {
-      return _.map(CONDITION_FIELDS, ({ label, name, size, placeholder }) => {
-        return (
-          <Field
-            type='text'
-            component={AddProductFormFields}
-            key={name}
-            name={name}
-            label={label}
-            size={size}
-            placeholder={placeholder}
-          />
-        );
-      });
-    }
-    return null;
-  }
+  //   renderConditionFields() {
+  //     if (
+  //       this.state.productCategory === 'illustration' ||
+  //       this.state.productCategory === 'photoshop'
+  //     ) {
+  //       return _.map(CONDITION_FIELDS, ({ label, name, size, placeholder }) => {
+  //         return (
+  //           <Field
+  //             type='text'
+  //             component={AddProductFormFields}
+  //             key={name}
+  //             name={name}
+  //             label={label}
+  //             size={size}
+  //             placeholder={placeholder}
+  //           />
+  //         );
+  //       });
+  //     }
+  //     return null;
+  //   }
 
   render() {
     return (

@@ -20,6 +20,9 @@ export const COMMON_FIELDS = [
     noValueError: '',
     placeholder: '제작방법, 제품장점 등을 기입해주세요.',
   },
+];
+
+export const PHYSICAL_PRICE_FIELDS = [
   {
     label: 'S사이즈 가격 *',
     name: 'price.sm',
@@ -50,13 +53,34 @@ export const COMMON_FIELDS = [
   },
 ];
 
-export const CONDITION_FIELDS = [
+export const DIGITAL_PRICE_FIELDS = [
+  {
+    label: '오브젝트수 1명(혹은 1개) *',
+    name: 'price.sm',
+    size: 'col-md-6',
+    noValueError: '오브젝트수 1명 가격을 입력해주세요.',
+    placeholder: '숫자만 입력 예)155000',
+  },
+  {
+    label: '오브젝트수 2명(혹은 2개) 가격 *',
+    name: 'price.md',
+    size: 'col-md-6',
+    noValueError: '오브젝트수 2명 가격을 입력해주세요.',
+    placeholder: '숫자만 입력 예)155000',
+  },
+  {
+    label: '오브젝트수 3명(혹은 3개) 가격 *',
+    name: 'price.lg',
+    size: 'col-md-6',
+    noValueError: '오브젝트수 3명 가격을 입력해주세요.',
+    placeholder: '숫자만 입력 예)155000',
+  },
   {
     label:
-      '원본파일가격(파일을 프린트하지 않고 작업파일만 전송할때 가격입니다.)',
-    name: 'price.digital',
-    size: 'col-12',
-    noValueError: '원본파일가격을 입력해주세요.',
+      '오브젝트당 가격(오브젝트가 3명이상일 때 추가적으로 발생하는 비용) *',
+    name: 'price.per',
+    size: 'col-md-6',
+    noValueError: '오브젝트당 가격을 입력해주세요.',
     placeholder: '숫자만 입력 예)155000',
   },
 ];

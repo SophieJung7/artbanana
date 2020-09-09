@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withTranslate } from 'react-redux-multilingual';
 import * as actions from '../../actions';
 import validatePassword from '../utils/validatePassword';
 
 class ChangePassword extends Component {
   state = {
     prePassword: '',
-    newPassword: ''
+    newPassword: '',
   };
-  translate = this.props.translate;
 
   onFormSubmit(event) {
     event.preventDefault();
@@ -56,27 +54,27 @@ class ChangePassword extends Component {
   render() {
     return (
       <div className='container'>
-        <form onSubmit={e => this.onFormSubmit(e)}>
+        <form onSubmit={(e) => this.onFormSubmit(e)}>
           <div className='form-group'>
-            <label>{this.translate('Enter_your_new_password')}</label>
+            <label>비밀번호를 입력해주세요.</label>
             <input
               type='password'
               className='form-control'
               name='prePassword'
-              onChange={e => this.setState({ prePassword: e.target.value })}
+              onChange={(e) => this.setState({ prePassword: e.target.value })}
             />
-            <label>{this.translate('Enter_your_new_password_again')}</label>
+            <label>비밀번호를 다시 입력해주세요.</label>
             <input
               type='password'
               className='form-control'
               name='newPassword'
-              onChange={e => this.setState({ newPassword: e.target.value })}
+              onChange={(e) => this.setState({ newPassword: e.target.value })}
             />
             {this.isPasswordSame()}
             {this.isPasswordStrong()}
           </div>
-          <button type='submit' className='btn btn-yellow'>
-            {this.translate('Change_password')}
+          <button type='submit' className='btn btn-solid'>
+            비밀번호 변경하기
           </button>
         </form>
       </div>
@@ -84,4 +82,4 @@ class ChangePassword extends Component {
   }
 }
 
-export default connect(null, actions)(withTranslate(ChangePassword));
+export default connect(null, actions)(ChangePassword);

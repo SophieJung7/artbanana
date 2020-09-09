@@ -38,7 +38,7 @@ class ProductsList extends Component {
       case 'pencil':
         return (
           <TitleTemp
-            bigTitle='사진을 펜슬드로잉 작품으로 바꿔보세요!'
+            bigTitle='소중한 사진을 펜슬드로잉 작품으로 바꿔보세요!'
             subTitle='Transform your photos to alive artworks!'
           />
         );

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Settings, List, Plus, Image } from 'react-feather';
+import { Settings, List, Plus } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { fetchArtist } from '../../../../actions';
 import UserPanel from './UserPanel';
