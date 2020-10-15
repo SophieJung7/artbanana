@@ -29,7 +29,7 @@ class ProductsList extends Component {
     if (window.innerWidth <= 768) {
       this.setState({ masonryBreakpoint: 2 });
     } else {
-      this.setState({ masonryBreakpoint: 4 });
+      this.setState({ masonryBreakpoint: 3 });
     }
   };
 

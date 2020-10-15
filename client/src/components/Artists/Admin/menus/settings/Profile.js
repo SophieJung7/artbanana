@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';
+import { Upload } from 'react-feather';
 import { editArtist } from '../../../../../actions';
 import SidebarWrapper from '../../sidebar/SidebarWrapper';
 import TabsetProfile from './TabsetProfile';
@@ -112,6 +113,28 @@ export class Profile extends Component {
     }
   };
 
+  addMorePortfolioImg = (e) => {
+    let portfolioImgFiles = this.state.portfolioImgFiles;
+    portfolioImgFiles.push(e.target.files[0]);
+    // Make File Blob for showing the Img on the screen and change the dummyImg
+    const file = e.target.files[0];
+    const fileBlob = URL.createObjectURL(file, { oneTimeOnly: true });
+    let portfolioImgBlobs = this.state.portfolioImgBlobs;
+    portfolioImgBlobs.push(fileBlob);
+    this.setState({ portfolioImgBlobs: portfolioImgBlobs });
+  };
+
+  removePortfolioImg = (i) => {
+    // Update portfolioImgFiles
+    const portfolioImgFiles = this.state.portfolioImgFiles;
+    portfolioImgFiles.splice(i, 1);
+    this.setState({ portfolioImgFiles: portfolioImgFiles });
+    // Update portfolioImgBlobs
+    const portfolioImgBlobs = this.state.portfolioImgBlobs;
+    portfolioImgBlobs.splice(i, 1);
+    this.setState({ portfolioImgBlobs: portfolioImgBlobs });
+  };
+
   renderPortfolio() {
     //   To Show Dummy Imgs for product Imgs
     return this.state.portfolioImgBlobs.map((img, i) => {
@@ -119,16 +142,29 @@ export class Profile extends Component {
         <div key={i} className='isotopeSelector fashion'>
           <div className='overlay'>
             <div className='border-portfolio'>
-              <label htmlFor='portfolio'>
-                <img src={img} alt='portfolio-blob' />
-              </label>
-              <input
-                className='upload'
-                type='file'
-                id='portfolio'
-                onChange={(e) => this.handlePortfolioImgChange(e, i)}
-                style={{ display: 'none' }}
-              />
+              <img src={img} alt='portfolio-blob' />
+            </div>
+            <div className='d-flex justify-content-center my-3'>
+              <div>
+                <button
+                  onClick={() => this.removePortfolioImg(i)}
+                  className='btn btn-solid mr-2'
+                >
+                  삭제하기
+                </button>
+              </div>
+              <div>
+                <input
+                  className='upload'
+                  type='file'
+                  id='changed-img'
+                  onChange={(e) => this.handlePortfolioImgChange(e)}
+                  style={{ display: 'none' }}
+                />
+                <label htmlFor='changed-img' className='btn btn-solid'>
+                  변경하기
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -214,6 +250,22 @@ export class Profile extends Component {
               <div className='card'>
                 <div className='card-body'>
                   <h5 className='f-w-600 f-16'>포트폴리오 수정</h5>
+                  <div className='mt-3'>
+                    <input
+                      onChange={(e) => this.addMorePortfolioImg(e)}
+                      className='upload'
+                      type='file'
+                      accept='image/*'
+                      id='more-img'
+                      style={{ display: 'none' }}
+                    />
+                    <label htmlFor='more-img' className='btn btn-solid'>
+                      <div>
+                        <Upload />
+                      </div>
+                      <div>포트폴리오 더 추가하기</div>
+                    </label>
+                  </div>
                   <section className='portfolio-section portfolio-padding pt-0 port-col zoom-gallery'>
                     <div className='container mt-5'>
                       <div className='isotopeContainer row'>
@@ -226,13 +278,20 @@ export class Profile extends Component {
                           {this.renderPortfolio()}
                         </Masonry>
                       </div>
-                      <div className='d-flex justify-content-center mb-5'>
+                      <div className='d-flex justify-content-center mb-2'>
                         <button
                           onClick={() => this.onSubmit(null)}
-                          className='btn btn-solid btn-review px-5'
+                          className='btn btn-solid btn-review px-5 d-block'
                         >
                           포트폴리오 수정완료
                         </button>
+                      </div>
+                      <div
+                        className='d-block d-flex justify-content-center'
+                        style={{ fontWeight: '600' }}
+                      >
+                        포트폴리오 수정 후에는 반드시 수정완료 버튼을
+                        클릭해주세요!
                       </div>
                     </div>
                   </section>
