@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import history from '../history';
 import {
   CREATE_PRODUCT,
@@ -58,7 +59,9 @@ const createProduct = (id, productInfo) => async (dispatch) => {
 
   //For product photos: Get presignedURL from S3
   const productKeysAndUrls = await axios.get(
-    `/api/artist/products/upload?numberOfFiles=${pureProductImgs.length}`
+    `/api/artist/products/${uuidv4()}/upload?numberOfFiles=${
+      pureProductImgs.length
+    }`
   );
 
   //For product photos: Upload photos to S3
