@@ -57,9 +57,11 @@ const createProduct = (id, productInfo) => async (dispatch) => {
     (value) => typeof value.name === 'string'
   );
 
+  const productId = uuidv4();
+
   //For product photos: Get presignedURL from S3
   const productKeysAndUrls = await axios.get(
-    `/api/artist/products/${uuidv4()}/upload?numberOfFiles=${
+    `/api/artist/products/upload?numberOfFiles=${
       pureProductImgs.length
     }`
   );

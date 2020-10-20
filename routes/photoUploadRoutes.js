@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk');
 const { v1: uuidv1 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 const requireLogin = require('../middlewares/requireLogin');
 const keys = require('../config/keys');
 
@@ -37,9 +38,11 @@ module.exports = (app) => {
   app.get('/api/artist/products/upload', requireLogin, (req, res) => {
     const imgFiles = [];
     const numberOfFiles = parseInt(req.query.numberOfFiles);
+    // Made ProductId to organize S3 Folders in case an artist has many products
+    const productId = uuidv4();
 
     for (var i = 0; i < numberOfFiles; i++) {
-      let key = `products/${req.user.id}/${uuidv1()}.jpeg`;
+      let key = `products/${req.user.id}/${productId}/${uuidv1()}.jpeg`;
       let url = s3.getSignedUrl('putObject', {
         Bucket: 'artbanana',
         ContentType: 'jpeg',
