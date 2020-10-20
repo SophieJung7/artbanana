@@ -7,7 +7,8 @@ import TitleTemp from '../TitleTemp';
 
 class ProductsList extends Component {
   state = {
-    masonryBreakpoint: 4,
+    // *** HOW MANY PRODUCTS per row will be shown on landing page. IMPORTANT.
+    masonryBreakpoint: 3,
     products: [],
   };
 
@@ -27,6 +28,7 @@ class ProductsList extends Component {
 
   updateMasonry = () => {
     if (window.innerWidth <= 768) {
+      // *** HOW MANY PRODUCTS per row will be shown on landing page. IMPORTANT.
       this.setState({ masonryBreakpoint: 2 });
     } else {
       this.setState({ masonryBreakpoint: 3 });
