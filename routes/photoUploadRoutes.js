@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
+const Artist = mongoose.model('Artist');
 const AWS = require('aws-sdk');
 const { v1: uuidv1 } = require('uuid');
 const { v4: uuidv4 } = require('uuid');
@@ -35,14 +38,17 @@ module.exports = (app) => {
   });
 
   // For product photos: Get presignedURL from S3
-  app.get('/api/artist/products/upload', requireLogin, (req, res) => {
+  app.get('/api/artist/products/upload', requireLogin, async (req, res) => {
     const imgFiles = [];
     const numberOfFiles = parseInt(req.query.numberOfFiles);
+    const artist = await Artist.findOne({ _user: req.user.id });
+    const artistId = artist._id;
     // Made ProductId to organize S3 Folders in case an artist has many products
     const productId = uuidv4();
 
     for (var i = 0; i < numberOfFiles; i++) {
-      let key = `products/${req.user.id}/${productId}/${uuidv1()}.jpeg`;
+      //******* S3 Key *******/
+      let key = `products/${artistId}/${productId}/${uuidv1()}.jpeg`;
       let url = s3.getSignedUrl('putObject', {
         Bucket: 'artbanana',
         ContentType: 'jpeg',
