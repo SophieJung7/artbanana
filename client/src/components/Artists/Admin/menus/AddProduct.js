@@ -1,11 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import { connect } from 'react-redux';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import update from 'immutability-helper';
 import { fetchArtist } from '../../../../actions';
 import SidebarWrapper from '../sidebar/SidebarWrapper';
 import AddProductForm from './AddProductForm';
+import ProductImgList from './ProductImgList';
 
-const dummyImgUrl =
-  'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/user.png';
+// Find out if the browser is touchable(iPad, phones will be touchable)
+// If you don't care about this, just use HTML5Backend
+
+const isTouchDevice = () => {
+  if ('ontouchstart' in window) {
+    return true;
+  }
+  return false;
+};
+const backendForDND = isTouchDevice() ? TouchBackend : HTML5Backend;
 
 export class AddProduct extends Component {
   constructor(props) {
@@ -14,26 +27,32 @@ export class AddProduct extends Component {
       artistId: '',
       bigProductImg:
         'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/photo_icon.jpg',
-      productImgs: [],
       productImgFiles: [{}, {}, {}, {}, {}, {}],
-      dummyimgs: [
+      // dummyImgs: For Image File Blobs
+      dummyImgs: [
         {
-          img: dummyImgUrl,
+          img:
+            'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/user.png',
         },
         {
-          img: dummyImgUrl,
+          img:
+            'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/user.png',
         },
         {
-          img: dummyImgUrl,
+          img:
+            'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/user.png',
         },
         {
-          img: dummyImgUrl,
+          img:
+            'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/user.png',
         },
         {
-          img: dummyImgUrl,
+          img:
+            'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/user.png',
         },
         {
-          img: dummyImgUrl,
+          img:
+            'https://artbanana.s3.ap-northeast-2.amazonaws.com/website/user.png',
         },
       ],
     };
@@ -45,12 +64,16 @@ export class AddProduct extends Component {
     this.props.fetchArtist(this.props.match.params.id);
   }
 
-  //image upload
-  handleImgClick(e) {
-    e.preventDefault();
-  }
+  // image upload
+  // handleImgClick(e) {
+  //   e.preventDefault();
+  // }
 
-  handleImgChange(e, i) {
+  handleImgChange = (e, i) => {
+    // If user didn't upload any image files,
+    if (e.target.value.length == 0) {
+      return null;
+    }
     try {
       //   State Update For Uploaded Files
       const productImgFiles = [...this.state.productImgFiles];
@@ -58,15 +81,40 @@ export class AddProduct extends Component {
       // Make File Blob for showing the Img on the screen and change the dummyImg
       const file = e.target.files[0];
       const fileBlob = URL.createObjectURL(file, { oneTimeOnly: true });
-      const { dummyimgs } = this.state;
-      dummyimgs[i].img = fileBlob;
-      this.setState({ productImgFiles, dummyimgs, bigProductImg: fileBlob });
+      const { dummyImgs } = this.state;
+      dummyImgs[i].img = fileBlob;
+      this.setState({ productImgFiles, dummyImgs, bigProductImg: fileBlob });
     } catch (error) {
+      console.log(error);
       return null;
     }
-  }
+  };
 
   render() {
+    // dragIndex는 시작점. hoverIndex는 끝점이라고 생각하면 쉬움.
+    const moveImage = (dragIndex, hoverIndex) => {
+      // Change File Blob location
+      const draggedImage = this.state.dummyImgs[dragIndex];
+      const changedImgs = update(this.state.dummyImgs, {
+        $splice: [
+          [dragIndex, 1],
+          [hoverIndex, 0, draggedImage],
+        ],
+      });
+      // Change File location
+      const draggedImgFile = this.state.productImgFiles[dragIndex];
+      const changedProductImgFiles = update(this.state.productImgFiles, {
+        $splice: [
+          [dragIndex, 1],
+          [hoverIndex, 0, draggedImgFile],
+        ],
+      });
+      this.setState({
+        dummyImgs: changedImgs,
+        productImgFiles: changedProductImgFiles,
+      });
+    };
+
     return (
       <SidebarWrapper
         artistId={this.props.match.params.id}
@@ -93,29 +141,13 @@ export class AddProduct extends Component {
                         </div>
                         <div className='col-3'>
                           <ul className='file-upload-product'>
-                            {this.state.dummyimgs.map((res, i) => {
-                              return (
-                                <li key={i}>
-                                  <div className='box-input-file'>
-                                    <input
-                                      className='upload'
-                                      type='file'
-                                      onChange={(e) =>
-                                        this.handleImgChange(e, i)
-                                      }
-                                    />
-                                    <img
-                                      src={res.img}
-                                      style={{ width: 50, height: 50 }}
-                                      onClick={(e) => {
-                                        this.handleImgClick(e);
-                                      }}
-                                      alt='products'
-                                    />
-                                  </div>
-                                </li>
-                              );
-                            })}
+                            <DndProvider backend={backendForDND}>
+                              <ProductImgList
+                                images={this.state.dummyImgs}
+                                moveImage={moveImage}
+                                handleImgChange={this.handleImgChange}
+                              />
+                            </DndProvider>
                           </ul>
                         </div>
                       </div>
