@@ -18,7 +18,7 @@ const editProduct = (productId, artistId, editedInfo) => async (dispatch) => {
   const uploadedProductImgs = await Promise.all(
     productImgs.map(async (img) => {
       if (typeof img.name === 'string') {
-        let productKeyAndUrl = await axios.get('/api/photos/add-product-photo');
+        let productKeyAndUrl = await axios.get(`/api/photos/add-product-photo/:${productId}`);
         await axios.put(productKeyAndUrl.data.url, img, {
           headers: {
             'Content-Type': img.type,
@@ -56,8 +56,6 @@ const createProduct = (id, productInfo) => async (dispatch) => {
   const pureProductImgs = productImgs.filter(
     (value) => typeof value.name === 'string'
   );
-
-  const productId = uuidv4();
 
   //For product photos: Get presignedURL from S3
   const productKeysAndUrls = await axios.get(

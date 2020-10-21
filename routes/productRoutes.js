@@ -26,7 +26,10 @@ module.exports = (app) => {
       year,
       quantity,
       price,
-      productImgs: productImgs.map((img) => ({ key: img.key })),
+      productImgs: productImgs.map((img) => ({
+        key: img.key,
+        s3FolderId: img.s3FolderId,
+      })),
     })
       .then(() => Product.findById({ _id: productId }))
       .then((product) => res.send(product))
@@ -51,6 +54,7 @@ module.exports = (app) => {
       price,
       productImgs,
     } = req.body;
+    console.log(productImgs);
 
     //   Find Artist Info
     const artistInfo = await Artist.findById(artistId);
@@ -67,7 +71,10 @@ module.exports = (app) => {
       year,
       quantity,
       price,
-      productImgs: productImgs.map((img) => ({ key: img.key })),
+      productImgs: productImgs.map((img) => ({
+        key: img.key,
+        s3FolderId: img.s3FolderId,
+      })),
       dateRegistered: Date.now(),
     });
     try {
