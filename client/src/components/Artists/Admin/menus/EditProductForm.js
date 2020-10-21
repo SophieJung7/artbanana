@@ -102,7 +102,7 @@ class EditProductForm extends Component {
                   <div className='form-row mb-5'>
                     {this.renderProductCategory()}
                     {this.renderFields()}
-                    {this.renderConditionFields()}
+                    {/* {this.renderConditionFields()} */}
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <button

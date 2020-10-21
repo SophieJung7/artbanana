@@ -13,40 +13,45 @@ import {
 } from './types';
 
 const editProduct = (productId, artistId, editedInfo) => async (dispatch) => {
-  let productImgs = editedInfo.productImgs;
-  //   Upload Product Imgs
-  const uploadedProductImgs = await Promise.all(
-    productImgs.map(async (img) => {
-      if (typeof img.name === 'string') {
-        let productKeyAndUrl = await axios.get('/api/photos/add-product-photo');
-        await axios.put(productKeyAndUrl.data.url, img, {
-          headers: {
-            'Content-Type': img.type,
-          },
-        });
-        return productKeyAndUrl.data;
-      }
-      return img;
-    })
-  );
-  // Remove empty objects
-  const pureProductImgs = uploadedProductImgs.filter(
-    (value) => typeof value.key === 'string'
-  );
+  try {
+    let productImgs = editedInfo.productImgs;
+    //   Upload Product Imgs
+    const uploadedProductImgs = await Promise.all(
+      productImgs.map(async (img) => {
+        if (typeof img.name === 'string') {
+          let productKeyAndUrl = await axios.get(
+            `/api/photos/add-product-photo/${productId}`
+          );
+          await axios.put(productKeyAndUrl.data.url, img, {
+            headers: {
+              'Content-Type': img.type,
+            },
+          });
+          return productKeyAndUrl.data;
+        }
+        return img;
+      })
+    );
+    // Remove empty objects
+    const pureProductImgs = uploadedProductImgs.filter(
+      (value) => typeof value.key === 'string'
+    );
 
-  const response = await axios.put(`/api/edit-product/${productId}`, {
-    ...editedInfo,
-    productImgs: [...pureProductImgs],
-  });
+    const response = await axios.put(`/api/edit-product/${productId}`, {
+      ...editedInfo,
+      productImgs: [...pureProductImgs],
+    });
 
-  dispatch({
-    type: EDIT_PRODUCT,
-    payload: response.data,
-  });
+    dispatch({
+      type: EDIT_PRODUCT,
+      payload: response.data,
+    });
 
-  alert('제품수정을 완료했습니다. 사진이 보이지 않는다면 새로고침해주세요!');
-
-  history.push(`/products/product-list/${artistId}`);
+    alert('제품수정을 완료했습니다. 사진이 보이지 않는다면 새로고침해주세요!');
+    history.push(`/products/product-list/${artistId}`);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const createProduct = (id, productInfo) => async (dispatch) => {
@@ -57,13 +62,9 @@ const createProduct = (id, productInfo) => async (dispatch) => {
     (value) => typeof value.name === 'string'
   );
 
-  const productId = uuidv4();
-
   //For product photos: Get presignedURL from S3
   const productKeysAndUrls = await axios.get(
-    `/api/artist/products/upload?numberOfFiles=${
-      pureProductImgs.length
-    }`
+    `/api/artist/products/upload?numberOfFiles=${pureProductImgs.length}`
   );
 
   //For product photos: Upload photos to S3
