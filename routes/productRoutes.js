@@ -54,7 +54,6 @@ module.exports = (app) => {
       price,
       productImgs,
     } = req.body;
-    console.log(productImgs);
 
     //   Find Artist Info
     const artistInfo = await Artist.findById(artistId);

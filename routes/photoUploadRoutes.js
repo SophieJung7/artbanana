@@ -32,20 +32,24 @@ module.exports = (app) => {
     '/api/photos/add-product-photo/:productId',
     requireLogin,
     async (req, res) => {
-      const artist = await Artist.findOne({ _user: req.user.id });
-      const artistId = artist._id;
-      // Find s3FolderId ==> 좀 짜증나는 구조이긴 함.. 어쩔수 없었음.
-      const productId = req.params.productId;
-      const product = await Product.findById(productId);
-      const s3FolderId = product.productImgs[0].s3FolderId;
-      console.log(s3FolderId);
-      let key = `products/${artistId}/${s3FolderId}/${uuidv1()}.jpeg`;
-      let url = s3.getSignedUrl('putObject', {
-        Bucket: 'artbanana',
-        ContentType: 'jpeg',
-        Key: key,
-      });
-      res.send({ key: key, url: url, s3FolderId: s3FolderId });
+      try {
+        const artist = await Artist.findOne({ _user: req.user.id });
+        const artistId = artist._id;
+        // Find s3FolderId ==> 좀 짜증나는 구조이긴 함.. 어쩔수 없었음.
+        const productId = req.params.productId;
+        console.log(`productId: ${productId}`);
+        const product = await Product.findById(productId);
+        const s3FolderId = product.productImgs[0].s3FolderId;
+        let key = `products/${artistId}/${s3FolderId}/${uuidv1()}.jpeg`;
+        let url = s3.getSignedUrl('putObject', {
+          Bucket: 'artbanana',
+          ContentType: 'jpeg',
+          Key: key,
+        });
+        res.send({ key: key, url: url, s3FolderId: s3FolderId });
+      } catch (err) {
+        console.log(err);
+      }
     }
   );
 
