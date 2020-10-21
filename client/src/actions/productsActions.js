@@ -78,9 +78,49 @@ const createProduct = (id, productInfo) => async (dispatch) => {
     });
   }
 
+  //Automatically add Size Image Photo Keys & s3FolderIds
+  // These photos will be uploaded at S3 Console directly.
+  const pureProductKeysAndUrls = productKeysAndUrls.data;
+  const s3FolderId = pureProductKeysAndUrls[0].s3FolderId;
+  const sizeAddedProductKeysAndUrls = [
+    ...pureProductKeysAndUrls,
+    {
+      key: `products/${id}/${s3FolderId}/S.jpg`,
+      s3FolderId: s3FolderId,
+    },
+    {
+      key: `products/${id}/${s3FolderId}/S_1.jpg`,
+      s3FolderId: s3FolderId,
+    },
+    {
+      key: `products/${id}/${s3FolderId}/M.jpg`,
+      s3FolderId: s3FolderId,
+    },
+    {
+      key: `products/${id}/${s3FolderId}/M_1.jpg`,
+      s3FolderId: s3FolderId,
+    },
+    {
+      key: `products/${id}/${s3FolderId}/L.jpg`,
+      s3FolderId: s3FolderId,
+    },
+    {
+      key: `products/${id}/${s3FolderId}/L_1.jpg`,
+      s3FolderId: s3FolderId,
+    },
+    {
+      key: `products/${id}/${s3FolderId}/XL.jpg`,
+      s3FolderId: s3FolderId,
+    },
+    {
+      key: `products/${id}/${s3FolderId}/XL_1.jpg`,
+      s3FolderId: s3FolderId,
+    },
+  ];
+
   const response = await axios.post(`/api/products/${id}`, {
     ...productInfo,
-    productImgs: [...productKeysAndUrls.data],
+    productImgs: [...sizeAddedProductKeysAndUrls],
   });
 
   dispatch({
