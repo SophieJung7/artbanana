@@ -57,7 +57,7 @@ class DetailsTopTabs extends Component {
                 >
                   <tbody>
                     <tr>
-                      <th>작품소재 :</th>
+                      <th style={{ width: '35%' }}>작품소재 :</th>
                       <td>{medium}</td>
                     </tr>
                     <tr>

@@ -87,7 +87,8 @@ class ProductPage extends Component {
                         alt={name}
                       />
                     </div>
-                    <div className='col-2 add-product'>
+                    {/* Desktop Product Images */}
+                    <div className='col-2 d-none d-md-block add-product'>
                       <ul>
                         {productImgs.map((img, i) => {
                           return (
@@ -117,6 +118,29 @@ class ProductPage extends Component {
                         })}
                       </ul>
                     </div>
+                    {/* Mobile Product Images */}
+                    <div className='container mt-3 mr-4 d-inline d-block d-md-none'>
+                      <ul className='row'>
+                        {productImgs.map((img, i) => {
+                          return (
+                            <li className='col-2 mb-2' key={i}>
+                              <img
+                                src={`https://artbanana-resized.s3.ap-northeast-2.amazonaws.com/${img.key}`}
+                                style={{
+                                  width: '40px',
+                                  height: '30px',
+                                }}
+                                onClick={() => {
+                                  this.showThumbnail(i);
+                                }}
+                                alt='products'
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                    {/* Price & Product Description */}
                     <DetailsWithPrice
                       name={artistName}
                       productName={name}
