@@ -71,7 +71,7 @@ class Portfolio extends Component {
     if (imgs) {
       return (
         <div>
-          <div className='mb-5'>
+          <div className='mb-5 mt-4'>
             <TitleTemp bigTitle='작가 포트폴리오' subTitle='Portfolio Images' />
             <section className='portfolio-section portfolio-padding pt-0 port-col zoom-gallery'>
               <div className='container'>
