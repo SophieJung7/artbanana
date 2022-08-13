@@ -1,5 +1,5 @@
 module.exports = {
-  awsRegion: process.env.AWS_MY_REGION,
+  awsRegion: process.env.AWS_REGION,
   emailFrom: process.env.EMAIL_FROM,
   emailTo: process.env.EMAIL_TO,
   adminEmail: process.env.ADMIN_EMAIL,
@@ -12,5 +12,5 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   cookieKey: process.env.COOKIE_KEY,
   sendgridAPI: process.env.SENDGRID_API,
-  redirectDomain: 'https://www.artbanana.co.kr',
+  redirectDomain: 'https://www.mintpencil.com',
 };

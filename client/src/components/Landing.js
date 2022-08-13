@@ -21,12 +21,12 @@ class Landing extends Component {
         <div>
           <ProductsList category='pencil' />
         </div>
-        <div>
+        {/* <div>
           <ProductsList category='illustration' />
         </div>
         <div>
           <ProductsList category='photoshop' />
-        </div>
+        </div> */}
         <div>
           <Jumbotron3 />
         </div>
