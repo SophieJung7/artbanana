@@ -34,7 +34,7 @@
     "react-slick": "^0.25.2",
     "react-spinners": "^0.8.3",
     "react-star-ratings": "^2.3.0",
-    "react-tabs": "^3.1.1",
+    "react-tabs": "^5.1.0",
     "redux": "^4.0.5",
     "redux-form": "^8.3.0",
     "redux-thunk": "^2.3.0",
@@ -46,7 +46,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "scss": "node-sass --watch src/scss -o src/css",
+    "scss": "sass --watch src/scss -o src/css",
     "sitemap": "babel-node ./src/sitemap-generator.js"
   },
   "eslintConfig": {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { IntlActions } from 'react-redux-multilingual';
+import store from '../../store';
 import { HashLink } from 'react-router-hash-link';
 import * as actions from '../../actions';
 
@@ -177,11 +179,18 @@ class Header extends Component {
                         <ul>
                           {/* SEARCH */}
                           <li className='onhover-div mobile-search'>
-                            <HashLink to='/#prolist' className='search-link'>
+                            {/* <HashLink to='/#prolist' className='search-link'>
                               <IoIosSearch
                                 style={{ width: '2em', height: '2em' }}
                               />
-                            </HashLink>
+                            </HashLink> */}
+                            <button
+                              onClick={() => {
+                                store.dispatch(IntlActions.setLocale('en'));
+                              }}
+                            >
+                              Lang change
+                            </button>
                           </li>
                           {/* Go back to Homepage */}
                           <li className='d-block d-sm-none onhover-div mobile-globe'>
